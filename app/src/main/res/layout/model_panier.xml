@@ -37,15 +37,188 @@
                 android:layout_marginBottom="3dp"
                 android:background="@color/white">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/textViewTitreEtatLivraison"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="12dp"
+                    android:text="Suivie de commande"
+                    android:textColor="@color/gris_principale"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    card_view:layout_constraintStart_toStartOf="parent"
+                    card_view:layout_constraintTop_toBottomOf="@+id/linearLayoutRVMiniAP" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="4dp"
                     android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/blanc_casser"
                     card_view:layout_constraintBottom_toBottomOf="parent"
+                    card_view:layout_constraintEnd_toEndOf="parent"
+                    card_view:layout_constraintStart_toStartOf="parent"
+                    card_view:layout_constraintTop_toBottomOf="@+id/textViewTitreEtatLivraison">
+
+                    <ImageView
+                        android:id="@+id/imageViewTrait2"
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginBottom="14dp"
+                        android:scaleType="fitXY"
+                        card_view:layout_constraintBottom_toTopOf="@+id/textViewEtatPrisEnCharge"
+                        card_view:layout_constraintEnd_toStartOf="@+id/imageViewCBPreparation"
+                        card_view:layout_constraintStart_toEndOf="@+id/imageViewCBPriseEnCharge"
+                        card_view:srcCompat="@color/gris_Clair" />
+
+                    <ImageView
+                        android:id="@+id/imageViewTrait1"
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginBottom="14dp"
+                        android:scaleType="fitXY"
+                        card_view:layout_constraintBottom_toTopOf="@+id/textViewEtatValidation"
+                        card_view:layout_constraintEnd_toStartOf="@+id/imageViewCBPriseEnCharge"
+                        card_view:layout_constraintStart_toEndOf="@+id/imageViewCBValidation"
+                        card_view:srcCompat="@color/gris_Clair" />
+
+                    <ImageView
+                        android:id="@+id/imageViewTrait3"
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginBottom="15dp"
+                        android:scaleType="fitXY"
+                        card_view:layout_constraintBottom_toTopOf="@+id/textViewEtatPreparation"
+                        card_view:layout_constraintEnd_toStartOf="@+id/imageViewCBLivrer"
+                        card_view:layout_constraintStart_toEndOf="@+id/imageViewCBPreparation"
+                        card_view:srcCompat="@color/gris_Clair" />
+
+                    <ImageView
+                        android:id="@+id/imageViewCBValidation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        card_view:layout_constraintBottom_toTopOf="@+id/textViewEtatValidation"
+                        card_view:layout_constraintEnd_toEndOf="@+id/textViewEtatValidation"
+                        card_view:layout_constraintStart_toStartOf="@+id/textViewEtatValidation"
+                        card_view:layout_constraintTop_toTopOf="parent"
+                        card_view:layout_constraintVertical_bias="1.0"
+                        card_view:srcCompat="@android:drawable/checkbox_on_background" />
+
+                    <ImageView
+                        android:id="@+id/imageViewCBPriseEnCharge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        card_view:layout_constraintBottom_toTopOf="@+id/textViewEtatPrisEnCharge"
+                        card_view:layout_constraintEnd_toEndOf="@+id/textViewEtatPrisEnCharge"
+                        card_view:layout_constraintStart_toStartOf="@+id/textViewEtatPrisEnCharge"
+                        card_view:layout_constraintTop_toTopOf="parent"
+                        card_view:layout_constraintVertical_bias="1.0"
+                        card_view:srcCompat="@android:drawable/checkbox_off_background" />
+
+                    <ImageView
+                        android:id="@+id/imageViewCBPreparation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        card_view:layout_constraintBottom_toTopOf="@+id/textViewEtatPreparation"
+                        card_view:layout_constraintEnd_toEndOf="@+id/textViewEtatPreparation"
+                        card_view:layout_constraintStart_toStartOf="@+id/textViewEtatPreparation"
+                        card_view:layout_constraintTop_toTopOf="parent"
+                        card_view:layout_constraintVertical_bias="1.0"
+                        card_view:srcCompat="@android:drawable/checkbox_off_background" />
+
+                    <ImageView
+                        android:id="@+id/imageViewCBLivrer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        card_view:layout_constraintBottom_toTopOf="@+id/textViewEtatLivrer"
+                        card_view:layout_constraintEnd_toEndOf="@+id/textViewEtatLivrer"
+                        card_view:layout_constraintStart_toStartOf="@+id/textViewEtatLivrer"
+                        card_view:layout_constraintTop_toTopOf="parent"
+                        card_view:layout_constraintVertical_bias="1.0"
+                        card_view:srcCompat="@android:drawable/checkbox_off_background" />
+
+                    <TextView
+                        android:id="@+id/textViewEtatValidation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="valadiation\nen cours"
+                        android:textAlignment="center"
+                        android:textColor="@color/gris_principale"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        card_view:layout_constraintBottom_toBottomOf="parent"
+                        card_view:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textViewEtatPrisEnCharge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="prise en\ncharge"
+                        android:textAlignment="center"
+                        android:textColor="@color/gris_Clair"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        card_view:layout_constraintBottom_toBottomOf="parent"
+                        card_view:layout_constraintStart_toEndOf="@+id/textViewEtatValidation" />
+
+                    <TextView
+                        android:id="@+id/textViewEtatPreparation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="Preparation\nen cour"
+                        android:textAlignment="center"
+                        android:textColor="@color/gris_Clair"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        card_view:layout_constraintBottom_toBottomOf="parent"
+                        card_view:layout_constraintStart_toEndOf="@+id/textViewEtatPrisEnCharge" />
+
+                    <TextView
+                        android:id="@+id/textViewEtatLivrer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="Catering\nlivré"
+                        android:textAlignment="center"
+                        android:textColor="@color/gris_Clair"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        card_view:layout_constraintBottom_toBottomOf="parent"
+                        card_view:layout_constraintEnd_toEndOf="parent"
+                        card_view:layout_constraintHorizontal_bias="0.0"
+                        card_view:layout_constraintStart_toEndOf="@+id/textViewEtatPreparation" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayoutRVMiniAP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="10dp"
+                    android:orientation="horizontal"
                     card_view:layout_constraintEnd_toEndOf="parent"
                     card_view:layout_constraintStart_toStartOf="parent"
                     card_view:layout_constraintTop_toBottomOf="@+id/textViewTitreContenuLabelP">
@@ -292,7 +465,7 @@
                         android:layout_height="wrap_content"
                         android:padding="2dp"
                         android:paddingEnd="2dp"
-                        android:text="50 P"
+                        android:text="@{panier.nombreFormat}"
                         android:textAlignment="textStart"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                         android:textColor="@color/vert_text"
@@ -318,6 +491,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 </layout>
