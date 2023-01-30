@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.Objects;
+
 @Entity(tableName = "articlepaniers")
 public class ArticlePanier {
     //FIELD
@@ -59,5 +61,20 @@ public class ArticlePanier {
 
     public String getNombrePlatFormat() {
         return String.valueOf(nombrePlat);
+    }
+
+    //Override equal and hash methode
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ArticlePanier)) return false;
+        ArticlePanier that = (ArticlePanier) o;
+        return id == that.id && idPlats == that.idPlats && idPanier == that.idPanier && nombrePlat == that.nombrePlat && pointPlat == that.pointPlat && idPic == that.idPic && Objects.equals(nomPlat, that.nomPlat);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, idPlats, idPanier, nombrePlat, pointPlat, idPic, nomPlat);
     }
 }

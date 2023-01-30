@@ -65,7 +65,7 @@ public class ArticlePanierListAdapter extends ListAdapter<ArticlePanier, Article
     public static class ArticlePanierDiff extends DiffUtil.ItemCallback<ArticlePanier> {
         @Override
         public boolean areItemsTheSame(@NonNull ArticlePanier oldItem, @NonNull ArticlePanier newItem) {
-            return oldItem.getIdPanier() == newItem.getIdPanier();
+            return oldItem.getIdPlats() == newItem.getIdPlats();
         }
 
         @Override
