@@ -27,6 +27,7 @@ public class Adresse extends FormulaireEtat {
         this.codePostal = codePostal;
         this.ville = ville;
     }
+    //add commentaire
 
     //PROPRIETY
     @Bindable
