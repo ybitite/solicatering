@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.marokkanischbernessen.ui.client.ClientViewModel" />
+
+        <variable
+            name="dialogClient"
+            type="DialogClient" />
+
+        <import type="com.example.marokkanischbernessen.ui.client.DialogClient"></import>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.client.DialogClient">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewViewClient"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="1dp"
+            android:orientation="horizontal"
+            card_view:cardElevation="5dp">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayoutClient"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingBottom="10dp">
+
+                        <Button
+                            android:id="@+id/buttonValider"
+                            style="@style/Widget.AppCompat.Button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="48dp"
+                            android:onClick="@{()->DialogClient.onValiderClick()}"
+                            android:text="Valider"
+                            android:textColor="@color/vert_text"
+                            android:textSize="12sp"
+                            card_view:layout_constraintBottom_toBottomOf="@+id/editTextNombre"
+                            card_view:layout_constraintEnd_toEndOf="@+id/editTextRemarque"
+                            card_view:layout_constraintTop_toTopOf="@+id/editTextNombre" />
+
+                        <EditText
+                            android:id="@+id/editTextNom"
+                            style="@style/Widget.AppCompat.AutoCompleteTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/gris_blan"
+                            android:ems="9"
+                            android:hint="@{viewModel.client.NOM_LABEL}"
+
+                            android:inputType="textPersonName"
+                            android:nextFocusDown="@id/editTextPrenom"
+                            android:paddingStart="5dp"
+
+                            android:paddingEnd="5dp"
+
+                            android:text="@={viewModel.client.nom}"
+                            android:textAlignment="textStart"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/gris_principale"
+                            android:textSize="14sp"
+                            card_view:layout_constraintStart_toStartOf="parent"
+                            card_view:layout_constraintTop_toBottomOf="@+id/textViewContactLabel"
+                            card_view:layout_gravity="center|start" />
+
+
+                        <EditText
+                            android:id="@+id/editTextPrenom"
+                            style="@style/Widget.AppCompat.AutoCompleteTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@color/gris_blan"
+                            android:hint="@{viewModel.client.PRENOM_LABEL}"
+                            android:inputType="textPersonName"
+
+                            android:nextFocusDown="@id/editTextPhone"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="@={viewModel.client.prenom}"
+
+                            android:textAlignment="textStart"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/gris_principale"
+                            android:textSize="14sp"
+                            card_view:layout_constraintEnd_toEndOf="parent"
+                            card_view:layout_constraintHorizontal_bias="0.0"
+                            card_view:layout_constraintStart_toEndOf="@+id/editTextNom"
+                            card_view:layout_constraintTop_toTopOf="@+id/editTextNom"
+                            card_view:layout_gravity="center|start" />
+
+                        <EditText
+                            android:id="@+id/editTextRue"
+                            style="@style/Widget.AppCompat.AutoCompleteTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:autoText="true"
+                            android:background="@color/gris_blan"
+                            android:ems="10"
+                            android:hint="@{viewModel.informationLivraison.RUE_LABEL}"
+                            android:inputType="textPostalAddress"
+
+                            android:nextFocusDown="@id/editTextNumRue"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="@={viewModel.informationLivraison.adresse.rue}"
+
+
+                            android:textAlignment="textStart"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/gris_principale"
+                            android:textSize="14sp"
+                            card_view:layout_constraintStart_toStartOf="parent"
+                            card_view:layout_constraintTop_toBottomOf="@+id/textViewLivraisonLabel"
+                            card_view:layout_gravity="center|start" />
+
+                        <EditText
+                            android:id="@+id/editTextNumRue"
+                            style="@style/Widget.AppCompat.AutoCompleteTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:autoText="true"
+                            android:background="@color/gris_blan"
+                            android:ems="5"
+                            android:hint="@{viewModel.informationLivraison.NUMERO_RUE_LABEL}"
+                            android:inputType="numberDecimal"
+
+                            android:nextFocusDown="@id/editTextCodePostal"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="@={viewModel.informationLivraison.adresse.numeroRueString}"
+
+
+                            android:textAlignment="textStart"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/gris_principale"
+                            android:textSize="14sp"
+                            card_view:layout_constraintEnd_toEndOf="parent"
+                            card_view:layout_constraintStart_toEndOf="@+id/editTextRue"
+                            card_view:layout_constraintTop_toTopOf="@+id/editTextRue"
+                            card_view:layout_gravity="center|start" />
+
+                        <EditText
+                            android:id="@+id/editTextCodePostal"
+                            style="@style/Widget.AppCompat.AutoCompleteTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:autoText="true"
+                            android:background="@color/gris_blan"
+                            android:ems="6"
+                            android:hint="@{viewModel.informationLivraison.CODE_POSTAL_LABEL}"
+                            android:inputType="numberSigned"
+
+                            android:nextFocusDown="@id/editTextVille"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="@={viewModel.informationLivraison.adresse.codePostalString}"
+
+
+                            android:textAlignment="textStart"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/gris_principale"
+                            android:textSize="14sp"
+                            card_view:layout_constraintStart_toStartOf="parent"
+                            card_view:layout_constraintTop_toBottomOf="@+id/editTextRue"
+                            card_view:layout_gravity="center|start" />
+
+                        <EditText
+                            android:id="@+id/editTextVille"
+                            style="@style/Widget.AppCompat.AutoCompleteTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:autoText="true"
+                            android:background="@color/gris_blan"
+                            android:ems="14"
+                            android:hint="@{viewModel.informationLivraison.VILLE_LABEL}"
+                            android:inputType="textAutoCorrect|textPostalAddress"
+
+                            android:nextFocusDown="@id/editTextDate"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="@={viewModel.informationLivraison.adresse.ville}"
+
+
+                            android:textAlignment="textStart"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/gris_principale"
+                            android:textSize="14sp"
+                            card_view:layout_constraintEnd_toEndOf="parent"
+                            card_view:layout_constraintStart_toEndOf="@+id/editTextCodePostal"
+                            card_view:layout_constraintTop_toBottomOf="@+id/editTextNumRue"
+                            card_view:layout_gravity="center|start" />
+
+                        <EditText
+                            android:id="@+id/editTextEmail"
+                            style="@style/Widget.AppCompat.AutoCompleteTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:autoText="true"
+                            android:background="@color/gris_blan"
+                            android:ems="14"
+                            android:hint="@{viewModel.client.EMAIL_LABEL}"
+                            android:inputType="textEmailAddress"
+
+                            android:nextFocusDown="@id/editTextRue"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="@={viewModel.client.email}"
+
+
+                            android:textAlignment="textStart"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/gris_principale"
+                            android:textSize="14sp"
+                            card_view:layout_constraintEnd_toEndOf="parent"
+                            card_view:layout_constraintStart_toEndOf="@+id/editTextPhone"
+                            card_view:layout_constraintTop_toBottomOf="@+id/editTextPrenom"
+                            card_view:layout_gravity="center|start" />
+
+                        <EditText
+                            android:id="@+id/editTextPhone"
+                            style="@style/Widget.AppCompat.AutoCompleteTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="48dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:autoText="true"
+                            android:background="@color/gris_blan"
+                            android:ems="7"
+                            android:hint="@{viewModel.client.NUM_TEL_LABEL}"
+                            android:inputType="phone"
+
+                            android:nextFocusDown="@id/editTextEmail"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="@={viewModel.client.numTel}"
+
+
+                            android:textAlignment="textStart"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/gris_principale"
+                            android:textSize="14sp"
+                            card_view:layout_constraintStart_toStartOf="parent"
+                            card_view:layout_constraintTop_toBottomOf="@+id/editTextNom"
+                            card_view:layout_gravity="center|start" />
+
+                        <EditText
+                            android:id="@+id/editTextDate"
+                            style="@style/Widget.AppCompat.AutoCompleteTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/gris_blan"
+                            android:ems="10"
+                            android:hint="@{viewModel.informationLivraison.DATE_LVR_LABEL}"
+                            android:inputType="date"
+
+                            android:nextFocusDown="@id/editTextTime"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="@={viewModel.informationLivraison.dateLivr}"
+
+
+                            android:textAlignment="textStart"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/gris_principale"
+                            android:textSize="14sp"
+                            card_view:layout_constraintStart_toStartOf="parent"
+                            card_view:layout_constraintTop_toBottomOf="@+id/editTextCodePostal"
+                            card_view:layout_gravity="center|start" />
+
+                        <EditText
+                            android:id="@+id/editTextTime"
+                            style="@style/Widget.AppCompat.AutoCompleteTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="48dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@color/gris_blan"
+                            android:ems="8"
+                            android:hint="@{viewModel.informationLivraison.HEURE_LVR_LABEL}"
+                            android:inputType="time"
+                            android:nextFocusDown="@id/editTextPrenom"
+
+                            android:nextFocusForward="@id/editTextRemarque"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="@={viewModel.informationLivraison.heurLivr}"
+
+
+                            android:textAlignment="textStart"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/gris_principale"
+                            android:textSize="14sp"
+                            card_view:layout_constraintEnd_toEndOf="parent"
+                            card_view:layout_constraintStart_toEndOf="@+id/editTextDate"
+                            card_view:layout_constraintTop_toBottomOf="@+id/editTextVille"
+                            card_view:layout_gravity="center|start" />
+
+                        <EditText
+                            android:id="@+id/editTextRemarque"
+                            style="@style/Widget.AppCompat.AutoCompleteTextView"
+                            android:layout_width="0dp"
+                            android:layout_height="60dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@color/gris_blan"
+                            android:gravity="top"
+                            android:hint="@{viewModel.informationLivraison.REMARQUE_LABEL}"
+                            android:inputType="textLongMessage|textAutoCorrect"
+
+                            android:nextFocusDown="@id/editTextNombre"
+                            android:paddingStart="5dp"
+                            android:paddingTop="5dp"
+
+                            android:paddingEnd="5dp"
+
+                            android:singleLine="false"
+                            android:text="@={viewModel.informationLivraison.remarque}"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/gris_principale"
+                            android:textSize="14sp"
+                            card_view:layout_constraintEnd_toEndOf="parent"
+                            card_view:layout_constraintStart_toStartOf="parent"
+                            card_view:layout_constraintTop_toBottomOf="@+id/editTextDate"
+                            card_view:layout_gravity="center|start" />
+
+                        <EditText
+                            android:id="@+id/editTextNombre"
+                            android:layout_width="wrap_content"
+                            android:layout_height="48dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="#F8F8F8"
+                            android:ems="3"
+                            android:gravity="center"
+                            android:hint="0"
+                            android:inputType="numberDecimal"
+                            android:nextFocusDown="@id/buttonValider"
+
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+
+                            android:text="@={viewModel.informationLivraison.nombreString}"
+                            android:textColor="@color/gris_principale"
+                            android:textSize="14sp"
+                            card_view:layout_constraintBottom_toBottomOf="@+id/textViewNombreLabel"
+                            card_view:layout_constraintEnd_toStartOf="@+id/buttonValider"
+                            card_view:layout_constraintTop_toTopOf="@+id/textViewNombreLabel" />
+
+                        <ImageView
+                            android:id="@+id/imageViewIconLivraison"
+                            android:layout_width="15dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="10dp"
+                            android:scaleType="fitCenter"
+                            card_view:layout_constraintBottom_toBottomOf="@+id/textViewLivraisonLabel"
+                            card_view:layout_constraintStart_toStartOf="parent"
+                            card_view:layout_constraintTop_toTopOf="@+id/textViewLivraisonLabel"
+                            card_view:srcCompat="@drawable/delivery_icon" />
+
+                        <ImageView
+                            android:id="@+id/ImageViewiconContact"
+                            android:layout_width="15dp"
+                            android:layout_height="0dp"
+                            android:scaleType="fitCenter"
+                            card_view:layout_constraintBottom_toBottomOf="@+id/textViewContactLabel"
+                            card_view:layout_constraintStart_toStartOf="@+id/editTextNom"
+                            card_view:layout_constraintTop_toTopOf="@+id/textViewContactLabel"
+                            card_view:srcCompat="@drawable/contact_icon" />
+
+
+                        <ImageView
+                            android:id="@+id/imageViewClose"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="10dp"
+                            card_view:layout_constraintEnd_toEndOf="parent"
+                            card_view:layout_constraintTop_toTopOf="parent"
+                            card_view:srcCompat="@drawable/icon_cancel" />
+
+                        <TextView
+                            android:id="@+id/textViewLivraisonLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="15dp"
+                            android:text="Information de livraison"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/gris_principale"
+                            android:textSize="14sp"
+                            card_view:layout_constraintStart_toEndOf="@+id/imageViewIconLivraison"
+                            card_view:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+
+                        <TextView
+                            android:id="@+id/textViewTitre"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="5dp"
+                            android:gravity="center|start"
+                            android:paddingStart="15dp"
+                            android:paddingTop="5dp"
+                            android:paddingEnd="20dp"
+                            android:paddingBottom="5dp"
+                            android:text="&#x2022; Veuillez renseigner les informations pour la livraison"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/gris_principale"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            card_view:layout_constraintEnd_toStartOf="@+id/imageViewClose"
+                            card_view:layout_constraintStart_toStartOf="parent"
+                            card_view:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/textViewNombreLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="48dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@color/gris_blan"
+                            android:gravity="center_vertical|end"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:text="Nombre"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                            android:textColor="@color/gris_Clair"
+                            android:textSize="14sp"
+                            card_view:layout_constraintBottom_toBottomOf="parent"
+                            card_view:layout_constraintEnd_toStartOf="@+id/editTextNombre"
+                            card_view:layout_constraintTop_toBottomOf="@+id/textViewError" />
+
+                        <TextView
+                            android:id="@+id/textViewContactLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="Information de Contact"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textColor="@color/gris_principale"
+                            android:textSize="14sp"
+                            card_view:layout_constraintStart_toEndOf="@+id/ImageViewiconContact"
+                            card_view:layout_constraintTop_toBottomOf="@+id/textViewTitre" />
+
+                        <TextView
+                            android:id="@+id/textViewError"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="10dp"
+                            android:singleLine="false"
+                            android:text="@{viewModel.client.errorMessage}"
+                            android:textColor="#E53935"
+                            android:textSize="11sp"
+                            android:visibility="@{viewModel.client.visibilityError}"
+                            card_view:layout_constraintEnd_toEndOf="@+id/editTextRemarque"
+                            card_view:layout_constraintStart_toStartOf="parent"
+                            card_view:layout_constraintTop_toBottomOf="@+id/editTextRemarque" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </ScrollView>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</layout>

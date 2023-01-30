@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.plat.DialogPlat">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewViewPlat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:orientation="horizontal"
+                card_view:cardElevation="5dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayoutViewPlat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="0dp">
+
+                    <Button
+                        android:id="@+id/buttonAjouterPanier"
+                        style="@style/Widget.AppCompat.Button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Ajouter"
+                        android:textColor="@color/vert_text"
+                        android:textSize="10sp"
+                        card_view:layout_constraintBottom_toBottomOf="parent"
+                        card_view:layout_constraintEnd_toEndOf="parent"
+                        card_view:layout_constraintTop_toBottomOf="@+id/textViewDiscription" />
+
+                    <Button
+                        android:id="@+id/buttonAnnuller"
+                        style="@style/Widget.AppCompat.Button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="annuller"
+                        android:textSize="10sp"
+                        card_view:layout_constraintBottom_toBottomOf="parent"
+                        card_view:layout_constraintEnd_toStartOf="@+id/buttonAjouterPanier"
+                        card_view:layout_constraintTop_toBottomOf="@+id/textViewDiscription" />
+
+                    <ImageView
+                        android:id="@+id/imageViewPlatTop"
+                        android:layout_width="410dp"
+                        android:layout_height="200dp"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible"
+
+                        card_view:layout_constraintEnd_toEndOf="parent"
+                        card_view:layout_constraintStart_toStartOf="parent"
+                        card_view:layout_constraintTop_toTopOf="parent"
+                        card_view:srcCompat="@drawable/tajine" />
+
+                    <ImageView
+                        android:id="@+id/imageViewVegi"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5dp"
+                        card_view:layout_constraintEnd_toEndOf="parent"
+                        card_view:layout_constraintTop_toBottomOf="@+id/imageViewPlatTop"
+                        card_view:srcCompat="@drawable/icon_vegi" />
+
+                    <ImageView
+                        android:id="@+id/imageViewDegureEpice"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5dp"
+                        card_view:layout_constraintEnd_toStartOf="@+id/imageViewVegi"
+                        card_view:layout_constraintTop_toBottomOf="@+id/imageViewPlatTop"
+                        card_view:srcCompat="@drawable/icon_degure_epice_1" />
+
+                    <TextView
+                        android:id="@+id/textViewTitreMAP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center_vertical"
+                        android:text="Tajine de poulet "
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        card_view:layout_constraintStart_toStartOf="parent"
+                        card_view:layout_constraintTop_toBottomOf="@+id/imageViewPlatTop" />
+
+                    <TextView
+                        android:id="@+id/textViewPoint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="15dp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="center_vertical"
+                        android:text="2 point"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        card_view:layout_constraintStart_toStartOf="parent"
+                        card_view:layout_constraintTop_toBottomOf="@+id/textViewTitreMAP" />
+
+                    <TextView
+                        android:id="@+id/textViewDiscription"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:text="discription"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        card_view:layout_constraintEnd_toEndOf="parent"
+                        card_view:layout_constraintStart_toStartOf="parent"
+                        card_view:layout_constraintTop_toBottomOf="@+id/imageButtonDecrement" />
+
+                    <TextView
+                        android:id="@+id/textViewNbrPlat"
+                        android:layout_width="35dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="8dp"
+                        android:background="#EFF1F1"
+                        android:clickable="false"
+                        android:ems="1"
+                        android:fontFamily="sans-serif"
+                        android:gravity="center"
+                        android:inputType="numberDecimal"
+                        android:text="1"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="#151515"
+                        android:textSize="16sp"
+                        card_view:layout_constraintStart_toEndOf="@+id/imageButtonDecrement"
+                        card_view:layout_constraintTop_toBottomOf="@+id/textViewPoint" />
+
+                    <ImageButton
+                        android:id="@+id/imageButtonIncriment"
+                        style="@android:style/Widget.Holo.Light.ImageButton"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="8dp"
+                        android:background="#9AF2F2F2"
+                        android:src="@drawable/plus"
+                        android:text="Button"
+                        card_view:layout_constraintStart_toEndOf="@+id/textViewNbrPlat"
+                        card_view:layout_constraintTop_toBottomOf="@+id/textViewPoint" />
+
+                    <ImageButton
+                        android:id="@+id/imageButtonDecrement"
+                        style="@android:style/Widget.Holo.Light.ImageButton"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="8dp"
+                        android:background="#9AF2F2F2"
+                        android:src="@drawable/minus"
+                        card_view:layout_constraintStart_toStartOf="parent"
+                        card_view:layout_constraintTop_toBottomOf="@+id/textViewPoint" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearLayoutPlat"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#34DCDADA">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewCategorie"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="225dp">
+
+            <ImageView
+                android:id="@+id/imageViewPlat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintHorizontal_bias="0.0"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent"
+                card_view:srcCompat="@drawable/tajine" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="50dp"
+                android:alpha="0.6"
+                android:background="#000000"
+                android:orientation="horizontal"
+                card_view:layout_constraintBottom_toTopOf="@+id/textViewArTitre"
+                card_view:layout_constraintEnd_toEndOf="@+id/layout_arriere_vigi"
+
+                card_view:layout_constraintStart_toStartOf="@+id/layout_arriere_vigi"
+                card_view:layout_constraintTop_toTopOf="@+id/layout_arriere_vigi">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_arriere_vigi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                android:orientation="horizontal"
+                card_view:layout_constraintBottom_toTopOf="@+id/textViewArTitre"
+                card_view:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageViewVegi"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="7dp"
+                    android:layout_marginBottom="7dp"
+                    card_view:srcCompat="@drawable/icon_vegi" />
+
+                <ImageView
+                    android:id="@+id/imageViewDegureEpice"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="7dp"
+                    android:layout_marginBottom="7dp"
+                    card_view:srcCompat="@drawable/icon_degure_epice_1" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/textViewArTitre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alpha="0.6"
+                android:background="#121111"
+                android:fontFamily="serif"
+                android:textAlignment="textEnd"
+                android:textColor="#333333"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewTitrePlat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="Tajine aux prunes  "
+                android:textAlignment="textEnd"
+
+                android:textColor="#C5C3C3"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toEndOf="@+id/textViewArTitre"
+                card_view:layout_constraintHorizontal_bias="0.498"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_editor_absoluteY="220dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/griserItemPlat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#56383D4A"
+                android:visibility="visible"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent"></androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

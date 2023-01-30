@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="conteur"
+            type="com.example.marokkanischbernessen.db.entity.Conteur" />
+
+        <variable
+            name="mainActivity"
+            type="com.example.marokkanischbernessen.MainActivity" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayoutConteurCat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+
+        android:background="#212322"
+        android:visibility="invisible">
+        <!--
+        <ImageButton
+            android:id="@+id/imageButtonRetourCat"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#212322"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:scaleType="fitXY"
+            android:src="@android:drawable/ic_menu_revert"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TouchTargetSizeCheck" />
+-->
+
+        <TextView
+            android:id="@+id/textViewTitreConteurCat"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:fontFamily="sans-serif"
+            android:gravity="center_vertical"
+            android:text="@{conteur.nameFormat}"
+            android:textAlignment="textStart"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textViewLabelPointConteurCat"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/textViewPointConteurCat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:gravity="center_vertical"
+            android:text="@{conteur.ptRestFormat}"
+            android:textAlignment="textStart"
+            android:textColor="#528707"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/textViewLabelPointConteurCat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="Point restant: "
+            android:textAlignment="textEnd"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textViewPointConteurCat"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/textViewTitreConteurCat"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlCompat" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

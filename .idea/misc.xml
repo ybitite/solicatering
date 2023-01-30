@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Youness/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/Youness/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/content_main.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/Youness/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/custom_layout.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/Youness/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/fragment_commander.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/Youness/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/model.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/Youness/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/menu/bottom_nav_menu.xml" value="0.259375" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/drawable/backDescription.xml" value="0.37083333333333335" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/activity_main.xml" value="0.2988679352838745" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/categorie_fragment.xml" value="0.14351851851851852" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/content_acceuil.xml" value="0.2988679352838745" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/content_categorie.xml" value="0.3026041666666667" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/content_commande.xml" value="0.6067924746672604" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/content_main.xml" value="0.25226449275362317" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/content_menu.xml" value="0.2988679352838745" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/content_panier.xml" value="0.3546875" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/content_plat.xml" value="0.3026041666666667" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/conteur_fragment.xml" value="0.3026041666666667" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/custom_layout.xml" value="0.25226449275362317" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/dialog_nombre_plat.xml" value="0.3546875" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/fragement_plat.xml" value="0.3026041666666667" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/fragment_acceuil.xml" value="0.3546875" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/fragment_categorie.xml" value="0.3026041666666667" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/fragment_commander.xml" value="0.3546875" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/fragment_conteur.xml" value="0.3026041666666667" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/fragment_panier.xml" value="0.3546875" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/fragment_plat.xml" value="0.14351851851851852" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/model.xml" value="0.25226449275362317" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/model_article_panier.xml" value="0.406807131280389" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/model_categorie.xml" value="0.3109375" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/model_cetegorie.xml" value="0.3026041666666667" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/model_evenement.xml" value="0.2988679352838745" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/model_menu.xml" value="0.6792453074633511" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/model_objet_menu.xml" value="0.3546875" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/model_pied_article_panier.xml" value="0.3546875" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/model_plats.xml" value="0.3932806324110672" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/plat_fragment.xml" value="0.3026041666666667" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/view_conteur.xml" value="0.3026041666666667" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/view_plats.xml" value="0.4528302049755674" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/menu/bottom_nav_menu.xml" value="0.19739583333333333" />
+        <entry key="..\:/Users/hamid/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/xml/root_preferences.xml" value="0.3026041666666667" />
+        <entry key="..\:/Users/youne/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/youne/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/activity_recycle.xml" value="0.1407766990291262" />
+        <entry key="..\:/Users/youne/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/content_main.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/youne/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/custom_layout.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/youne/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/fragment_acceuil.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/youne/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/fragment_commander.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/youne/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/fragment_dashboard.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/youne/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/youne/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/fragment_notifications.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/youne/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/fragment_panier.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/youne/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/model.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/youne/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/layout/recycle_activity.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/youne/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/youne/AndroidStudioProjects/MarokkanischBernEssen/app/src/main/res/xml/root_preferences.xml" value="0.36666666666666664" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.3026041666666667" />
+      </ProjectState>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,98 @@
+package com.example.marokkanischbernessen.ui.Menu.rv;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.marokkanischbernessen.R;
+import com.example.marokkanischbernessen.databinding.ModelMenuBinding;
+import com.example.marokkanischbernessen.db.entity.Menu;
+import com.example.marokkanischbernessen.ripository.ArticlePanierRipository;
+import com.example.marokkanischbernessen.ripository.ConteurRipository;
+import com.example.marokkanischbernessen.ui.categorie.rv.ItemClickListener;
+import com.example.marokkanischbernessen.utile.Helper;
+
+public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    //FIELD
+    ItemClickListener itemClickListener;
+    static ModelMenuBinding binding;
+    static Context context;
+    ArticlePanierRipository articlePanierRipository;
+
+    //CONSTRUCTOR
+    public MenuHolder(View itemView) {
+        super(itemView);
+
+        //instantiate article Panier Repository
+        articlePanierRipository = new ArticlePanierRipository(context);
+        //GET CONTEXT TO USE LATER
+        context = binding.getRoot().getContext();
+        //SET CLICK LISTENER IN ITEM
+        itemView.setOnClickListener(this);
+        //FIX WIDTH OF CARD TO WIDTH OF SCREEN
+        int width = context.getResources().getDisplayMetrics().widthPixels;
+        binding.cardViewMenu.setMinimumWidth(width);
+        binding.imageViewiFormMenu.setMinimumWidth(width);
+
+    }
+
+    //METHODE
+    @Override
+    public void onClick(View v) {
+        this.itemClickListener.onItemClick(v, getLayoutPosition());
+    }
+
+    public void setItemClickListener(ItemClickListener ic) {
+        this.itemClickListener = ic;
+    }
+
+    static MenuHolder create(ViewGroup parent) {
+        //GENERATE CLASS FROM MODEL EVENT
+        binding = ModelMenuBinding
+                .inflate(LayoutInflater.from(parent.getContext()));
+        return new MenuHolder(binding.getRoot());
+    }
+
+    public void bind(Menu menu) {
+
+        //SET DATA IN VIEW
+        binding.textViewNomMenu.setText(menu.getNom());
+        binding.textViewDiscriptionMenu.setText(menu.getDiscription());
+        binding.textViewPrixMenu.setText(String.valueOf(menu.getPrix()));
+        binding.textViewPointMenu.setText(String.valueOf(menu.getPoint()));
+        binding.textViewInfoMenu.setText(menu.getInfo());
+        binding.imageViewIconMenu.setImageResource(Helper.idResource(context, menu.getNomPic()));
+        //CHANGE COLOR OF ACTUEL MENU
+        int menuActuel = ConteurRipository.getActuelMenu();
+        if (menu.getPoint() == menuActuel) {
+            //CHANGE COLOR OF ITEM WHEN IS CLICKED
+            binding.constraintLayoutMenu.setBackgroundColor(context.getResources().getColor(R.color.gris_blan));
+        } else
+            //CHANGE COLOR OF ITEM WHEN IS NOT CLICKED
+            binding.constraintLayoutMenu.setBackgroundColor(context.getResources().getColor(R.color.white));
+
+        //select menu
+        setItemClickListener(new ItemClickListener() {
+            @Override
+            public void onItemClick(View v, int position) {
+                //IF USER CLICK IN THE NEW MENU A NEW CONTEUR START AGAIN
+                if (menu.getPoint() != menuActuel) {
+                    //START NEW CONTEUR
+                    ConteurRipository.createConteur(menu.getNom(), menu.getPoint());
+
+                    //clear list of article panier
+                    articlePanierRipository.deleteCurentPanier(ConteurRipository.getIdPanier());
+                }
+                //NAVIGATE TO CATEGORIE
+                Navigation.findNavController(Helper.getActivity(context), R.id.nav_host_fragment_activity_main)
+                        .navigate(R.id.action_navigation_menu_to_navigation_categorie);
+
+            }
+        });
+    }
+
+}

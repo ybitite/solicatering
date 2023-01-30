@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearLayoutMenu"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#34DCDADA">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="0dp"
+        android:orientation="vertical"
+        card_view:cardBackgroundColor="#212322">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="3dp"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/imageViewIconMenu"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="20dp"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent"
+                card_view:srcCompat="@drawable/menu_gourmant" />
+
+            <ImageView
+                android:id="@+id/imageViewTraitMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintStart_toEndOf="@+id/imageViewIconMenu"
+                card_view:layout_constraintTop_toTopOf="parent"
+                card_view:srcCompat="@drawable/trait_menu" />
+
+            <ImageView
+                android:id="@+id/imageViewiFormMenu"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:visibility="invisible"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintHorizontal_bias="0.0"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent"
+                card_view:layout_constraintVertical_bias="0.0"
+                card_view:srcCompat="@android:drawable/ic_popup_sync" />
+
+            <TextView
+                android:id="@+id/textViewNomMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="sans-serif"
+                android:text="Menu Gourmant*"
+                android:textAlignment="textStart"
+                android:textColor="#212322"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toEndOf="@+id/imageViewTraitMenu"
+                card_view:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewDiscriptionMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="Le menu parfet porfet pour vos invitaion et vos fetes..."
+                android:textAlignment="textStart"
+                android:textColor="#212322"
+                android:textSize="10sp"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toEndOf="@+id/imageViewTraitMenu"
+                card_view:layout_constraintTop_toBottomOf="@+id/textViewNomMenu" />
+
+            <TextView
+                android:id="@+id/textViewParixMenuLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:text="Prix par personne"
+                android:textAlignment="textStart"
+                android:textColor="#212322"
+                android:textSize="10sp"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toEndOf="@+id/imageViewTraitMenu"
+                card_view:layout_constraintTop_toBottomOf="@+id/textViewDiscriptionMenu" />
+
+            <TextView
+                android:id="@+id/textViewPrixMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="20 CHF"
+                android:textAlignment="textStart"
+                android:textColor="#212322"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toEndOf="@+id/imageViewTraitMenu"
+                card_view:layout_constraintTop_toBottomOf="@+id/textViewParixMenuLabel" />
+
+            <TextView
+                android:id="@+id/textViewPointMenuLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:text="Nombre de point de credit"
+                android:textAlignment="textStart"
+                android:textColor="#212322"
+                android:textSize="10sp"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toEndOf="@+id/imageViewTraitMenu"
+                card_view:layout_constraintTop_toBottomOf="@+id/textViewPrixMenu" />
+
+            <TextView
+                android:id="@+id/textViewPointMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="10 points"
+                android:textAlignment="textStart"
+                android:textColor="#528707"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toEndOf="@+id/imageViewTraitMenu"
+                card_view:layout_constraintTop_toBottomOf="@+id/textViewPointMenuLabel" />
+
+            <TextView
+                android:id="@+id/textViewInfoMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="30dp"
+                android:text="*Le menu doit etre commander 72h à l’avance"
+                android:textAlignment="textStart"
+                android:textColor="#212322"
+                android:textSize="8sp"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toEndOf="@+id/imageViewTraitMenu"
+                card_view:layout_constraintTop_toBottomOf="@+id/textViewPointMenu"
+                card_view:layout_constraintVertical_bias="1.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="panier"
+            type="com.example.marokkanischbernessen.db.entity.Panier" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutPanier"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gris_blan"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewPanier"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayoutPanier"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="3dp"
+                android:background="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal"
+                    card_view:layout_constraintBottom_toBottomOf="parent"
+                    card_view:layout_constraintEnd_toEndOf="parent"
+                    card_view:layout_constraintStart_toStartOf="parent"
+                    card_view:layout_constraintTop_toBottomOf="@+id/textViewTitreContenuLabelP">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/miniAPRecyclerView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textViewTitrePanier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingStart="2dp"
+                    android:text="@{String.valueOf(panier.titreCatering)}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textColor="@color/gris_principale"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    card_view:layout_constraintStart_toStartOf="parent"
+                    card_view:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewTitreContenuLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="15dp"
+                    android:text="Prix du catering"
+                    android:textColor="@color/gris_principale"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    card_view:layout_constraintStart_toStartOf="parent"
+                    card_view:layout_constraintTop_toBottomOf="@+id/textViewTitrePanier" />
+
+                <TextView
+                    android:id="@+id/textViewTitreContenuLabelP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Contenu du menu"
+                    android:textColor="@color/gris_principale"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    card_view:layout_constraintStart_toStartOf="parent"
+                    card_view:layout_constraintTop_toBottomOf="@+id/constraintLayoutInfoP" />
+
+                <TextView
+                    android:id="@+id/textViewTitreLivraisonLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Information livraison"
+                    android:textColor="@color/gris_principale"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    card_view:layout_constraintStart_toStartOf="parent"
+                    card_view:layout_constraintTop_toBottomOf="@+id/constraintLayoutMenuP" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayoutInfoP"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@color/blanc_casser"
+                    card_view:layout_constraintEnd_toEndOf="parent"
+                    card_view:layout_constraintStart_toStartOf="parent"
+                    card_view:layout_constraintTop_toBottomOf="@+id/textViewTitreLivraisonLabel">
+
+                    <ImageView
+                        android:id="@+id/imageViewInfoP"
+                        android:layout_width="60dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:background="@color/blanc_peut_casser"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:scaleType="fitCenter"
+                        card_view:layout_constraintBottom_toBottomOf="parent"
+                        card_view:layout_constraintStart_toStartOf="parent"
+                        card_view:layout_constraintTop_toTopOf="parent"
+                        card_view:srcCompat="@drawable/delivery_icon" />
+
+                    <ImageView
+                        android:id="@+id/imageViewEdit"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:paddingEnd="2dp"
+                        android:paddingBottom="2dp"
+                        card_view:layout_constraintBottom_toBottomOf="parent"
+                        card_view:layout_constraintEnd_toEndOf="parent"
+                        card_view:srcCompat="@android:drawable/ic_menu_edit" />
+
+                    <TextView
+                        android:id="@+id/textViewAdresseP"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="5dp"
+                        android:text="@{panier.adresse.getCompletAdresse()}"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/gris_moyen"
+                        android:textSize="13sp"
+                        android:textStyle="italic"
+                        card_view:layout_constraintEnd_toEndOf="parent"
+                        card_view:layout_constraintHorizontal_bias="0.0"
+                        card_view:layout_constraintStart_toEndOf="@+id/imageViewInfoP"
+                        card_view:layout_constraintTop_toBottomOf="@+id/textViewNomPrenomP" />
+
+                    <TextView
+                        android:id="@+id/textViewDateTimeP"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="@{panier.getDateHeure()}"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/gris_principale"
+                        android:textSize="13sp"
+                        card_view:layout_constraintBottom_toBottomOf="parent"
+                        card_view:layout_constraintEnd_toEndOf="parent"
+                        card_view:layout_constraintHorizontal_bias="0.0"
+                        card_view:layout_constraintStart_toEndOf="@+id/imageViewInfoP"
+                        card_view:layout_constraintTop_toBottomOf="@+id/textViewAdresseP" />
+
+                    <TextView
+                        android:id="@+id/textViewNomPrenomP"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="5dp"
+                        android:text="@{panier.nomPrenom}"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/gris_principale"
+                        android:textSize="13sp"
+                        card_view:layout_constraintEnd_toEndOf="parent"
+                        card_view:layout_constraintStart_toEndOf="@+id/imageViewInfoP"
+                        card_view:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayoutMenuP"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@color/blanc_casser"
+                    android:paddingEnd="2dp"
+                    card_view:layout_constraintEnd_toEndOf="parent"
+                    card_view:layout_constraintStart_toStartOf="parent"
+                    card_view:layout_constraintTop_toBottomOf="@+id/textViewTitreContenuLabel">
+
+                    <ImageView
+                        android:id="@+id/imageViewMenuP"
+                        android:layout_width="60dp"
+                        android:layout_height="0dp"
+                        android:layout_margin="2dp"
+                        android:background="@color/blanc_peut_casser"
+                        android:padding="2dp"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="2dp"
+                        android:scaleType="fitCenter"
+                        card_view:layout_constraintBottom_toBottomOf="parent"
+                        card_view:layout_constraintStart_toStartOf="parent"
+                        card_view:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textViewPrixTotal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:text="@{panier.prixTotalFormat}"
+                        android:textAlignment="textStart"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="#212322"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        card_view:layout_constraintStart_toEndOf="@+id/textViewPrixTotalLabel"
+                        card_view:layout_constraintTop_toTopOf="@+id/textViewPrixTotalLabel" />
+
+                    <TextView
+                        android:id="@+id/textViewPrixMenuP"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:text="@{panier.prixFormat}"
+                        android:textAlignment="textStart"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="#212322"
+                        android:textSize="13sp"
+                        android:textStyle="normal"
+                        card_view:layout_constraintStart_toEndOf="@+id/textViewPrixMenuLabel"
+                        card_view:layout_constraintTop_toTopOf="@+id/textViewPrixMenuLabel" />
+
+                    <TextView
+                        android:id="@+id/textViewPrixMenuLabel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="4dp"
+                        android:padding="2dp"
+                        android:text="Prix par personne :"
+                        android:textAlignment="textStart"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="#212322"
+                        android:textSize="13sp"
+                        card_view:layout_constraintStart_toEndOf="@+id/imageViewMenuP"
+                        card_view:layout_constraintTop_toBottomOf="@+id/textViewNombreLabelP" />
+
+                    <TextView
+                        android:id="@+id/textViewPrixTotalLabel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="4dp"
+                        android:padding="2dp"
+                        android:text="Prix total :"
+                        android:textAlignment="textStart"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="#212322"
+                        android:textSize="13sp"
+                        card_view:layout_constraintBottom_toBottomOf="parent"
+                        card_view:layout_constraintStart_toEndOf="@+id/imageViewMenuP"
+                        card_view:layout_constraintTop_toBottomOf="@+id/textViewPrixMenuLabel" />
+
+                    <TextView
+                        android:id="@+id/textViewNombreP"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:paddingEnd="2dp"
+                        android:text="50 P"
+                        android:textAlignment="textStart"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="@color/vert_text"
+                        android:textSize="13sp"
+                        android:textStyle="normal"
+                        card_view:layout_constraintStart_toEndOf="@+id/textViewNombreLabelP"
+                        card_view:layout_constraintTop_toTopOf="@+id/textViewNombreLabelP" />
+
+                    <TextView
+                        android:id="@+id/textViewNombreLabelP"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="4dp"
+                        android:padding="2dp"
+                        android:text="Nombre de personnes :"
+                        android:textAlignment="textStart"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="#212322"
+                        android:textSize="13sp"
+                        card_view:layout_constraintStart_toEndOf="@+id/imageViewMenuP"
+                        card_view:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</layout>
