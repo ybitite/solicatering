@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -37,6 +38,8 @@ public class HistoriqueFragment extends Fragment {
         final PanierListAdapter panierListAdapter = new PanierListAdapter(new PanierListAdapter.PanierDiff());
         rv.setAdapter(panierListAdapter);
 
+        //ATTACHE ITEM TOUCHE HELPER TO RECYCLE VIEW
+        new ItemTouchHelper(panierListAdapter.simpleCallback).attachToRecyclerView(rv);
 
         //SET PROPERTIES TO RV
         rv.setLayoutManager(new LinearLayoutManager(this.getContext()));

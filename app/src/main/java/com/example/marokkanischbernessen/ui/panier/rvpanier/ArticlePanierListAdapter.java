@@ -30,17 +30,6 @@ public class ArticlePanierListAdapter extends ListAdapter<ArticlePanier, Article
         }
 
     };
-
-    private void deleteArticlePanier(RecyclerView.ViewHolder viewHolder) {
-        //DELETE ARTICLE PANIER FROM DATA BASE
-        ArticlePanierRipository articlePanierRipository = new ArticlePanierRipository(viewHolder.itemView.getContext());
-        articlePanierRipository.deleteArticlePanier(getItem(viewHolder.getBindingAdapterPosition()));
-
-        //UPDATE RESTE POINT IN CONTEUR
-        ArticlePanier articlePanier = getItem(viewHolder.getBindingAdapterPosition());
-        ConteurRipository.upDatePointRest(articlePanier.getPointPlat() * articlePanier.getNombrePlat());
-    }
-
     //CONSTRUCTOR
     public ArticlePanierListAdapter(@NonNull DiffUtil.ItemCallback<ArticlePanier> diffCallback, PanierViewModel panierViewModel) {
         super(diffCallback);
@@ -59,6 +48,17 @@ public class ArticlePanierListAdapter extends ListAdapter<ArticlePanier, Article
     @Override
     public void onBindViewHolder(@NonNull ArticlePanierHolder holder, int position) {
         holder.bind(getItem(position), panierViewModel);
+    }
+
+    //DELETE all article panier in the curent panier from data base
+    private void deleteArticlePanier(RecyclerView.ViewHolder viewHolder) {
+        //DELETE ARTICLE PANIER FROM DATA BASE
+        ArticlePanierRipository articlePanierRipository = new ArticlePanierRipository(viewHolder.itemView.getContext());
+        articlePanierRipository.deleteArticlePanier(getItem(viewHolder.getBindingAdapterPosition()));
+
+        //UPDATE RESTE POINT IN CONTEUR
+        ArticlePanier articlePanier = getItem(viewHolder.getBindingAdapterPosition());
+        ConteurRipository.upDatePointRest(articlePanier.getPointPlat() * articlePanier.getNombrePlat());
     }
 
     /* IMPLEMENTATION OF DIFFUTIL, ITEMCALLBACK FOR CALCULATING THE DIFF BETWEEN OLD AND NEW ITEM*/

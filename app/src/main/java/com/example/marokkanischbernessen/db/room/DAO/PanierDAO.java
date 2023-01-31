@@ -29,5 +29,8 @@ public interface PanierDAO {
     @Query("SELECT * FROM paniers ORDER BY etat ASC")
     LiveData<List<PanierWithAarticlePanier>> getAllPanierWithArticlePanier();
 
+    //DELETE CURENT  PANIER
+    @Query("DELETE FROM paniers WHERE idPanier LIKE :idPanier")
+    void deleteCurentPanier(int idPanier);
 
 }

@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.example.marokkanischbernessen.R;
 import com.example.marokkanischbernessen.databinding.ViewClientBinding;
@@ -58,10 +59,22 @@ public class DialogClient extends DialogFragment {
         //FIX WIDTH OF CARD TO WIDTH OF SCREEN
         int width = context.getResources().getDisplayMetrics().widthPixels;
         viewClientBinding.textViewTitre.setWidth(width);
+
+        //bind valider click
+        binValiderClick();
+    }
+
+    private void binValiderClick() {
+        viewClientBinding.buttonValider.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onValiderClick();
+            }
+        });
     }
 
     //methode to link to onclick valider button listener
-    public static void onValiderClick() {
+    public void onValiderClick() {
 
         /** the all insert  and  retreive and object creating check ... go to be excute in background because all
          * this bloc and data access on one shut can have impact to the UI if we use UI thread**/
@@ -87,7 +100,7 @@ public class DialogClient extends DialogFragment {
 
                 //create panier object
                 Panier panier = new Panier(ConteurRipository.getIdPanier(), client.idClient, client.getNomPrenom(),
-                        1, menu.id, menu.getPrix(), Helper.idResource(context,
+                        2, menu.id, menu.getPrix(), Helper.idResource(context,
                         menu.getNomPic()), informationLivraison);
 
                 //Insert client or update it in Data Base
@@ -104,14 +117,6 @@ public class DialogClient extends DialogFragment {
             //delete conteur
             ConteurRipository.deleteConteur(context);
         });
-        //
-        // Navigation.findNavController(viewClientBinding.getRoot()).navigate(R.id.action_dialogClient_to_historiqueFragment);
+        Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_activity_main).navigate(R.id.action_dialogClient_to_historiqueFragment);
     }
-
-    //methode to link to onclick colse button listener
-    public void onColseClick() {
-        dismiss();
-    }
-
-
 }

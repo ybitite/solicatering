@@ -21,7 +21,7 @@ public interface ArticlePanierDAO {
     @Query("SELECT * FROM articlepaniers WHERE idPanier LIKE :idPanier ")
     LiveData<List<ArticlePanier>> getArticlePaniers(int idPanier);
 
-    //DELETE CURENT ARTICLE PANIER IN THE SEM CURENT PANIER
+    //DELETE all article panier in the curent panier
     @Query("DELETE FROM articlepaniers WHERE idPanier LIKE :idPanier")
     void deleteCurentPanier(int idPanier);
 
