@@ -48,6 +48,10 @@
     <string name="label_date_livraison">Date de Livraison</string>
     <string name="label_heure_livraison">Heure</string>
     <string name="label_remarque">Remarque</string>
+    <string name="validation_en_cours_label">valadiation\nen cours</string>
+    <string name="prise_en_charge_label">prise en\ncharge</string>
+    <string name="preparation_en_cours_label">Preparation\nen cour</string>
+    <string name="catering_livrer_label">Catering\nlivré</string>
 
 
 </resources>

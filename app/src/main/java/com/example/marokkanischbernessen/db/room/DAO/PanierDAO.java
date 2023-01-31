@@ -26,7 +26,7 @@ public interface PanierDAO {
 
     //select all panier from paniers with article panier using this relation
     @Transaction
-    @Query("SELECT * FROM paniers")
+    @Query("SELECT * FROM paniers ORDER BY etat ASC")
     LiveData<List<PanierWithAarticlePanier>> getAllPanierWithArticlePanier();
 
 

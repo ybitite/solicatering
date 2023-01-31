@@ -18,5 +18,9 @@
     <color name="gris_Clair">#878787</color>
     <color name="gris_principale">#212322</color>
     <color name="vert_text">#43A047</color>
+    <color name="rouge_text">#C11B1B</color>
+    <color name="bleu_text">#1637B1</color>
+    <color name="orange_text">#DE9006</color>
+
 
 </resources>
