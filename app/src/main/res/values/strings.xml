@@ -1,57 +1,69 @@
 <resources>
     <string name="app_name">Soli Catering</string>
     <!-- Menu title -->
-    <string name="title_acceuil">Accueil</string>
-    <string name="title_commander">Commander</string>
-    <string name="title_panier">Panier</string>
-    <string name="title_parametre">Paramètre</string>
+    <string name="title_acceuil" translatable="false">Accueil</string>
+    <string name="title_commander" translatable="false">Commander</string>
+    <string name="title_panier" translatable="false">Panier</string>
+    <string name="title_parametre" translatable="false">Paramètre</string>
     <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
+    <string name="messages_header" translatable="false">Messages</string>
+    <string name="sync_header" translatable="false">Sync</string>
 
     <!-- Messages Preferences -->
-    <string name="signature_title">Sirha</string>
-    <string name="reply_title">LR</string>
+    <string name="signature_title" translatable="false">Sirha</string>
+    <string name="reply_title" translatable="false">LR</string>
 
     <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    <string name="sync_title" translatable="false">Sync email periodically</string>
+    <string name="attachment_title" translatable="false">Download incoming attachments</string>
+    <string name="attachment_summary_on" translatable="false">Automatically download attachments for incoming emails
     </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="attachment_summary_off" translatable="false">Only download attachments when manually requested</string>
     <!-- Message d'erreur-->
-    <string name="er_ajout_article_panier">:( Impossible de commander cette plat code erreur insert01</string>
-    <string name="er_pas_assez_point">:( Il ne vous reste pas assez de point</string>
-    <string name="er_rentrer_un_nombre">:( Votre saisie est incorrect (trop haut, null ...)</string>
-    <string name="er_nombre_trop_haut">:( le nombre que vous avez rentrer est tres haut</string>
+    <string name="er_ajout_article_panier" translatable="false">:( Impossible de commander cette plat code erreur insert01</string>
+    <string name="er_pas_assez_point" translatable="false">:( Il ne vous reste pas assez de point</string>
+    <string name="er_rentrer_un_nombre" translatable="false">:( Votre saisie est incorrect (trop haut, null ...)</string>
+    <string name="er_nombre_trop_haut" translatable="false">:( le nombre que vous avez rentrer est tres haut</string>
     <!-- Message de conformation-->
-    <string name="cf_ajout_article_panier">Cette plat est bien ajouter au panier</string>
+    <string name="cf_ajout_article_panier" translatable="false">Cette plat est bien ajouter au panier</string>
     <!-- desciption-->
-    <string name="description_projet_grande">Soli Catering est un projet de l’association Daa Basmatak. Il regroupe plusieur chefs expirimenté de tous les continent, à fin de vous offrir le meilleur dans vos Table.Le profit du projet est distié à aider les personnes en situation précaire dans le Konton de Bern</string>
-    <string name="description_projet_petite">Soli Catering est un projet de l’association Daa Basmatak. Il regroupe plusieur chefs expirimenté de tous les continent, à fin...</string>
+    <string name="description_projet_grande" translatable="false">Soli Catering est un projet de l’association Daa Basmatak. Il regroupe plusieur chefs expirimenté de tous les continent, à fin de vous offrir le meilleur dans vos Table.Le profit du projet est distié à aider les personnes en situation précaire dans le Konton de Bern</string>
+    <string name="description_projet_petite" translatable="false">Soli Catering est un projet de l’association Daa Basmatak. Il regroupe plusieur chefs expirimenté de tous les continent, à fin...</string>
     <!-- buttonAnnuler-->
-    <string name="bt_valider_cmd_0_article">Aucun article ajouté</string>
-    <string name="bt_valider_cmd">Valider la commande</string>
+    <string name="bt_valider_cmd_0_article" translatable="false">Aucun article ajouté</string>
+    <string name="bt_valider_cmd" translatable="false">Valider la commande</string>
 
     <!-- shared preferences-->
-    <string name="conteur_file_name">com.example.marokkanischbernesse.PREFERENCE_FILE_KEY_CONTEUR</string>
+    <string name="conteur_file_name" translatable="false">com.example.marokkanischbernesse.PREFERENCE_FILE_KEY_CONTEUR</string>
 
     <!-- label-->
-    <string name="label_nom">Nom</string>
-    <string name="label_prenom">Prénom</string>
-    <string name="label_rue">Rue</string>
-    <string name="label_numero_rue">Numero</string>
-    <string name="label_code_postal">Code postal</string>
-    <string name="label_ville">Ville</string>
-    <string name="label_email">Email</string>
-    <string name="label_tel">Telephone</string>
-    <string name="label_date_livraison">Date de Livraison</string>
-    <string name="label_heure_livraison">Heure</string>
-    <string name="label_remarque">Remarque</string>
-    <string name="validation_en_cours_label">valadiation\nen cours</string>
-    <string name="prise_en_charge_label">prise en\ncharge</string>
-    <string name="preparation_en_cours_label">Preparation\nen cour</string>
-    <string name="catering_livrer_label">Catering\nlivré</string>
+    <string name="label_nom" translatable="false">Nom</string>
+    <string name="label_prenom" translatable="false">Prénom</string>
+    <string name="label_rue" translatable="false">Rue</string>
+    <string name="label_numero_rue" translatable="false">Numero</string>
+    <string name="label_code_postal" translatable="false">Code postal</string>
+    <string name="label_ville" translatable="false">Ville</string>
+    <string name="label_email" translatable="false">Email</string>
+    <string name="label_tel" translatable="false">Telephone</string>
+    <string name="label_date_livraison" translatable="false">Date de Livraison</string>
+    <string name="label_heure_livraison" translatable="false">Heure</string>
+    <string name="label_remarque" translatable="false">Remarque</string>
+    <string name="validation_en_cours_label" translatable="false">valadiation\nen cours</string>
+    <string name="prise_en_charge_label" translatable="false">prise en\ncharge</string>
+    <string name="preparation_en_cours_label" translatable="false">Preparation\nen cour</string>
+    <string name="catering_livrer_label" translatable="false">Catering\nlivré</string>
+    <string name="erreur_nom" translatable="false">un nom valide</string>
+    <string name="erreur_prenom" translatable="false">- veuillez saisir un prénom valide</string>
+    <string name="erreur_rue" translatable="false">- veuillez saisir un nom de rue valid</string>
+    <string name="erreur_numero_rue" translatable="false">- veuillez saisir un numéro de rue valide</string>
+    <string name="erreur_code_postal" translatable="false">- veuillez saisir un code postal valide</string>
+    <string name="erreur_ville" translatable="false">- veuillez saisir un nom de ville valide</string>
+    <string name="erreur_email" translatable="false">- veuillez saisir un email valide (exemple@gmail.com)</string>
+    <string name="erreur_tel" translatable="false">- veuillez saisir un numéro de télephone suisse valide</string>
+    <string name="erreur_date" translatable="false">- veuillez saisir une date valide (DD/MM/YYYY)</string>
+    <string name="erreur_heure" translatable="false">- veuillez saisir une heure valide (HH:MM)</string>
+    <string name="erreur_remarque" translatable="false">- veuillez saisir un text qui ne dépasse pas 500 caractéres</string>
+    <string name="erreur_nombre" translatable="false">- veuillez saisir un nombre entre 30 et 999</string>
 
 
 </resources>

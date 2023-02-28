@@ -1,28 +1,34 @@
 package com.example.marokkanischbernessen.utile;
 
+
+import android.content.res.Resources;
+
+import com.example.marokkanischbernessen.R;
 import com.example.marokkanischbernessen.db.entity.Client;
 
 
 public class ErrorBuilder {
-    //FIELD TO CREATE MESSAGE ERREUR
-    private final static String MEDebut = "- veuillez saisir ";
-
     //BUILD MESSAGE ERROR
     public static StringBuilder buildErrorMessage() {
+
+        //get resources from AppUtil
+        Resources resources = AppUtile.getResource();
         StringBuilder builder = new StringBuilder();
+
         //APPEND ERROR MESSAGE FOR EVERY FIELD WEN THE RESULT IS TRUE
-        builder.append(Client.NOM_OK ? "" : MEDebut + "un nom valide" + "\n")
-                .append(Client.PRENOM_OK ? "" : MEDebut + "un prénom valide" + "\n")
-                .append(Client.RUE_OK ? "" : MEDebut + "un nom de rue valide" + "\n")
-                .append(Client.NUMERO_RUE_OK ? "" : MEDebut + "un numéro de rue valide" + "\n")
-                .append(Client.CODE_POSTAL_OK ? "" : MEDebut + "un code postal valide" + "\n")
-                .append(Client.VILLE_OK ? "" : MEDebut + "un nom de ville valide" + "\n")
-                .append(Client.EMAIL_OK ? "" : MEDebut + "un email valide (exemple@gmail.com)" + "\n")
-                .append(Client.NUM_TEL_OK ? "" : MEDebut + "un numéro de télephone suisse valide" + "\n")
-                .append(Client.DATE_LVR_OK ? "" : MEDebut + "une date valide (DD/MM/YYYY)" + "\n")
-                .append(Client.HEURE_LVR_OK ? "" : MEDebut + "une heure valide (HH:MM)" + "\n")
-                .append(Client.REMARQUE_OK ? "" : MEDebut + "un text qui ne dépasse pas 500 caractéres" + "\n")
-                .append(Client.NOMBRE_OK ? "" : MEDebut + "un nombre entre 30 et 999" + "\n");
+        if(!Client.NOM_OK) builder.append(resources.getString(R.string.erreur_nom)).append("\n");
+        if(!Client.PRENOM_OK) builder.append(resources.getString(R.string.erreur_prenom)).append("\n");
+        if(!Client.RUE_OK) builder.append(resources.getString(R.string.erreur_rue)).append("\n");
+        if(!Client.NUMERO_RUE_OK) builder.append(resources.getString(R.string.erreur_numero_rue)).append("\n");
+        if(!Client.CODE_POSTAL_OK) builder.append(resources.getString(R.string.erreur_code_postal)).append("\n");
+        if(!Client.VILLE_OK) builder.append(resources.getString(R.string.erreur_ville)).append("\n");
+        if(!Client.EMAIL_OK) builder.append(resources.getString(R.string.erreur_email)).append("\n");
+        if(Client.NUM_TEL_OK) builder.append(resources.getString(R.string.erreur_tel)).append("\n");
+        if(!Client.DATE_LVR_OK) builder.append(resources.getString(R.string.erreur_date)).append("\n");
+        if(!Client.HEURE_LVR_OK) builder.append(resources.getString(R.string.erreur_heure)).append("\n");
+        if(!Client.REMARQUE_OK) builder.append(resources.getString(R.string.erreur_remarque)).append("\n");
+        if(!Client.NOMBRE_OK) builder.append(resources.getString(R.string.app_name)).append("\n");
+
         return builder;
     }
 }
