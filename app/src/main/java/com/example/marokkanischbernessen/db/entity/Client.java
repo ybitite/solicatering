@@ -53,7 +53,7 @@ public class Client extends FormulaireEtat {
         //VALID THE EXPRESSION AND LENGTH IF TRUE NOTIFY CHANGE AND MAKE RESULT TRUE
         if (NOM_OK = ExpressionValidateur.validNom(nom))
             notifyPropertyChanged(BR.nom);
-        this.nom = nom.trim();
+        this.nom = nom;
     }
 
     @Bindable
@@ -64,7 +64,7 @@ public class Client extends FormulaireEtat {
     public void setPrenom(String prenom) {
         if (PRENOM_OK = ExpressionValidateur.validPrenom(prenom))
             notifyPropertyChanged(BR.prenom);
-        this.prenom = prenom.trim();
+        this.prenom = prenom;
 
     }
 
@@ -77,7 +77,7 @@ public class Client extends FormulaireEtat {
     public void setEmail(String email) {
         if (EMAIL_OK = ExpressionValidateur.validEmail(email))
             notifyPropertyChanged(BR.email);
-        this.email = email.trim();
+        this.email = email;
     }
 
     @Bindable
@@ -88,7 +88,7 @@ public class Client extends FormulaireEtat {
     public void setNumTel(String numTel) {
         if (NUM_TEL_OK = ExpressionValidateur.validPhone(numTel))
             notifyPropertyChanged(BR.numTel);
-        this.numTel = numTel.trim();
+        this.numTel = numTel;
     }
 
 

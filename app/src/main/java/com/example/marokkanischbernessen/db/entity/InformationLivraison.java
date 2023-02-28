@@ -46,7 +46,7 @@ public class InformationLivraison extends FormulaireEtat {
     public void setDateLivr(String dateLivr) {
         if (DATE_LVR_OK = ExpressionValidateur.validDate(dateLivr))
             notifyPropertyChanged(BR.dateLivr);
-        this.dateLivr = dateLivr.trim();
+        this.dateLivr = dateLivr;
     }
 
     @Bindable
@@ -57,7 +57,7 @@ public class InformationLivraison extends FormulaireEtat {
     public void setHeurLivr(String heurLivr) {
         if (HEURE_LVR_OK = ExpressionValidateur.validHeure(heurLivr))
             notifyPropertyChanged(BR.heurLivr);
-        this.heurLivr = heurLivr.trim();
+        this.heurLivr = heurLivr;
     }
 
     @Bindable
@@ -68,7 +68,7 @@ public class InformationLivraison extends FormulaireEtat {
     public void setRemarque(String remarque) {
         if (REMARQUE_OK = ExpressionValidateur.validRemarque(remarque))
             notifyPropertyChanged(BR.remarque);
-        this.remarque = remarque.trim();
+        this.remarque = remarque;
     }
 
     @Bindable/*PROPRIETY FOR BINDING PARAMS AND RETURN STRING*/
