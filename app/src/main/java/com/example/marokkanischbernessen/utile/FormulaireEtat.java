@@ -2,6 +2,7 @@ package com.example.marokkanischbernessen.utile;
 
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.databinding.Observable;
@@ -11,30 +12,6 @@ import androidx.room.Ignore;
 import com.example.marokkanischbernessen.BR;
 
 public class FormulaireEtat extends BaseObservable {
-
-    //STATIC FIELD FOR LABEL
-    @Ignore
-    public final static String NOM_LABEL = "Nom";
-    @Ignore
-    public final static String PRENOM_LABEL = "Prénom";
-    @Ignore
-    public final static String RUE_LABEL = "Rue";
-    @Ignore
-    public final static String NUMERO_RUE_LABEL = "Numéro";
-    @Ignore
-    public final static String CODE_POSTAL_LABEL = "Code postal";
-    @Ignore
-    public final static String VILLE_LABEL = "Ville";
-    @Ignore
-    public final static String EMAIL_LABEL = "E-mail";
-    @Ignore
-    public final static String NUM_TEL_LABEL = "Télèphone";
-    @Ignore
-    public final static String DATE_LVR_LABEL = "Date de livraison";
-    @Ignore
-    public final static String HEURE_LVR_LABEL = "Heure";
-    @Ignore
-    public final static String REMARQUE_LABEL = "Remarque";
 
     //STATIC FIELD FOR EXPRESSION VALIDATION RESULT
     @Ignore
@@ -101,12 +78,12 @@ public class FormulaireEtat extends BaseObservable {
 
     //OVERRIDE METHODE
     @Override
-    public void addOnPropertyChangedCallback(Observable.OnPropertyChangedCallback callback) {
+    public void addOnPropertyChangedCallback(@NonNull Observable.OnPropertyChangedCallback callback) {
         callbacks.add(callback);
     }
 
     @Override
-    public void removeOnPropertyChangedCallback(Observable.OnPropertyChangedCallback callback) {
+    public void removeOnPropertyChangedCallback(@NonNull Observable.OnPropertyChangedCallback callback) {
         callbacks.remove(callback);
     }
 

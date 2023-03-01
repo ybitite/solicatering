@@ -61,10 +61,10 @@ public class DialogClient extends DialogFragment {
         viewClientBinding.textViewTitre.setWidth(width);
 
         //bind valider click
-        binValiderClick();
+        bindValiderClick();
     }
 
-    private void binValiderClick() {
+    private void bindValiderClick() {
         viewClientBinding.buttonValider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,16 +75,16 @@ public class DialogClient extends DialogFragment {
 
     //methode to link to onclick valider button listener
     public void onValiderClick() {
-
+        /*CHECK IF ALL EXPRESSION ALL ACCEPTED*/
+        /**the check also can take a short time to build string error and check all expression**/
+        if (clientViewModel.getClient().checkAllExpression()) {
         /** the all insert  and  retreive and object creating check ... go to be excute in background because all
          * this bloc and data access on one shut can have impact to the UI if we use UI thread**/
 
         //execute block in work thread, Executor was chose because the task is imperative and not long
         AppDatabase.databaseWriteExecutor.execute(() -> {
 
-            /*CHECK IF ALL EXPRESSION ALL ACCEPTED*/
-            /**the check also can take a short time to build string error and check all expression**/
-            if (clientViewModel.getClient().checkAllExpression()) {
+
 
                 //get object menu by point from data
                 /** we create a panier object whith some information from menu and client to make more
@@ -109,7 +109,6 @@ public class DialogClient extends DialogFragment {
                 //insert panier in date base
                 clientViewModel.panierRipository.insertPanier(panier);
 
-            }
             /**already asynchronous**/
             //create new id for panier
             ConteurRipository.createNewIdPanier();
@@ -118,5 +117,7 @@ public class DialogClient extends DialogFragment {
             ConteurRipository.deleteConteur(context);
         });
         Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_activity_main).navigate(R.id.action_dialogClient_to_historiqueFragment);
+
+        }
     }
 }

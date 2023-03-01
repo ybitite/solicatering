@@ -48,11 +48,13 @@
     <string name="label_date_livraison" translatable="false">Date de Livraison</string>
     <string name="label_heure_livraison" translatable="false">Heure</string>
     <string name="label_remarque" translatable="false">Remarque</string>
+    <string name="label_nombre" translatable="false">Nombre</string>
+
     <string name="validation_en_cours_label" translatable="false">valadiation\nen cours</string>
     <string name="prise_en_charge_label" translatable="false">prise en\ncharge</string>
     <string name="preparation_en_cours_label" translatable="false">Preparation\nen cour</string>
     <string name="catering_livrer_label" translatable="false">Catering\nlivré</string>
-    <string name="erreur_nom" translatable="false">un nom valide</string>
+    <string name="erreur_nom" translatable="false">- veuillez saisir un nom valide</string>
     <string name="erreur_prenom" translatable="false">- veuillez saisir un prénom valide</string>
     <string name="erreur_rue" translatable="false">- veuillez saisir un nom de rue valid</string>
     <string name="erreur_numero_rue" translatable="false">- veuillez saisir un numéro de rue valide</string>

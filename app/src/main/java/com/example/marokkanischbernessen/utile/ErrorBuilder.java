@@ -13,6 +13,8 @@ public class ErrorBuilder {
 
         //get resources from AppUtil
         Resources resources = AppUtile.getResource();
+
+        //create string builder to concatenate all error message
         StringBuilder builder = new StringBuilder();
 
         //APPEND ERROR MESSAGE FOR EVERY FIELD WEN THE RESULT IS TRUE
@@ -23,11 +25,11 @@ public class ErrorBuilder {
         if(!Client.CODE_POSTAL_OK) builder.append(resources.getString(R.string.erreur_code_postal)).append("\n");
         if(!Client.VILLE_OK) builder.append(resources.getString(R.string.erreur_ville)).append("\n");
         if(!Client.EMAIL_OK) builder.append(resources.getString(R.string.erreur_email)).append("\n");
-        if(Client.NUM_TEL_OK) builder.append(resources.getString(R.string.erreur_tel)).append("\n");
+        if(!Client.NUM_TEL_OK) builder.append(resources.getString(R.string.erreur_tel)).append("\n");
         if(!Client.DATE_LVR_OK) builder.append(resources.getString(R.string.erreur_date)).append("\n");
         if(!Client.HEURE_LVR_OK) builder.append(resources.getString(R.string.erreur_heure)).append("\n");
         if(!Client.REMARQUE_OK) builder.append(resources.getString(R.string.erreur_remarque)).append("\n");
-        if(!Client.NOMBRE_OK) builder.append(resources.getString(R.string.app_name)).append("\n");
+        if(!Client.NOMBRE_OK) builder.append(resources.getString(R.string.erreur_nombre)).append("\n");
 
         return builder;
     }

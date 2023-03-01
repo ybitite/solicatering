@@ -37,7 +37,7 @@ public class Adresse extends FormulaireEtat {
     public void setRue(String rue) {
         if (RUE_OK = ExpressionValidateur.validRue(rue))
             notifyPropertyChanged(BR.rue);
-        this.rue = rue.trim();
+        this.rue = rue;
     }
 
     @Bindable/*PROPRIETY FOR BINDING PARAMS AND RETURN STRING TO NOT USING CONVERTER*/
@@ -93,7 +93,7 @@ public class Adresse extends FormulaireEtat {
     public void setVille(String ville) {
         if (VILLE_OK = ExpressionValidateur.validVille(ville))
             notifyPropertyChanged(BR.ville);
-        this.ville = ville.trim();
+        this.ville = ville;
     }
 
     @Bindable
