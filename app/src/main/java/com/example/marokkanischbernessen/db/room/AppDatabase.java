@@ -83,13 +83,16 @@ public abstract class AppDatabase extends RoomDatabase {
                 ClientDAO clientDAO = INSTANCE.clientDAO();
                 // dao.deleateall();
 
-                Evenement evenement = new Evenement("Cabane B","17.05.2022",30,0,"cabaneb");
+                Evenement evenement = new Evenement("Cabane B","\n" +
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.","17.05.2022",30,0,"cabaneb");
                 evenementDAO.insert(evenement);
 
-                evenement = new Evenement("Summer Academy","03.08.2022",40,0,"hanna");
+                evenement = new Evenement("Summer Academy","\n" +
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.","03.08.2022",40,0,"hanna");
                 evenementDAO.insert(evenement);
 
-                evenement = new Evenement("Summer Academy","03.08.2022",40,0,"hanna");
+                evenement = new Evenement("Summer Academy","\n" +
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.","03.08.2022",40,0,"hanna");
                 evenementDAO.insert(evenement);
 
 

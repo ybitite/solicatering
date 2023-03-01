@@ -35,9 +35,7 @@ public class ClientViewModel extends AndroidViewModel {
         clientRipository = new ClientRipository(application);
         menuRipository = new MenuRipository(application);
         panierRipository = new PanierRipository(application);
-        client = new Client();
         informationLivraison = new InformationLivraison();
-        menu = new Menu();
 
     }
 
