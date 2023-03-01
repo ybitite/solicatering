@@ -75,7 +75,7 @@ public class DialogPlat extends DialogFragment {
     private void bindControle(View view, Plat plat) {
         //DEFINE IMAGE PLAT TOP
         ImageView imageViewPlatTop = (ImageView) view.findViewById(R.id.imageViewPlatTop);
-        imageViewPlatTop.setImageResource(Helper.idResource(view.getContext(), plat.getNomPic()));
+        imageViewPlatTop.setImageResource(Helper.idResource(plat.getNomPic()));
 
         //SET TITLE
         TextView textViewTitreAP = (TextView) view.findViewById(R.id.textViewTitreMAP);
@@ -215,7 +215,7 @@ public class DialogPlat extends DialogFragment {
 
             //CREATE NEW ARTICLE PANIER or UPDATE it
             ArticlePanier articlePanier = new ArticlePanier(idPanier, plat.id, nbrPlat, plat.getPoint(),
-                    plat.getNom(), Helper.idResource(getContext(), plat.getNomPic()));
+                    plat.getNom(), Helper.idResource(plat.getNomPic()));
             //update if excite or create a new article panier
             if (articlePanierRipository.finArticlePanier(articlePanier))
                 articlePanierRipository.updateArticlePanier(articlePanier, nbrPlat);

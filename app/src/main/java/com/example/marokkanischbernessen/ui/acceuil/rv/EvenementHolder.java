@@ -55,7 +55,7 @@ public class EvenementHolder extends RecyclerView.ViewHolder implements View.OnC
         binding.textViewNomEvenement.setText(evenement.getNom());
         binding.textViewNbPersEvnement.setText(String.valueOf(evenement.getNb()));
         binding.textViewDateEvenement.setText(evenement.getDate());
-        binding.imageViewPlat.setImageResource(Helper.idResource(context, evenement.getNomPic()));
+        binding.imageViewPlat.setImageResource(Helper.idResource(evenement.getNomPic()));
         //OVRRIDE ON ITEM CLICK
         setItemClickListener(new ItemClickListener() {
             @Override

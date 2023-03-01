@@ -100,7 +100,7 @@ public class DialogClient extends DialogFragment {
 
                 //create panier object
                 Panier panier = new Panier(ConteurRipository.getIdPanier(), client.idClient, client.getNomPrenom(),
-                        1, menu.id, menu.getPrix(), Helper.idResource(context,
+                        1, menu.id, menu.getPrix(), Helper.idResource(
                         menu.getNomPic()), informationLivraison);
 
                 //Insert client or update it in Data Base

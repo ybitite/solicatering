@@ -56,7 +56,7 @@ public class PlatsHolder extends RecyclerView.ViewHolder implements View.OnClick
     public void bind(Plat plat, PlatViewModel platViewModel) {
 
         //SET DATA IN VIEW
-        binding.imageViewPlat.setImageResource(Helper.idResource(context, plat.getNomPic()));
+        binding.imageViewPlat.setImageResource(Helper.idResource(plat.getNomPic()));
         binding.textViewTitrePlat.setText(plat.getNom());
 
         //SET ICON VEGUI

@@ -1,5 +1,6 @@
 package com.example.marokkanischbernessen.ui.Menu.rv;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,7 +66,7 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
         binding.textViewPrixMenu.setText(String.valueOf(menu.getPrix()));
         binding.textViewPointMenu.setText(String.valueOf(menu.getPoint()));
         binding.textViewInfoMenu.setText(menu.getInfo());
-        binding.imageViewIconMenu.setImageResource(Helper.idResource(context, menu.getNomPic()));
+        binding.imageViewIconMenu.setImageResource(Helper.idResource(menu.getNomPic()));
         //CHANGE COLOR OF ACTUEL MENU
         int menuActuel = ConteurRipository.getActuelMenu();
         if (menu.getPoint() == menuActuel) {
@@ -88,7 +89,7 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
                     articlePanierRipository.deleteCurentPanier(ConteurRipository.getIdPanier());
                 }
                 //NAVIGATE TO CATEGORIE
-                Navigation.findNavController(Helper.getActivity(context), R.id.nav_host_fragment_activity_main)
+                Navigation.findNavController((Activity) context, R.id.nav_host_fragment_activity_main)
                         .navigate(R.id.action_navigation_menu_to_navigation_categorie);
 
             }
