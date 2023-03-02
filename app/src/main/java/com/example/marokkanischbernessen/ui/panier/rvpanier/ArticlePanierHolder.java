@@ -10,11 +10,12 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.marokkanischbernessen.databinding.ModelArticlePanierBinding;
-import com.example.marokkanischbernessen.db.entity.ArticlePanier;
+import com.example.marokkanischbernessen.db.entity.ArticlePanierAndPlat;
 import com.example.marokkanischbernessen.ripository.ArticlePanierRipository;
 import com.example.marokkanischbernessen.ripository.ConteurRipository;
 import com.example.marokkanischbernessen.ui.categorie.rv.ItemClickListener;
 import com.example.marokkanischbernessen.ui.panier.PanierViewModel;
+import com.example.marokkanischbernessen.utile.Helper;
 
 public class ArticlePanierHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     //FIELD
@@ -52,13 +53,12 @@ public class ArticlePanierHolder extends RecyclerView.ViewHolder implements View
         return new ArticlePanierHolder(binding.getRoot());
     }
 
-    public void bind(ArticlePanier articlePanier, PanierViewModel panierViewModel) {
+    public void bind(ArticlePanierAndPlat articlePanierAndPlat, PanierViewModel panierViewModel) {
         //SET DATA IN VIEW
-        Log.i(this.toString(), articlePanier.getNombrePlat() + "");
-        binding.textViewTitreAP.setText(articlePanier.getNomPlat());
-        binding.textViewPointAP.setText(String.valueOf(articlePanier.getPointPlatFormat()));
-        binding.tvNbrPlatAP.setText(String.valueOf(articlePanier.getNombrePlat()));
-        binding.imageViewTitreAP.setImageResource(articlePanier.getIdPic());
+        binding.textViewTitreAP.setText(articlePanierAndPlat.plat.getNom());
+        binding.textViewPointAP.setText(String.valueOf(articlePanierAndPlat.plat.getPoint() +" P"));
+        binding.tvNbrPlatAP.setText(String.valueOf(articlePanierAndPlat.articlePanier.getNombrePlat()));
+        binding.imageViewTitreAP.setImageResource(Helper.idResource(articlePanierAndPlat.plat.getNomPic()));
 
         //SET CLICK LISTENER to INCREMENT BUTTON
         TextView tvNbrPlat = binding.tvNbrPlatAP;
@@ -86,7 +86,7 @@ public class ArticlePanierHolder extends RecyclerView.ViewHolder implements View
                 }
                 if (nbrPlat == 0) {
                     //IF JUST ONE ARTICLE STAY DELETE IT
-                    deleteArticlePanier(articlePanier);
+                    deleteArticlePanier(articlePanierAndPlat);
                 }
             }
 
@@ -94,13 +94,13 @@ public class ArticlePanierHolder extends RecyclerView.ViewHolder implements View
 
     }
 
-    public void deleteArticlePanier(ArticlePanier articlePanier) {
+    public void deleteArticlePanier(ArticlePanierAndPlat articlePanierAndPlat) {
         //DELETE ARTICLE PANIER FROM DATA BASE
         ArticlePanierRipository articlePanierRipository = new ArticlePanierRipository(context);
-        articlePanierRipository.deleteArticlePanier(articlePanier);
+        articlePanierRipository.deleteArticlePanier(articlePanierAndPlat.articlePanier);
 
         //UPDATE RESTE POINT IN CONTEUR
-        ConteurRipository.upDatePointRest(articlePanier.getPointPlat());
+        ConteurRipository.upDatePointRest(articlePanierAndPlat.plat.getPoint());
     }
 
 

@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="articlePanier"
-            type="com.example.marokkanischbernessen.db.entity.ArticlePanier" />
+            name="articlePanierAndPlat"
+            type="com.example.marokkanischbernessen.db.entity.ArticlePanierAndPlat" />
     </data>
 
     <LinearLayout
@@ -55,7 +55,7 @@
                     android:fontFamily="sans-serif"
                     android:gravity="center"
                     android:inputType="numberDecimal"
-                    android:text="@{articlePanier.nombrePlatFormat}"
+                    android:text="@{articlePanierAndPlat.articlePanier.nombrePlatFormat}"
                     android:textAlignment="center"
                     android:textColor="#424242"
                     android:textSize="12sp"
@@ -70,7 +70,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:text="@{articlePanier.nomPlat}"
+                    android:text="@{articlePanierAndPlat.plat.nom}"
                     android:textAlignment="textStart"
                     android:textColor="@color/gris_principale"
                     android:textSize="12sp"
@@ -83,7 +83,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:text="@{articlePanier.pointPlatFormat}"
+                    android:text="@{articlePanierAndPlat.plat.pointString}"
                     android:textAlignment="textEnd"
                     android:textColor="@color/gris_Clair"
                     android:textSize="12sp"

@@ -8,6 +8,7 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import com.example.marokkanischbernessen.db.entity.ArticlePanier;
+import com.example.marokkanischbernessen.db.entity.ArticlePanierAndPlat;
 
 import java.util.List;
 
@@ -19,7 +20,7 @@ public interface ArticlePanierDAO {
 
     //SELECT ALL ARTICLEPANIER FROM ARTICLEPANIERS TABLE
     @Query("SELECT * FROM articlepaniers WHERE idPanier LIKE :idPanier ")
-    LiveData<List<ArticlePanier>> getArticlePaniers(int idPanier);
+    LiveData<List<ArticlePanierAndPlat>> getAllArticlePanierWithPlat(int idPanier);
 
     //DELETE all article panier in the curent panier
     @Query("DELETE FROM articlepaniers WHERE idPanier LIKE :idPanier")
@@ -29,7 +30,7 @@ public interface ArticlePanierDAO {
     //UPDATE GIVEN ID AND NUMBER PLAT
     @Query("UPDATE articlepaniers SET nombrePlat = :nbr + nombrePlat  WHERE idPlats LIKE :idPlat " +
             "AND idPanier like :idPanier")
-    int updateIdAP(int idPlat, int idPanier, int nbr);
+    int  updateIdAP(int idPlat, int idPanier, int nbr);
 
     //DELETE GIVING ARTICLE PANIER
     @Delete

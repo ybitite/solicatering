@@ -6,12 +6,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 
-import com.example.marokkanischbernessen.db.entity.ArticlePanier;
+import com.example.marokkanischbernessen.db.entity.ArticlePanierAndPlat;
 
-public class MiniArticlePanierListAdapter extends ListAdapter<ArticlePanier, MiniArticlePanierHolder> {
+public class MiniArticlePanierListAdapter extends ListAdapter<ArticlePanierAndPlat, MiniArticlePanierHolder> {
 
     //CONSTRUCTOR
-    protected MiniArticlePanierListAdapter(@NonNull DiffUtil.ItemCallback<ArticlePanier> diffCallback) {
+    protected MiniArticlePanierListAdapter(@NonNull DiffUtil.ItemCallback<ArticlePanierAndPlat> diffCallback) {
         super(diffCallback);
     }
 
@@ -28,15 +28,15 @@ public class MiniArticlePanierListAdapter extends ListAdapter<ArticlePanier, Min
     }
 
     /* IMPLEMENTATION OF DIFFUTIL, ITEMCALLBACK FOR CALCULATING THE DIFF BETWEEN OLD AND NEW ITEM*/
-    public static class ArticlePanierDiff extends DiffUtil.ItemCallback<ArticlePanier> {
+    public static class ArticlePanierWithPlatDiff extends DiffUtil.ItemCallback<ArticlePanierAndPlat> {
         @Override
-        public boolean areItemsTheSame(@NonNull ArticlePanier oldItem, @NonNull ArticlePanier newItem) {
-            return oldItem.getIdPanier() == newItem.getIdPanier();
+        public boolean areItemsTheSame(@NonNull ArticlePanierAndPlat oldItem, @NonNull ArticlePanierAndPlat newItem) {
+            return oldItem.articlePanier.getIdPanier() == newItem.articlePanier.getIdPanier();
         }
 
         @Override
-        public boolean areContentsTheSame(@NonNull ArticlePanier oldItem, @NonNull ArticlePanier newItem) {
-            return oldItem.getNombrePlat() == oldItem.getNombrePlat();
+        public boolean areContentsTheSame(@NonNull ArticlePanierAndPlat oldItem, @NonNull ArticlePanierAndPlat newItem) {
+            return oldItem.articlePanier.getNombrePlat() == oldItem.articlePanier.getNombrePlat();
         }
     }
 }

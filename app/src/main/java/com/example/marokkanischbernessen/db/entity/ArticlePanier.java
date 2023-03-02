@@ -10,23 +10,17 @@ import java.util.Objects;
 public class ArticlePanier {
     //FIELD
     @PrimaryKey(autoGenerate = true)
-    @NonNull
     public int id;
-    final int idPlats;
     final int idPanier;
+    final int idPlats;
     final int nombrePlat;
-    final int pointPlat;
-    final int idPic;
-    final String nomPlat;
+
 
     //CONSTRUCTOR
-    public ArticlePanier(int idPanier, int idPlats, int nombrePlat, int pointPlat, String nomPlat, int idPic) {
+    public ArticlePanier(int idPanier, int idPlats, int nombrePlat) {
         this.idPanier = idPanier;
         this.idPlats = idPlats;
         this.nombrePlat = nombrePlat;
-        this.pointPlat = pointPlat;
-        this.nomPlat = nomPlat;
-        this.idPic = idPic;
     }
 
     //PROPRIETY
@@ -42,23 +36,7 @@ public class ArticlePanier {
         return nombrePlat;
     }
 
-    public int getPointPlat() {
-        return pointPlat;
-    }
-
-    public String getNomPlat() {
-        return nomPlat;
-    }
-
-    public int getIdPic() {
-        return idPic;
-    }
-
     //to return string format for ui control
-    public String getPointPlatFormat() {
-        return pointPlat + " points";
-    }
-
     public String getNombrePlatFormat() {
         return String.valueOf(nombrePlat);
     }
@@ -70,11 +48,11 @@ public class ArticlePanier {
         if (this == o) return true;
         if (!(o instanceof ArticlePanier)) return false;
         ArticlePanier that = (ArticlePanier) o;
-        return id == that.id && idPlats == that.idPlats && idPanier == that.idPanier && nombrePlat == that.nombrePlat && pointPlat == that.pointPlat && idPic == that.idPic && Objects.equals(nomPlat, that.nomPlat);
+        return id == that.id && idPlats == that.idPlats && idPanier == that.idPanier && nombrePlat == that.nombrePlat;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, idPlats, idPanier, nombrePlat, pointPlat, idPic, nomPlat);
+        return Objects.hash(id, idPlats, idPanier, nombrePlat);
     }
 }

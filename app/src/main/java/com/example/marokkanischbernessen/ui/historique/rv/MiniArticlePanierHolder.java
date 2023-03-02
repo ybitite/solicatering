@@ -9,7 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.marokkanischbernessen.databinding.ModelMiniArticlePanierBinding;
-import com.example.marokkanischbernessen.db.entity.ArticlePanier;
+import com.example.marokkanischbernessen.db.entity.ArticlePanierAndPlat;
+import com.example.marokkanischbernessen.utile.Helper;
 
 public class MiniArticlePanierHolder extends RecyclerView.ViewHolder implements ItemClickListener {
 
@@ -35,9 +36,9 @@ public class MiniArticlePanierHolder extends RecyclerView.ViewHolder implements 
         return new MiniArticlePanierHolder(binding.getRoot());
     }
 
-    public void bind(ArticlePanier articlePanier) {
+    public void bind(ArticlePanierAndPlat articlePanierAndPlat) {
 
-        binding.setArticlePanier(articlePanier);
-        binding.imageViewMiniAP.setImageResource(articlePanier.getIdPic());
+        binding.setArticlePanierAndPlat(articlePanierAndPlat);
+        binding.imageViewMiniAP.setImageResource(Helper.idResource(articlePanierAndPlat.plat.getNomPic()));
     }
 }

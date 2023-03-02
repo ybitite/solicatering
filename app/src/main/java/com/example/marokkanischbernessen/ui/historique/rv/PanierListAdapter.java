@@ -7,13 +7,13 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.marokkanischbernessen.db.entity.PanierWithAarticlePanier;
+import com.example.marokkanischbernessen.db.entity.PanierWithAarticlePanierAndPlat;
 import com.example.marokkanischbernessen.ripository.PanierRipository;
 
-public class PanierListAdapter extends ListAdapter<PanierWithAarticlePanier, PanierHolder> {
+public class PanierListAdapter extends ListAdapter<PanierWithAarticlePanierAndPlat, PanierHolder> {
 
     //CONSTRUCTOR
-    public PanierListAdapter(@NonNull DiffUtil.ItemCallback<PanierWithAarticlePanier> diffCallback) {
+    public PanierListAdapter(@NonNull DiffUtil.ItemCallback<PanierWithAarticlePanierAndPlat> diffCallback) {
         super(diffCallback);
     }
 
@@ -38,14 +38,14 @@ public class PanierListAdapter extends ListAdapter<PanierWithAarticlePanier, Pan
     }
 
     /* IMPLEMENTATION OF DIFFUTIL, ITEMCALLBACK FOR CALCULATING THE DIFF BETWEEN TWO ITEMS IN A LIST*/
-    public static class PanierDiff extends DiffUtil.ItemCallback<PanierWithAarticlePanier> {
+    public static class PanierDiff extends DiffUtil.ItemCallback<PanierWithAarticlePanierAndPlat> {
         @Override
-        public boolean areItemsTheSame(@NonNull PanierWithAarticlePanier oldItem, @NonNull PanierWithAarticlePanier newItem) {
+        public boolean areItemsTheSame(@NonNull PanierWithAarticlePanierAndPlat oldItem, @NonNull PanierWithAarticlePanierAndPlat newItem) {
             return oldItem.panier.idPanier == newItem.panier.idPanier;
         }
 
         @Override
-        public boolean areContentsTheSame(@NonNull PanierWithAarticlePanier oldItem, @NonNull PanierWithAarticlePanier newItem) {
+        public boolean areContentsTheSame(@NonNull PanierWithAarticlePanierAndPlat oldItem, @NonNull PanierWithAarticlePanierAndPlat newItem) {
             return oldItem.panier.equals(newItem.panier);
         }
     }

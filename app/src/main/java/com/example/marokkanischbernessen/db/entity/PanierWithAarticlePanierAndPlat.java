@@ -10,14 +10,15 @@ import java.util.List;
  * Panier and Article panier which is (1 - *)
  **/
 
-public class PanierWithAarticlePanier {
+public class PanierWithAarticlePanierAndPlat {
 
     @Embedded
     public Panier panier;
     @Relation(
+            entity = ArticlePanier.class,
             parentColumn = ("idPanier"),
             entityColumn = ("idPanier")
     )
-    public List<ArticlePanier> articlePanierList;
+    public List<ArticlePanierAndPlat> listArticlePanierAndPlat;
 }
 

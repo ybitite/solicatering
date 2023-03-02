@@ -6,6 +6,7 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 
 import com.example.marokkanischbernessen.db.entity.ArticlePanier;
+import com.example.marokkanischbernessen.db.entity.ArticlePanierAndPlat;
 import com.example.marokkanischbernessen.db.room.AppDatabase;
 import com.example.marokkanischbernessen.db.room.DAO.ArticlePanierDAO;
 
@@ -14,7 +15,7 @@ import java.util.List;
 public class ArticlePanierRipository {
     //FIELD
     final ArticlePanierDAO articlePanierDAO;
-    LiveData<List<ArticlePanier>> listArticlePanier = new LiveData<List<ArticlePanier>>() {
+    LiveData<List<ArticlePanierAndPlat>> listArticlePanierWithPlat = new LiveData<List<ArticlePanierAndPlat>>() {
     };
 
     //CONSTRUCTOR
@@ -27,9 +28,9 @@ public class ArticlePanierRipository {
     }
 
     //RETURN OBSERVABLE LIVEDATA OF ARTICLE PANIER.
-    public LiveData<List<ArticlePanier>> getListArticlePanier(int idPanier) {
-        listArticlePanier = articlePanierDAO.getArticlePaniers(idPanier);
-        return listArticlePanier;
+    public LiveData<List<ArticlePanierAndPlat>> getListArticlePanierWithPlat(int idPanier) {
+        listArticlePanierWithPlat = articlePanierDAO.getAllArticlePanierWithPlat(idPanier);
+        return listArticlePanierWithPlat;
     }
 
     //find article panier

@@ -26,6 +26,10 @@ public class Plat extends Entite {
         this.tempsEnJour = tempsEnJour;
         this.vegui = vegui;
     }
+   //Propriety for binding
+    public String getPointString(){
+        return String.valueOf(point) + " P";
+    }
 
     //PROPRIETY
     public int getPoint() {

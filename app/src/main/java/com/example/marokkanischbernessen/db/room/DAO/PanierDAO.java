@@ -8,7 +8,7 @@ import androidx.room.Query;
 import androidx.room.Transaction;
 
 import com.example.marokkanischbernessen.db.entity.Panier;
-import com.example.marokkanischbernessen.db.entity.PanierWithAarticlePanier;
+import com.example.marokkanischbernessen.db.entity.PanierWithAarticlePanierAndPlat;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public interface PanierDAO {
     //select all panier from paniers with article panier using this relation
     @Transaction
     @Query("SELECT * FROM paniers ORDER BY etat ASC")
-    LiveData<List<PanierWithAarticlePanier>> getAllPanierWithArticlePanier();
+    LiveData<List<PanierWithAarticlePanierAndPlat>> getAllPanierWithArticlePanier();
 
     //DELETE CURENT  PANIER
     @Query("DELETE FROM paniers WHERE idPanier LIKE :idPanier")

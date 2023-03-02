@@ -16,8 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.marokkanischbernessen.R;
 import com.example.marokkanischbernessen.databinding.ModelPanierBinding;
-import com.example.marokkanischbernessen.db.entity.ArticlePanier;
-import com.example.marokkanischbernessen.db.entity.PanierWithAarticlePanier;
+import com.example.marokkanischbernessen.db.entity.ArticlePanierAndPlat;
+import com.example.marokkanischbernessen.db.entity.PanierWithAarticlePanierAndPlat;
 
 import java.util.List;
 
@@ -54,16 +54,16 @@ public class PanierHolder extends RecyclerView.ViewHolder implements ItemClickLi
         return new PanierHolder(binding.getRoot());
     }
 
-    public void bind(PanierWithAarticlePanier panierWithAarticlePanier) {
+    public void bind(PanierWithAarticlePanierAndPlat panierWithAarticlePanierAndPlat) {
         //push data to actualise ui
-        binding.setPanier(panierWithAarticlePanier.panier);
-        binding.imageViewMenuP.setImageResource(panierWithAarticlePanier.panier.getIdPic());
+        binding.setPanier(panierWithAarticlePanierAndPlat.panier);
+        binding.imageViewMenuP.setImageResource(panierWithAarticlePanierAndPlat.panier.getIdPic());
 
         //bind imbricated recycle view
-        bindSecondRecycleView(panierWithAarticlePanier.articlePanierList);
+        bindSecondRecycleView(panierWithAarticlePanierAndPlat.listArticlePanierAndPlat);
 
         //bind element of suivie commande
-        bindSuiviCommande(panierWithAarticlePanier.panier.getEtat());
+        bindSuiviCommande(panierWithAarticlePanierAndPlat.panier.getEtat());
 
         //bind button plus
         bindButtonPlus();
@@ -72,13 +72,13 @@ public class PanierHolder extends RecyclerView.ViewHolder implements ItemClickLi
     /**
      * to bind the imbricated recycle view
      **/
-    void bindSecondRecycleView(List<ArticlePanier> articlePanierList) {
+    void bindSecondRecycleView(List<ArticlePanierAndPlat> articlePanierAndPlat) {
         //instantiate rv
         RecyclerView rv = binding.miniAPRecyclerView;
 
         //set adapter to rv
         final MiniArticlePanierListAdapter miniArticlePanierListAdapter =
-                new MiniArticlePanierListAdapter(new MiniArticlePanierListAdapter.ArticlePanierDiff());
+                new MiniArticlePanierListAdapter(new MiniArticlePanierListAdapter.ArticlePanierWithPlatDiff());
 
         rv.setAdapter(miniArticlePanierListAdapter);
 
@@ -88,7 +88,7 @@ public class PanierHolder extends RecyclerView.ViewHolder implements ItemClickLi
         rv.setItemAnimator(new DefaultItemAnimator());
 
         /**  this data is already observed **/
-        miniArticlePanierListAdapter.submitList(articlePanierList);
+        miniArticlePanierListAdapter.submitList(articlePanierAndPlat);
     }
 
     //bind suivi de commande

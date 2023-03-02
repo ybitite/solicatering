@@ -5,7 +5,7 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.marokkanischbernessen.db.entity.ArticlePanier;
+import com.example.marokkanischbernessen.db.entity.ArticlePanierAndPlat;
 import com.example.marokkanischbernessen.ripository.ArticlePanierRipository;
 import com.example.marokkanischbernessen.ripository.ConteurRipository;
 
@@ -13,7 +13,7 @@ import java.util.List;
 
 public class PanierViewModel extends AndroidViewModel {
     //FIELD
-    public static LiveData<List<ArticlePanier>> listArticlePanier;
+    public static LiveData<List<ArticlePanierAndPlat>> listArticlePanierWithPlat;
     private static ArticlePanierRipository articlePanierRipository;
 
     //CONSTRUCTOR
@@ -21,7 +21,7 @@ public class PanierViewModel extends AndroidViewModel {
         super(application);
 
         articlePanierRipository = new ArticlePanierRipository(application);
-        listArticlePanier = new LiveData<List<ArticlePanier>>() {
+        listArticlePanierWithPlat = new LiveData<List<ArticlePanierAndPlat>>() {
         };
     }
 
@@ -30,15 +30,15 @@ public class PanierViewModel extends AndroidViewModel {
     }
 
     /*TO OBSERVED LIVE DATA LIST ARTICLE PANIER FROM REPOSITORY*/
-    public static LiveData<List<ArticlePanier>> getListArticlePanier() {
+    public static LiveData<List<ArticlePanierAndPlat>> getListArticlePanierWithPlat() {
         //GET ID PANIER FROM CONTEUR
         int idPanier = ConteurRipository.getIdPanier();
 
         //GET DATA LIVE OF LIST OF ARTICLE IN THIS PANIER
-        listArticlePanier = articlePanierRipository.getListArticlePanier(idPanier);
+        listArticlePanierWithPlat = articlePanierRipository.getListArticlePanierWithPlat(idPanier);
 
         //RETURN LIVE DATA LIST
-        return listArticlePanier;
+        return listArticlePanierWithPlat;
     }
 
     /*INCREMENT NUMBER PLAT*/
@@ -48,18 +48,18 @@ public class PanierViewModel extends AndroidViewModel {
         int idPanier = ConteurRipository.getIdPanier();
 
         //GET VALUE OF POINT OF SELECTED PLAT
-        int pntPlat = listArticlePanier.getValue().get(position).getPointPlat();
+        int pntPlat = listArticlePanierWithPlat.getValue().get(position).plat.getPoint();
         //GET VALUE OF NUMBER OF PLAT
-        int nbrPlat = listArticlePanier.getValue().get(position).getNombrePlat();
+        int nbrPlat = listArticlePanierWithPlat.getValue().get(position).articlePanier.getNombrePlat();
         //GET ID
-        int idPlat = listArticlePanier.getValue().get(position).getIdPlats();
+        int idPlat = listArticlePanierWithPlat.getValue().get(position).articlePanier.getIdPlats();
 
 
         /*INCREMENT NUMBER OF PLAT IF IT POINT PLAT ARE LAST OR EQUAL AT POINT RESTE*/
         if (pntPlat <= pntReste) {
 
             //UPDATE IT IN DATA BASE on work thread
-            articlePanierRipository.updateArticlePanier(listArticlePanier.getValue().get(position), 1);
+            articlePanierRipository.updateArticlePanier(listArticlePanierWithPlat.getValue().get(position).articlePanier, 1);
 
             //UPDATE RESTE IN CONTEUR
             ConteurRipository.upDatePointRest(-pntPlat);
@@ -75,17 +75,17 @@ public class PanierViewModel extends AndroidViewModel {
         int idPanier = ConteurRipository.getIdPanier();
 
         //GET VALUE OF NUMBER OF PLAT
-        int nbrPlat = listArticlePanier.getValue().get(position).getNombrePlat();
+        int nbrPlat = listArticlePanierWithPlat.getValue().get(position).articlePanier.getNombrePlat();
         //GET VALUE OF POINT OF SELECTED PLAT
-        int pntPlat = listArticlePanier.getValue().get(position).getPointPlat();
+        int pntPlat = listArticlePanierWithPlat.getValue().get(position).plat.getPoint();
         //GET ID
-        int idPlat = listArticlePanier.getValue().get(position).getIdPlats();
+        int idPlat = listArticlePanierWithPlat.getValue().get(position).articlePanier.getIdPlats();
 
         /*DECREMENT NUMBER OF PLAT IF IT POSSIBLE IF NUMBER ARE MOR THAN 1*/
         if (nbrPlat > 1) {
 
             //UPDATE IT IN DATA BASE on work thread
-            articlePanierRipository.updateArticlePanier(listArticlePanier.getValue().get(position), -1);
+            articlePanierRipository.updateArticlePanier(listArticlePanierWithPlat.getValue().get(position).articlePanier, -1);
 
             //UPDATE RESTE IN CONTEUR
             ConteurRipository.upDatePointRest(pntPlat);

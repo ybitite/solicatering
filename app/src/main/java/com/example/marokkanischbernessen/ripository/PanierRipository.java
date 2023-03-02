@@ -5,7 +5,7 @@ import android.content.Context;
 import androidx.lifecycle.LiveData;
 
 import com.example.marokkanischbernessen.db.entity.Panier;
-import com.example.marokkanischbernessen.db.entity.PanierWithAarticlePanier;
+import com.example.marokkanischbernessen.db.entity.PanierWithAarticlePanierAndPlat;
 import com.example.marokkanischbernessen.db.room.AppDatabase;
 import com.example.marokkanischbernessen.db.room.DAO.PanierDAO;
 
@@ -14,7 +14,7 @@ import java.util.List;
 public class PanierRipository {
     //FIELD
     final PanierDAO panierDAO;
-    final LiveData<List<PanierWithAarticlePanier>> listPanierWithAarticlePanier;
+    final LiveData<List<PanierWithAarticlePanierAndPlat>> listPanierWithAarticlePanier;
 
     //CONSTRUCTOR
     public PanierRipository(Context context) {
@@ -33,7 +33,7 @@ public class PanierRipository {
     }
 
     //return observable livedata of panier with article panier.
-    public LiveData<List<PanierWithAarticlePanier>> getListPanierWithArticlePanier() {
+    public LiveData<List<PanierWithAarticlePanierAndPlat>> getListPanierWithArticlePanier() {
         return listPanierWithAarticlePanier;
     }
 

@@ -44,7 +44,7 @@ public class PanierFragment extends Fragment {
         PanierViewModel panierViewModel = new ViewModelProvider(this).get(PanierViewModel.class);
 
         //SET FOOTER ADAPTER + LIST ADAPTER TO RV
-        ArticlePanierListAdapter articlePanierListAdapter = new ArticlePanierListAdapter(new ArticlePanierListAdapter.ArticlePanierDiff(), panierViewModel);
+        ArticlePanierListAdapter articlePanierListAdapter = new ArticlePanierListAdapter(new ArticlePanierListAdapter.ArticlePanierWithPlatDiff(), panierViewModel);
         ArticlePanierPiedAdapter articlePanierPiedAdapter = new ArticlePanierPiedAdapter();
         ConcatAdapter concatAdapter = new ConcatAdapter(articlePanierListAdapter, articlePanierPiedAdapter);
         rv.setAdapter(concatAdapter);
@@ -69,9 +69,9 @@ public class PanierFragment extends Fragment {
         sharedPreferences.registerOnSharedPreferenceChangeListener(listenerSP);
 
         //OBSERVE DATA FROM LIVE DATA AND UPDATE RV WEN DATA CHANGE
-        panierViewModel.getListArticlePanier().observe(getViewLifecycleOwner(), articlePaniers -> {
+        panierViewModel.getListArticlePanierWithPlat().observe(getViewLifecycleOwner(), articlePanierWithPlat -> {
             // UPDATE THE CACHED COPY OF THE ARTICLE PANIER IN THE ADAPTER.
-            articlePanierListAdapter.submitList(articlePaniers);
+            articlePanierListAdapter.submitList(articlePanierWithPlat);
         });
         return root;
     }
