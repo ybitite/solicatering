@@ -6,8 +6,9 @@ import androidx.room.Relation;
 import java.util.List;
 
 /**
- * Classe to make the ralation between
- * Panier and Article panier which is (1 - *)
+ * Classe to make the imbricated relationship
+ * Panier with Article panier and plat which is panier (1 - *) list:article panier / article panier (1 - 1) plat
+
  **/
 
 public class PanierWithAarticlePanierAndPlat {
