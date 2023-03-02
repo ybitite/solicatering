@@ -130,8 +130,6 @@ public abstract class AppDatabase extends RoomDatabase {
                 plat=new Plat("Aubergine farssi","",3,15.0f,"diversplatschaud","n",1,1,"ptcourget",0);
                 platDAO.insert(plat);
 
-                clientDAO.insert(new Client());
-
             });
         }
     };

@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class Entite {
 
-    //FIELD
+    //FIELDs
     @PrimaryKey(autoGenerate = true)
     public int id;
     final String nom;

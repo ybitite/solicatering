@@ -7,7 +7,7 @@ import java.util.Objects;
 @Entity(tableName = "plats")
 public class Plat extends Entite {
 
-    //FIELD
+    //FIELDs
     final int point;
     final int degureEpice;
     final int tempsEnJour;

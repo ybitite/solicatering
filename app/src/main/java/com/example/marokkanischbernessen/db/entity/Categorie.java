@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @Entity(tableName = "categories")
 public class Categorie extends Entite {
-    //FIELD
+    //FIELDs
     final int point;
 
     //CONTRUCTOR

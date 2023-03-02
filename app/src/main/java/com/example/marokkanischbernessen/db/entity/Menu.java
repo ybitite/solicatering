@@ -4,7 +4,7 @@ import java.util.Objects;
 
 @androidx.room.Entity(tableName = "menus")
 public class Menu extends Entite {
-    //FIELD
+    //FIELDs
     final int point;
     final float prix;
     final String info;

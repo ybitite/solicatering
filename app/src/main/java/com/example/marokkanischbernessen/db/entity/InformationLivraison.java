@@ -2,7 +2,6 @@ package com.example.marokkanischbernessen.db.entity;
 
 import androidx.databinding.Bindable;
 import androidx.room.Embedded;
-import androidx.room.Ignore;
 
 import com.example.marokkanischbernessen.BR;
 import com.example.marokkanischbernessen.utile.ExpressionValidateur;
@@ -11,30 +10,17 @@ import com.example.marokkanischbernessen.utile.FormulaireEtat;
 import java.util.Objects;
 
 public class InformationLivraison extends FormulaireEtat {
-
+    //field
     protected String dateLivr;
     protected String heurLivr;
     protected String remarque;
     protected short nombre;
-
     @Embedded
     protected Adresse adresse;
 
-    @Ignore
+    //constructor
     public InformationLivraison() {
-        this.dateLivr = "11/08/2023";
-        this.heurLivr = "12:00";
-        this.remarque = "pas de remarque";
-        this.nombre = 50;
         adresse = new Adresse();
-    }
-
-    public InformationLivraison(String dateLivr, String heurLivr, String remarque, short nombre, Adresse adresse) {
-        this.dateLivr = dateLivr;
-        this.heurLivr = heurLivr;
-        this.remarque = remarque;
-        this.nombre = nombre;
-        this.adresse = adresse;
     }
 
     //PROPRIETY
@@ -79,8 +65,7 @@ public class InformationLivraison extends FormulaireEtat {
 
     public void setNombreString(String nombre) {
         if (NOMBRE_OK = ExpressionValidateur.validNombre(nombre)) {
-            short nbr = Short.parseShort(nombre);
-            this.nombre = nbr;
+            this.nombre = Short.parseShort(nombre);
             notifyPropertyChanged(BR.nombreString);
         }
     }
@@ -93,10 +78,9 @@ public class InformationLivraison extends FormulaireEtat {
     public void setNombre(short nombre) {
         this.nombre = nombre;
     }
-
     @Bindable
     public String getDateHeure() {
-        return "le " + dateLivr + " à : " + heurLivr;
+        return dateLivr + " - " + heurLivr;
     }
 
     //to access to address object
@@ -113,7 +97,6 @@ public class InformationLivraison extends FormulaireEtat {
     }
 
     /*EQUAL ET HASH METHODE*/
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

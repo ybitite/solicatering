@@ -4,7 +4,7 @@ import java.util.Objects;
 
 @androidx.room.Entity(tableName = "evenements")
 public class Evenement extends Entite {
-    //FIELD
+    //FIELDs
     final int nb;
     final String date;
 

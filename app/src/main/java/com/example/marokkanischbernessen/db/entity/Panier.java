@@ -1,6 +1,6 @@
 package com.example.marokkanischbernessen.db.entity;
 
-import androidx.annotation.NonNull;
+import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
@@ -8,10 +8,9 @@ import androidx.room.PrimaryKey;
 import java.util.Objects;
 
 @Entity(tableName = "paniers")
-public class Panier extends InformationLivraison {
+public class Panier {
 
     //FIELD
-    @NonNull
     @PrimaryKey
     public int idPanier;
     int idClientOwner;
@@ -19,31 +18,17 @@ public class Panier extends InformationLivraison {
     int idMenu;
     float prix;
     int idPic;
-    private String nomPrenom;
+    String nomPrenom;
 
-    @Ignore
-    private String titreCatering;
+    @Embedded
+    InformationLivraison informationLivraison;
 
     //CONSTRUCTOR
-
-    public Panier(String dateLivr, String heurLivr, String remarque, short nombre, Adresse adresse,
-                  int idPanier, int idClientOwner, String nomPrenom, int etat, int idMenu, float prix, int idPic) {
-        super(dateLivr, heurLivr, remarque, nombre, adresse);
-        this.idPanier = idPanier;
-        this.idClientOwner = idClientOwner;
-        this.etat = etat;
-        this.idMenu = idMenu;
-        this.prix = prix;
-        this.idPic = idPic;
-        this.nomPrenom = nomPrenom;
-        titreCatering = "SoliCatering du " + dateLivr;
+    public Panier() {
     }
-
     @Ignore/*to create panier on valider button click client view model*/
     public Panier(int idPanier, int idClientOwner, String nomPrenom, int etat,
                   int idMenu, float prix, int idPic, InformationLivraison informationLivraison) {
-        super(informationLivraison.dateLivr, informationLivraison.heurLivr,
-                informationLivraison.remarque, informationLivraison.nombre, informationLivraison.adresse);
         this.idPanier = idPanier;
         this.idClientOwner = idClientOwner;
         this.nomPrenom = nomPrenom;
@@ -51,10 +36,9 @@ public class Panier extends InformationLivraison {
         this.idMenu = idMenu;
         this.prix = prix;
         this.idPic = idPic;
-        titreCatering = "SoliCatering du " + dateLivr;
+        this.informationLivraison=informationLivraison;
     }
     //PROPRIETY
-
     public int getIdClientOwner() {
         return idClientOwner;
     }
@@ -96,7 +80,7 @@ public class Panier extends InformationLivraison {
     }
 
     public String getTitreCatering() {
-        return titreCatering;
+        return "SoliCatering du " + informationLivraison.dateLivr;
     }
 
     public String getNomPrenom() {
@@ -113,11 +97,19 @@ public class Panier extends InformationLivraison {
     }
 
     public String getNombreFormat() {
-        return nombre + " P";
+        return informationLivraison.nombre + " P";
     }
 
     public String getPrixTotalFormat() {
-        return prix * nombre + " CHF";
+        return prix * informationLivraison.nombre + " CHF";
+    }
+
+    public InformationLivraison getInformationLivraison() {
+        return informationLivraison;
+    }
+
+    public void setInformationLivraison(InformationLivraison informationLivraison) {
+        this.informationLivraison = informationLivraison;
     }
 
     //override equal and hash methode
@@ -127,11 +119,11 @@ public class Panier extends InformationLivraison {
         if (!(o instanceof Panier)) return false;
         if (!super.equals(o)) return false;
         Panier panier = (Panier) o;
-        return idClientOwner == panier.idClientOwner && etat == panier.etat && idMenu == panier.idMenu && Float.compare(panier.prix, prix) == 0 && idPic == panier.idPic && Objects.equals(nomPrenom, panier.nomPrenom) && Objects.equals(titreCatering, panier.titreCatering);
+        return idClientOwner == panier.idClientOwner && etat == panier.etat && idMenu == panier.idMenu && Float.compare(panier.prix, prix) == 0 && idPic == panier.idPic && Objects.equals(nomPrenom, panier.nomPrenom);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), idClientOwner, etat, idMenu, prix, idPic, nomPrenom, titreCatering);
+        return Objects.hash(super.hashCode(), idClientOwner, etat, idMenu, prix, idPic, nomPrenom);
     }
 }
