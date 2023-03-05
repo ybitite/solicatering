@@ -34,14 +34,14 @@ public class PanierListAdapter extends ListAdapter<PanierWithAarticlePanierAndPl
     private void deletePanier(RecyclerView.ViewHolder viewHolder) {
         //DELETE  PANIER FROM DATA BASE
         PanierRipository panierRipository = new PanierRipository(viewHolder.itemView.getContext());
-        panierRipository.deleteCurentPanier(getItem(viewHolder.getBindingAdapterPosition()).panier.idPanier);
+        panierRipository.deleteCurentPanier(getItem(viewHolder.getBindingAdapterPosition()).panier.getIdClientOwner());
     }
 
     /* IMPLEMENTATION OF DIFFUTIL, ITEMCALLBACK FOR CALCULATING THE DIFF BETWEEN TWO ITEMS IN A LIST*/
     public static class PanierDiff extends DiffUtil.ItemCallback<PanierWithAarticlePanierAndPlat> {
         @Override
         public boolean areItemsTheSame(@NonNull PanierWithAarticlePanierAndPlat oldItem, @NonNull PanierWithAarticlePanierAndPlat newItem) {
-            return oldItem.panier.idPanier == newItem.panier.idPanier;
+            return oldItem.panier.id == newItem.panier.id;
         }
 
         @Override

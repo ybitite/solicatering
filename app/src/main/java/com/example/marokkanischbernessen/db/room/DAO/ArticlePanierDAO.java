@@ -6,6 +6,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Transaction;
 
 import com.example.marokkanischbernessen.db.entity.ArticlePanier;
 import com.example.marokkanischbernessen.db.entity.ArticlePanierAndPlat;
@@ -19,6 +20,7 @@ public interface ArticlePanierDAO {
     abstract void insert(ArticlePanier articlePaniers);
 
     //SELECT ALL ARTICLEPANIER FROM ARTICLEPANIERS TABLE
+    @Transaction
     @Query("SELECT * FROM articlepaniers WHERE idPanier LIKE :idPanier ")
     LiveData<List<ArticlePanierAndPlat>> getAllArticlePanierWithPlat(int idPanier);
 

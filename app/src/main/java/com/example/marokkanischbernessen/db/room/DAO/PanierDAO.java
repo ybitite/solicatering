@@ -30,7 +30,7 @@ public interface PanierDAO {
     LiveData<List<PanierWithAarticlePanierAndPlat>> getAllPanierWithArticlePanier();
 
     //DELETE CURENT  PANIER
-    @Query("DELETE FROM paniers WHERE idPanier LIKE :idPanier")
+    @Query("DELETE FROM paniers WHERE id LIKE :idPanier")
     void deleteCurentPanier(int idPanier);
 
 }

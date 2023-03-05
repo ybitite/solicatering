@@ -18,6 +18,7 @@ import com.example.marokkanischbernessen.R;
 import com.example.marokkanischbernessen.databinding.ModelPanierBinding;
 import com.example.marokkanischbernessen.db.entity.ArticlePanierAndPlat;
 import com.example.marokkanischbernessen.db.entity.PanierWithAarticlePanierAndPlat;
+import com.example.marokkanischbernessen.utile.Helper;
 
 import java.util.List;
 
@@ -57,7 +58,7 @@ public class PanierHolder extends RecyclerView.ViewHolder implements ItemClickLi
     public void bind(PanierWithAarticlePanierAndPlat panierWithAarticlePanierAndPlat) {
         //push data to actualise ui
         binding.setPanier(panierWithAarticlePanierAndPlat.panier);
-        binding.imageViewMenuP.setImageResource(panierWithAarticlePanierAndPlat.panier.getIdPic());
+        binding.imageViewMenuP.setImageResource(Helper.idResource(panierWithAarticlePanierAndPlat.panier.getNomPic()));
 
         //bind imbricated recycle view
         bindSecondRecycleView(panierWithAarticlePanierAndPlat.listArticlePanierAndPlat);

@@ -2,40 +2,41 @@ package com.example.marokkanischbernessen.db.entity;
 
 import androidx.room.Embedded;
 import androidx.room.Entity;
-import androidx.room.Ignore;
-import androidx.room.PrimaryKey;
 
 import java.util.Objects;
 
-@Entity(tableName = "paniers")
-public class Panier {
+/**
+*  nom prenom et prix sont enregistré directement sur cette table d'historique
+* 1 pour iviter une 4eme et 5eme relation lors de la création de liste d 'object pour
+* remplir la rv de panier
+* 2 a fin de ne pas créer de dépendence dans la table de menu lors de son update
+* la minorité de la tail des donnée genéerer
+*
+* */
 
-    //FIELD
-    @PrimaryKey
-    public int idPanier;
+@Entity(tableName = "paniers")
+public class Panier extends Entite{
     int idClientOwner;
-    int etat;
+    String nomPrenom;
     int idMenu;
     float prix;
-    int idPic;
-    String nomPrenom;
-
+    int etat;
     @Embedded
     InformationLivraison informationLivraison;
 
     //CONSTRUCTOR
     public Panier() {
+        super();
     }
-    @Ignore/*to create panier on valider button click client view model*/
     public Panier(int idPanier, int idClientOwner, String nomPrenom, int etat,
-                  int idMenu, float prix, int idPic, InformationLivraison informationLivraison) {
-        this.idPanier = idPanier;
+                  int idMenu, float prix, String nomPic, InformationLivraison informationLivraison) {
+        super("","",0,nomPic);
+        this.id = idPanier;
         this.idClientOwner = idClientOwner;
         this.nomPrenom = nomPrenom;
         this.etat = etat;
         this.idMenu = idMenu;
         this.prix = prix;
-        this.idPic = idPic;
         this.informationLivraison=informationLivraison;
     }
     //PROPRIETY
@@ -71,16 +72,8 @@ public class Panier {
         this.prix = prix;
     }
 
-    public int getIdPic() {
-        return idPic;
-    }
-
-    public void setIdPic(int idPic) {
-        this.idPic = idPic;
-    }
-
     public String getTitreCatering() {
-        return "SoliCatering du " + informationLivraison.dateLivr;
+        return "SoliCatering du " + informationLivraison.getDateLivr();
     }
 
     public String getNomPrenom() {
@@ -119,11 +112,11 @@ public class Panier {
         if (!(o instanceof Panier)) return false;
         if (!super.equals(o)) return false;
         Panier panier = (Panier) o;
-        return idClientOwner == panier.idClientOwner && etat == panier.etat && idMenu == panier.idMenu && Float.compare(panier.prix, prix) == 0 && idPic == panier.idPic && Objects.equals(nomPrenom, panier.nomPrenom);
+        return idClientOwner == panier.idClientOwner && etat == panier.etat && idMenu == panier.idMenu && Float.compare(panier.prix, prix) == 0 && Objects.equals(nomPrenom, panier.nomPrenom);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), idClientOwner, etat, idMenu, prix, idPic, nomPrenom);
+        return Objects.hash(super.hashCode(), idClientOwner, etat, idMenu, prix, nomPrenom);
     }
 }

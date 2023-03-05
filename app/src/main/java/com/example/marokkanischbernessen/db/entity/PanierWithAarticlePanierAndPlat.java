@@ -17,7 +17,7 @@ public class PanierWithAarticlePanierAndPlat {
     public Panier panier;
     @Relation(
             entity = ArticlePanier.class,
-            parentColumn = ("idPanier"),
+            parentColumn = ("id"),
             entityColumn = ("idPanier")
     )
     public List<ArticlePanierAndPlat> listArticlePanierAndPlat;

@@ -9,12 +9,16 @@ public class Entite {
     //FIELDs
     @PrimaryKey(autoGenerate = true)
     public int id;
-    final String nom;
-    final String discription;
-    final int idPic;
-    final String nomPic;
+    String nom;
+    String discription;
+    int idPic;
+    String nomPic;
 
     //CONSTRUCTOR
+    public Entite(){
+
+    }
+
     public Entite(String nom, String discription, int idPic, String nomPic) {
         this.nom = nom;
         this.discription=discription;
@@ -47,6 +51,21 @@ public class Entite {
         return nomPic;
     }
 
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setDiscription(String discription) {
+        this.discription = discription;
+    }
+
+    public void setIdPic(int idPic) {
+        this.idPic = idPic;
+    }
+
+    public void setNomPic(String nomPic) {
+        this.nomPic = nomPic;
+    }
 
     //OVERRIDE METHODE EQUALS TO COMPARE OBJECT
     @Override
