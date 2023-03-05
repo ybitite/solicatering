@@ -41,7 +41,7 @@ public class PanierListAdapter extends ListAdapter<PanierWithAarticlePanierAndPl
     public static class PanierDiff extends DiffUtil.ItemCallback<PanierWithAarticlePanierAndPlat> {
         @Override
         public boolean areItemsTheSame(@NonNull PanierWithAarticlePanierAndPlat oldItem, @NonNull PanierWithAarticlePanierAndPlat newItem) {
-            return oldItem.panier.id == newItem.panier.id;
+            return oldItem.panier.getId() == newItem.panier.getId();
         }
 
         @Override

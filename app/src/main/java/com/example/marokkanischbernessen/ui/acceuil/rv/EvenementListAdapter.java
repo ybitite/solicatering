@@ -34,7 +34,7 @@ public class EvenementListAdapter extends ListAdapter<Evenement, EvenementHolder
 
         @Override
         public boolean areItemsTheSame(@NonNull Evenement oldItem, @NonNull Evenement newItem) {
-            return oldItem.id == newItem.id;
+            return oldItem.getId() == newItem.getId();
         }
 
         @Override

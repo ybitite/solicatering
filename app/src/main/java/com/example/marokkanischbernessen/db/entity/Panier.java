@@ -2,6 +2,7 @@ package com.example.marokkanischbernessen.db.entity;
 
 import androidx.room.Embedded;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 
 import java.util.Objects;
 
@@ -16,22 +17,31 @@ import java.util.Objects;
 
 @Entity(tableName = "paniers")
 public class Panier extends Entite{
-    int idClientOwner;
-    String nomPrenom;
-    int idMenu;
-    float prix;
-    int etat;
+    final int idClientOwner;
+    final String nomPrenom;
+    final int idMenu;
+    final float prix;
+    final int etat;
     @Embedded
     InformationLivraison informationLivraison;
 
     //CONSTRUCTOR
-    public Panier() {
-        super();
+    //to keep acces from room
+
+    public Panier(int id, String nom, String discription, int idPic, String nomPic, int idClientOwner, String nomPrenom, int idMenu, float prix, int etat, InformationLivraison informationLivraison) {
+        super(id, nom, discription, idPic, nomPic);
+        this.idClientOwner = idClientOwner;
+        this.nomPrenom = nomPrenom;
+        this.idMenu = idMenu;
+        this.prix = prix;
+        this.etat = etat;
+        this.informationLivraison = informationLivraison;
     }
-    public Panier(int idPanier, int idClientOwner, String nomPrenom, int etat,
-                  int idMenu, float prix, String nomPic, InformationLivraison informationLivraison) {
-        super("","",0,nomPic);
-        this.id = idPanier;
+
+    //to create from object from code
+    @Ignore
+    public Panier(int idPanier, int idClientOwner, String nomPrenom, int etat, int idMenu, float prix, String nomPic, InformationLivraison informationLivraison) {
+        super(idPanier,"","",0,nomPic);
         this.idClientOwner = idClientOwner;
         this.nomPrenom = nomPrenom;
         this.etat = etat;
@@ -44,65 +54,33 @@ public class Panier extends Entite{
         return idClientOwner;
     }
 
-    public void setIdClientOwner(int idClientOwner) {
-        this.idClientOwner = idClientOwner;
-    }
-
     public int getEtat() {
         return etat;
-    }
-
-    public void setEtat(int etat) {
-        this.etat = etat;
     }
 
     public int getIdMenu() {
         return idMenu;
     }
 
-    public void setIdMenu(int idMenu) {
-        this.idMenu = idMenu;
-    }
-
     public float getPrix() {
         return prix;
     }
 
-    public void setPrix(float prix) {
-        this.prix = prix;
-    }
-
-    public String getTitreCatering() {
-        return "SoliCatering du " + informationLivraison.getDateLivr();
-    }
 
     public String getNomPrenom() {
         return nomPrenom;
     }
 
-    public void setNomPrenom(String nomPrenom) {
-        this.nomPrenom = nomPrenom;
-    }
-
-    //Methode to return  the format correct for the ui control
     public String getPrixFormat() {
         return prix + " CHF";
     }
 
-    public String getNombreFormat() {
-        return informationLivraison.nombre + " P";
-    }
-
     public String getPrixTotalFormat() {
-        return prix * informationLivraison.nombre + " CHF";
+        return prix * informationLivraison.getNombre() + " CHF";
     }
 
     public InformationLivraison getInformationLivraison() {
         return informationLivraison;
-    }
-
-    public void setInformationLivraison(InformationLivraison informationLivraison) {
-        this.informationLivraison = informationLivraison;
     }
 
     //override equal and hash methode
@@ -112,11 +90,11 @@ public class Panier extends Entite{
         if (!(o instanceof Panier)) return false;
         if (!super.equals(o)) return false;
         Panier panier = (Panier) o;
-        return idClientOwner == panier.idClientOwner && etat == panier.etat && idMenu == panier.idMenu && Float.compare(panier.prix, prix) == 0 && Objects.equals(nomPrenom, panier.nomPrenom);
+        return idClientOwner == panier.idClientOwner && idMenu == panier.idMenu && Float.compare(panier.prix, prix) == 0 && etat == panier.etat && Objects.equals(nomPrenom, panier.nomPrenom) && Objects.equals(informationLivraison, panier.informationLivraison);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), idClientOwner, etat, idMenu, prix, nomPrenom);
+        return Objects.hash(super.hashCode(), idClientOwner, nomPrenom, idMenu, prix, etat, informationLivraison);
     }
 }

@@ -32,7 +32,7 @@ public class MenuListAdapter extends ListAdapter<Menu, MenuHolder> {
 
         @Override
         public boolean areItemsTheSame(@NonNull Menu oldItem, @NonNull Menu newItem) {
-            return oldItem.id == newItem.id;
+            return oldItem.getId() == newItem.getId();
         }
 
         @Override

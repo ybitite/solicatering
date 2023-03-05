@@ -7,28 +7,29 @@ import java.util.Objects;
 @Entity(tableName = "plats")
 public class Plat extends Entite {
 
-    //FIELDs
-    final int point;
-    final int degureEpice;
-    final int tempsEnJour;
-    final float prix;
-    final String type;
-    final String vegui;
+    //FIELD
+    private final int point;
+    private final int degureEpice;
+    private final int tempsEnJour;
+    private final float prix;
+    private final String type;
+    private final String vegui;
 
     //CONSTRUCTOR
-    public Plat(String nom, String discription, int point, float prix, String type, String vegui,
-                int degureEpice, int tempsEnJour, String nomPic, int idPic) {
-        super(nom,discription,idPic,nomPic);
+
+    public Plat(int id, String nom, String discription, int idPic, String nomPic, int point, int degureEpice, int tempsEnJour, float prix, String type, String vegui) {
+        super(id, nom, discription, idPic, nomPic);
         this.point = point;
         this.degureEpice = degureEpice;
+        this.tempsEnJour = tempsEnJour;
         this.prix = prix;
         this.type = type;
-        this.tempsEnJour = tempsEnJour;
         this.vegui = vegui;
     }
-   //Propriety for binding
+
+    //Propriety for binding
     public String getPointString(){
-        return String.valueOf(point) + " P";
+        return point + "P";
     }
 
     //PROPRIETY
@@ -48,7 +49,7 @@ public class Plat extends Entite {
         return type;
     }
 
-    public int tempsEnJour() {
+    public int getTempsEnJour() {
         return tempsEnJour;
     }
 
@@ -60,13 +61,14 @@ public class Plat extends Entite {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Plat)) return false;
+        if (!super.equals(o)) return false;
         Plat plat = (Plat) o;
         return point == plat.point && degureEpice == plat.degureEpice && tempsEnJour == plat.tempsEnJour && Float.compare(plat.prix, prix) == 0 && Objects.equals(type, plat.type) && Objects.equals(vegui, plat.vegui);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(point, degureEpice, tempsEnJour, prix, type, vegui);
+        return Objects.hash(super.hashCode(), point, degureEpice, tempsEnJour, prix, type, vegui);
     }
 }

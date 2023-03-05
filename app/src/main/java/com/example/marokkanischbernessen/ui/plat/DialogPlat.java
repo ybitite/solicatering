@@ -214,7 +214,7 @@ public class DialogPlat extends DialogFragment {
             int idPanier = ConteurRipository.getIdPanier();
 
             //CREATE NEW ARTICLE PANIER or UPDATE it
-            ArticlePanier articlePanier = new ArticlePanier(idPanier, plat.id, nbrPlat);
+            ArticlePanier articlePanier = new ArticlePanier(idPanier, plat.getId(), nbrPlat);
             //update if excite or create a new article panier
             if (articlePanierRipository.finArticlePanier(articlePanier))
                 articlePanierRipository.updateArticlePanier(articlePanier, nbrPlat);

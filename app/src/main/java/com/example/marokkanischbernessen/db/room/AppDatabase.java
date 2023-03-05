@@ -83,52 +83,52 @@ public abstract class AppDatabase extends RoomDatabase {
                 ClientDAO clientDAO = INSTANCE.clientDAO();
                 // dao.deleateall();
 
-                Evenement evenement = new Evenement("Cabane B","\n" +
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.","17.05.2022",30,0,"cabaneb");
-                evenementDAO.insert(evenement);
-
-                evenement = new Evenement("Summer Academy","\n" +
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.","03.08.2022",40,0,"hanna");
-                evenementDAO.insert(evenement);
-
-                evenement = new Evenement("Summer Academy","\n" +
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.","03.08.2022",40,0,"hanna");
-                evenementDAO.insert(evenement);
-
-
-                Menu menu=new Menu("Menu Royale","idéal pour vos mariage et vos batéme ...",30.0f,20,0,
-                        "*Le menu doit etre commander 72h à l’avance","menu_royale");
-                menuDAO.insert(menu);
-
-                menu=new Menu("Menu Gourmant","Le menu parfet porfet pour vos invitaion et vos fetes...",25.0f,5,0,
-                        "**Le menu doit etre commander 48h à l’avance","menu_gourmant");
-                menuDAO.insert(menu);
-                menu=new Menu("Menu Gourmant","Le menu parfet porfet pour vos invitaion et vos fetes...",20.0f,15,0,
-                        "**Le menu doit etre commander 48h à l’avance","menu_gourmant");
-                menuDAO.insert(menu);
-
-                Categorie categorie=new Categorie("Plats du Chef","Les meilleurs plats proposé par vos chefs ...",7,0,"cat_plat_chef");
-                categorieDAO.insert(categorie);
-                categorie=new Categorie("Plats du Chef","Les meilleurs plats proposé par vos chefs ...",5,0,"cat_plat_chef");
-                categorieDAO.insert(categorie);
-                categorie=new Categorie("Plats du Chef","Les meilleurs plats proposé par vos chefs ...",3,0,"cat_plat_chef");
-                categorieDAO.insert(categorie);
-                categorie=new Categorie("Plats du Chef","Les meilleurs plats proposé par vos chefs ...",4,0,"cat_plat_chef");
-                categorieDAO.insert(categorie);
-                Plat plat=new Plat("Tajine au prune  ","",7,30.0f,"tajine","n",2,2,"tpruneau",0);
-                platDAO.insert(plat);
-                plat=new Plat("Couscous 7 legumes    ","  Couscous aux septs legumes est un couscous traditionel marocain qui se fait depuis des generations.\n" +
-                        "  Il comporte sept légumes : \n" +
-                        "  les tomates, courgettes, navets, carottes, potiron, chou, aubergines \n" +
-                        "  (les légumes peuvent varier). \n" +
-                        "  Ce couscous est assaisoné avec de persil, de lacoriande, de l'ail et un mélanger d'épices que vous pouvez trouvez sur l'épecerie.",5,25.0f,"couscous","o",1,1,"c7legume",0);
-                platDAO.insert(plat);
-                plat=new Plat("Courget farssi","",3,15.0f,"diversplatschaud","n",1,1,"ptcourget",0);
-                platDAO.insert(plat);
-                plat=new Plat("Tomat farssi","",4,15.0f,"diversplatschaud","n",1,1,"ptcourget",0);
-                platDAO.insert(plat);
-                plat=new Plat("Aubergine farssi","",3,15.0f,"diversplatschaud","n",1,1,"ptcourget",0);
-                platDAO.insert(plat);
+//                Evenement evenement = new Evenement("Cabane B","\n" +
+//                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.","17.05.2022",30,0,"cabaneb");
+//                evenementDAO.insert(evenement);
+//
+//                evenement = new Evenement("Summer Academy","\n" +
+//                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.","03.08.2022",40,0,"hanna");
+//                evenementDAO.insert(evenement);
+//
+//                evenement = new Evenement("Summer Academy","\n" +
+//                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.","03.08.2022",40,0,"hanna");
+//                evenementDAO.insert(evenement);
+//
+//
+//                Menu menu=new Menu("Menu Royale","idéal pour vos mariage et vos batéme ...",30.0f,20,0,
+//                        "*Le menu doit etre commander 72h à l’avance","menu_royale");
+//                menuDAO.insert(menu);
+//
+//                menu=new Menu("Menu Gourmant","Le menu parfet porfet pour vos invitaion et vos fetes...",25.0f,5,0,
+//                        "**Le menu doit etre commander 48h à l’avance","menu_gourmant");
+//                menuDAO.insert(menu);
+//                menu=new Menu("Menu Gourmant","Le menu parfet porfet pour vos invitaion et vos fetes...",20.0f,15,0,
+//                        "**Le menu doit etre commander 48h à l’avance","menu_gourmant");
+//                menuDAO.insert(menu);
+//
+//                Categorie categorie=new Categorie("Plats du Chef","Les meilleurs plats proposé par vos chefs ...",7,0,"cat_plat_chef");
+//                categorieDAO.insert(categorie);
+//                categorie=new Categorie("Plats du Chef","Les meilleurs plats proposé par vos chefs ...",5,0,"cat_plat_chef");
+//                categorieDAO.insert(categorie);
+//                categorie=new Categorie("Plats du Chef","Les meilleurs plats proposé par vos chefs ...",3,0,"cat_plat_chef");
+//                categorieDAO.insert(categorie);
+//                categorie=new Categorie("Plats du Chef","Les meilleurs plats proposé par vos chefs ...",4,0,"cat_plat_chef");
+//                categorieDAO.insert(categorie);
+//                Plat plat=new Plat("Tajine au prune  ","",7,30.0f,"tajine","n",2,2,"tpruneau",0);
+//                platDAO.insert(plat);
+//                plat=new Plat("Couscous 7 legumes    ","  Couscous aux septs legumes est un couscous traditionel marocain qui se fait depuis des generations.\n" +
+//                        "  Il comporte sept légumes : \n" +
+//                        "  les tomates, courgettes, navets, carottes, potiron, chou, aubergines \n" +
+//                        "  (les légumes peuvent varier). \n" +
+//                        "  Ce couscous est assaisoné avec de persil, de lacoriande, de l'ail et un mélanger d'épices que vous pouvez trouvez sur l'épecerie.",5,25.0f,"couscous","o",1,1,"c7legume",0);
+//                platDAO.insert(plat);
+//                plat=new Plat("Courget farssi","",3,15.0f,"diversplatschaud","n",1,1,"ptcourget",0);
+//                platDAO.insert(plat);
+//                plat=new Plat("Tomat farssi","",4,15.0f,"diversplatschaud","n",1,1,"ptcourget",0);
+//                platDAO.insert(plat);
+//                plat=new Plat("Aubergine farssi","",3,15.0f,"diversplatschaud","n",1,1,"ptcourget",0);
+//                platDAO.insert(plat);
 
             });
         }

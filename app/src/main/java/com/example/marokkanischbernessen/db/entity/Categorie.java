@@ -8,12 +8,12 @@ import java.util.Objects;
 
 @Entity(tableName = "categories")
 public class Categorie extends Entite {
-    //FIELDs
-    final int point;
+    //FIELD
+    private final int point;
 
     //CONTRUCTOR
-    public Categorie(String nom, String discription, int point, int idPic, String nomPic) {
-        super(nom,discription,idPic,nomPic);
+    public Categorie(int id, String nom, String discription, int idPic, String nomPic, int point) {
+        super(id, nom, discription, idPic, nomPic);
         this.point = point;
     }
 
@@ -26,13 +26,14 @@ public class Categorie extends Entite {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Categorie)) return false;
+        if (!super.equals(o)) return false;
         Categorie categorie = (Categorie) o;
         return point == categorie.point;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(point);
+        return Objects.hash(super.hashCode(), point);
     }
 }

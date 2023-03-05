@@ -2,24 +2,41 @@ package com.example.marokkanischbernessen.db.entity;
 
 import androidx.databinding.Bindable;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import com.example.marokkanischbernessen.BR;
 import com.example.marokkanischbernessen.utile.ExpressionValidateur;
 import com.example.marokkanischbernessen.utile.FormulaireEtat;
 
+import java.util.Objects;
+
 @Entity(tableName = "clients")
 public class Client extends FormulaireEtat {
 
     //FIELD
     @PrimaryKey()
-    public int idClient;
+    private int idClient;
     private String nom;
     private String prenom;
     private String email;
     private String numTel;
 
+    //Constructor
+    public Client(int idClient, String nom, String prenom, String email, String numTel) {
+        this.idClient = idClient;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.numTel = numTel;
+    }
+    //to instantiate object for binding
+    @Ignore
+    public Client() {
+    }
+
     //PROPRIETY
+    //*PROPRIETY FOR BINDING PARAMS AND RETURN STRING*/
     @Bindable
     public String getNom() {
         return nom;
@@ -29,6 +46,7 @@ public class Client extends FormulaireEtat {
         if (NOM_OK = ExpressionValidateur.validNom(nom))
             notifyPropertyChanged(BR.nom);
         this.nom = nom;
+        Entite e =new Entite(1,"","",1,"");
     }
     @Bindable
     public String getPrenom() {
@@ -58,9 +76,23 @@ public class Client extends FormulaireEtat {
             notifyPropertyChanged(BR.numTel);
         this.numTel = numTel;
     }
-
+    /*FOR DAO AND NORMAL ACCESS*/
+    public int getIdClient() {
+        return idClient;
+    }
     public String getNomPrenom() {
         return getNom().toUpperCase() + " " + getPrenom();
     }
-
+    /*EQUAL ET HASH METHODE*/
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return idClient == client.idClient && Objects.equals(nom, client.nom) && Objects.equals(prenom, client.prenom) && Objects.equals(email, client.email) && Objects.equals(numTel, client.numTel);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(idClient, nom, prenom, email, numTel);
+    }
 }

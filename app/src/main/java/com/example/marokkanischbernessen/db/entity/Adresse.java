@@ -1,11 +1,14 @@
 package com.example.marokkanischbernessen.db.entity;
 
 import androidx.databinding.Bindable;
+import androidx.room.Ignore;
 
 
 import com.example.marokkanischbernessen.BR;
 import com.example.marokkanischbernessen.utile.ExpressionValidateur;
 import com.example.marokkanischbernessen.utile.FormulaireEtat;
+
+import java.util.Objects;
 
 public class Adresse extends FormulaireEtat {
     //field
@@ -14,7 +17,20 @@ public class Adresse extends FormulaireEtat {
     private int codePostal;
     private String ville;
 
+    //Constructor
+    public Adresse(String rue, int numeroRue, int codePostal, String ville) {
+        this.rue = rue;
+        this.numeroRue = numeroRue;
+        this.codePostal = codePostal;
+        this.ville = ville;
+    }
+    //to instantiate object for binding
+    @Ignore
+    public Adresse() {
+    }
+
     //PROPRIETY
+    //*PROPRIETY FOR BINDING PARAMS AND RETURN STRING*/
     @Bindable
     public String getRue() {
         return rue;
@@ -24,7 +40,7 @@ public class Adresse extends FormulaireEtat {
             notifyPropertyChanged(BR.rue);
         this.rue = rue;
     }
-    @Bindable/*PROPRIETY FOR BINDING PARAMS AND RETURN STRING TO NOT USING CONVERTER*/
+    @Bindable
     public String getNumeroRueString() {
         if (numeroRue == 0) return "";
         else return String.valueOf(numeroRue);
@@ -36,15 +52,7 @@ public class Adresse extends FormulaireEtat {
             notifyPropertyChanged(BR.numeroRueString);
         }
     }
-
-    /*FOR DAO AND NORMAL ACCESS*/
-    public int getNumeroRue() {
-        return numeroRue;
-    }
-    public void setNumeroRue(int numeroRue) {
-        this.numeroRue = numeroRue;
-    }
-    @Bindable/*PROPRIETY FOR BINDING PARAMS AND RETURN STRING*/
+    @Bindable
     public String getCodePostalString() {
         if (codePostal == 0) return "";
         else return String.valueOf(codePostal);
@@ -54,14 +62,6 @@ public class Adresse extends FormulaireEtat {
             this.codePostal = Integer.parseInt(codePostal);
             notifyPropertyChanged(BR.codePostalString);
         }
-    }
-
-    /*FOR DAO AND NORMAL ACCESS*/
-    public int getCodePostal() {
-        return codePostal;
-    }
-    public void setCodePostal(int codePostal) {
-        this.codePostal = codePostal;
     }
     @Bindable
     public String getVille() {
@@ -75,5 +75,26 @@ public class Adresse extends FormulaireEtat {
     @Bindable
     public String getCompletAdresse() {
         return rue + " " + numeroRue + ", " + codePostal + " " + ville + ".";
+    }
+    /*FOR DAO AND NORMAL ACCESS*/
+    public int getNumeroRue() {
+        return numeroRue;
+    }
+    public int getCodePostal() {
+        return codePostal;
+    }
+
+    /*EQUAL ET HASH METHODE*/
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Adresse adresse = (Adresse) o;
+        return numeroRue == adresse.numeroRue && codePostal == adresse.codePostal && Objects.equals(rue, adresse.rue) && Objects.equals(ville, adresse.ville);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(rue, numeroRue, codePostal, ville);
     }
 }

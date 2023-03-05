@@ -37,7 +37,7 @@ public class PlatsListAdapter extends ListAdapter<Plat, PlatsHolder> {
 
         @Override
         public boolean areItemsTheSame(@NonNull Plat oldItem, @NonNull Plat newItem) {
-            return oldItem.id == newItem.id;
+            return oldItem.getId() == newItem.getId();
         }
 
         @Override

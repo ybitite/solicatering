@@ -2,6 +2,7 @@ package com.example.marokkanischbernessen.db.entity;
 
 import androidx.databinding.Bindable;
 import androidx.room.Embedded;
+import androidx.room.Ignore;
 
 import com.example.marokkanischbernessen.BR;
 import com.example.marokkanischbernessen.utile.ExpressionValidateur;
@@ -11,19 +12,30 @@ import java.util.Objects;
 
 public class InformationLivraison extends FormulaireEtat {
     //field
-    protected String dateLivr;
-    protected String heurLivr;
-    protected String remarque;
-    protected short nombre;
+    private String dateLivr;
+    private String heurLivr;
+    private String remarque;
+    private short nombre;
     @Embedded
     protected Adresse adresse;
 
     //constructor
+    public InformationLivraison(String dateLivr, String heurLivr, String remarque, short nombre, Adresse adresse) {
+        this.dateLivr = dateLivr;
+        this.heurLivr = heurLivr;
+        this.remarque = remarque;
+        this.nombre = nombre;
+        this.adresse = adresse;
+    }
+
+    //to instantiate object for binding
+    @Ignore
     public InformationLivraison() {
         adresse = new Adresse();
     }
 
     //PROPRIETY
+    /*PROPRIETY FOR BINDING PARAMS AND RETURN STRING*/
     @Bindable
     public String getDateLivr() {
         return dateLivr;
@@ -57,7 +69,7 @@ public class InformationLivraison extends FormulaireEtat {
         this.remarque = remarque;
     }
 
-    @Bindable/*PROPRIETY FOR BINDING PARAMS AND RETURN STRING*/
+    @Bindable
     public String getNombreString() {
         if (nombre == 0) return "";
         return String.valueOf(nombre);
@@ -69,38 +81,34 @@ public class InformationLivraison extends FormulaireEtat {
             notifyPropertyChanged(BR.nombreString);
         }
     }
+    @Bindable
+    public String getDateHeure() {
+        return dateLivr + " - " + heurLivr;
+    }
 
     /*FOR DAO AND NORMAL ACCESS*/
     public short getNombre() {
         return nombre;
     }
 
-    public void setNombre(short nombre) {
-        this.nombre = nombre;
-    }
-    @Bindable
-    public String getDateHeure() {
-        return dateLivr + " - " + heurLivr;
-    }
-
-    //to access to address object
     public Adresse getAdresse() {
         return adresse;
     }
 
-    public void setAdresse(Adresse adresse) {
-        this.adresse = adresse;
+    public String getNombreFormat() {
+        return nombre + " P";
     }
 
-    public String getNombreFormat() {
-        return getNombreString() + " P";
+    public String getTitreCatering() {
+        return "SoliCatering du " + dateLivr;
     }
 
     /*EQUAL ET HASH METHODE*/
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof InformationLivraison)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         InformationLivraison that = (InformationLivraison) o;
         return nombre == that.nombre && Objects.equals(dateLivr, that.dateLivr) && Objects.equals(heurLivr, that.heurLivr) && Objects.equals(remarque, that.remarque) && Objects.equals(adresse, that.adresse);
     }

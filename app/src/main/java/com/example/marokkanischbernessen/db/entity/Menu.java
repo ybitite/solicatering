@@ -4,17 +4,16 @@ import java.util.Objects;
 
 @androidx.room.Entity(tableName = "menus")
 public class Menu extends Entite {
-    //FIELDs
-    final int point;
-    final float prix;
-    final String info;
+    //FIELD
+    private final int point;
+    private final float prix;
+    private final String info;
 
     //CONSTRUCTOR
-    public Menu(String nom, String discription, float prix, int point, int idPic, String info, String nomPic) {
-        super(nom,discription,idPic,nomPic);
-
-        this.prix = prix;
+    public Menu(int id, String nom, String discription, int idPic, String nomPic, int point, float prix, String info) {
+        super(id, nom, discription, idPic, nomPic);
         this.point = point;
+        this.prix = prix;
         this.info = info;
     }
 
@@ -35,7 +34,7 @@ public class Menu extends Entite {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Menu)) return false;
         if (!super.equals(o)) return false;
         Menu menu = (Menu) o;
         return point == menu.point && Float.compare(menu.prix, prix) == 0 && Objects.equals(info, menu.info);

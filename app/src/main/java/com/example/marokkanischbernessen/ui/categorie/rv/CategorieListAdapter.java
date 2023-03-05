@@ -33,7 +33,7 @@ public class CategorieListAdapter extends ListAdapter<Categorie, CategorieHolder
 
         @Override
         public boolean areItemsTheSame(@NonNull Categorie oldItem, @NonNull Categorie newItem) {
-            return oldItem.id == newItem.id;
+            return oldItem.getId() == newItem.getId();
         }
 
         @Override
