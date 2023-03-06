@@ -7,19 +7,19 @@
 
         <variable
             name="viewModel"
-            type="com.example.marokkanischbernessen.ui.client.ClientViewModel" />
+            type="website.livingRoom.soliCatering.ui.client.ClientViewModel" />
 
         <variable
             name="dialogClient"
-            type="DialogClient" />
+            type="website.livingRoom.soliCatering.ui.client.DialogClient" />
 
-        <import type="com.example.marokkanischbernessen.ui.client.DialogClient"></import>
+        <import type="website.livingRoom.soliCatering.ui.client.DialogClient"></import>
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.client.DialogClient">
+        tools:context="website.livingRoom.soliCatering.ui.client.DialogClient">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewViewClient"

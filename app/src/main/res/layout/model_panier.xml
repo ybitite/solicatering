@@ -6,7 +6,7 @@
 
         <variable
             name="panier"
-            type="com.example.marokkanischbernessen.db.entity.Panier" />
+            type="website.livingRoom.soliCatering.db.entitys.Panier" />
         <import type="android.view.View" />
     </data>
 

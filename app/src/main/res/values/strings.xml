@@ -34,7 +34,7 @@
     <string name="bt_valider_cmd" translatable="false">Valider la commande</string>
 
     <!-- shared preferences-->
-    <string name="conteur_file_name" translatable="false">com.example.marokkanischbernesse.PREFERENCE_FILE_KEY_CONTEUR</string>
+    <string name="conteur_file_name" translatable="false">website.livingRoom.marokkanischbernesse.PREFERENCE_FILE_KEY_CONTEUR</string>
 
     <!-- label-->
     <string name="label_nom" translatable="false">Nom</string>

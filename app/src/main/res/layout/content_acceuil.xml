@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
 
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="ui.acceuil.AccueilFragment"
+    tools:context="website.livingRoom.soliCatering.ui.acceuil.AccueilFragment"
     tools:showIn="@layout/fragment_acceuil">
 
 

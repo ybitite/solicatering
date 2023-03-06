@@ -6,7 +6,7 @@
 
         <variable
             name="articlePanierAndPlat"
-            type="com.example.marokkanischbernessen.db.entity.ArticlePanierAndPlat" />
+            type="website.livingRoom.soliCatering.db.entitys.ArticlePanierAndPlat" />
     </data>
 
     <LinearLayout

@@ -7,11 +7,11 @@
 
         <variable
             name="conteur"
-            type="com.example.marokkanischbernessen.db.entity.Conteur" />
+            type="website.livingRoom.soliCatering.db.entitys.Conteur" />
 
         <variable
             name="mainActivity"
-            type="com.example.marokkanischbernessen.MainActivity" />
+            type="website.livingRoom.soliCatering.MainActivity" />
 
     </data>
 

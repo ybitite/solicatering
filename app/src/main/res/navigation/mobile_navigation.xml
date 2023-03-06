@@ -7,7 +7,7 @@
     <!-- aceuille -->
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.marokkanischbernessen.ui.acceuil.AccueilFragment"
+        android:name="website.livingRoom.soliCatering.ui.acceuil.AccueilFragment"
         android:label="@string/title_acceuil"
         tools:layout="@layout/fragment_acceuil">
         <action
@@ -17,7 +17,7 @@
     <!-- menu -->
     <fragment
         android:id="@+id/navigation_menu"
-        android:name="com.example.marokkanischbernessen.ui.Menu.MenuFragment"
+        android:name="website.livingRoom.soliCatering.ui.Menu.MenuFragment"
         android:label="@string/title_commander"
         tools:layout="@layout/fragment_menu">
         <action
@@ -27,7 +27,7 @@
     <!-- categorie -->
     <fragment
         android:id="@+id/navigation_categorie"
-        android:name="com.example.marokkanischbernessen.ui.categorie.CategorieFragment"
+        android:name="website.livingRoom.soliCatering.ui.categorie.CategorieFragment"
         android:label="categorie"
         tools:layout="@layout/fragment_categorie">
         <action
@@ -37,7 +37,7 @@
     <!-- plat -->
     <fragment
         android:id="@+id/navigation_plat"
-        android:name="com.example.marokkanischbernessen.ui.plat.PlatFragment"
+        android:name="website.livingRoom.soliCatering.ui.plat.PlatFragment"
         android:label="plat"
         tools:layout="@layout/fragment_plat">
         <action
@@ -47,7 +47,7 @@
     <!-- panier -->
     <fragment
         android:id="@+id/navigation_panier"
-        android:name="com.example.marokkanischbernessen.ui.panier.PanierFragment"
+        android:name="website.livingRoom.soliCatering.ui.panier.PanierFragment"
         android:label="@string/title_panier"
         tools:layout="@layout/fragment_panier">
         <action
@@ -57,7 +57,7 @@
     <!-- dialog plat -->
     <dialog
         android:id="@+id/dialogPlat"
-        android:name="com.example.marokkanischbernessen.ui.plat.DialogPlat"
+        android:name="website.livingRoom.soliCatering.ui.plat.DialogPlat"
         android:label="DialogPlat"
         tools:layout="@layout/view_plats">
         <action
@@ -74,7 +74,7 @@
     </dialog>
     <dialog
         android:id="@+id/dialogClient"
-        android:name="com.example.marokkanischbernessen.ui.client.DialogClient"
+        android:name="website.livingRoom.soliCatering.ui.client.DialogClient"
         android:label="view_client"
         tools:layout="@layout/view_client">
         <action
@@ -83,7 +83,7 @@
     </dialog>
     <fragment
         android:id="@+id/navigation_historique"
-        android:name="com.example.marokkanischbernessen.ui.historique.HistoriqueFragment"
+        android:name="website.livingRoom.soliCatering.ui.historique.HistoriqueFragment"
         android:label="hitorique"
         tools:layout="@layout/fragment_historique" />
 
