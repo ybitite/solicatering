@@ -46,7 +46,6 @@ public class Client extends FormulaireEtat {
         if (NOM_OK = ExpressionValidateur.validNom(nom))
             notifyPropertyChanged(BR.nom);
         this.nom = nom;
-        Entite e =new Entite(1,"","",1,"");
     }
     @Bindable
     public String getPrenom() {

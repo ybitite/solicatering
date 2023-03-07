@@ -38,7 +38,6 @@ public class ClientViewModel extends AndroidViewModel {
         informationLivraison = new InformationLivraison();
         client = new Client();
 
-
     }
 
     //METHODE

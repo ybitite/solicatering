@@ -31,7 +31,7 @@ public class ClientRipository {
 
     //insert client "the call of the methode is not from  main thread"
     public void insertClient(Client client) {
-        if (clientDAO.updateClient(client) <= 0) {
+        if (clientDAO.update(client) <= 0) {
             clientDAO.insert(client);
         }
     }

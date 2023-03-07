@@ -1,10 +1,14 @@
 package website.livingRoom.soliCatering.db.entitys;
 
+import android.content.res.Resources;
+
 import androidx.databinding.Bindable;
 import androidx.room.Embedded;
 import androidx.room.Ignore;
 
 import website.livingRoom.soliCatering.BR;
+import website.livingRoom.soliCatering.R;
+import website.livingRoom.soliCatering.utile.AppUtile;
 import website.livingRoom.soliCatering.utile.ExpressionValidateur;
 import website.livingRoom.soliCatering.utile.FormulaireEtat;
 
@@ -96,11 +100,15 @@ public class InformationLivraison extends FormulaireEtat {
     }
 
     public String getNombreFormat() {
-        return nombre + " P";
+        //get resources from AppUtil
+        Resources resources = AppUtile.getResource();
+        return nombre + " " + resources.getString(R.string.text_point);
     }
 
     public String getTitreCatering() {
-        return "SoliCatering du " + dateLivr;
+        //get resources from AppUtil
+        Resources resources = AppUtile.getResource();
+        return resources.getString(R.string.text_titre_catering) + dateLivr;
     }
 
     /*EQUAL ET HASH METHODE*/

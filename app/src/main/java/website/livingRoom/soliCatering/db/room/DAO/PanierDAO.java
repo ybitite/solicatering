@@ -19,18 +19,13 @@ public interface PanierDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(Panier panier);
 
-    /**
-     * Panierwithaarticlepanier a was made to make
-     * the relation (1 - *) between paniers and articlepaniers
-     */
-
-    //select all panier from paniers with article panier using this relation
+    //select all panier from paniers with article panier and plat
     @Transaction
     @Query("SELECT * FROM paniers ORDER BY etat ASC")
-    LiveData<List<PanierWithAarticlePanierAndPlat>> getAllPanierWithArticlePanier();
+    LiveData<List<PanierWithAarticlePanierAndPlat>> getPanierWithArticlePanierAndPlats();
 
     //DELETE CURENT  PANIER
     @Query("DELETE FROM paniers WHERE id LIKE :idPanier")
-    void deleteCurentPanier(int idPanier);
+    void deletePanier(int idPanier);
 
 }

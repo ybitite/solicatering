@@ -19,26 +19,27 @@ public interface ArticlePanierDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     abstract void insert(ArticlePanier articlePaniers);
 
-    //SELECT ALL ARTICLEPANIER FROM ARTICLEPANIERS TABLE
+    //SELECT ALL ArticlePanierAndPlat  in the curent panier
     @Transaction
     @Query("SELECT * FROM articlepaniers WHERE idPanier LIKE :idPanier ")
-    LiveData<List<ArticlePanierAndPlat>> getAllArticlePanierWithPlat(int idPanier);
+    LiveData<List<ArticlePanierAndPlat>> getArticlePanierWithPlats(int idPanier);
 
-    //DELETE all article panier in the curent panier
-    @Query("DELETE FROM articlepaniers WHERE idPanier LIKE :idPanier")
-    void deleteCurentPanier(int idPanier);
-
+    //find article panier
+    @Query("select * from articlepaniers where idPanier like :idPanier and idPlats like :idPlat")
+    ArticlePanier getArticlePanier(int idPlat, int idPanier);
 
     //UPDATE GIVEN ID AND NUMBER PLAT
     @Query("UPDATE articlepaniers SET nombrePlat = :nbr + nombrePlat  WHERE idPlats LIKE :idPlat " +
             "AND idPanier like :idPanier")
-    int  updateIdAP(int idPlat, int idPanier, int nbr);
+    int updateNombreArticlePanier(int idPlat, int idPanier, int nbr);
+
+    //DELETE all article panier in the curent panier
+    @Query("DELETE FROM articlepaniers WHERE idPanier LIKE :idPanier")
+    void deleteArticlePanier(int idPanier);
 
     //DELETE GIVING ARTICLE PANIER
     @Delete
     void deleteArticlePanier(ArticlePanier... articlePaniers);
 
-    //find article panier
-    @Query("select * from articlepaniers where idPanier like :idPanier and idPlats like :idPlat")
-    ArticlePanier findArticlePanier(int idPlat, int idPanier);
+
 }

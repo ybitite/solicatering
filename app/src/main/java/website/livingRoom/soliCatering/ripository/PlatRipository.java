@@ -26,7 +26,7 @@ public class PlatRipository {
 
     //PROPERTY RETURN OBSERVABLE LIVEDATA OF PLAT FOR THE CATEGORIE PASSED IN PARAM.
     public LiveData<List<Plat>> gatListPlatOfCat(int pointCat) {
-        listPlatofCat = platDAO.getPlatsOfCat(pointCat);
+        listPlatofCat = platDAO.getPlats(pointCat);
         Log.i(this.toString(), String.valueOf(pointCat));
         return listPlatofCat;
     }

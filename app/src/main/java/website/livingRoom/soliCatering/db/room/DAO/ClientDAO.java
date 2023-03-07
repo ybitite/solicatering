@@ -14,6 +14,7 @@ import java.util.List;
 
 @Dao
 public interface ClientDAO {
+    //todo to test
 
     //INSER NEW CLIENT
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -25,5 +26,5 @@ public interface ClientDAO {
 
     //UPDATE CLIENT
     @Update
-    int updateClient(Client... clients);
+    int update(Client... clients);
 }

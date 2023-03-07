@@ -29,13 +29,13 @@ public class ArticlePanierRipository {
 
     //RETURN OBSERVABLE LIVEDATA OF ARTICLE PANIER.
     public LiveData<List<ArticlePanierAndPlat>> getListArticlePanierWithPlat(int idPanier) {
-        listArticlePanierWithPlat = articlePanierDAO.getAllArticlePanierWithPlat(idPanier);
+        listArticlePanierWithPlat = articlePanierDAO.getArticlePanierWithPlats(idPanier);
         return listArticlePanierWithPlat;
     }
 
     //find article panier
     public boolean finArticlePanier(ArticlePanier articlePanier) {
-        if (articlePanierDAO.findArticlePanier(articlePanier.getIdPlats(), articlePanier.getIdPanier()) != null) {
+        if (articlePanierDAO.getArticlePanier(articlePanier.getIdPlats(), articlePanier.getIdPanier()) != null) {
             return true;
         } else return false;
     }
@@ -48,7 +48,7 @@ public class ArticlePanierRipository {
     //UPDATE GIVEN ARTICLE PANIER
     public void updateArticlePanier(ArticlePanier articlePanier, int nombre) {
         AppDatabase.databaseWriteExecutor.execute(() -> {
-            articlePanierDAO.updateIdAP(articlePanier.getIdPlats(),
+            articlePanierDAO.updateNombreArticlePanier(articlePanier.getIdPlats(),
                     articlePanier.getIdPanier(), nombre);
         });
     }
@@ -57,7 +57,7 @@ public class ArticlePanierRipository {
     public void deleteCurentPanier(int idPanier) {
         //DO THE DELETE IN NON-UI THREAD
         AppDatabase.databaseWriteExecutor.execute(() -> {
-            articlePanierDAO.deleteCurentPanier(idPanier);
+            articlePanierDAO.deleteArticlePanier(idPanier);
         });
     }
 

@@ -14,12 +14,13 @@ import java.util.List;
 public interface MenuDAO {
     //INSER NEW MENU in MENUS TABLE
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    abstract void insert(Menu menu);
+    void insert(Menu menu);
 
     //SELECT ALL MENU FROM MENUS TABLE
     @Query("SELECT * FROM menus ORDER BY point ASC")
     LiveData<List<Menu>> getMenus();
 
-    @Query("select * from menus where point like :actuelMenu limit 1")
-    Menu getMenuByPoint(int actuelMenu);
+    //select current menu
+    @Query("select * from menus where point like :actuelMenuPoint limit 1")
+    Menu getMenus(int actuelMenuPoint);
 }

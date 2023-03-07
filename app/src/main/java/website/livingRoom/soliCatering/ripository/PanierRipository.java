@@ -22,7 +22,7 @@ public class PanierRipository {
         AppDatabase db = AppDatabase.getDatabase(context);
         //GET LIVE DATA LIST PANIER FROM DAO
         panierDAO = db.panierDAO();
-        listPanierWithAarticlePanier = panierDAO.getAllPanierWithArticlePanier();
+        listPanierWithAarticlePanier = panierDAO.getPanierWithArticlePanierAndPlats();
     }
 
     //METHODE
@@ -41,7 +41,7 @@ public class PanierRipository {
     public void deleteCurentPanier(int idPanier) {
         //DO THE DELETE IN NON-UI THREAD
         AppDatabase.databaseWriteExecutor.execute(() -> {
-            panierDAO.deleteCurentPanier(idPanier);
+            panierDAO.deletePanier(idPanier);
         });
     }
 

@@ -14,7 +14,7 @@ import java.util.List;
 public interface EvenementDAO {
     //INSER NEW EVENT IN EVENEMENTS TABLE
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    abstract void insert(Evenement evenement);
+    void insert(Evenement evenement);
 
     //SELECT ALL EVENT FROM EVENEMENTS TABLE
     @Query("SELECT * FROM evenements ORDER BY date DESC")

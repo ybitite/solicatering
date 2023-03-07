@@ -31,7 +31,7 @@ public class MenuRipository {
     }
 
     public Menu getMenuByPoint(int actuelMenu) {
-        menu = menuDAO.getMenuByPoint(actuelMenu);
+        menu = menuDAO.getMenus(actuelMenu);
         return menu;
     }
 }

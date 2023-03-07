@@ -1,5 +1,10 @@
 package website.livingRoom.soliCatering.db.entitys;
 
+import android.content.res.Resources;
+
+import website.livingRoom.soliCatering.R;
+import website.livingRoom.soliCatering.utile.AppUtile;
+
 public class Conteur {
     //FIELD
     final String name;
@@ -27,11 +32,15 @@ public class Conteur {
     }
 
     public String getNameFormat() {
-        return name + " (" + ptDepart + ")P";
+        //get resources from AppUtil
+        Resources resources = AppUtile.getResource();
+        return name + " (" + ptDepart + ") "+ resources.getString(R.string.text_point);
     }
 
     public String getPtRestFormat() {
-        return ptReste + " P";
+        Resources resources = AppUtile.getResource();
+
+        return ptReste + " " + resources.getString(R.string.text_point);
 
     }
 }

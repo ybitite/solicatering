@@ -66,6 +66,9 @@
     <string name="erreur_heure" translatable="false">- veuillez saisir une heure valide (HH:MM)</string>
     <string name="erreur_remarque" translatable="false">- veuillez saisir un text qui ne dépasse pas 500 caractéres</string>
     <string name="erreur_nombre" translatable="false">- veuillez saisir un nombre entre 30 et 999</string>
+    <string name="text_point" translatable="false">P</string>
+    <string name="text_titre_catering" translatable="false">SoliCatering du </string>
+    <string name="text_devise" translatable="false">CHF</string>
 
 
 </resources>
