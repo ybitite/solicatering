@@ -1,4 +1,4 @@
-package website.livingRoom.soliCatering.ripository;
+package website.livingRoom.soliCatering.repository;
 
 import android.content.Context;
 
@@ -11,13 +11,13 @@ import website.livingRoom.soliCatering.db.room.DAO.PanierDAO;
 
 import java.util.List;
 
-public class PanierRipository {
+public class PanierRepository {
     //FIELD
-    final PanierDAO panierDAO;
-    final LiveData<List<PanierWithAarticlePanierAndPlat>> listPanierWithAarticlePanier;
+    private final PanierDAO panierDAO;
+    private final LiveData<List<PanierWithAarticlePanierAndPlat>> listPanierWithAarticlePanier;
 
     //CONSTRUCTOR
-    public PanierRipository(Context context) {
+    public PanierRepository(Context context) {
         //GET DATA BASE
         AppDatabase db = AppDatabase.getDatabase(context);
         //GET LIVE DATA LIST PANIER FROM DAO
@@ -33,16 +33,14 @@ public class PanierRipository {
     }
 
     //return observable livedata of panier with article panier.
-    public LiveData<List<PanierWithAarticlePanierAndPlat>> getListPanierWithArticlePanier() {
+    public LiveData<List<PanierWithAarticlePanierAndPlat>> getPanierWithArticlePanierAndPlats() {
         return listPanierWithAarticlePanier;
     }
 
     //DELETE CURENT PANIER IN THE SEM CURENT PANIER
-    public void deleteCurentPanier(int idPanier) {
+    public void deletePanier(int idPanier) {
         //DO THE DELETE IN NON-UI THREAD
-        AppDatabase.databaseWriteExecutor.execute(() -> {
-            panierDAO.deletePanier(idPanier);
-        });
+        AppDatabase.databaseWriteExecutor.execute(() -> panierDAO.deletePanier(idPanier));
     }
 
 

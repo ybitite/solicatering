@@ -7,17 +7,17 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import website.livingRoom.soliCatering.db.entitys.Plat;
-import website.livingRoom.soliCatering.ripository.ArticlePanierRipository;
-import website.livingRoom.soliCatering.ripository.ConteurRipository;
-import website.livingRoom.soliCatering.ripository.PlatRipository;
+import website.livingRoom.soliCatering.repository.ArticlePanierRepository;
+import website.livingRoom.soliCatering.repository.ConteurRepository;
+import website.livingRoom.soliCatering.repository.PlatRepository;
 
 import java.util.List;
 
 public class PlatViewModel extends AndroidViewModel {
 
     //FIELD
-    private final PlatRipository platRipository;
-    private final ArticlePanierRipository articlePanierRipository;
+    private final PlatRepository platRepository;
+    private final ArticlePanierRepository articlePanierRepository;
     private LiveData<List<Plat>> allPlat;
     private final MutableLiveData<Plat> selectedPlat = new MutableLiveData<Plat>();
     private final MutableLiveData<Integer> nombrePlat = new MutableLiveData<Integer>(1);
@@ -25,13 +25,13 @@ public class PlatViewModel extends AndroidViewModel {
     //CONSTRUCTOR
     public PlatViewModel(Application application) {
         super(application);
-        platRipository = new PlatRipository(application.getBaseContext());
-        articlePanierRipository = new ArticlePanierRipository(application.getApplicationContext());
+        platRepository = new PlatRepository(application.getBaseContext());
+        articlePanierRepository = new ArticlePanierRepository(application.getApplicationContext());
     }
 
     /*To OBSERVED LIVE DATA LIST PLAT FROM REPOSITORY*/
     public LiveData<List<Plat>> getAllPlat(int pointCat) {
-        allPlat = platRipository.gatListPlatOfCat(pointCat);
+        allPlat = platRepository.gatPlats(pointCat);
         return allPlat;
     }
 
@@ -48,7 +48,7 @@ public class PlatViewModel extends AndroidViewModel {
     /*INCREMENT NUMBER PLAT*/
     public void incrimenteNbPlat() {
         //GET POINT RESTE FROM CONTEUR IN SHARED PREFERENCES
-        int pntReste = ConteurRipository.getPointRest();
+        int pntReste = ConteurRepository.getPointRest();
         //GET VALUE OF POINT OF SELECTED PLAT
         int pntPlat = selectedPlat.getValue().getPoint();
         //GET VALUE OF NUMBER OF PLAT

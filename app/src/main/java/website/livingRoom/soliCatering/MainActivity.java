@@ -11,10 +11,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
-import website.livingRoom.soliCatering.R;
-
 import website.livingRoom.soliCatering.databinding.ActivityMainBinding;
-import website.livingRoom.soliCatering.ripository.ConteurRipository;
+import website.livingRoom.soliCatering.repository.ConteurRepository;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,14 +45,14 @@ public class MainActivity extends AppCompatActivity {
     private void initiateContour() {
 
         //START NEW CONTEUR
-        if (!ConteurRipository.createConteur(getBaseContext())) {
-            bindingActivity.includeConteur.setConteur(ConteurRipository.getConteur());
+        if (!ConteurRepository.createConteur(getBaseContext())) {
+            bindingActivity.includeConteur.setConteur(ConteurRepository.getConteur());
         }
 
         //INSTANTIATE LISTENER TO UPDATE UI WEN DATA IN SHARED PREFERENCES CHANGE
         listener = (sharedPreferences, key) -> {
             //UPDATE CONTEUR IN UI
-            bindingActivity.includeConteur.setConteur(ConteurRipository.getConteur());
+            bindingActivity.includeConteur.setConteur(ConteurRepository.getConteur());
         };
 
         //CREATE INSTANCE OF SHARED PREFERENCES AND REGISTER THE LISTENER IN

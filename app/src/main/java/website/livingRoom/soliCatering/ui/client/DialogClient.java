@@ -21,7 +21,7 @@ import website.livingRoom.soliCatering.db.entitys.InformationLivraison;
 import website.livingRoom.soliCatering.db.entitys.Menu;
 import website.livingRoom.soliCatering.db.entitys.Panier;
 import website.livingRoom.soliCatering.db.room.AppDatabase;
-import website.livingRoom.soliCatering.ripository.ConteurRipository;
+import website.livingRoom.soliCatering.repository.ConteurRepository;
 
 public class DialogClient extends DialogFragment {
 
@@ -92,29 +92,29 @@ public class DialogClient extends DialogFragment {
                  * that mean is more practic for this case to insert the key information direct to the table,
                  * in the selection the panier go to have relation with article panier(1-*) Panier,List<ArticlePanier> **/
                 /**also for client**/
-                Menu menu = clientViewModel.getCurrentMenu(ConteurRipository.getActuelMenu());
+                Menu menu = clientViewModel.getCurrentMenu(ConteurRepository.getActuelMenu());
                 Client client = clientViewModel.getClient();
 
                 //information livraison are base for panier and note entity
                 InformationLivraison informationLivraison = clientViewModel.getInformationLivraison();
 
                 //create panier object
-                Panier panier = new Panier(ConteurRipository.getIdPanier(), client.getIdClient(), client.getNomPrenom(),
+                Panier panier = new Panier(ConteurRepository.getIdPanier(), client.getIdClient(), client.getNomPrenom(),
                         1, menu.getId(), menu.getPrix(),
                         menu.getNomPic(), informationLivraison);
 
                 //Insert client or update it in Data Base
-                clientViewModel.clientRipository.insertClient(client);
+                clientViewModel.clientRepository.insertClient(client);
 
                 //insert panier in date base
-                clientViewModel.panierRipository.insertPanier(panier);
+                clientViewModel.panierRepository.insertPanier(panier);
 
             /**already asynchronous**/
             //create new id for panier
-            ConteurRipository.createNewIdPanier();
+            ConteurRepository.createNewIdPanier();
 
             //delete conteur
-            ConteurRipository.deleteConteur(context);
+            ConteurRepository.deleteConteur(context);
         });
         Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_activity_main).navigate(R.id.action_dialogClient_to_historiqueFragment);
 

@@ -15,7 +15,7 @@ import website.livingRoom.soliCatering.R;
 
 import website.livingRoom.soliCatering.databinding.ModelCategorieBinding;
 import website.livingRoom.soliCatering.db.entitys.Categorie;
-import website.livingRoom.soliCatering.ripository.ConteurRipository;
+import website.livingRoom.soliCatering.repository.ConteurRepository;
 import website.livingRoom.soliCatering.utile.Helper;
 
 public class CategorieHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -70,7 +70,7 @@ public class CategorieHolder extends RecyclerView.ViewHolder implements View.OnC
 //        holder.textViewContenuCat3.setText(categorie.get(position).getContenu2());
 
         //BLOCK CLICK AND MAKE ITEM GRIS
-        int ptRest = ConteurRipository.getPointRest();
+        int ptRest = ConteurRepository.getPointRest();
         if (categorie.getPoint() <= ptRest) {
             //MAKE ITEM VISIBLE AND POINT RED
             binding.griserItemCat.setVisibility(View.INVISIBLE);
@@ -79,7 +79,7 @@ public class CategorieHolder extends RecyclerView.ViewHolder implements View.OnC
             setItemClickListener(new ItemClickListener() {
                 @Override
                 public void onItemClick(View v, int pos) {
-                    ConteurRipository.seteCatActuel(categorie.getPoint());
+                    ConteurRepository.seteCatActuel(categorie.getPoint());
                     Navigation.findNavController((Activity) context, R.id.nav_host_fragment_activity_main).navigate(R.id.action_navigation_categorie_to_navigation_plat);
                 }
             });

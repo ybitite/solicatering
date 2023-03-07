@@ -1,4 +1,4 @@
-package website.livingRoom.soliCatering.ripository;
+package website.livingRoom.soliCatering.repository;
 
 import android.content.Context;
 import android.util.Log;
@@ -12,14 +12,14 @@ import website.livingRoom.soliCatering.db.room.DAO.ArticlePanierDAO;
 
 import java.util.List;
 
-public class ArticlePanierRipository {
+public class ArticlePanierRepository {
     //FIELD
     final ArticlePanierDAO articlePanierDAO;
     LiveData<List<ArticlePanierAndPlat>> listArticlePanierWithPlat = new LiveData<List<ArticlePanierAndPlat>>() {
     };
 
     //CONSTRUCTOR
-    public ArticlePanierRipository(Context context) {
+    public ArticlePanierRepository(Context context) {
         //GET DATA BASE
         AppDatabase db = AppDatabase.getDatabase(context);
         Log.i("Article Panier ", db.toString());

@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import website.livingRoom.soliCatering.databinding.ModelArticlePanierBinding;
 import website.livingRoom.soliCatering.db.entitys.ArticlePanierAndPlat;
-import website.livingRoom.soliCatering.ripository.ArticlePanierRipository;
-import website.livingRoom.soliCatering.ripository.ConteurRipository;
+import website.livingRoom.soliCatering.repository.ArticlePanierRepository;
+import website.livingRoom.soliCatering.repository.ConteurRepository;
 import website.livingRoom.soliCatering.ui.categorie.rv.ItemClickListener;
 import website.livingRoom.soliCatering.ui.panier.PanierViewModel;
 import website.livingRoom.soliCatering.utile.Helper;
@@ -96,11 +96,11 @@ public class ArticlePanierHolder extends RecyclerView.ViewHolder implements View
 
     public void deleteArticlePanier(ArticlePanierAndPlat articlePanierAndPlat) {
         //DELETE ARTICLE PANIER FROM DATA BASE
-        ArticlePanierRipository articlePanierRipository = new ArticlePanierRipository(context);
-        articlePanierRipository.deleteArticlePanier(articlePanierAndPlat.articlePanier);
+        ArticlePanierRepository articlePanierRepository = new ArticlePanierRepository(context);
+        articlePanierRepository.deleteArticlePanier(articlePanierAndPlat.articlePanier);
 
         //UPDATE RESTE POINT IN CONTEUR
-        ConteurRipository.upDatePointRest(articlePanierAndPlat.plat.getPoint());
+        ConteurRepository.upDatePointRest(articlePanierAndPlat.plat.getPoint());
     }
 
 

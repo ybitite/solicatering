@@ -8,9 +8,9 @@ import androidx.lifecycle.AndroidViewModel;
 import website.livingRoom.soliCatering.db.entitys.Client;
 import website.livingRoom.soliCatering.db.entitys.InformationLivraison;
 import website.livingRoom.soliCatering.db.entitys.Menu;
-import website.livingRoom.soliCatering.ripository.ClientRipository;
-import website.livingRoom.soliCatering.ripository.MenuRipository;
-import website.livingRoom.soliCatering.ripository.PanierRipository;
+import website.livingRoom.soliCatering.repository.ClientRepository;
+import website.livingRoom.soliCatering.repository.MenuRepository;
+import website.livingRoom.soliCatering.repository.PanierRepository;
 
 public class ClientViewModel extends AndroidViewModel {
     //FIELD
@@ -20,11 +20,11 @@ public class ClientViewModel extends AndroidViewModel {
     private Menu menu;
 
     //to insert date in data base
-    public ClientRipository clientRipository;
-    public PanierRipository panierRipository;
+    public ClientRepository clientRepository;
+    public PanierRepository panierRepository;
 
     //te retrive
-    private MenuRipository menuRipository;
+    private MenuRepository menuRepository;
 
     //FIX WIDTH OF CARD TO WIDTH OF SCREEN
     public int width = getApplication().getBaseContext().getResources().getDisplayMetrics().widthPixels;
@@ -32,9 +32,9 @@ public class ClientViewModel extends AndroidViewModel {
     //CONSTRUCTOR
     public ClientViewModel(@NonNull Application application) {
         super(application);
-        clientRipository = new ClientRipository(application);
-        menuRipository = new MenuRipository(application);
-        panierRipository = new PanierRipository(application);
+        clientRepository = new ClientRepository(application);
+        menuRepository = new MenuRepository(application);
+        panierRepository = new PanierRepository(application);
         informationLivraison = new InformationLivraison();
         client = new Client();
 
@@ -43,7 +43,7 @@ public class ClientViewModel extends AndroidViewModel {
     //METHODE
     //tu get current menu to create panier
     public Menu getCurrentMenu(int pointMenu) {
-        menu = menuRipository.getMenuByPoint(pointMenu);
+        menu = menuRepository.getMenu(pointMenu);
         return menu;
     }
 

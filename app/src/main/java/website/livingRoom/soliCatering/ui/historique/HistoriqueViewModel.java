@@ -6,20 +6,20 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import website.livingRoom.soliCatering.db.entitys.PanierWithAarticlePanierAndPlat;
-import website.livingRoom.soliCatering.ripository.PanierRipository;
+import website.livingRoom.soliCatering.repository.PanierRepository;
 
 import java.util.List;
 
 public class HistoriqueViewModel extends AndroidViewModel {
     //FIELD
-    private final PanierRipository panierRipository;
+    private final PanierRepository panierRepository;
     private final LiveData<List<PanierWithAarticlePanierAndPlat>> allPanierWithArticlePanier;
 
     //CONSTRUCTOR
     public HistoriqueViewModel(Application application) {
         super(application);
-        panierRipository = new PanierRipository(application.getBaseContext());
-        allPanierWithArticlePanier = panierRipository.getListPanierWithArticlePanier();
+        panierRepository = new PanierRepository(application.getBaseContext());
+        allPanierWithArticlePanier = panierRepository.getPanierWithArticlePanierAndPlats();
     }
 
     /*TO OBSERVED LIVE DATA LIST PANIER FROM REPOSITORY*/

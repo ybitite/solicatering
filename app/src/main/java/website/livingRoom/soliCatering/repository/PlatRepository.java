@@ -1,33 +1,31 @@
-package website.livingRoom.soliCatering.ripository;
+package website.livingRoom.soliCatering.repository;
 
 import android.content.Context;
-import android.util.Log;
 
 import androidx.lifecycle.LiveData;
+
+import java.util.List;
 
 import website.livingRoom.soliCatering.db.entitys.Plat;
 import website.livingRoom.soliCatering.db.room.AppDatabase;
 import website.livingRoom.soliCatering.db.room.DAO.PlatDAO;
 
-import java.util.List;
-
-public class PlatRipository {
+public class PlatRepository {
     //FIELD
-    final PlatDAO platDAO;
-    LiveData<List<Plat>> listPlatofCat;
+    private final PlatDAO platDAO;
+    private LiveData<List<Plat>> listPlatofCat;
 
     //CONSTRUCTOR
-    public PlatRipository(Context context) {
+    public PlatRepository(Context context) {
         //GET DATA BASE
         AppDatabase db = AppDatabase.getDatabase(context);
         //GET LIVE DATA LIST PLAT FROM DAO
         platDAO = db.platDAO();
     }
 
-    //PROPERTY RETURN OBSERVABLE LIVEDATA OF PLAT FOR THE CATEGORIE PASSED IN PARAM.
-    public LiveData<List<Plat>> gatListPlatOfCat(int pointCat) {
+    //RETURN OBSERVABLE LIVEDATA OF PLAT FOR THE CATEGORIE PASSED IN PARAM.
+    public LiveData<List<Plat>> gatPlats(int pointCat) {
         listPlatofCat = platDAO.getPlats(pointCat);
-        Log.i(this.toString(), String.valueOf(pointCat));
         return listPlatofCat;
     }
 }

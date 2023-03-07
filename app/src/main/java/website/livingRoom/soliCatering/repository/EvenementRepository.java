@@ -1,4 +1,4 @@
-package website.livingRoom.soliCatering.ripository;
+package website.livingRoom.soliCatering.repository;
 
 import android.content.Context;
 
@@ -10,21 +10,20 @@ import website.livingRoom.soliCatering.db.room.DAO.EvenementDAO;
 
 import java.util.List;
 
-public class EvenementRipository {
+public class EvenementRepository {
     //FIELD
-    final EvenementDAO evenementDAO;
-    final LiveData<List<Evenement>> listEvenement;
+    private final LiveData<List<Evenement>> listEvenement;
 
     //CONSTRUCTOR
-    public EvenementRipository(Context context) {
+    public EvenementRepository(Context context) {
         //GET DATA BASE
         AppDatabase db = AppDatabase.getDatabase(context);
         //GET LIVE DATA LIST EVENT FROM DAO
-        evenementDAO = db.evenementDAO();
+        EvenementDAO evenementDAO = db.evenementDAO();
         listEvenement = evenementDAO.getEvenements();
     }
 
-    //PROPERTY RETURN OBSERVABLE LIVEDATA OF EVENT.
+    //RETURN OBSERVABLE LIVEDATA OF EVENT.
     public LiveData<List<Evenement>> getListEvenement() {
         return listEvenement;
     }

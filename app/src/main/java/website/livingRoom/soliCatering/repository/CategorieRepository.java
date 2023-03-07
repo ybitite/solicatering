@@ -1,4 +1,4 @@
-package website.livingRoom.soliCatering.ripository;
+package website.livingRoom.soliCatering.repository;
 
 import android.content.Context;
 
@@ -10,24 +10,21 @@ import website.livingRoom.soliCatering.db.room.DAO.CategorieDAO;
 
 import java.util.List;
 
-public class CategorieRipository {
+public class CategorieRepository {
     //FIELD
-    final CategorieDAO categorieDAO;
-    final LiveData<List<Categorie>> listCategorie;
-    LiveData<String[]> listExempleContenu;
-    //CONSTRUCTOR
+    private final LiveData<List<Categorie>> listCategorie;
 
-    public CategorieRipository(Context context) {
+    //CONSTRUCTOR
+    public CategorieRepository(Context context) {
         //GET DATA BASE
         AppDatabase db = AppDatabase.getDatabase(context);
         //GET LIVE DATA LIST CATEGORIE FROM DAO
-        categorieDAO = db.categorieDAO();
+        CategorieDAO categorieDAO = db.categorieDAO();
         listCategorie = categorieDAO.getCategories();
     }
 
-    //PROPERTY RETURN OBSERVABLE LIVEDATA OF CATEGORIE.
+    //RETURN OBSERVABLE LIVEDATA OF CATEGORIE.
     public LiveData<List<Categorie>> getListCategorie() {
-
         return listCategorie;
     }
 

@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import website.livingRoom.soliCatering.db.entitys.ArticlePanierAndPlat;
-import website.livingRoom.soliCatering.ripository.ArticlePanierRipository;
-import website.livingRoom.soliCatering.ripository.ConteurRipository;
+import website.livingRoom.soliCatering.repository.ArticlePanierRepository;
+import website.livingRoom.soliCatering.repository.ConteurRepository;
 import website.livingRoom.soliCatering.ui.panier.PanierViewModel;
 
 public class ArticlePanierListAdapter extends ListAdapter<ArticlePanierAndPlat, ArticlePanierHolder> {
@@ -53,12 +53,12 @@ public class ArticlePanierListAdapter extends ListAdapter<ArticlePanierAndPlat, 
     //DELETE all article panier in the curent panier from data base
     private void deleteArticlePanier(RecyclerView.ViewHolder viewHolder) {
         //DELETE ARTICLE PANIER FROM DATA BASE
-        ArticlePanierRipository articlePanierRipository = new ArticlePanierRipository(viewHolder.itemView.getContext());
-        articlePanierRipository.deleteArticlePanier(getItem(viewHolder.getBindingAdapterPosition()).articlePanier);
+        ArticlePanierRepository articlePanierRepository = new ArticlePanierRepository(viewHolder.itemView.getContext());
+        articlePanierRepository.deleteArticlePanier(getItem(viewHolder.getBindingAdapterPosition()).articlePanier);
 
         //UPDATE RESTE POINT IN CONTEUR
         ArticlePanierAndPlat articlePanierAndPlat = getItem(viewHolder.getBindingAdapterPosition());
-        ConteurRipository.upDatePointRest(articlePanierAndPlat.plat.getPoint() * articlePanierAndPlat.articlePanier.getNombrePlat());
+        ConteurRepository.upDatePointRest(articlePanierAndPlat.plat.getPoint() * articlePanierAndPlat.articlePanier.getNombrePlat());
     }
 
     /* IMPLEMENTATION OF DIFFUTIL, ITEMCALLBACK FOR CALCULATING THE DIFF BETWEEN OLD AND NEW ITEM*/

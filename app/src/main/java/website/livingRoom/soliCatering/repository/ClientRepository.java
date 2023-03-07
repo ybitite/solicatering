@@ -1,4 +1,4 @@
-package website.livingRoom.soliCatering.ripository;
+package website.livingRoom.soliCatering.repository;
 
 import android.content.Context;
 
@@ -10,13 +10,13 @@ import website.livingRoom.soliCatering.db.room.DAO.ClientDAO;
 
 import java.util.List;
 
-public class ClientRipository {
+public class ClientRepository {
     //FIELD
     final ClientDAO clientDAO;
     LiveData<List<Client>> client;
 
     //CONSTRUCTOR
-    public ClientRipository(Context context) {
+    public ClientRepository(Context context) {
         //GET DATA BASE
         AppDatabase db = AppDatabase.getDatabase(context);
         //GET LIVE DATA LIST CLIENT FROM DAO

@@ -52,7 +52,7 @@ public class CategorieFragment extends Fragment {
             categorieListAdapter.submitList(categorie);
         });
 
-        //ConteurRipository.createConteur("Choisir un menu",0,root.getContext());
+        //ConteurRepository.createConteur("Choisir un menu",0,root.getContext());
 
         return root;
     }

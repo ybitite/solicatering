@@ -1,4 +1,4 @@
-package website.livingRoom.soliCatering.ripository;
+package website.livingRoom.soliCatering.repository;
 
 import android.content.Context;
 
@@ -10,14 +10,13 @@ import website.livingRoom.soliCatering.db.room.DAO.MenuDAO;
 
 import java.util.List;
 
-public class MenuRipository {
+public class MenuRepository {
     //FIELD
-    final MenuDAO menuDAO;
-    final LiveData<List<Menu>> listMenu;
-    Menu menu;
+    private final MenuDAO menuDAO;
+    private final LiveData<List<Menu>> listMenu;
 
     //CONSTRUCTOR
-    public MenuRipository(Context context) {
+    public MenuRepository(Context context) {
         //GET DATA BASE
         AppDatabase db = AppDatabase.getDatabase(context);
         //GET LIVE DATA LIST EVENT FROM DAO
@@ -25,13 +24,12 @@ public class MenuRipository {
         listMenu = menuDAO.getMenus();
     }
 
-    //PROPERTY RETURN OBSERVABLE LIVEDATA.
-    public LiveData<List<Menu>> getListMenu() {
+    //RETURN OBSERVABLE LIVEDATA.
+    public LiveData<List<Menu>> getMenu() {
         return listMenu;
     }
 
-    public Menu getMenuByPoint(int actuelMenu) {
-        menu = menuDAO.getMenus(actuelMenu);
-        return menu;
+    public Menu getMenu(int actuelMenuPoint) {
+        return menuDAO.getMenus(actuelMenuPoint);
     }
 }

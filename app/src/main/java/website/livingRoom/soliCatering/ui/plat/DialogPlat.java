@@ -20,14 +20,14 @@ import website.livingRoom.soliCatering.R;
 import website.livingRoom.soliCatering.db.entitys.ArticlePanier;
 import website.livingRoom.soliCatering.db.entitys.Plat;
 import website.livingRoom.soliCatering.db.room.AppDatabase;
-import website.livingRoom.soliCatering.ripository.ArticlePanierRipository;
-import website.livingRoom.soliCatering.ripository.ConteurRipository;
+import website.livingRoom.soliCatering.repository.ArticlePanierRepository;
+import website.livingRoom.soliCatering.repository.ConteurRepository;
 import website.livingRoom.soliCatering.utile.Helper;
 
 public class DialogPlat extends DialogFragment {
     //FIELD
     PlatViewModel platViewModel;
-    ArticlePanierRipository articlePanierRipository;
+    ArticlePanierRepository articlePanierRepository;
 
     //METHODE
     @Nullable
@@ -47,7 +47,7 @@ public class DialogPlat extends DialogFragment {
         //CALL METHODE TO LINK DISMISS DIALOG ON CLICK
         initiateButtonAnnuller(view);
 
-        articlePanierRipository = new ArticlePanierRipository(getContext());
+        articlePanierRepository = new ArticlePanierRepository(getContext());
     }
 
     private void bindView(View view) {
@@ -167,7 +167,7 @@ public class DialogPlat extends DialogFragment {
         int newPtRest = upDatePtRest();
 
         //GET CURRENT CATEGORIE FROM CONTEUR
-        int catActuel = ConteurRipository.getActuelCat();
+        int catActuel = ConteurRepository.getActuelCat();
 
         //IF POINT FINISH
         if (newPtRest == 0) {
@@ -200,8 +200,8 @@ public class DialogPlat extends DialogFragment {
         int nbrPlat = platViewModel.getNumberPlat().getValue();
 
         /*SAVE NEW RESTE POINT IN CONTEUR*/
-        ConteurRipository.upDatePointRest(-nbrPlat * ptPlat);
-        return ConteurRipository.getPointRest();
+        ConteurRepository.upDatePointRest(-nbrPlat * ptPlat);
+        return ConteurRepository.getPointRest();
     }
 
     private void addToPanier() {
@@ -211,14 +211,14 @@ public class DialogPlat extends DialogFragment {
             //GET DATA TO CONSTRUCT NEW ARTICLE PANIER OBJECT
             Plat plat = platViewModel.getSelectedPlat().getValue();
             int nbrPlat = platViewModel.getNumberPlat().getValue();
-            int idPanier = ConteurRipository.getIdPanier();
+            int idPanier = ConteurRepository.getIdPanier();
 
             //CREATE NEW ARTICLE PANIER or UPDATE it
             ArticlePanier articlePanier = new ArticlePanier(idPanier, plat.getId(), nbrPlat);
             //update if excite or create a new article panier
-            if (articlePanierRipository.finArticlePanier(articlePanier))
-                articlePanierRipository.updateArticlePanier(articlePanier, nbrPlat);
-            else articlePanierRipository.insert(articlePanier);
+            if (articlePanierRepository.finArticlePanier(articlePanier))
+                articlePanierRepository.updateArticlePanier(articlePanier, nbrPlat);
+            else articlePanierRepository.insert(articlePanier);
         });
 
     }

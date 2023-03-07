@@ -13,8 +13,8 @@ import website.livingRoom.soliCatering.R;
 
 import website.livingRoom.soliCatering.databinding.ModelMenuBinding;
 import website.livingRoom.soliCatering.db.entitys.Menu;
-import website.livingRoom.soliCatering.ripository.ArticlePanierRipository;
-import website.livingRoom.soliCatering.ripository.ConteurRipository;
+import website.livingRoom.soliCatering.repository.ArticlePanierRepository;
+import website.livingRoom.soliCatering.repository.ConteurRepository;
 import website.livingRoom.soliCatering.ui.categorie.rv.ItemClickListener;
 import website.livingRoom.soliCatering.utile.Helper;
 
@@ -23,14 +23,14 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
     website.livingRoom.soliCatering.ui.categorie.rv.ItemClickListener itemClickListener;
     static ModelMenuBinding binding;
     static Context context;
-    ArticlePanierRipository articlePanierRipository;
+    ArticlePanierRepository articlePanierRepository;
 
     //CONSTRUCTOR
     public MenuHolder(View itemView) {
         super(itemView);
 
         //instantiate article Panier Repository
-        articlePanierRipository = new ArticlePanierRipository(context);
+        articlePanierRepository = new ArticlePanierRepository(context);
         //GET CONTEXT TO USE LATER
         context = binding.getRoot().getContext();
         //SET CLICK LISTENER IN ITEM
@@ -69,7 +69,7 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
         binding.textViewInfoMenu.setText(menu.getInfo());
         binding.imageViewIconMenu.setImageResource(Helper.idResource(menu.getNomPic()));
         //CHANGE COLOR OF ACTUEL MENU
-        int menuActuel = ConteurRipository.getActuelMenu();
+        int menuActuel = ConteurRepository.getActuelMenu();
         if (menu.getPoint() == menuActuel) {
             //CHANGE COLOR OF ITEM WHEN IS CLICKED
             binding.constraintLayoutMenu.setBackgroundColor(context.getResources().getColor(R.color.gris_blan));
@@ -84,10 +84,10 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
                 //IF USER CLICK IN THE NEW MENU A NEW CONTEUR START AGAIN
                 if (menu.getPoint() != menuActuel) {
                     //START NEW CONTEUR
-                    ConteurRipository.createConteur(menu.getNom(), menu.getPoint());
+                    ConteurRepository.createConteur(menu.getNom(), menu.getPoint());
 
                     //clear list of article panier
-                    articlePanierRipository.deleteCurentPanier(ConteurRipository.getIdPanier());
+                    articlePanierRepository.deleteCurentPanier(ConteurRepository.getIdPanier());
                 }
                 //NAVIGATE TO CATEGORIE
                 Navigation.findNavController((Activity) context, R.id.nav_host_fragment_activity_main)

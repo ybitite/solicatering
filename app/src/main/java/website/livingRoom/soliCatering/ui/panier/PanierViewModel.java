@@ -6,21 +6,21 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import website.livingRoom.soliCatering.db.entitys.ArticlePanierAndPlat;
-import website.livingRoom.soliCatering.ripository.ArticlePanierRipository;
-import website.livingRoom.soliCatering.ripository.ConteurRipository;
+import website.livingRoom.soliCatering.repository.ArticlePanierRepository;
+import website.livingRoom.soliCatering.repository.ConteurRepository;
 
 import java.util.List;
 
 public class PanierViewModel extends AndroidViewModel {
     //FIELD
     public static LiveData<List<ArticlePanierAndPlat>> listArticlePanierWithPlat;
-    private static ArticlePanierRipository articlePanierRipository;
+    private static ArticlePanierRepository articlePanierRepository;
 
     //CONSTRUCTOR
     public PanierViewModel(Application application) {
         super(application);
 
-        articlePanierRipository = new ArticlePanierRipository(application);
+        articlePanierRepository = new ArticlePanierRepository(application);
         listArticlePanierWithPlat = new LiveData<List<ArticlePanierAndPlat>>() {
         };
     }
@@ -32,10 +32,10 @@ public class PanierViewModel extends AndroidViewModel {
     /*TO OBSERVED LIVE DATA LIST ARTICLE PANIER FROM REPOSITORY*/
     public static LiveData<List<ArticlePanierAndPlat>> getListArticlePanierWithPlat() {
         //GET ID PANIER FROM CONTEUR
-        int idPanier = ConteurRipository.getIdPanier();
+        int idPanier = ConteurRepository.getIdPanier();
 
         //GET DATA LIVE OF LIST OF ARTICLE IN THIS PANIER
-        listArticlePanierWithPlat = articlePanierRipository.getListArticlePanierWithPlat(idPanier);
+        listArticlePanierWithPlat = articlePanierRepository.getListArticlePanierWithPlat(idPanier);
 
         //RETURN LIVE DATA LIST
         return listArticlePanierWithPlat;
@@ -44,8 +44,8 @@ public class PanierViewModel extends AndroidViewModel {
     /*INCREMENT NUMBER PLAT*/
     public int incrimenteNbPlat(int position) {
         //GET POINT RESTE FROM CONTEUR IN SHARED PREFERENCES
-        int pntReste = ConteurRipository.getPointRest();
-        int idPanier = ConteurRipository.getIdPanier();
+        int pntReste = ConteurRepository.getPointRest();
+        int idPanier = ConteurRepository.getIdPanier();
 
         //GET VALUE OF POINT OF SELECTED PLAT
         int pntPlat = listArticlePanierWithPlat.getValue().get(position).plat.getPoint();
@@ -59,10 +59,10 @@ public class PanierViewModel extends AndroidViewModel {
         if (pntPlat <= pntReste) {
 
             //UPDATE IT IN DATA BASE on work thread
-            articlePanierRipository.updateArticlePanier(listArticlePanierWithPlat.getValue().get(position).articlePanier, 1);
+            articlePanierRepository.updateArticlePanier(listArticlePanierWithPlat.getValue().get(position).articlePanier, 1);
 
             //UPDATE RESTE IN CONTEUR
-            ConteurRipository.upDatePointRest(-pntPlat);
+            ConteurRepository.upDatePointRest(-pntPlat);
 
             //RETURN NEW NUMBER
             return nbrPlat + 1;
@@ -72,7 +72,7 @@ public class PanierViewModel extends AndroidViewModel {
     /*DECREMENT NUMBER PLAT*/
     public int decrementNbPlat(int position) {
 
-        int idPanier = ConteurRipository.getIdPanier();
+        int idPanier = ConteurRepository.getIdPanier();
 
         //GET VALUE OF NUMBER OF PLAT
         int nbrPlat = listArticlePanierWithPlat.getValue().get(position).articlePanier.getNombrePlat();
@@ -85,10 +85,10 @@ public class PanierViewModel extends AndroidViewModel {
         if (nbrPlat > 1) {
 
             //UPDATE IT IN DATA BASE on work thread
-            articlePanierRipository.updateArticlePanier(listArticlePanierWithPlat.getValue().get(position).articlePanier, -1);
+            articlePanierRepository.updateArticlePanier(listArticlePanierWithPlat.getValue().get(position).articlePanier, -1);
 
             //UPDATE RESTE IN CONTEUR
-            ConteurRipository.upDatePointRest(pntPlat);
+            ConteurRepository.upDatePointRest(pntPlat);
 
             //RETURN NEW NUMBER
             return nbrPlat - 1;

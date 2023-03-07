@@ -1,4 +1,4 @@
-package website.livingRoom.soliCatering.ripository;
+package website.livingRoom.soliCatering.repository;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -6,12 +6,12 @@ import android.content.SharedPreferences;
 import website.livingRoom.soliCatering.R;
 import website.livingRoom.soliCatering.db.entitys.Conteur;
 
-public final class ConteurRipository {
+public final class ConteurRepository {
     //FIELD
     private static SharedPreferences sharedPref;
     public static final String POINT_RESTE_KEY = "ptReste";
 
-    private ConteurRipository() {
+    private ConteurRepository() {
 
     }
 

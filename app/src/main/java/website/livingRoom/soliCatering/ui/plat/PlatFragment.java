@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import website.livingRoom.soliCatering.databinding.FragmentPlatBinding;
-import website.livingRoom.soliCatering.ripository.ConteurRipository;
+import website.livingRoom.soliCatering.repository.ConteurRepository;
 import website.livingRoom.soliCatering.ui.plat.rv.PlatsListAdapter;
 
 public class PlatFragment extends Fragment {
@@ -47,7 +47,7 @@ public class PlatFragment extends Fragment {
         rv.setItemAnimator(new DefaultItemAnimator());
 
         //GET CURENT CATEGORIE POINT
-        int ptRest = ConteurRipository.getActuelCat();
+        int ptRest = ConteurRepository.getActuelCat();
 
         //OBSERVE DATA FROM LIVE DATA AND UPDATE RV WEN DATA CHANGE
         platViewModel =

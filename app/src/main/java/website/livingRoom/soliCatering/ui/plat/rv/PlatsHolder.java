@@ -13,7 +13,7 @@ import website.livingRoom.soliCatering.R;
 
 import website.livingRoom.soliCatering.databinding.ModelPlatsBinding;
 import website.livingRoom.soliCatering.db.entitys.Plat;
-import website.livingRoom.soliCatering.ripository.ConteurRipository;
+import website.livingRoom.soliCatering.repository.ConteurRepository;
 import website.livingRoom.soliCatering.ui.categorie.rv.ItemClickListener;
 import website.livingRoom.soliCatering.ui.plat.PlatViewModel;
 import website.livingRoom.soliCatering.utile.Helper;
@@ -76,7 +76,7 @@ public class PlatsHolder extends RecyclerView.ViewHolder implements View.OnClick
 
         /*BLOCK CLICK AND MAKE ITEM GREW WHEN THE POINT ARE NOT ENOUGH*/
         //GET CURENT CATEGORIE POINT
-        int ptRest = ConteurRipository.getActuelCat();
+        int ptRest = ConteurRepository.getActuelCat();
         //WHERE IT IS ENOUGH
         if (plat.getPoint() <= ptRest) {
             //MAKE ITEM VISIBLE AND POINT RED

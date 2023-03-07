@@ -6,21 +6,21 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import website.livingRoom.soliCatering.db.entitys.Categorie;
-import website.livingRoom.soliCatering.ripository.CategorieRipository;
+import website.livingRoom.soliCatering.repository.CategorieRepository;
 
 import java.util.List;
 
 public class CategorieViewModel extends AndroidViewModel {
     //FIELD
-    private final CategorieRipository categorieRipository;
+    private final CategorieRepository categorieRepository;
     private final LiveData<List<Categorie>> allCategorie;
 
 
     //CONSTRUCTOR
     public CategorieViewModel(Application application) {
         super(application);
-        categorieRipository = new CategorieRipository(application.getBaseContext());
-        allCategorie = categorieRipository.getListCategorie();
+        categorieRepository = new CategorieRepository(application.getBaseContext());
+        allCategorie = categorieRepository.getListCategorie();
 
 
     }

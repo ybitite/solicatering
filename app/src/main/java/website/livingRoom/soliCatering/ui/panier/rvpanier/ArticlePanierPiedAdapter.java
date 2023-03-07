@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import website.livingRoom.soliCatering.R;
 
 import website.livingRoom.soliCatering.databinding.ModelPiedArticlePanierBinding;
-import website.livingRoom.soliCatering.ripository.ConteurRipository;
+import website.livingRoom.soliCatering.repository.ConteurRepository;
 
 
 public class ArticlePanierPiedAdapter extends RecyclerView.Adapter<ArticlePanierPiedAdapter.ArticlePanierPiedHolder> {
@@ -54,8 +54,8 @@ public class ArticlePanierPiedAdapter extends RecyclerView.Adapter<ArticlePanier
     //BIND METHODE
     public void bind() {
         //GET POINT RESTE AND CURENT MENNU FROM CONTEUR
-        final int ptRest = ConteurRipository.getPointRest();
-        final int ptCat = ConteurRipository.getActuelMenu();
+        final int ptRest = ConteurRepository.getPointRest();
+        final int ptCat = ConteurRepository.getActuelMenu();
         Button buttonValider = binding.buttonValiderCmd;
         /*DEFINE TEXT, COLOR AND ACCESSIBILITY TO VALIDER BUTTON */
         if (ptRest == 0 && ptCat > 0) {

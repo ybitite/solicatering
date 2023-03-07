@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import website.livingRoom.soliCatering.db.entitys.PanierWithAarticlePanierAndPlat;
-import website.livingRoom.soliCatering.ripository.PanierRipository;
+import website.livingRoom.soliCatering.repository.PanierRepository;
 
 public class PanierListAdapter extends ListAdapter<PanierWithAarticlePanierAndPlat, PanierHolder> {
 
@@ -33,8 +33,8 @@ public class PanierListAdapter extends ListAdapter<PanierWithAarticlePanierAndPl
     //DELETE curent panier from data base
     private void deletePanier(RecyclerView.ViewHolder viewHolder) {
         //DELETE  PANIER FROM DATA BASE
-        PanierRipository panierRipository = new PanierRipository(viewHolder.itemView.getContext());
-        panierRipository.deleteCurentPanier(getItem(viewHolder.getBindingAdapterPosition()).panier.getIdClientOwner());
+        PanierRepository panierRepository = new PanierRepository(viewHolder.itemView.getContext());
+        panierRepository.deletePanier(getItem(viewHolder.getBindingAdapterPosition()).panier.getIdClientOwner());
     }
 
     /* IMPLEMENTATION OF DIFFUTIL, ITEMCALLBACK FOR CALCULATING THE DIFF BETWEEN TWO ITEMS IN A LIST*/
