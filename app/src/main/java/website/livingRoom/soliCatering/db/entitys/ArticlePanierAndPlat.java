@@ -1,10 +1,9 @@
 package website.livingRoom.soliCatering.db.entitys;
 
-import androidx.room.DatabaseView;
 import androidx.room.Embedded;
 import androidx.room.Relation;
 
-@DatabaseView
+
 public class ArticlePanierAndPlat {
     /**
      * Classe to make the ralation between

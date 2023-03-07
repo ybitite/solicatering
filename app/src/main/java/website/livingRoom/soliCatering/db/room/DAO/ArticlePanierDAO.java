@@ -17,7 +17,7 @@ import java.util.List;
 public interface ArticlePanierDAO {
     //INSER NEW ARTICLEPANIER IN ARTICLEPANIERS TABLE
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    abstract void insert(ArticlePanier articlePaniers);
+    void insert(ArticlePanier articlePaniers);
 
     //SELECT ALL ArticlePanierAndPlat  in the curent panier
     @Transaction
@@ -31,7 +31,7 @@ public interface ArticlePanierDAO {
     //UPDATE GIVEN ID AND NUMBER PLAT
     @Query("UPDATE articlepaniers SET nombrePlat = :nbr + nombrePlat  WHERE idPlats LIKE :idPlat " +
             "AND idPanier like :idPanier")
-    int updateNombreArticlePanier(int idPlat, int idPanier, int nbr);
+    void updateNombreArticlePanier(int idPlat, int idPanier, int nbr);
 
     //DELETE all article panier in the curent panier
     @Query("DELETE FROM articlepaniers WHERE idPanier LIKE :idPanier")

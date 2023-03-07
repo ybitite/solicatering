@@ -14,7 +14,7 @@ import java.util.List;
 public interface PlatDAO {
     //INSER NEW PLAT IN PLATS TABLE
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    abstract void insert(Plat plat);
+    void insert(Plat plat);
 
 
     //SELECT PLATS FROM PLATS TABLE WHERE THE POINT ARE LIKE ACTUEL CAT PONT
