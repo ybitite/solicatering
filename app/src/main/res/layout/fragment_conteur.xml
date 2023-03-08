@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:gravity="center_vertical"
-            android:text="@{conteur.ptRestFormat}"
+            android:text="@{conteur.pointResteFormat}"
             android:textAlignment="textStart"
             android:textColor="#528707"
             android:textSize="12sp"

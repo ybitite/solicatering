@@ -3,7 +3,6 @@ package website.livingRoom.soliCatering.db.room;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
-import androidx.room.AutoMigration;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
@@ -28,10 +27,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @Database(entities = {Evenement.class, Menu.class, Categorie.class, Plat.class, ArticlePanier.class, Panier.class, Client.class},
-        version = 1,
-        autoMigrations = {
+        version = 1
+        /*autoMigrations = {
                 @AutoMigration(from = 1, to = 2)
-        }
+        }*/
         )
 public abstract class AppDatabase extends RoomDatabase {
     //FIELD
@@ -57,9 +56,9 @@ public abstract class AppDatabase extends RoomDatabase {
         if (INSTANCE == null) {
             synchronized (AppDatabase.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                                    AppDatabase.class, "RoomDB")
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),AppDatabase.class, "RoomDB")
                             .addCallback(sRoomDatabaseCallback)
+                            /*.createFromAsset("database/RoomDB.db")*/
                             .build();
                 }
             }

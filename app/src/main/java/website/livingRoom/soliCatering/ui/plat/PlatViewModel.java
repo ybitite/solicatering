@@ -48,7 +48,7 @@ public class PlatViewModel extends AndroidViewModel {
     /*INCREMENT NUMBER PLAT*/
     public void incrimenteNbPlat() {
         //GET POINT RESTE FROM CONTEUR IN SHARED PREFERENCES
-        int pntReste = ConteurRepository.getPointRest();
+        int pntReste = ConteurRepository.getPointReste();
         //GET VALUE OF POINT OF SELECTED PLAT
         int pntPlat = selectedPlat.getValue().getPoint();
         //GET VALUE OF NUMBER OF PLAT

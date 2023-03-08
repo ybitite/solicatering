@@ -58,7 +58,7 @@ public class ArticlePanierListAdapter extends ListAdapter<ArticlePanierAndPlat, 
 
         //UPDATE RESTE POINT IN CONTEUR
         ArticlePanierAndPlat articlePanierAndPlat = getItem(viewHolder.getBindingAdapterPosition());
-        ConteurRepository.upDatePointRest(articlePanierAndPlat.plat.getPoint() * articlePanierAndPlat.articlePanier.getNombrePlat());
+        ConteurRepository.upDatePointReste(articlePanierAndPlat.plat.getPoint() * articlePanierAndPlat.articlePanier.getNombrePlat());
     }
 
     /* IMPLEMENTATION OF DIFFUTIL, ITEMCALLBACK FOR CALCULATING THE DIFF BETWEEN OLD AND NEW ITEM*/

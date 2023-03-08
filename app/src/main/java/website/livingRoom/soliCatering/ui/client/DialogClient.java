@@ -92,14 +92,14 @@ public class DialogClient extends DialogFragment {
                  * that mean is more practic for this case to insert the key information direct to the table,
                  * in the selection the panier go to have relation with article panier(1-*) Panier,List<ArticlePanier> **/
                 /**also for client**/
-                Menu menu = clientViewModel.getCurrentMenu(ConteurRepository.getActuelMenu());
+                Menu menu = clientViewModel.getCurrentMenu(ConteurRepository.getPointDepart());
                 Client client = clientViewModel.getClient();
 
                 //information livraison are base for panier and note entity
                 InformationLivraison informationLivraison = clientViewModel.getInformationLivraison();
 
                 //create panier object
-                Panier panier = new Panier(ConteurRepository.getIdPanier(), client.getIdClient(), client.getNomPrenom(),
+                Panier panier = new Panier(ConteurRepository.getPanierActuel(), client.getIdClient(), client.getNomPrenom(),
                         1, menu.getId(), menu.getPrix(),
                         menu.getNomPic(), informationLivraison);
 
@@ -111,10 +111,10 @@ public class DialogClient extends DialogFragment {
 
             /**already asynchronous**/
             //create new id for panier
-            ConteurRepository.createNewIdPanier();
+            ConteurRepository.updatePanierActuel();
 
             //delete conteur
-            ConteurRepository.deleteConteur(context);
+            ConteurRepository.setConteur();
         });
         Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_activity_main).navigate(R.id.action_dialogClient_to_historiqueFragment);
 

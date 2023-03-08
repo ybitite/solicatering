@@ -1,6 +1,5 @@
 package website.livingRoom.soliCatering;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -9,9 +8,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import website.livingRoom.soliCatering.databinding.ActivityMainBinding;
+import website.livingRoom.soliCatering.db.sharedPreferences.AppSharedPreferences;
 import website.livingRoom.soliCatering.repository.ConteurRepository;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(bindingActivity.getRoot());
 
         //NAVIGATION CONTROL AND MENU INSTANTIATION
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.navigation_home, R.id.navigation_menu, R.id.navigation_categorie,R.id.navigation_panier,R.id.navigation_historique)
+                .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupWithNavController(bindingActivity.navView, navController);
 
@@ -44,20 +50,22 @@ public class MainActivity extends AppCompatActivity {
 
     private void initiateContour() {
 
-        //START NEW CONTEUR
-        if (!ConteurRepository.createConteur(getBaseContext())) {
-            bindingActivity.includeConteur.setConteur(ConteurRepository.getConteur());
-        }
-
         //INSTANTIATE LISTENER TO UPDATE UI WEN DATA IN SHARED PREFERENCES CHANGE
-        listener = (sharedPreferences, key) -> {
-            //UPDATE CONTEUR IN UI
-            bindingActivity.includeConteur.setConteur(ConteurRepository.getConteur());
+        listener = (SharedPreferences sharedPreferences, String key) -> {
+            updateConteurControl();
         };
 
-        //CREATE INSTANCE OF SHARED PREFERENCES AND REGISTER THE LISTENER IN
-        sharedPreferences = this.getSharedPreferences(String.valueOf(R.string.conteur_file_name), Context.MODE_PRIVATE);
+        //GET INSTANCE OF SP TO REGISTER A LISTENER
+        sharedPreferences = AppSharedPreferences.getSharedPreferences(getBaseContext());
         sharedPreferences.registerOnSharedPreferenceChangeListener(listener);
+
+        updateConteurControl();
+
+    }
+
+    private void updateConteurControl() {
+        //UPDATE CONTEUR IN UI
+        bindingActivity.includeConteur.setConteur(ConteurRepository.getConteur());
     }
 
     private void conteurVisibility(NavController navController) {

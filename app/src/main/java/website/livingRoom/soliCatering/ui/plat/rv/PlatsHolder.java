@@ -76,7 +76,7 @@ public class PlatsHolder extends RecyclerView.ViewHolder implements View.OnClick
 
         /*BLOCK CLICK AND MAKE ITEM GREW WHEN THE POINT ARE NOT ENOUGH*/
         //GET CURENT CATEGORIE POINT
-        int ptRest = ConteurRepository.getActuelCat();
+        int ptRest = ConteurRepository.getCategorieActuel();
         //WHERE IT IS ENOUGH
         if (plat.getPoint() <= ptRest) {
             //MAKE ITEM VISIBLE AND POINT RED

@@ -167,7 +167,7 @@ public class DialogPlat extends DialogFragment {
         int newPtRest = upDatePtRest();
 
         //GET CURRENT CATEGORIE FROM CONTEUR
-        int catActuel = ConteurRepository.getActuelCat();
+        int catActuel = ConteurRepository.getCategorieActuel();
 
         //IF POINT FINISH
         if (newPtRest == 0) {
@@ -200,8 +200,8 @@ public class DialogPlat extends DialogFragment {
         int nbrPlat = platViewModel.getNumberPlat().getValue();
 
         /*SAVE NEW RESTE POINT IN CONTEUR*/
-        ConteurRepository.upDatePointRest(-nbrPlat * ptPlat);
-        return ConteurRepository.getPointRest();
+        ConteurRepository.upDatePointReste(-nbrPlat * ptPlat);
+        return ConteurRepository.getPointReste();
     }
 
     private void addToPanier() {
@@ -211,7 +211,7 @@ public class DialogPlat extends DialogFragment {
             //GET DATA TO CONSTRUCT NEW ARTICLE PANIER OBJECT
             Plat plat = platViewModel.getSelectedPlat().getValue();
             int nbrPlat = platViewModel.getNumberPlat().getValue();
-            int idPanier = ConteurRepository.getIdPanier();
+            int idPanier = ConteurRepository.getPanierActuel();
 
             //CREATE NEW ARTICLE PANIER or UPDATE it
             ArticlePanier articlePanier = new ArticlePanier(idPanier, plat.getId(), nbrPlat);

@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import website.livingRoom.soliCatering.R;
 
 import website.livingRoom.soliCatering.databinding.FragmentPanierBinding;
-import website.livingRoom.soliCatering.repository.ConteurRepository;
+import website.livingRoom.soliCatering.db.entitys.Conteur;
 import website.livingRoom.soliCatering.ui.panier.rvpanier.ArticlePanierListAdapter;
 import website.livingRoom.soliCatering.ui.panier.rvpanier.ArticlePanierPiedAdapter;
 
@@ -61,7 +61,7 @@ public class PanierFragment extends Fragment {
         listenerSP = new SharedPreferences.OnSharedPreferenceChangeListener() {
             @Override
             public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-                if (key == ConteurRepository.POINT_RESTE_KEY) articlePanierPiedAdapter.bind();
+                if (key == Conteur.POINT_RESTE_KEY) articlePanierPiedAdapter.bind();
             }
         };
 

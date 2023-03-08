@@ -70,7 +70,7 @@ public class CategorieHolder extends RecyclerView.ViewHolder implements View.OnC
 //        holder.textViewContenuCat3.setText(categorie.get(position).getContenu2());
 
         //BLOCK CLICK AND MAKE ITEM GRIS
-        int ptRest = ConteurRepository.getPointRest();
+        int ptRest = ConteurRepository.getPointReste();
         if (categorie.getPoint() <= ptRest) {
             //MAKE ITEM VISIBLE AND POINT RED
             binding.griserItemCat.setVisibility(View.INVISIBLE);
@@ -79,7 +79,7 @@ public class CategorieHolder extends RecyclerView.ViewHolder implements View.OnC
             setItemClickListener(new ItemClickListener() {
                 @Override
                 public void onItemClick(View v, int pos) {
-                    ConteurRepository.seteCatActuel(categorie.getPoint());
+                    ConteurRepository.setCategorieActuel(categorie.getPoint());
                     Navigation.findNavController((Activity) context, R.id.nav_host_fragment_activity_main).navigate(R.id.action_navigation_categorie_to_navigation_plat);
                 }
             });

@@ -69,7 +69,7 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
         binding.textViewInfoMenu.setText(menu.getInfo());
         binding.imageViewIconMenu.setImageResource(Helper.idResource(menu.getNomPic()));
         //CHANGE COLOR OF ACTUEL MENU
-        int menuActuel = ConteurRepository.getActuelMenu();
+        int menuActuel = ConteurRepository.getPointDepart();
         if (menu.getPoint() == menuActuel) {
             //CHANGE COLOR OF ITEM WHEN IS CLICKED
             binding.constraintLayoutMenu.setBackgroundColor(context.getResources().getColor(R.color.gris_blan));
@@ -84,10 +84,10 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
                 //IF USER CLICK IN THE NEW MENU A NEW CONTEUR START AGAIN
                 if (menu.getPoint() != menuActuel) {
                     //START NEW CONTEUR
-                    ConteurRepository.createConteur(menu.getNom(), menu.getPoint());
+                    ConteurRepository.setConteur(menu.getNom(), menu.getPoint());
 
                     //clear list of article panier
-                    articlePanierRepository.deleteCurentPanier(ConteurRepository.getIdPanier());
+                    articlePanierRepository.deleteCurentPanier(ConteurRepository.getPanierActuel());
                 }
                 //NAVIGATE TO CATEGORIE
                 Navigation.findNavController((Activity) context, R.id.nav_host_fragment_activity_main)

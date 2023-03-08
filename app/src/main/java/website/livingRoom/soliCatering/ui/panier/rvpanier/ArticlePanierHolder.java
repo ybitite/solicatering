@@ -100,7 +100,7 @@ public class ArticlePanierHolder extends RecyclerView.ViewHolder implements View
         articlePanierRepository.deleteArticlePanier(articlePanierAndPlat.articlePanier);
 
         //UPDATE RESTE POINT IN CONTEUR
-        ConteurRepository.upDatePointRest(articlePanierAndPlat.plat.getPoint());
+        ConteurRepository.upDatePointReste(articlePanierAndPlat.plat.getPoint());
     }
 
 

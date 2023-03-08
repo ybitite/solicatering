@@ -32,7 +32,7 @@ public class PanierViewModel extends AndroidViewModel {
     /*TO OBSERVED LIVE DATA LIST ARTICLE PANIER FROM REPOSITORY*/
     public static LiveData<List<ArticlePanierAndPlat>> getListArticlePanierWithPlat() {
         //GET ID PANIER FROM CONTEUR
-        int idPanier = ConteurRepository.getIdPanier();
+        int idPanier = ConteurRepository.getPanierActuel();
 
         //GET DATA LIVE OF LIST OF ARTICLE IN THIS PANIER
         listArticlePanierWithPlat = articlePanierRepository.getListArticlePanierWithPlat(idPanier);
@@ -44,8 +44,8 @@ public class PanierViewModel extends AndroidViewModel {
     /*INCREMENT NUMBER PLAT*/
     public int incrimenteNbPlat(int position) {
         //GET POINT RESTE FROM CONTEUR IN SHARED PREFERENCES
-        int pntReste = ConteurRepository.getPointRest();
-        int idPanier = ConteurRepository.getIdPanier();
+        int pntReste = ConteurRepository.getPointReste();
+        int idPanier = ConteurRepository.getPanierActuel();
 
         //GET VALUE OF POINT OF SELECTED PLAT
         int pntPlat = listArticlePanierWithPlat.getValue().get(position).plat.getPoint();
@@ -62,7 +62,7 @@ public class PanierViewModel extends AndroidViewModel {
             articlePanierRepository.updateArticlePanier(listArticlePanierWithPlat.getValue().get(position).articlePanier, 1);
 
             //UPDATE RESTE IN CONTEUR
-            ConteurRepository.upDatePointRest(-pntPlat);
+            ConteurRepository.upDatePointReste(-pntPlat);
 
             //RETURN NEW NUMBER
             return nbrPlat + 1;
@@ -72,7 +72,7 @@ public class PanierViewModel extends AndroidViewModel {
     /*DECREMENT NUMBER PLAT*/
     public int decrementNbPlat(int position) {
 
-        int idPanier = ConteurRepository.getIdPanier();
+        int idPanier = ConteurRepository.getPanierActuel();
 
         //GET VALUE OF NUMBER OF PLAT
         int nbrPlat = listArticlePanierWithPlat.getValue().get(position).articlePanier.getNombrePlat();
@@ -88,7 +88,7 @@ public class PanierViewModel extends AndroidViewModel {
             articlePanierRepository.updateArticlePanier(listArticlePanierWithPlat.getValue().get(position).articlePanier, -1);
 
             //UPDATE RESTE IN CONTEUR
-            ConteurRepository.upDatePointRest(pntPlat);
+            ConteurRepository.upDatePointReste(pntPlat);
 
             //RETURN NEW NUMBER
             return nbrPlat - 1;

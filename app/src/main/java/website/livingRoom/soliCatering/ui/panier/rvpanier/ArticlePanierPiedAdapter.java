@@ -54,8 +54,8 @@ public class ArticlePanierPiedAdapter extends RecyclerView.Adapter<ArticlePanier
     //BIND METHODE
     public void bind() {
         //GET POINT RESTE AND CURENT MENNU FROM CONTEUR
-        final int ptRest = ConteurRepository.getPointRest();
-        final int ptCat = ConteurRepository.getActuelMenu();
+        final int ptRest = ConteurRepository.getPointReste();
+        final int ptCat = ConteurRepository.getPointDepart();
         Button buttonValider = binding.buttonValiderCmd;
         /*DEFINE TEXT, COLOR AND ACCESSIBILITY TO VALIDER BUTTON */
         if (ptRest == 0 && ptCat > 0) {

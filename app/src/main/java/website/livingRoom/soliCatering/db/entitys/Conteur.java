@@ -7,15 +7,29 @@ import website.livingRoom.soliCatering.utile.AppUtile;
 
 public class Conteur {
     //FIELD
-    final String name;
-    final int ptDepart;
-    final int ptReste;
+    private final String name;
+    private final int pointDepart;
+    private final int pointReste;
+    private final int categorieActuel;
+    private final int panierActuel;
+    //KEY
+    public static final String NAME_KEY = "conteur_name";
+    public static final String POINT_RESTE_KEY = "conteur_point_reste";
+    public static final String POINT_DEPART_KEY = "conteur_point_depart";
+    public static final String CATEGORIE_ACTUEL_KEY = "conteur_categorie_actuel";
+    public static final String PANIER_ACTUEL_KEY = "conteur_panier_actuel";
+
+
+
 
     //CONSTRUCTOR
-    public Conteur(String name, int ptDepart, int ptReste) {
+    public Conteur(String name, int pointDepart, int pointReste, int categorieActuel, int panierActuel) {
         this.name = name;
-        this.ptDepart = ptDepart;
-        this.ptReste = ptReste;
+        this.pointDepart = pointDepart;
+        this.pointReste = pointReste;
+        this.categorieActuel= categorieActuel;
+        this.panierActuel =panierActuel;
+
     }
 
     //PROPRIETY
@@ -23,24 +37,33 @@ public class Conteur {
         return name;
     }
 
-    public int getpDepart() {
-        return ptDepart;
+    public int getPointDepart() {
+        return pointDepart;
     }
 
-    public int getpReste() {
-        return ptReste;
+    public int getPointReste() {
+        return pointReste;
+    }
+
+    public int getCategorieActuel() {
+        return categorieActuel;
+    }
+
+
+    public int getPanierActuel() {
+        return panierActuel;
     }
 
     public String getNameFormat() {
         //get resources from AppUtil
         Resources resources = AppUtile.getResource();
-        return name + " (" + ptDepart + ") "+ resources.getString(R.string.text_point);
+        return name + " (" + pointDepart + ") "+ resources.getString(R.string.text_point);
     }
 
-    public String getPtRestFormat() {
+    public String getPointResteFormat() {
         Resources resources = AppUtile.getResource();
 
-        return ptReste + " " + resources.getString(R.string.text_point);
+        return pointReste + " " + resources.getString(R.string.text_point);
 
     }
 }

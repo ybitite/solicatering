@@ -47,7 +47,7 @@ public class PlatFragment extends Fragment {
         rv.setItemAnimator(new DefaultItemAnimator());
 
         //GET CURENT CATEGORIE POINT
-        int ptRest = ConteurRepository.getActuelCat();
+        int ptRest = ConteurRepository.getCategorieActuel();
 
         //OBSERVE DATA FROM LIVE DATA AND UPDATE RV WEN DATA CHANGE
         platViewModel =
