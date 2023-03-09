@@ -88,7 +88,7 @@ public class PlatsHolder extends RecyclerView.ViewHolder implements View.OnClick
                 public void onItemClick(View v, int pos) {
                     try {
                         //SAVE SELECTED PLAT
-                        platViewModel.selectPlat(plat);
+                        platViewModel.setSelectedPlat(plat);
                         //NAVIGATE TO VIEW PLAT
                         //TODO: beug / cause context / ok with try catch
                         Navigation.findNavController((Activity) context, R.id.nav_host_fragment_activity_main).navigate(R.id.action_navigation_plat_to_dialogPlat2);

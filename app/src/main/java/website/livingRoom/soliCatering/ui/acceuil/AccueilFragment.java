@@ -49,7 +49,7 @@ public class AccueilFragment extends Fragment {
         //OBSERVE DATA FROM LIVE DATA AND UPDATE RV WEN DATA CHANGE
         AcceuilViewModel acceuilViewModel =
                 new ViewModelProvider(this).get(AcceuilViewModel.class);
-        acceuilViewModel.getAllEvenement().observe(getViewLifecycleOwner(), evenements -> {
+        acceuilViewModel.getListEvenement().observe(getViewLifecycleOwner(), evenements -> {
             // UPDATE THE CACHED COPY OF THE EVENEMENTS IN THE ADAPTER.
             evenementListAdapter.submitList(evenements);
         });

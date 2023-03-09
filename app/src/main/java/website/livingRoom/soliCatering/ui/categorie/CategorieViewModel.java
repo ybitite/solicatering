@@ -12,22 +12,21 @@ import java.util.List;
 
 public class CategorieViewModel extends AndroidViewModel {
     //FIELD
-    private final CategorieRepository categorieRepository;
-    private final LiveData<List<Categorie>> allCategorie;
+    private final LiveData<List<Categorie>> listCategorie;
 
 
     //CONSTRUCTOR
     public CategorieViewModel(Application application) {
         super(application);
-        categorieRepository = new CategorieRepository(application.getBaseContext());
-        allCategorie = categorieRepository.getListCategorie();
+        CategorieRepository categorieRepository = new CategorieRepository(application.getBaseContext());
+        listCategorie = categorieRepository.getListCategorie();
 
 
     }
 
-    /*TO OBSERVED LIVE DATA LIST CATEGORIE FROM REPOSITORY*/
-    public LiveData<List<Categorie>> getAllCategorie() {
-        return allCategorie;
+    /*TO OBSERVED LIVE DATA LIST CATEGORIE */
+    public LiveData<List<Categorie>> getListCategorie() {
+        return listCategorie;
     }
 
 }

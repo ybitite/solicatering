@@ -8,43 +8,28 @@ import androidx.lifecycle.AndroidViewModel;
 import website.livingRoom.soliCatering.db.entitys.Client;
 import website.livingRoom.soliCatering.db.entitys.InformationLivraison;
 import website.livingRoom.soliCatering.db.entitys.Menu;
-import website.livingRoom.soliCatering.repository.ClientRepository;
 import website.livingRoom.soliCatering.repository.MenuRepository;
-import website.livingRoom.soliCatering.repository.PanierRepository;
 
 public class ClientViewModel extends AndroidViewModel {
     //FIELD
-    //to create new panier
     private Client client;
     private InformationLivraison informationLivraison;
-    private Menu menu;
+    private final MenuRepository menuRepository;
 
-    //to insert date in data base
-    public ClientRepository clientRepository;
-    public PanierRepository panierRepository;
-
-    //te retrive
-    private MenuRepository menuRepository;
-
-    //FIX WIDTH OF CARD TO WIDTH OF SCREEN
-    public int width = getApplication().getBaseContext().getResources().getDisplayMetrics().widthPixels;
 
     //CONSTRUCTOR
     public ClientViewModel(@NonNull Application application) {
         super(application);
-        clientRepository = new ClientRepository(application);
-        menuRepository = new MenuRepository(application);
-        panierRepository = new PanierRepository(application);
-        informationLivraison = new InformationLivraison();
-        client = new Client();
 
+        menuRepository = new MenuRepository(application);
+        client = new Client();
+        informationLivraison = new InformationLivraison();
     }
 
     //METHODE
     //tu get current menu to create panier
     public Menu getCurrentMenu(int pointMenu) {
-        menu = menuRepository.getMenu(pointMenu);
-        return menu;
+        return menuRepository.getMenu(pointMenu);
     }
 
     //PROPRIETY

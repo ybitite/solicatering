@@ -46,7 +46,7 @@ public class MenuFragment extends Fragment {
         menuViewModel =
                 new ViewModelProvider(this).get(MenuViewModel.class);
 
-        menuViewModel.getAllMenu().observe(getViewLifecycleOwner(), menus -> {
+        menuViewModel.getListMenu().observe(getViewLifecycleOwner(), menus -> {
             menuListAdapter.submitList(menus);
         });
         return root;

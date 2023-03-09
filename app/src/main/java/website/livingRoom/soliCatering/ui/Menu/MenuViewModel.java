@@ -13,17 +13,17 @@ import java.util.List;
 public class MenuViewModel extends AndroidViewModel {
     //FIELD
     private final MenuRepository menuRepository;
-    private final LiveData<List<Menu>> allMenu;
+    private final LiveData<List<Menu>> listMenu;
 
     //CONSTRUCTOR
     public MenuViewModel(Application application) {
         super(application);
         menuRepository = new MenuRepository(application.getBaseContext());
-        allMenu = menuRepository.getMenu();
+        listMenu = menuRepository.getMenu();
     }
 
-    /*TO OBSERVED LIVE DATA LIST MENU FROM REPOSITORY*/
-    public LiveData<List<Menu>> getAllMenu() {
-        return allMenu;
+    /*TO OBSERVED LIVE DATA LIST MENU*/
+    public LiveData<List<Menu>> getListMenu() {
+        return listMenu;
     }
 }

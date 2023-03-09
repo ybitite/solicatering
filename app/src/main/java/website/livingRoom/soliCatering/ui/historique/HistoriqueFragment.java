@@ -45,7 +45,7 @@ public class HistoriqueFragment extends Fragment {
         historiqueViewModel =
                 new ViewModelProvider(this).get(HistoriqueViewModel.class);
 
-        historiqueViewModel.getAllPanierWithArticlePanier().observe(getViewLifecycleOwner(), listPanierWithAP -> {
+        historiqueViewModel.getListPanierWithArticlePanierAndPlat().observe(getViewLifecycleOwner(), listPanierWithAP -> {
             panierListAdapter.submitList(listPanierWithAP);
         });
 

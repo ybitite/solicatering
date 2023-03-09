@@ -12,18 +12,17 @@ import java.util.List;
 
 public class AcceuilViewModel extends AndroidViewModel {
     //FIELD
-    private final EvenementRepository evenementRepository;
-    private final LiveData<List<Evenement>> allEvenement;
+    private final LiveData<List<Evenement>> listEvenement;
 
     //CONSTRUCTOR
     public AcceuilViewModel(Application application) {
         super(application);
-        evenementRepository = new EvenementRepository(application.getBaseContext());
-        allEvenement = evenementRepository.getListEvenement();
+        EvenementRepository evenementRepository = new EvenementRepository(application.getBaseContext());
+        listEvenement = evenementRepository.getListEvenement();
     }
 
-    /*TO OBSERVED LIVE DATA LIST EVENT FROM REPOSITORY*/
-    public LiveData<List<Evenement>> getAllEvenement() {
-        return allEvenement;
+    /*TO OBSERVED LIVE DATA LIST EVENT*/
+    public LiveData<List<Evenement>> getListEvenement() {
+        return listEvenement;
     }
 }

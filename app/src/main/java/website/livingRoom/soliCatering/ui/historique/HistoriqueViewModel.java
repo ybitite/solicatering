@@ -12,19 +12,19 @@ import java.util.List;
 
 public class HistoriqueViewModel extends AndroidViewModel {
     //FIELD
-    private final PanierRepository panierRepository;
-    private final LiveData<List<PanierWithAarticlePanierAndPlat>> allPanierWithArticlePanier;
+
+    private final LiveData<List<PanierWithAarticlePanierAndPlat>> listPanierWithArticlePanierAndPlat;
 
     //CONSTRUCTOR
     public HistoriqueViewModel(Application application) {
         super(application);
-        panierRepository = new PanierRepository(application.getBaseContext());
-        allPanierWithArticlePanier = panierRepository.getPanierWithArticlePanierAndPlats();
+        PanierRepository panierRepository = new PanierRepository(application.getBaseContext());
+        listPanierWithArticlePanierAndPlat = panierRepository.getPanierWithArticlePanierAndPlats();
     }
 
     /*TO OBSERVED LIVE DATA LIST PANIER FROM REPOSITORY*/
-    public LiveData<List<PanierWithAarticlePanierAndPlat>> getAllPanierWithArticlePanier() {
-        return allPanierWithArticlePanier;
+    public LiveData<List<PanierWithAarticlePanierAndPlat>> getListPanierWithArticlePanierAndPlat() {
+        return listPanierWithArticlePanierAndPlat;
     }
 
 }

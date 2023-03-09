@@ -21,14 +21,16 @@ import website.livingRoom.soliCatering.db.entitys.InformationLivraison;
 import website.livingRoom.soliCatering.db.entitys.Menu;
 import website.livingRoom.soliCatering.db.entitys.Panier;
 import website.livingRoom.soliCatering.db.room.AppDatabase;
+import website.livingRoom.soliCatering.repository.ClientRepository;
 import website.livingRoom.soliCatering.repository.ConteurRepository;
+import website.livingRoom.soliCatering.repository.PanierRepository;
 
 public class DialogClient extends DialogFragment {
 
     //FIELD
-    static ClientViewModel clientViewModel;
-    static ViewClientBinding viewClientBinding;
-    static Context context;
+    ClientViewModel clientViewModel;
+    ViewClientBinding viewClientBinding;
+    Context context;
 
     //OVERRIDE METHODE
     @Nullable
@@ -104,10 +106,12 @@ public class DialogClient extends DialogFragment {
                         menu.getNomPic(), informationLivraison);
 
                 //Insert client or update it in Data Base
-                clientViewModel.clientRepository.insertClient(client);
+                ClientRepository clientRepository = new ClientRepository(getContext());
+                clientRepository.insertClient(client);
 
                 //insert panier in date base
-                clientViewModel.panierRepository.insertPanier(panier);
+                PanierRepository panierRepository = new PanierRepository(getContext());
+                panierRepository.insertPanier(panier);
 
             /**already asynchronous**/
             //create new id for panier

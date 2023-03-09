@@ -70,7 +70,7 @@ public class PanierFragment extends Fragment {
         sharedPreferences.registerOnSharedPreferenceChangeListener(listenerSP);
 
         //OBSERVE DATA FROM LIVE DATA AND UPDATE RV WEN DATA CHANGE
-        panierViewModel.getListArticlePanierWithPlat().observe(getViewLifecycleOwner(), articlePanierWithPlat -> {
+        panierViewModel.getListArticlePanierAndPlat().observe(getViewLifecycleOwner(), articlePanierWithPlat -> {
             // UPDATE THE CACHED COPY OF THE ARTICLE PANIER IN THE ADAPTER.
             articlePanierListAdapter.submitList(articlePanierWithPlat);
         });

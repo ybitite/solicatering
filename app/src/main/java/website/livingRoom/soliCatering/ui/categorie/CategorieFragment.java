@@ -48,7 +48,7 @@ public class CategorieFragment extends Fragment {
         categorieViewModel =
                 new ViewModelProvider(this).get(CategorieViewModel.class);
 
-        categorieViewModel.getAllCategorie().observe(getViewLifecycleOwner(), categorie -> {
+        categorieViewModel.getListCategorie().observe(getViewLifecycleOwner(), categorie -> {
             categorieListAdapter.submitList(categorie);
         });
 

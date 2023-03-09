@@ -13,85 +13,61 @@ import java.util.List;
 
 public class PanierViewModel extends AndroidViewModel {
     //FIELD
-    public static LiveData<List<ArticlePanierAndPlat>> listArticlePanierWithPlat;
-    private static ArticlePanierRepository articlePanierRepository;
+    private  LiveData<List<ArticlePanierAndPlat>> listArticlePanierAndPlat = new LiveData<>() {};
+    private final ArticlePanierRepository articlePanierRepository;
 
     //CONSTRUCTOR
     public PanierViewModel(Application application) {
         super(application);
 
         articlePanierRepository = new ArticlePanierRepository(application);
-        listArticlePanierWithPlat = new LiveData<List<ArticlePanierAndPlat>>() {
-        };
-    }
-
-    public PanierViewModel() {
-        super(new Application());
     }
 
     /*TO OBSERVED LIVE DATA LIST ARTICLE PANIER FROM REPOSITORY*/
-    public static LiveData<List<ArticlePanierAndPlat>> getListArticlePanierWithPlat() {
-        //GET ID PANIER FROM CONTEUR
-        int idPanier = ConteurRepository.getPanierActuel();
+    public  LiveData<List<ArticlePanierAndPlat>> getListArticlePanierAndPlat() {
 
         //GET DATA LIVE OF LIST OF ARTICLE IN THIS PANIER
-        listArticlePanierWithPlat = articlePanierRepository.getListArticlePanierWithPlat(idPanier);
+        listArticlePanierAndPlat = articlePanierRepository.getListArticlePanierWithPlat(ConteurRepository.getPanierActuel());
 
         //RETURN LIVE DATA LIST
-        return listArticlePanierWithPlat;
+        return listArticlePanierAndPlat;
     }
 
     /*INCREMENT NUMBER PLAT*/
     public int incrimenteNbPlat(int position) {
-        //GET POINT RESTE FROM CONTEUR IN SHARED PREFERENCES
-        int pntReste = ConteurRepository.getPointReste();
-        int idPanier = ConteurRepository.getPanierActuel();
 
-        //GET VALUE OF POINT OF SELECTED PLAT
-        int pntPlat = listArticlePanierWithPlat.getValue().get(position).plat.getPoint();
-        //GET VALUE OF NUMBER OF PLAT
-        int nbrPlat = listArticlePanierWithPlat.getValue().get(position).articlePanier.getNombrePlat();
-        //GET ID
-        int idPlat = listArticlePanierWithPlat.getValue().get(position).articlePanier.getIdPlats();
-
+        ArticlePanierAndPlat article = listArticlePanierAndPlat.getValue().get(position);
 
         /*INCREMENT NUMBER OF PLAT IF IT POINT PLAT ARE LAST OR EQUAL AT POINT RESTE*/
-        if (pntPlat <= pntReste) {
+        if (article.plat.getPoint() <= ConteurRepository.getPointReste()) {
 
             //UPDATE IT IN DATA BASE on work thread
-            articlePanierRepository.updateArticlePanier(listArticlePanierWithPlat.getValue().get(position).articlePanier, 1);
+            articlePanierRepository.updateArticlePanier(article.articlePanier, 1);
 
             //UPDATE RESTE IN CONTEUR
-            ConteurRepository.upDatePointReste(-pntPlat);
+            ConteurRepository.upDatePointReste(-article.plat.getPoint());
 
             //RETURN NEW NUMBER
-            return nbrPlat + 1;
+            return article.articlePanier.getNombrePlat() + 1;
         } else return 0;
     }
 
     /*DECREMENT NUMBER PLAT*/
     public int decrementNbPlat(int position) {
 
-        int idPanier = ConteurRepository.getPanierActuel();
-
-        //GET VALUE OF NUMBER OF PLAT
-        int nbrPlat = listArticlePanierWithPlat.getValue().get(position).articlePanier.getNombrePlat();
-        //GET VALUE OF POINT OF SELECTED PLAT
-        int pntPlat = listArticlePanierWithPlat.getValue().get(position).plat.getPoint();
-        //GET ID
-        int idPlat = listArticlePanierWithPlat.getValue().get(position).articlePanier.getIdPlats();
+        ArticlePanierAndPlat article = listArticlePanierAndPlat.getValue().get(position);
 
         /*DECREMENT NUMBER OF PLAT IF IT POSSIBLE IF NUMBER ARE MOR THAN 1*/
-        if (nbrPlat > 1) {
+        if (article.articlePanier.getNombrePlat() > 1) {
 
             //UPDATE IT IN DATA BASE on work thread
-            articlePanierRepository.updateArticlePanier(listArticlePanierWithPlat.getValue().get(position).articlePanier, -1);
+            articlePanierRepository.updateArticlePanier(article.articlePanier, -1);
 
             //UPDATE RESTE IN CONTEUR
-            ConteurRepository.upDatePointReste(pntPlat);
+            ConteurRepository.upDatePointReste(article.plat.getPoint());
 
             //RETURN NEW NUMBER
-            return nbrPlat - 1;
+            return article.articlePanier.getNombrePlat() - 1;
         } else return 0;
     }
 
