@@ -28,23 +28,31 @@ public class AccueilFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        //CREATE BINDING WITH INFLATE LAYOUT
         binding = FragmentAcceuilBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
 
-        //INSTANTIATE CONTROLE
-        RecyclerView rv = binding.includeacceuil.evRecycler;
+        //initiate recycle view
+        initiateRecycleView();
 
-        //SET HEADER ADAPTER + BT COMMANDER ADAPTER + LIST ADAPTER TO RV
-        final EvenementTeteAdapter evenementTeteAdapter = new EvenementTeteAdapter();
-        final EvenementBtCmdAdapter evenementBtCmdAdapter = new EvenementBtCmdAdapter();
+        return binding.getRoot();
+    }
+
+    private void initiateRecycleView() {
+
+        //create concat adapter from HEADER ADAPTER + BT COMMANDER ADAPTER + LIST ADAPTER
         final EvenementListAdapter evenementListAdapter = new EvenementListAdapter(new EvenementListAdapter.EvenementDiff());
-        final ConcatAdapter concatAdapter = new ConcatAdapter(evenementTeteAdapter, evenementBtCmdAdapter, evenementListAdapter);
-        rv.setAdapter(concatAdapter);
+        final ConcatAdapter concatAdapter = new ConcatAdapter(new EvenementTeteAdapter(),  new EvenementBtCmdAdapter(), evenementListAdapter);
 
         //SET PROPERTIES TO RV
+        RecyclerView rv = binding.includeacceuil.evRecycler;
+        rv.setAdapter(concatAdapter);
         rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
         rv.setItemAnimator(new DefaultItemAnimator());
+
+        //observe data from live data and update rv
+        observeAndUpdate(evenementListAdapter);
+    }
+
+    private void observeAndUpdate(EvenementListAdapter evenementListAdapter) {
 
         //OBSERVE DATA FROM LIVE DATA AND UPDATE RV WEN DATA CHANGE
         AcceuilViewModel acceuilViewModel =
@@ -53,7 +61,6 @@ public class AccueilFragment extends Fragment {
             // UPDATE THE CACHED COPY OF THE EVENEMENTS IN THE ADAPTER.
             evenementListAdapter.submitList(evenements);
         });
-        return root;
     }
 
     @Override

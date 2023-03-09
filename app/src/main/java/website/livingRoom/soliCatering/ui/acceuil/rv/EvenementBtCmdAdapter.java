@@ -16,8 +16,8 @@ import website.livingRoom.soliCatering.databinding.ModelBtCmdEvenementBinding;
 public class EvenementBtCmdAdapter extends RecyclerView.Adapter<EvenementBtCmdAdapter.EvenementBtCmdHolder> {
 
     //FIELD
-    ModelBtCmdEvenementBinding binding;
-    Context context;
+    private ModelBtCmdEvenementBinding binding;
+    private Context context;
 
     //OVERRIDE METHODE
     @NonNull
@@ -29,11 +29,9 @@ public class EvenementBtCmdAdapter extends RecyclerView.Adapter<EvenementBtCmdAd
 
         binding = ModelBtCmdEvenementBinding.bind(view);
 
-        EvenementBtCmdHolder evenementBtCmdHolder = new EvenementBtCmdHolder(view);
-
         context = parent.getContext();
 
-        return evenementBtCmdHolder;
+        return new EvenementBtCmdHolder(view);
     }
 
     @Override
@@ -54,10 +52,8 @@ public class EvenementBtCmdAdapter extends RecyclerView.Adapter<EvenementBtCmdAd
                         .navigate(R.id.action_navigation_home_to_navigation_commande));
     }
 
-
     //HOLDER
-    class EvenementBtCmdHolder extends RecyclerView.ViewHolder {
-
+    static class EvenementBtCmdHolder extends RecyclerView.ViewHolder {
         public EvenementBtCmdHolder(View itemView) {
             super(itemView);
         }

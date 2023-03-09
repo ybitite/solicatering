@@ -13,22 +13,24 @@ import website.livingRoom.soliCatering.databinding.ModelTeteEvenementBinding;
 public class EvenementTeteAdapter extends RecyclerView.Adapter<EvenementTeteAdapter.EvenementTeteHolder> {
     //FIELD
     private ModelTeteEvenementBinding bindingEvtTete;
-    int geton = 1;
+    private int geton = 1;
 
     //OVERRIDE METHODE
     @NonNull
     @Override
     public EvenementTeteHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.model_tete_evenement, parent, false);
+
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.model_tete_evenement, parent, false);
+
         bindingEvtTete = ModelTeteEvenementBinding.bind(view);
-        EvenementTeteHolder evenementTeteHolder = new EvenementTeteHolder(view);
-        return evenementTeteHolder;
+
+        return new EvenementTeteHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull EvenementTeteHolder holder, int position) {
-
-        initiateTopUi();
+        bind();
     }
 
     @Override
@@ -37,17 +39,13 @@ public class EvenementTeteAdapter extends RecyclerView.Adapter<EvenementTeteAdap
     }
 
     //METHODE BIND
-    public void initiateTopUi() {
-
+    public void bind() {
         //UPDATE SIZE OF TEXT HOME
         bindingEvtTete.textViewDescriptionProjet.setOnClickListener(view -> updateDescription());
-
         bindingEvtTete.imageViewAgrandir.setOnClickListener(view -> updateDescription());
-
     }
 
     public void updateDescription() {
-
         //EXPAND DESCRIPTION
         if (geton == 1) {
             bindingEvtTete.textViewDescriptionProjet.setText(R.string.description_projet_grande);
@@ -63,8 +61,7 @@ public class EvenementTeteAdapter extends RecyclerView.Adapter<EvenementTeteAdap
 
     }
 
-    class EvenementTeteHolder extends RecyclerView.ViewHolder {
-
+    static class EvenementTeteHolder extends RecyclerView.ViewHolder {
         public EvenementTeteHolder(View view) {
             super(view);
         }
