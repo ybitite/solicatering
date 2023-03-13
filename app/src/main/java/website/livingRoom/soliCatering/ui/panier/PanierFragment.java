@@ -39,7 +39,7 @@ public class PanierFragment extends Fragment {
         View root = binding.getRoot();
 
         //INSTANTIATE CONTROLE
-        RecyclerView rv = binding.includePanier.pRecycler;
+        RecyclerView rv = binding.pRecycler;
 
         //INSTANTIATE VIEW MODEL
         PanierViewModel panierViewModel = new ViewModelProvider(this).get(PanierViewModel.class);

@@ -4,15 +4,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
         <variable
             name="conteur"
             type="website.livingRoom.soliCatering.db.entitys.Conteur" />
-
         <variable
             name="mainActivity"
             type="website.livingRoom.soliCatering.MainActivity" />
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,25 +23,6 @@
 
         android:background="#212322"
         android:visibility="invisible">
-        <!--
-        <ImageButton
-            android:id="@+id/imageButtonRetourCat"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="#212322"
-            android:minWidth="48dp"
-            android:minHeight="48dp"
-            android:scaleType="fitXY"
-            android:src="@android:drawable/ic_menu_revert"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="TouchTargetSizeCheck" />
--->
 
         <TextView
             android:id="@+id/textViewTitreConteurCat"
@@ -96,5 +74,6 @@
             app:layout_constraintStart_toEndOf="@+id/textViewTitreConteurCat"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="RtlCompat" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -33,7 +33,7 @@ public class CategorieFragment extends Fragment {
         View root = binding.getRoot();
 
         //INSTANTIATE RV
-        RecyclerView rv = binding.includeCategorie.cRecycler;
+        RecyclerView rv = binding.cRecycler;
 
         //SET ADAPTER TO RV
         //todo:add adpter when ptcat actuel is ms

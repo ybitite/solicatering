@@ -32,7 +32,7 @@ public class PlatFragment extends Fragment {
         View root = binding.getRoot();
 
         //INSTANTIATE CONTROLE
-        RecyclerView rv = binding.includePlat.plRecycler;
+        RecyclerView rv = binding.plRecycler;
 
         //INSTANTIATE VIEW MODEL
         platViewModel =

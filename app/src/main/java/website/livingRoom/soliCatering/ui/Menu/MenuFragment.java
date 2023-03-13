@@ -32,7 +32,7 @@ public class MenuFragment extends Fragment {
         View root = binding.getRoot();
 
         //INSTANTIATE CONTROLE
-        RecyclerView rv = binding.includeCommande.mRecycler;
+        RecyclerView rv = binding.mRecycler;
 
         //SET ADAPTER TO RV
         final MenuListAdapter menuListAdapter = new MenuListAdapter(new MenuListAdapter.MenuDiff());

@@ -43,7 +43,7 @@ public class AccueilFragment extends Fragment {
         final ConcatAdapter concatAdapter = new ConcatAdapter(new EvenementTeteAdapter(),  new EvenementBtCmdAdapter(), evenementListAdapter);
 
         //SET PROPERTIES TO RV
-        RecyclerView rv = binding.includeacceuil.evRecycler;
+        RecyclerView rv = binding.evRecycler;
         rv.setAdapter(concatAdapter);
         rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
         rv.setItemAnimator(new DefaultItemAnimator());

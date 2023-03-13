@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!--text view-->
     <style name="textViewPrincipalRV" parent="TextAppearance.AppCompat.Body1">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -12,43 +14,40 @@
         <item name="layout_constraintBottom_toBottomOf">parent</item>
         <item name="layout_constraintTop_toTopOf">parent</item>
         <item name="android:textColor">#FFFFFF</item>
-
     </style>
+
     <style name="textViewPrincipalRV.right">
         <item name="layout_constraintEnd_toEndOf">parent</item>
     </style>
+
     <style name="textViewPrincipalRV.left">
         <item name="layout_constraintStart_toStartOf">parent</item>
     </style>
-    <style name="imageViewPrincipalRV" >
-        <item name="android:layout_width">match_parent</item>
+
+    <!--image view-->
+    <style name="imageViewPrincipalRV"  parent="ConstraintsParent">
         <item name="android:layout_height">0dp</item>
         <item name="android:scaleType">centerCrop</item>
-        <item name="layout_constraintStart_toStartOf">parent</item>
-        <item name="layout_constraintTop_toTopOf">parent</item>
-        <item name="layout_constraintEnd_toEndOf">parent</item>
-        <item name="layout_constraintBottom_toBottomOf">parent</item>
         <item name="layout_constraintHorizontal_bias">0.0</item>
         <item name="layout_constraintVertical_bias">0.0</item>
-
     </style>
 
-    <style name="cardViewPrincipalRV">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_marginStart">0dp</item>
-        <item name="android:layout_marginTop">0dp</item>
-        <item name="android:layout_marginEnd">0dp</item>
-        <item name="android:layout_marginBottom">5dp</item>
+    <!--card view-->
+    <style name="cardViewPrincipalRV" parent="MarginSmallBottom">
         <item name="android:orientation">vertical</item>
         <item name="cardBackgroundColor">#212322</item>
-
     </style>
 
+    <!--recycle view-->
+    <style name="RecycleViewFull" parent="ConstraintsParent">
+    </style>
+
+    <!--constraint layout-->
     <style name="ConstraintLayoutPrincipal">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/height_model_rv</item>
     </style>
+
     <style name="ConstraintLayoutPrincipal.bottom">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">#212322</item>
@@ -58,9 +57,55 @@
 
     </style>
 
-    <style name="LinearLayoutPrincipaleFullWidth">
+    <!--linear layout-->
+    <style name="LinearLayoutPrincipale" parent="WidthHeightParent">
+        <item name="android:background">#34DCDADA</item>
+    </style>
+
+    <style name="LinearLayoutPrincipaleFullWidth" parent="WidthParent">
+        <item name="android:background">#34DCDADA</item>
+    </style>
+
+
+
+    <!--general attribut-->
+    <!--Dimension-->
+    <style name="WidthHeightParent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="WidthParent">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">#34DCDADA</item>
+    </style>
+
+    <!--Constraints-->
+    <style name="ConstraintsParent" parent="WidthHeightParent">
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+    </style>
+
+    <style name="ConstraintsParentBottom">
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+    </style>
+
+    <!--Margin-->
+    <style name="MarginSmall">
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
+    <style name="MarginSmallBottom" parent="WidthHeightParent">
+        <item name="android:layout_marginStart">0dp</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginEnd">0dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
     </style>
 </resources>
