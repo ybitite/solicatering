@@ -27,21 +27,17 @@ import java.util.List;
 public class PanierHolder extends RecyclerView.ViewHolder implements ItemClickListener {
 
     //FIELD
-    static Context context;
-    static ModelPanierBinding binding;
-    static int gris_principale;
+    private final Context context;
+    private static ModelPanierBinding binding;
+    private  int gris_principale;
 
-    public PanierHolder(@NonNull View itemView) {
+    public PanierHolder(@NonNull View itemView, ModelPanierBinding modelPanierBinding) {
         super(itemView);
+
         //GET CONTEXT TO USE LATER
-        context = binding.getRoot().getContext();
+        context = itemView.getContext();
 
-        //FIX WIDTH OF CARD TO WIDTH OF SCREEN
-        int width = context.getResources().getDisplayMetrics().widthPixels;
-        binding.cardViewPanier.setMinimumWidth(width);
-
-        //get color from resources
-        gris_principale = ResourcesCompat.getColor(context.getResources(), R.color.gris_principale, null);
+        binding =modelPanierBinding;
 
     }
 
@@ -51,12 +47,22 @@ public class PanierHolder extends RecyclerView.ViewHolder implements ItemClickLi
     }
 
     public static PanierHolder create(ViewGroup parent) {
-        binding = ModelPanierBinding
-                .inflate(LayoutInflater.from(parent.getContext()));
-        return new PanierHolder(binding.getRoot());
+        // instantiate binding object
+        ModelPanierBinding modelPanierBinding = ModelPanierBinding.inflate(LayoutInflater.from(parent.getContext()));
+
+        return new PanierHolder(modelPanierBinding.getRoot(),modelPanierBinding);
     }
 
+
     public void bind(PanierWithAarticlePanierAndPlat panierWithAarticlePanierAndPlat) {
+
+        //get color from resources
+        gris_principale = ResourcesCompat.getColor(context.getResources(), R.color.gris_principale, null);
+
+        //FIX WIDTH OF CARD TO WIDTH OF SCREEN
+        int width = context.getResources().getDisplayMetrics().widthPixels;
+        binding.cardViewPanier.setMinimumWidth(width);
+
         //push data to actualise ui
         binding.setPanier(panierWithAarticlePanierAndPlat.panier);
         binding.imageViewMenuP.setImageResource(Helper.idResource(panierWithAarticlePanierAndPlat.panier.getNomPic()));
@@ -89,7 +95,7 @@ public class PanierHolder extends RecyclerView.ViewHolder implements ItemClickLi
         rv.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true));
         rv.setItemAnimator(new DefaultItemAnimator());
 
-        /**  this data is already observed **/
+        //  this data is already observed
         miniArticlePanierListAdapter.submitList(articlePanierAndPlat);
     }
 
@@ -100,7 +106,7 @@ public class PanierHolder extends RecyclerView.ViewHolder implements ItemClickLi
         int colorEtat = Color.RED;
         int visibilityValue = View.GONE;
 
-        /**change color of control considering the stat and save some values considering the stat
+        /*change color of control considering the stat and save some values considering the stat
          to set later to do control**/
         switch (etat) {
             case 1:
@@ -128,7 +134,8 @@ public class PanierHolder extends RecyclerView.ViewHolder implements ItemClickLi
         }
         //set value getting before to control
         //text view etat
-        binding.textViewEtat.setText('\u2022' + " " + textEtat);
+        String text='\u2022' + " " + textEtat;
+        binding.textViewEtat.setText(text);
         binding.textViewEtat.setTextColor(colorEtat);
 
         //constraint layout info

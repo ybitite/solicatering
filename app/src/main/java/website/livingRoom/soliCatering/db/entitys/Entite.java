@@ -11,7 +11,7 @@ public class Entite {
     private final int id;
     private final String nom;
     private final String discription;
-    private final int idPic;
+    private int idPic;
     private final String nomPic;
 
     //CONSTRUCTOR
@@ -42,6 +42,10 @@ public class Entite {
 
     public String getNomPic() {
         return nomPic;
+    }
+
+    public void setIdPic(int idPic) {
+        this.idPic = idPic;
     }
 
     //OVERRIDE METHODE EQUALS TO COMPARE OBJECT
