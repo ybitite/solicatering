@@ -2,8 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="website.livingRoom.soliCatering.ui.categorie.CategorieFragment"
-    style="@style/LinearLayoutPrincipale"    >
+    style="@style/LinearLayoutPrincipaleBlanc"    >
 
+    <!--recycle view categorie-->
     <androidx.recyclerview.widget.RecyclerView
         style="@style/RecycleViewFull"
         android:id="@+id/cRecycler"/>

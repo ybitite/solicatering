@@ -75,7 +75,7 @@ public class CategorieHolder extends RecyclerView.ViewHolder implements View.OnC
             //MAKE ITEM VISIBLE AND POINT RED
             binding.griserItemCat.setVisibility(View.INVISIBLE);
             binding.linearLayoutCategorie.setClickable(true);
-            binding.textViewPointCat.setTextColor(context.getResources().getColor(R.color.colorVertClair));
+            binding.textViewPointCat.setTextColor(context.getResources().getColor(R.color.green_100));
             setItemClickListener(new ItemClickListener() {
                 @Override
                 public void onItemClick(View v, int pos) {

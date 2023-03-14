@@ -3,8 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="website.livingRoom.soliCatering.ui.panier.PanierFragment"
-    style="@style/LinearLayoutPrincipale">
+    style="@style/LinearLayoutPrincipaleBlanc">
 
+    <!--recycle view panier-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pRecycler"
         style="@style/RecycleViewFull"/>

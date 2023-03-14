@@ -61,7 +61,7 @@ public class ArticlePanierPiedAdapter extends RecyclerView.Adapter<ArticlePanier
         if (ptRest == 0 && ptCat > 0) {
             buttonValider.setText(R.string.bt_valider_cmd);
             buttonValider.setClickable(true);
-            int color = ContextCompat.getColor(context, R.color.gris_principale);
+            int color = ContextCompat.getColor(context, R.color.grey_400);
             buttonValider.setBackgroundColor(color);
             buttonValider.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -77,13 +77,13 @@ public class ArticlePanierPiedAdapter extends RecyclerView.Adapter<ArticlePanier
         } else if (0 < ptRest && ptRest < ptCat) {
             buttonValider.setText(R.string.bt_valider_cmd);
             buttonValider.setClickable(false);
-            int color = ContextCompat.getColor(context, R.color.gris_moyen);
+            int color = ContextCompat.getColor(context, R.color.grey_300);
             buttonValider.setBackgroundColor(color);
 
         } else {
             buttonValider.setClickable(false);
             buttonValider.setText(R.string.bt_valider_cmd_0_article);
-            int color = ContextCompat.getColor(context, R.color.gris_moyen);
+            int color = ContextCompat.getColor(context, R.color.grey_300);
             buttonValider.setBackgroundColor(color);
 
         }

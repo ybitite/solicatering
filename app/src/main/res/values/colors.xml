@@ -1,26 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#ED9992</color>
-    <color name="purple_500">#F44336</color>
-    <color name="purple_700">#F44336</color>
+    <color name="white_100">#FFFFFFFF</color>
+    <color name="white_200">#FEFEFE</color>
+    <color name="white_300">#F2F2F2</color>
+    <color name="grey_100">#E7E7E7</color>
+    <color name="grey_200">#878787</color>
+    <color name="grey_350">#34DCDADA</color>
+    <color name="grey_300">#4B4B4C</color>
+    <color name="grey_400">#212322</color>
+    <color name="black">#FF000000</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="gris_moyen">#4B4B4C</color>
-    <color name="colorVertClair">#528707</color>
-    <color name="blanc_peut_casser">#FEFEFE</color>
-    <color name="blanc_casser">#F2F2F2</color>
-    <color name="gris_blan">#E7E7E7</color>
-    <color name="gris_Clair">#878787</color>
-    <color name="gris_principale">#212322</color>
-    <color name="vert_text">#43A047</color>
-    <color name="rouge_text">#C11B1B</color>
-    <color name="bleu_text">#1637B1</color>
-    <color name="orange_text">#DE9006</color>
-
-
+    <color name="green_100">#528707</color>
+    <color name="orange_100">#DE9006</color>
+    <color name="red_100">#C11B1B</color>
 </resources>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="gris_principale">#212322</color>
-    <color name="vert_text">#43A047</color>
+    <color name="grey_400">#212322</color>
+    <color name="green_100">#43A047</color>
 </resources>

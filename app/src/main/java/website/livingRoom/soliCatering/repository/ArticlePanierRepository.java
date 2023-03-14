@@ -35,9 +35,7 @@ public class ArticlePanierRepository {
 
     //find article panier
     public boolean finArticlePanier(ArticlePanier articlePanier) {
-        if (articlePanierDAO.getArticlePanier(articlePanier.getIdPlats(), articlePanier.getIdPanier()) != null) {
-            return true;
-        } else return false;
+        return articlePanierDAO.getArticlePanier(articlePanier.getIdPlats(), articlePanier.getIdPanier()) != null;
     }
 
     //INSERT NEW ARTICLE PANIER IN DATA BASE

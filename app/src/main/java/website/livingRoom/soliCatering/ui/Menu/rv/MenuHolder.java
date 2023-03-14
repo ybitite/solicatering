@@ -72,10 +72,10 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
         int menuActuel = ConteurRepository.getPointDepart();
         if (menu.getPoint() == menuActuel) {
             //CHANGE COLOR OF ITEM WHEN IS CLICKED
-            binding.constraintLayoutMenu.setBackgroundColor(context.getResources().getColor(R.color.gris_blan));
+            binding.constraintLayoutMenu.setBackgroundColor(context.getResources().getColor(R.color.grey_100));
         } else
             //CHANGE COLOR OF ITEM WHEN IS NOT CLICKED
-            binding.constraintLayoutMenu.setBackgroundColor(context.getResources().getColor(R.color.white));
+            binding.constraintLayoutMenu.setBackgroundColor(context.getResources().getColor(R.color.white_100));
 
         //select menu
         setItemClickListener(new ItemClickListener() {

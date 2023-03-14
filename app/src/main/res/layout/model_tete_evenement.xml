@@ -18,7 +18,7 @@
             android:id="@+id/constraintLayoutTeteEvenement"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/gris_principale">
+            android:background="@color/grey_400">
 
             <ImageView
                 android:id="@+id/imageViewAgrandir"

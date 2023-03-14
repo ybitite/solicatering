@@ -29,7 +29,7 @@ public class PanierHolder extends RecyclerView.ViewHolder implements ItemClickLi
     //FIELD
     private final Context context;
     private static ModelPanierBinding binding;
-    private  int gris_principale;
+    private  int grey_400;
 
     public PanierHolder(@NonNull View itemView, ModelPanierBinding modelPanierBinding) {
         super(itemView);
@@ -57,7 +57,7 @@ public class PanierHolder extends RecyclerView.ViewHolder implements ItemClickLi
     public void bind(PanierWithAarticlePanierAndPlat panierWithAarticlePanierAndPlat) {
 
         //get color from resources
-        gris_principale = ResourcesCompat.getColor(context.getResources(), R.color.gris_principale, null);
+        grey_400 = ResourcesCompat.getColor(context.getResources(), R.color.grey_400, null);
 
         //FIX WIDTH OF CARD TO WIDTH OF SCREEN
         int width = context.getResources().getDisplayMetrics().widthPixels;
@@ -112,24 +112,24 @@ public class PanierHolder extends RecyclerView.ViewHolder implements ItemClickLi
             case 1:
                 bindValidation();
                 textEtat = context.getString(R.string.validation_en_cours_label);
-                colorEtat = ResourcesCompat.getColor(context.getResources(), R.color.rouge_text, null);
+                colorEtat = ResourcesCompat.getColor(context.getResources(), R.color.red_100, null);
                 visibilityValue = View.VISIBLE;
                 break;
             case 2:
                 bindPrisEnCharge();
                 textEtat = context.getString(R.string.prise_en_charge_label);
-                colorEtat = ResourcesCompat.getColor(context.getResources(), R.color.vert_text, null);
+                colorEtat = ResourcesCompat.getColor(context.getResources(), R.color.green_100, null);
                 visibilityValue = View.VISIBLE;
                 break;
             case 3:
                 bindPreparation();
                 textEtat = context.getString(R.string.preparation_en_cours_label);
-                colorEtat = ResourcesCompat.getColor(context.getResources(), R.color.orange_text, null);
+                colorEtat = ResourcesCompat.getColor(context.getResources(), R.color.orange_100, null);
                 break;
             case 4:
                 bindLivrer();
                 textEtat = context.getString(R.string.catering_livrer_label);
-                colorEtat = ResourcesCompat.getColor(context.getResources(), R.color.gris_Clair, null);
+                colorEtat = ResourcesCompat.getColor(context.getResources(), R.color.grey_200, null);
                 break;
         }
         //set value getting before to control
@@ -156,7 +156,7 @@ public class PanierHolder extends RecyclerView.ViewHolder implements ItemClickLi
 
     private void bindValidation() {
         //text view titre suivie commande
-        binding.textViewEtatValidation.setTextColor(gris_principale);
+        binding.textViewEtatValidation.setTextColor(grey_400);
 
         //image view check box
         binding.imageViewCBValidation.setImageResource(R.drawable.checkbox_on_background);
@@ -168,13 +168,13 @@ public class PanierHolder extends RecyclerView.ViewHolder implements ItemClickLi
         bindValidation();
 
         //text view titre suivie commande
-        binding.textViewEtatPrisEnCharge.setTextColor(gris_principale);
+        binding.textViewEtatPrisEnCharge.setTextColor(grey_400);
 
         //image view check box
         binding.imageViewCBPriseEnCharge.setImageResource(R.drawable.checkbox_on_background);
 
         //image view trait
-        binding.imageViewTrait1.setColorFilter(gris_principale);
+        binding.imageViewTrait1.setColorFilter(grey_400);
     }
 
     private void bindPreparation() {
@@ -182,13 +182,13 @@ public class PanierHolder extends RecyclerView.ViewHolder implements ItemClickLi
         bindPrisEnCharge();
 
         //text view titre suivie commande
-        binding.textViewEtatPreparation.setTextColor(gris_principale);
+        binding.textViewEtatPreparation.setTextColor(grey_400);
 
         //image view check box
         binding.imageViewCBPreparation.setImageResource(R.drawable.checkbox_on_background);
 
         //image view trait
-        binding.imageViewTrait2.setColorFilter(gris_principale);
+        binding.imageViewTrait2.setColorFilter(grey_400);
     }
 
     private void bindLivrer() {
@@ -196,13 +196,13 @@ public class PanierHolder extends RecyclerView.ViewHolder implements ItemClickLi
         bindPreparation();
 
         //text view titre suivie commande
-        binding.textViewEtatLivrer.setTextColor(gris_principale);
+        binding.textViewEtatLivrer.setTextColor(grey_400);
 
         //image view check box
         binding.imageViewCBLivrer.setImageResource(R.drawable.checkbox_on_background);
 
         //image view trait
-        binding.imageViewTrait3.setColorFilter(gris_principale);
+        binding.imageViewTrait3.setColorFilter(grey_400);
 
         //constraint layout
         binding.constraintLayoutSuivieCommande.setVisibility(View.GONE);

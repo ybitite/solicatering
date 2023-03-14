@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!--object conteur for data binding-->
     <data>
         <variable
             name="conteur"
@@ -14,66 +15,61 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayoutConteurCat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
+        style="@style/WidthParent"
 
-        android:background="#212322"
+        android:background="@color/grey_400"
         android:visibility="invisible">
 
+        <!--text view titre conteur-->
         <TextView
+
+            style="@style/textViewBase1.Blanc"
             android:id="@+id/textViewTitreConteurCat"
+
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginStart="10dp"
-            android:fontFamily="sans-serif"
-            android:gravity="center_vertical"
+
             android:text="@{conteur.nameFormat}"
             android:textAlignment="textStart"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+
             app:layout_constraintEnd_toStartOf="@+id/textViewLabelPointConteurCat"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="RtlCompat" />
+            tools:ignore="MissingConstraints" />
 
+        <!--text view point conteur-->
         <TextView
+            style="@style/textViewBase1.Vert.Small"
+
             android:id="@+id/textViewPointConteurCat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
-            android:gravity="center_vertical"
+
             android:text="@{conteur.pointResteFormat}"
             android:textAlignment="textStart"
-            android:textColor="#528707"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="RtlCompat" />
 
+            app:layout_constraintEnd_toEndOf="parent"
+
+            tools:ignore="MissingConstraints,RtlCompat" />
+
+        <!--label point conteur-->
         <TextView
+            style="@style/textViewBase1.Blanc.Small"
+
             android:id="@+id/textViewLabelPointConteurCat"
+            android:labelFor="@+id/textViewPointConteurCat"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:text="Point restant: "
+
+            android:text="@string/label_point_restant"
             android:textAlignment="textEnd"
-            android:textColor="#FFFFFF"
-            android:textSize="10sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+
             app:layout_constraintEnd_toStartOf="@+id/textViewPointConteurCat"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/textViewTitreConteurCat"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="RtlCompat" />
+
+            tools:ignore="MissingConstraints,RtlCompat" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -69,7 +69,14 @@
     <string name="text_point" translatable="false">P</string>
     <string name="text_titre_catering" translatable="false">SoliCatering du </string>
     <string name="text_devise" translatable="false">CHF</string>
-    <string name="description_image_view_event_principal">image view event principal</string>
+    <string name="label_point_restant" translatable="false">"Point restant: "</string>
+    <string name="description_image_view_plus" translatable="false">augmenter le nombre de plats</string>
+    <string name="description_image_view_moin" translatable="false">diminuer le nombre de plats</string>
+    <string name="description_image_view_event_principal" translatable="false">image view event principal</string>
+    <string name="description_image_view_plat" translatable="false">photo réelle du plat</string>
+    <string name="description_image_view_menu" translatable="false">photo lustration du menu</string>
+    <string name="description_image_view_categorie" translatable="false">photo lustration du catagorie</string>
+
 
 
 </resources>

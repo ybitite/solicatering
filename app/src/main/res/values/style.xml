@@ -2,40 +2,129 @@
 <resources>
 
     <!--text view-->
-    <style name="textViewPrincipalRV" parent="TextAppearance.AppCompat.Body1">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">5dp</item>
-        <item name="android:layout_marginTop">5dp</item>
-        <item name="android:layout_marginEnd">5dp</item>
-        <item name="android:layout_marginBottom">5dp</item>
+    <style name="textViewBase1" parent="TextAppearance.AppCompat">
+        <item name="android:textStyle">normal</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="layout_constraintBottom_toBottomOf">parent</item>
-        <item name="layout_constraintTop_toTopOf">parent</item>
-        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:clickable">false</item>
+        <item name="android:textSize">@dimen/normal_text</item>
     </style>
 
-    <style name="textViewPrincipalRV.right">
+    <!--vert-->
+    <style name="textViewBase1.Vert">
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="android:textColor">@color/green_100</item>
+
+    </style>
+
+    <style name="textViewBase1.Vert.Small">
+        <item name="android:textSize">@dimen/small_text</item>
+    </style>
+
+    <!--blanc-->
+    <style name="textViewBase1.Blanc" >
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="android:textColor">@color/white_100</item>
+    </style>
+
+    <style name="textViewBase1.Blanc.Small" >
+        <item name="android:textSize">@dimen/small_text</item>
+
+    </style>
+
+    <!--gris clair-->
+    <style name="textViewBase1.GrisClair" >
+
+        <item name="android:textColor">@color/grey_300</item>
+    </style>
+    <style name="textViewBase1.GrisClair.Small">
+        <item name="android:textSize">@dimen/small_text</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content </item>
+    </style>
+
+    <style name="textViewBase1.GrisClair.CaseText">
+        <item name="android:layout_width">@dimen/min_size_touch</item>
+        <item name="android:layout_height">@dimen/min_size_touch</item>
+        <item name="android:background">@color/white_100</item>
+        <item name="android:gravity">center</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+    </style>
+
+    <!--gris principale-->
+    <style name="textViewBase1.GrisPrincipal" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/grey_400</item>
+        <item name="android:layout_marginStart">@dimen/small_margin</item>
+        <item name="android:layout_marginTop">@dimen/small_margin</item>
+
+    </style>
+
+    <style name="textViewBase1.GrisPrincipal.Small">
+        <item name="android:textSize">@dimen/small_text</item>
+    </style>
+
+    <!--blanc-->
+    <style name="textViewBase1.Blanc.RecycleViewTitre">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/small_margin</item>
+        <item name="android:layout_marginTop">@dimen/small_margin</item>
+        <item name="android:layout_marginEnd">@dimen/small_margin</item>
+        <item name="android:layout_marginBottom">@dimen/small_margin</item>
+    </style>
+
+    <style name="textViewBase1.Blanc.RecycleViewTitre.right">
         <item name="layout_constraintEnd_toEndOf">parent</item>
     </style>
 
-    <style name="textViewPrincipalRV.left">
+    <style name="textViewBase1.Blanc.RecycleViewTitre.left">
         <item name="layout_constraintStart_toStartOf">parent</item>
     </style>
 
+
+
+
     <!--image view-->
     <style name="imageViewPrincipalRV"  parent="ConstraintsParent">
-        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_height">@dimen/zero_size</item>
         <item name="android:scaleType">centerCrop</item>
-        <item name="layout_constraintHorizontal_bias">0.0</item>
-        <item name="layout_constraintVertical_bias">0.0</item>
+        <item name="layout_constraintHorizontal_bias">@dimen/zero_bias</item>
+        <item name="layout_constraintVertical_bias">@dimen/zero_bias</item>
+
+    </style>
+
+    <style name="ImageViewSmall" parent="MarginSmall">
+        <item name="android:layout_width">@dimen/small_image_size</item>
+        <item name="android:layout_height">@dimen/small_image_size</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="android:scaleType">centerCrop</item>
+
+    </style>
+
+    <!--image button-->
+    <style name="ImageButtonSmall" parent="Widget.AppCompat.ImageButton" >
+        <item name="android:layout_width">@dimen/min_size_touch</item>
+        <item name="android:layout_height">@dimen/min_size_touch</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="android:background">@color/grey_100</item>
     </style>
 
     <!--card view-->
-    <style name="cardViewPrincipalRV" parent="MarginSmallBottom">
+    <style name="cardViewPrincipalRVGris" parent="MarginSmallBottom">
         <item name="android:orientation">vertical</item>
-        <item name="cardBackgroundColor">#212322</item>
+        <item name="cardBackgroundColor">@color/grey_400</item>
+    </style>
+
+    <style name="cardViewPrincipalRVGrisBlanc" parent="MarginSmall">
+        <item name="android:orientation">vertical</item>
+        <item name="cardBackgroundColor">@color/white_100</item>
     </style>
 
     <!--recycle view-->
@@ -48,9 +137,9 @@
         <item name="android:layout_height">@dimen/height_model_rv</item>
     </style>
 
-    <style name="ConstraintLayoutPrincipal.bottom">
+    <style name="ConstraintLayoutBottom" parent="ConstraintLayoutPrincipal">
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">#212322</item>
+        <item name="android:background">@color/grey_400</item>
         <item name="layout_constraintStart_toStartOf">parent</item>
         <item name="layout_constraintEnd_toEndOf">parent</item>
         <item name="layout_constraintBottom_toBottomOf">parent</item>
@@ -58,15 +147,17 @@
     </style>
 
     <!--linear layout-->
-    <style name="LinearLayoutPrincipale" parent="WidthHeightParent">
-        <item name="android:background">#34DCDADA</item>
+    <style name="LinearLayoutPrincipaleBlanc" parent="WidthHeightParent">
+        <item name="android:background">@color/white_100</item>
     </style>
 
-    <style name="LinearLayoutPrincipaleFullWidth" parent="WidthParent">
-        <item name="android:background">#34DCDADA</item>
+    <style name="LinearLayoutPrincipaleBlancFullWidthBlanc" parent="WidthParent">
+        <item name="android:background">@color/white_100</item>
     </style>
 
-
+    <style name="LinearLayoutPrincipaleBlancFullWidthGry" parent="WidthParent">
+        <item name="android:background">@color/grey_350</item>
+    </style>
 
     <!--general attribut-->
     <!--Dimension-->
@@ -95,17 +186,17 @@
     </style>
 
     <!--Margin-->
-    <style name="MarginSmall">
-        <item name="android:layout_marginStart">5dp</item>
-        <item name="android:layout_marginTop">5dp</item>
-        <item name="android:layout_marginEnd">5dp</item>
-        <item name="android:layout_marginBottom">5dp</item>
+    <style name="MarginSmall" parent="WidthParent">
+        <item name="android:layout_marginStart">@dimen/small_margin</item>
+        <item name="android:layout_marginTop">@dimen/small_margin</item>
+        <item name="android:layout_marginEnd">@dimen/small_margin</item>
+        <item name="android:layout_marginBottom">@dimen/small_margin</item>
     </style>
 
     <style name="MarginSmallBottom" parent="WidthHeightParent">
-        <item name="android:layout_marginStart">0dp</item>
-        <item name="android:layout_marginTop">0dp</item>
-        <item name="android:layout_marginEnd">0dp</item>
-        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_marginStart">@dimen/zero_size</item>
+        <item name="android:layout_marginTop">@dimen/zero_size</item>
+        <item name="android:layout_marginEnd">@dimen/zero_size</item>
+        <item name="android:layout_marginBottom">@dimen/small_margin</item>
     </style>
 </resources>
