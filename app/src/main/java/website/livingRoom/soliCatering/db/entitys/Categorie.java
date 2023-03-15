@@ -1,10 +1,16 @@
 package website.livingRoom.soliCatering.db.entitys;
 
 
+import android.content.res.Resources;
+
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Entity;
 
 
 import java.util.Objects;
+
+import website.livingRoom.soliCatering.R;
+import website.livingRoom.soliCatering.utile.AppUtile;
 
 @Entity(tableName = "categories")
 public class Categorie extends Entite {
@@ -20,6 +26,11 @@ public class Categorie extends Entite {
     //PROPRIETY
     public int getPoint() {
         return point;
+    }
+
+    public String getPointFormat(){
+        Resources resources = AppUtile.getResource();
+        return point + resources.getString(R.string.text_point);
     }
 
     //OVERRIDE METHODE EQUALS TO COMPARE OBJECT

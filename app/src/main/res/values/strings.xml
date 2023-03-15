@@ -76,7 +76,7 @@
     <string name="description_image_view_plat" translatable="false">photo réelle du plat</string>
     <string name="description_image_view_menu" translatable="false">photo lustration du menu</string>
     <string name="description_image_view_categorie" translatable="false">photo lustration du catagorie</string>
-
+    <string name="button_commander" translatable="false">Passez une commande</string>
 
 
 </resources>

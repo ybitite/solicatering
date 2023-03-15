@@ -10,7 +10,7 @@
     </data>
 
 <LinearLayout
-    style="@style/LinearLayoutPrincipaleBlancFullWidthBlanc">
+    style="@style/LinearLayoutPrincipaleFullWidthBlanc">
 
     <androidx.cardview.widget.CardView
         style="@style/cardViewPrincipalRVGris"

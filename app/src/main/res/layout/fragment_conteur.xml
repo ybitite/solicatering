@@ -42,14 +42,12 @@
             style="@style/textViewBase1.Vert.Small"
 
             android:id="@+id/textViewPointConteurCat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+
             android:layout_marginEnd="10dp"
+
 
             android:text="@{conteur.pointResteFormat}"
             android:textAlignment="textStart"
-
-            app:layout_constraintEnd_toEndOf="parent"
 
             tools:ignore="MissingConstraints,RtlCompat" />
 

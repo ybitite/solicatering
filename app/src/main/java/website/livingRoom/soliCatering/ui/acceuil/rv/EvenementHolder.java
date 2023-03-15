@@ -14,16 +14,16 @@ import website.livingRoom.soliCatering.utile.Helper;
 
 public class EvenementHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     //FIELD
-    website.livingRoom.soliCatering.ui.categorie.rv.ItemClickListener itemClickListener;
+    private ItemClickListener itemClickListener;
     private final ModelEvenementBinding binding;
     private final Context context;
 
-    //CONTRUCTOR
-    public EvenementHolder(View itemView, ModelEvenementBinding modelEvenementBinding) {
-        super(itemView);
+    //CONSTRUCTOR
+    public EvenementHolder(ModelEvenementBinding modelEvenementBinding) {
+        super(modelEvenementBinding.getRoot());
 
         //GET CONTEXT TO USE LATER
-        context = itemView.getContext();
+        context = modelEvenementBinding.getRoot().getContext();
 
         // instantiate binding object
         binding = modelEvenementBinding;
@@ -38,7 +38,7 @@ public class EvenementHolder extends RecyclerView.ViewHolder implements View.OnC
         this.itemClickListener.onItemClick(v, getLayoutPosition());
     }
 
-    public void setItemClickListener(website.livingRoom.soliCatering.ui.categorie.rv.ItemClickListener ic) {
+    public void setItemClickListener(ItemClickListener ic) {
         this.itemClickListener = ic;
     }
 
@@ -46,7 +46,7 @@ public class EvenementHolder extends RecyclerView.ViewHolder implements View.OnC
         ModelEvenementBinding modelEvenementBinding = ModelEvenementBinding
                 .inflate(LayoutInflater.from(parent.getContext()));
 
-        return new EvenementHolder(modelEvenementBinding.getRoot(),modelEvenementBinding);
+        return new EvenementHolder(modelEvenementBinding);
     }
 
     public void bind(Evenement evenement) {
@@ -60,7 +60,7 @@ public class EvenementHolder extends RecyclerView.ViewHolder implements View.OnC
         binding.imageViewPlat.setImageResource(Helper.idResource(evenement.getNomPic()));
 
         //OVRRIDE ON ITEM CLICK
-        setItemClickListener((v, position) -> Toast.makeText(context, evenement.getNom(), Toast.LENGTH_SHORT).show());
+        setItemClickListener((v, position) -> Toast.makeText(context, evenement.getDiscription(), Toast.LENGTH_LONG).show());
     }
 
 

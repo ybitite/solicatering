@@ -10,6 +10,7 @@
     <dimen name="medium_margin">10dp</dimen>
     <dimen name="min_size_touch">48dp</dimen>
     <dimen name="small_image_size">60dp</dimen>
+    <dimen name="medium_image_size">150dp</dimen>
     <dimen name="zero_size">0dp</dimen>
     <dimen name="zero_bias">0.0</dimen>
     <dimen name="small_text">12sp</dimen>

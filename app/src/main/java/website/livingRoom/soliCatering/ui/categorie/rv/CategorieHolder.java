@@ -7,12 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import website.livingRoom.soliCatering.R;
-
 import website.livingRoom.soliCatering.databinding.ModelCategorieBinding;
 import website.livingRoom.soliCatering.db.entitys.Categorie;
 import website.livingRoom.soliCatering.repository.ConteurRepository;
@@ -20,21 +18,22 @@ import website.livingRoom.soliCatering.utile.Helper;
 
 public class CategorieHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     //FIELD
-    ItemClickListener itemClickListener;
-    static ModelCategorieBinding binding;
-    static Context context;
+    private ItemClickListener itemClickListener;
+    private final ModelCategorieBinding binding;
+    private final Context context;
 
     //CONTRUCTOR
-    public CategorieHolder(@NonNull View itemView) {
-        super(itemView);
+    public CategorieHolder(ModelCategorieBinding modelCategorieBinding) {
+        super(modelCategorieBinding.getRoot());
 
         //GET CONTEXT TO USE LATER
-        context = binding.getRoot().getContext();
+        context = modelCategorieBinding.getRoot().getContext();
+
+        // instantiate binding object
+        binding = modelCategorieBinding;
+
         //SET CLICK LISTENER IN ITEM
         itemView.setOnClickListener(this);
-        //FIX WIDTH OF CARD TO WIDTH OF SCREEN
-        int width = context.getResources().getDisplayMetrics().widthPixels;
-        binding.cardViewCategorie.setMinimumWidth(width);
     }
 
     //METHODE
@@ -49,45 +48,47 @@ public class CategorieHolder extends RecyclerView.ViewHolder implements View.OnC
 
     public static CategorieHolder create(ViewGroup parent) {
         //INSTANTIATE BINDING OBJECT CLASS FROM MODEL PANIER
-        binding = ModelCategorieBinding
+        ModelCategorieBinding modelCategorieBinding = ModelCategorieBinding
                 .inflate(LayoutInflater.from(parent.getContext()));
 
-        return new CategorieHolder(binding.getRoot());
+        return new CategorieHolder(modelCategorieBinding);
     }
 
     public void bind(Categorie categorie) {
+        fixWidth();
 
         //SET DATA IN VIEW
-        binding.textViewNomCat.setText(categorie.getNom());
-        binding.textViewDiscriptionCat.setText(categorie.getDiscription());
+        binding.setCategorie(categorie);
         binding.imageViewCat.setImageResource(Helper.idResource(categorie.getNomPic()));
-        binding.textViewPointCat.setText(String.valueOf(categorie.getPoint() + " Points"));
 
-
-        //TODO : GET LIST OF EXEMPLE
-//        holder.textViewContenuCat1.setText(categorie.get(position).getContenu1());
-//        holder.textViewContenuCat2.setText(categorie.get(position).getContenu1());
-//        holder.textViewContenuCat3.setText(categorie.get(position).getContenu2());
 
         //BLOCK CLICK AND MAKE ITEM GRIS
-        int ptRest = ConteurRepository.getPointReste();
-        if (categorie.getPoint() <= ptRest) {
-            //MAKE ITEM VISIBLE AND POINT RED
-            binding.griserItemCat.setVisibility(View.INVISIBLE);
-            binding.linearLayoutCategorie.setClickable(true);
-            binding.textViewPointCat.setTextColor(context.getResources().getColor(R.color.green_100));
-            setItemClickListener(new ItemClickListener() {
-                @Override
-                public void onItemClick(View v, int pos) {
-                    ConteurRepository.setCategorieActuel(categorie.getPoint());
-                    Navigation.findNavController((Activity) context, R.id.nav_host_fragment_activity_main).navigate(R.id.action_navigation_categorie_to_navigation_plat);
-                }
+        if (categorie.getPoint() <= ConteurRepository.getPointReste()) {
+
+            changeVisibility(View.INVISIBLE, true, context.getResources().getColor(R.color.green_100));
+
+            setItemClickListener((v, pos) -> {
+                ConteurRepository.setCategorieActuel(categorie.getPoint());
+                Navigation.findNavController((Activity) context, R.id.nav_host_fragment_activity_main).navigate(R.id.action_navigation_categorie_to_navigation_plat);
             });
-        } else {
-            //MAKE ITEM GRIS AND POINT GREEN
-            binding.griserItemCat.setVisibility(View.VISIBLE);
-            binding.linearLayoutCategorie.setClickable(false);
-            binding.textViewPointCat.setTextColor(Color.RED);
         }
+        else {
+            //MAKE ITEM GRIS AND POINT GREEN
+            changeVisibility(View.VISIBLE, false, Color.RED);
+        }
+    }
+
+    private void changeVisibility(int invisible, boolean clickable, int context) {
+        //Change visibility and point color
+        binding.griserItemCat.setVisibility(invisible);
+        binding.linearLayoutCategorie.setClickable(clickable);
+        binding.textViewPointCat.setTextColor(context);
+    }
+
+    private void fixWidth() {
+        //FIX WIDTH OF CARD TO WIDTH OF SCREEN
+        int width = context.getResources().getDisplayMetrics().widthPixels;
+        binding.constraintLayoutCategorie.setMinimumWidth(width);
+        binding.cardViewCategorie.setMinimumWidth(width);
     }
 }

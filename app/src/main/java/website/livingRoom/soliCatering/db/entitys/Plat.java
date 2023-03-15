@@ -33,7 +33,7 @@ public class Plat extends Entite {
     }
 
     //Propriety for binding
-    public String getPointString(){
+    public String getPointFormat(){
         //get resources from AppUtil
         Resources resources = AppUtile.getResource();
         return point + resources.getString(R.string.text_point);
@@ -63,6 +63,8 @@ public class Plat extends Entite {
     public String getVegui() {
         return vegui;
     }
+
+
 
     //OVERRIDE METHODE EQUALS TO COMPARE OBJECT
     @Override

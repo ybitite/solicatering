@@ -12,14 +12,18 @@
 
     <!--vert-->
     <style name="textViewBase1.Vert">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="layout_constraintBottom_toBottomOf">parent</item>
-        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
         <item name="android:textColor">@color/green_100</item>
+        <item name="android:layout_marginEnd">@dimen/small_margin</item>
+        <item name="android:layout_marginBottom">@dimen/small_margin</item>
 
     </style>
-
     <style name="textViewBase1.Vert.Small">
         <item name="android:textSize">@dimen/small_text</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <!--blanc-->
@@ -28,7 +32,6 @@
         <item name="layout_constraintTop_toTopOf">parent</item>
         <item name="android:textColor">@color/white_100</item>
     </style>
-
     <style name="textViewBase1.Blanc.Small" >
         <item name="android:textSize">@dimen/small_text</item>
 
@@ -44,7 +47,6 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content </item>
     </style>
-
     <style name="textViewBase1.GrisClair.CaseText">
         <item name="android:layout_width">@dimen/min_size_touch</item>
         <item name="android:layout_height">@dimen/min_size_touch</item>
@@ -61,13 +63,17 @@
         <item name="android:textColor">@color/grey_400</item>
         <item name="android:layout_marginStart">@dimen/small_margin</item>
         <item name="android:layout_marginTop">@dimen/small_margin</item>
-
     </style>
-
     <style name="textViewBase1.GrisPrincipal.Small">
         <item name="android:textSize">@dimen/small_text</item>
     </style>
-
+    <style name="textViewBase1.GrisPrincipal.Small.Adaptable">
+        <item name="android:layout_width">@dimen/zero_size</item>
+    </style>
+    <style name="textViewBase1.GrisPrincipal.Adaptable">
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">@dimen/zero_size</item>
+    </style>
     <!--blanc-->
     <style name="textViewBase1.Blanc.RecycleViewTitre">
         <item name="android:layout_width">wrap_content</item>
@@ -77,17 +83,12 @@
         <item name="android:layout_marginEnd">@dimen/small_margin</item>
         <item name="android:layout_marginBottom">@dimen/small_margin</item>
     </style>
-
     <style name="textViewBase1.Blanc.RecycleViewTitre.right">
         <item name="layout_constraintEnd_toEndOf">parent</item>
     </style>
-
     <style name="textViewBase1.Blanc.RecycleViewTitre.left">
         <item name="layout_constraintStart_toStartOf">parent</item>
     </style>
-
-
-
 
     <!--image view-->
     <style name="imageViewPrincipalRV"  parent="ConstraintsParent">
@@ -97,14 +98,20 @@
         <item name="layout_constraintVertical_bias">@dimen/zero_bias</item>
 
     </style>
-
     <style name="ImageViewSmall" parent="MarginSmall">
         <item name="android:layout_width">@dimen/small_image_size</item>
         <item name="android:layout_height">@dimen/small_image_size</item>
         <item name="layout_constraintBottom_toBottomOf">parent</item>
         <item name="layout_constraintTop_toTopOf">parent</item>
         <item name="android:scaleType">centerCrop</item>
-
+    </style>
+    <style name="ImageViewMedium" parent="MarginSmall">
+        <item name="android:layout_width">@dimen/medium_image_size</item>
+        <item name="android:layout_height">@dimen/medium_image_size</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="android:scaleType">fitXY</item>
     </style>
 
     <!--image button-->
@@ -116,15 +123,42 @@
         <item name="android:background">@color/grey_100</item>
     </style>
 
+    <!--button-->
+    <style name="Button" parent="Widget.AppCompat.ImageButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/normal_text</item>
+    </style>
+    <!--button in item-->
+    <style name="Button.InItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+
+    </style>
+
+
     <!--card view-->
     <style name="cardViewPrincipalRVGris" parent="MarginSmallBottom">
         <item name="android:orientation">vertical</item>
         <item name="cardBackgroundColor">@color/grey_400</item>
     </style>
-
-    <style name="cardViewPrincipalRVGrisBlanc" parent="MarginSmall">
+    <style name="cardViewPrincipalRVBlanc" parent="MarginSmall">
         <item name="android:orientation">vertical</item>
         <item name="cardBackgroundColor">@color/white_100</item>
+    </style>
+    <style name="cardViewPrincipalRVBlanc.Full" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+
+    </style>
+    <style name="CardViewTransparant" parent="ConstraintsParent">
+        <item name="cardBackgroundColor">@color/grey_50</item>
     </style>
 
     <!--recycle view-->
@@ -136,7 +170,6 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/height_model_rv</item>
     </style>
-
     <style name="ConstraintLayoutBottom" parent="ConstraintLayoutPrincipal">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@color/grey_400</item>
@@ -148,14 +181,13 @@
 
     <!--linear layout-->
     <style name="LinearLayoutPrincipaleBlanc" parent="WidthHeightParent">
+        <item name="android:background">@color/white_300</item>
+    </style>
+    <style name="LinearLayoutPrincipaleFullWidthBlanc" parent="WidthParent">
         <item name="android:background">@color/white_100</item>
     </style>
 
-    <style name="LinearLayoutPrincipaleBlancFullWidthBlanc" parent="WidthParent">
-        <item name="android:background">@color/white_100</item>
-    </style>
-
-    <style name="LinearLayoutPrincipaleBlancFullWidthGry" parent="WidthParent">
+    <style name="LinearLayoutPrincipaleFullWidthGry" parent="WidthParent">
         <item name="android:background">@color/grey_350</item>
     </style>
 
@@ -165,7 +197,6 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
     </style>
-
     <style name="WidthParent">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -178,7 +209,6 @@
         <item name="layout_constraintEnd_toEndOf">parent</item>
         <item name="layout_constraintBottom_toBottomOf">parent</item>
     </style>
-
     <style name="ConstraintsParentBottom">
         <item name="layout_constraintStart_toStartOf">parent</item>
         <item name="layout_constraintEnd_toEndOf">parent</item>
@@ -192,11 +222,11 @@
         <item name="android:layout_marginEnd">@dimen/small_margin</item>
         <item name="android:layout_marginBottom">@dimen/small_margin</item>
     </style>
-
     <style name="MarginSmallBottom" parent="WidthHeightParent">
         <item name="android:layout_marginStart">@dimen/zero_size</item>
         <item name="android:layout_marginTop">@dimen/zero_size</item>
         <item name="android:layout_marginEnd">@dimen/zero_size</item>
         <item name="android:layout_marginBottom">@dimen/small_margin</item>
     </style>
+
 </resources>

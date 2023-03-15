@@ -1,11 +1,9 @@
 package website.livingRoom.soliCatering.ui.panier.rvpanier;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,85 +11,79 @@ import website.livingRoom.soliCatering.databinding.ModelArticlePanierBinding;
 import website.livingRoom.soliCatering.db.entitys.ArticlePanierAndPlat;
 import website.livingRoom.soliCatering.repository.ArticlePanierRepository;
 import website.livingRoom.soliCatering.repository.ConteurRepository;
-import website.livingRoom.soliCatering.ui.categorie.rv.ItemClickListener;
 import website.livingRoom.soliCatering.ui.panier.PanierViewModel;
 import website.livingRoom.soliCatering.utile.Helper;
 
 public class ArticlePanierHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     //FIELD
-    website.livingRoom.soliCatering.ui.categorie.rv.ItemClickListener itemClickListener;
-    static ModelArticlePanierBinding binding;
-
-    static Context context;
+    private final ModelArticlePanierBinding binding;
+    private final Context context;
 
 
-    //CONTRUCTOR
-    public ArticlePanierHolder(View itemView) {
-        super(itemView);
+    //CONSTRUCTOR
+    public ArticlePanierHolder(ModelArticlePanierBinding modelArticlePanierBinding) {
+        super(modelArticlePanierBinding.getRoot());
+
         //GET CONTEXT TO USE LATER
-        context = binding.getRoot().getContext();
+        context = modelArticlePanierBinding.getRoot().getContext();
+
+        // instantiate binding object
+        binding = modelArticlePanierBinding;
+
         //SET CLICK LISTENER IN ITEM
         itemView.setOnClickListener(this);
-        //FIX WIDTH OF CARD TO WIDTH OF SCREEN
-        int width = context.getResources().getDisplayMetrics().widthPixels;
-        binding.textViewTitreAP.setWidth(width);
-        binding.cardViewArticlePanier.setMinimumWidth(width);
-
-    }
-
-    //METHODE
-    //@Override
-    //public void onClick(View v) { this.itemClickListener.onItemClick(v,getLayoutPosition()); }
-    public void setItemClickListener(ItemClickListener ic) {
-        this.itemClickListener = ic;
     }
 
     public static ArticlePanierHolder create(ViewGroup parent) {
         //GENERATE CLASS FROM MODEL ARTICLE PANIER
-        binding = ModelArticlePanierBinding
+        ModelArticlePanierBinding modelArticlePanierBinding = ModelArticlePanierBinding
                 .inflate(LayoutInflater.from(parent.getContext()));
-        return new ArticlePanierHolder(binding.getRoot());
+
+        return new ArticlePanierHolder(modelArticlePanierBinding);
     }
 
     public void bind(ArticlePanierAndPlat articlePanierAndPlat, PanierViewModel panierViewModel) {
-        //SET DATA IN VIEW
-        binding.textViewTitreAP.setText(articlePanierAndPlat.plat.getNom());
-        binding.textViewPointAP.setText(String.valueOf(articlePanierAndPlat.plat.getPoint() +" P"));
-        binding.tvNbrPlatAP.setText(String.valueOf(articlePanierAndPlat.articlePanier.getNombrePlat()));
-        binding.imageViewTitreAP.setImageResource(Helper.idResource(articlePanierAndPlat.plat.getNomPic()));
 
-        //SET CLICK LISTENER to INCREMENT BUTTON
-        TextView tvNbrPlat = binding.tvNbrPlatAP;
-        binding.btIncrement.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //IF THE INCREMENT WAS DONE UPDATE CONTROL
-                int nbrPlat = panierViewModel.incrimenteNbPlat(getBindingAdapterPosition());
-                if (nbrPlat != 0) {
-                    tvNbrPlat.setText(String.valueOf(nbrPlat));
-                }
-                Log.e("article panier", "adapter : " + getBindingAdapterPosition());
-                Log.e("article panier", "layout : " + getLayoutPosition());
-            }
-        });
+        fixWidth();
+        bindIncrement(panierViewModel);
+        bindDecrement(articlePanierAndPlat, panierViewModel);
+
+        //SET DATA IN VIEW
+        binding.setArticlePanierAndPlat(articlePanierAndPlat);
+        binding.imageViewTitreAP.setImageResource(Helper.idResource(articlePanierAndPlat.plat.getNomPic()));
+    }
+
+    private void bindDecrement(ArticlePanierAndPlat articlePanierAndPlat, PanierViewModel panierViewModel) {
 
         //SET CLICK LISTENER to DECREMENT BUTTON
-        binding.btDecrement.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int nbrPlat = panierViewModel.decrementNbPlat(getBindingAdapterPosition());
-                if (nbrPlat != 0) {
-                    //IF THE DECREMENT WAS DONE UPDATE CONTROL
-                    tvNbrPlat.setText(String.valueOf(nbrPlat));
-                }
-                if (nbrPlat == 0) {
-                    //IF JUST ONE ARTICLE STAY DELETE IT
-                    deleteArticlePanier(articlePanierAndPlat);
-                }
+        binding.btDecrement.setOnClickListener(v -> {
+            int nbrPlat = panierViewModel.decrementNbPlat(getBindingAdapterPosition());
+            if (nbrPlat != 0) {
+                //IF THE DECREMENT WAS DONE UPDATE CONTROL
+                binding.tvNbrPlatAP.setText(String.valueOf(nbrPlat));
             }
-
+            else {
+                //IF JUST ONE ARTICLE STAY DELETE IT
+                deleteArticlePanier(articlePanierAndPlat);
+            }
         });
+    }
 
+    private void bindIncrement(PanierViewModel panierViewModel) {
+        binding.btIncrement.setOnClickListener(v -> {
+            //IF THE INCREMENT WAS DONE UPDATE CONTROL
+            int nbrPlat = panierViewModel.incrimenteNbPlat(getBindingAdapterPosition());
+            if (nbrPlat != 0) {
+                binding.tvNbrPlatAP.setText(String.valueOf(nbrPlat));
+            }
+        });
+    }
+
+    private void fixWidth() {
+        //FIX WIDTH OF CARD TO WIDTH OF SCREEN
+        int width = context.getResources().getDisplayMetrics().widthPixels;
+        binding.textViewTitreAP.setWidth(width);
+        binding.cardViewArticlePanier.setMinimumWidth(width);
     }
 
     public void deleteArticlePanier(ArticlePanierAndPlat articlePanierAndPlat) {

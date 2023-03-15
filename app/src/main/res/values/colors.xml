@@ -3,6 +3,7 @@
     <color name="white_100">#FFFFFFFF</color>
     <color name="white_200">#FEFEFE</color>
     <color name="white_300">#F2F2F2</color>
+    <color name="grey_50">#454F5053</color>
     <color name="grey_100">#E7E7E7</color>
     <color name="grey_200">#878787</color>
     <color name="grey_350">#34DCDADA</color>
