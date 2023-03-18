@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Soli Catering</string>
+    <string name="label_nom">Name</string>
+    <string name="label_prenom">First name</string>
+    <string name="label_rue">Street</string>
+    <string name="label_numero_rue">Numero</string>
+    <string name="label_code_postal">Postal code</string>
+    <string name="label_ville">City</string>
+    <string name="label_email">E-Mail</string>
+    <string name="label_tel">Phone</string>
+    <string name="label_date_livraison">Delivery date</string>
+    <string name="label_heure_livraison">Time</string>
+    <string name="label_remarque">Note</string>
+    <string name="label_nombre">Number</string>
 </resources>

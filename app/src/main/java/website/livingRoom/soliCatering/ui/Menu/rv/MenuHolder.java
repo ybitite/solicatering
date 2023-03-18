@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import website.livingRoom.soliCatering.R;
 
+import website.livingRoom.soliCatering.databinding.ModelCategorieBinding;
 import website.livingRoom.soliCatering.databinding.ModelMenuBinding;
 import website.livingRoom.soliCatering.db.entitys.Menu;
 import website.livingRoom.soliCatering.repository.ArticlePanierRepository;
@@ -20,62 +21,60 @@ import website.livingRoom.soliCatering.utile.Helper;
 
 public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     //FIELD
-    website.livingRoom.soliCatering.ui.categorie.rv.ItemClickListener itemClickListener;
-    static ModelMenuBinding binding;
-    static Context context;
+    private ItemClickListener itemClickListener;
+    private final ModelMenuBinding binding;
+    private final Context context;
     ArticlePanierRepository articlePanierRepository;
 
     //CONSTRUCTOR
-    public MenuHolder(View itemView) {
-        super(itemView);
+    public MenuHolder(ModelMenuBinding modelMenuBinding) {
+        super(modelMenuBinding.getRoot());
 
-        //instantiate article Panier Repository
-        articlePanierRepository = new ArticlePanierRepository(context);
         //GET CONTEXT TO USE LATER
-        context = binding.getRoot().getContext();
+        context = modelMenuBinding.getRoot().getContext();
+
+        // instantiate binding object
+        binding = modelMenuBinding;
+
         //SET CLICK LISTENER IN ITEM
         itemView.setOnClickListener(this);
-        //FIX WIDTH OF CARD TO WIDTH OF SCREEN
-        int width = context.getResources().getDisplayMetrics().widthPixels;
-        binding.cardViewMenu.setMinimumWidth(width);
-        binding.imageViewiFormMenu.setMinimumWidth(width);
 
+        //INSTANTIATE REPOSITORY
+        articlePanierRepository = new ArticlePanierRepository(context);
     }
 
     //METHODE
+
     @Override
     public void onClick(View v) {
         this.itemClickListener.onItemClick(v, getLayoutPosition());
     }
-
-    public void setItemClickListener(website.livingRoom.soliCatering.ui.categorie.rv.ItemClickListener ic) {
+    public void setItemClickListener(ItemClickListener ic) {
         this.itemClickListener = ic;
     }
 
     static MenuHolder create(ViewGroup parent) {
-        //GENERATE CLASS FROM MODEL EVENT
-        binding = ModelMenuBinding
+        //INSTANTIATE BINDING OBJECT CLASS FROM MODEL MENU
+        ModelMenuBinding modelMenuBinding = ModelMenuBinding
                 .inflate(LayoutInflater.from(parent.getContext()));
-        return new MenuHolder(binding.getRoot());
+        return new MenuHolder(modelMenuBinding);
     }
 
     public void bind(Menu menu) {
+        fixWidth();
 
         //SET DATA IN VIEW
-        binding.textViewNomMenu.setText(menu.getNom());
-        binding.textViewDiscriptionMenu.setText(menu.getDiscription());
-        binding.textViewPrixMenu.setText(String.valueOf(menu.getPrix()));
-        binding.textViewPointMenu.setText(String.valueOf(menu.getPoint()));
-        binding.textViewInfoMenu.setText(menu.getInfo());
+        binding.setMenu(menu);
         binding.imageViewIconMenu.setImageResource(Helper.idResource(menu.getNomPic()));
+
         //CHANGE COLOR OF ACTUEL MENU
         int menuActuel = ConteurRepository.getPointDepart();
         if (menu.getPoint() == menuActuel) {
             //CHANGE COLOR OF ITEM WHEN IS CLICKED
-            binding.constraintLayoutMenu.setBackgroundColor(context.getResources().getColor(R.color.grey_100));
+            binding.linearLayoutMenu.setBackgroundColor(context.getResources().getColor(R.color.grey_100));
         } else
             //CHANGE COLOR OF ITEM WHEN IS NOT CLICKED
-            binding.constraintLayoutMenu.setBackgroundColor(context.getResources().getColor(R.color.white_100));
+            binding.linearLayoutMenu.setBackgroundColor(context.getResources().getColor(R.color.white_100));
 
         //select menu
         setItemClickListener(new ItemClickListener() {
@@ -95,6 +94,13 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
 
             }
         });
+    }
+
+    private void fixWidth() {
+        //FIX WIDTH OF CARD TO WIDTH OF SCREEN
+        int width = context.getResources().getDisplayMetrics().widthPixels;
+        binding.cardViewMenu.setMinimumWidth(width);
+        binding.imageViewiFormMenu.setMinimumWidth(width);
     }
 
 }

@@ -51,9 +51,7 @@ public class EvenementHolder extends RecyclerView.ViewHolder implements View.OnC
 
     public void bind(Evenement evenement) {
 
-        //FIX WIDTH OF CARD TO WIDTH OF SCREEN
-        int width = context.getResources().getDisplayMetrics().widthPixels;
-        binding.cardViewEvenement.setMinimumWidth(width);
+        fixWidth();
 
         //SET DATA IN VIEW
         binding.setEvenement(evenement);
@@ -61,6 +59,12 @@ public class EvenementHolder extends RecyclerView.ViewHolder implements View.OnC
 
         //OVRRIDE ON ITEM CLICK
         setItemClickListener((v, position) -> Toast.makeText(context, evenement.getDiscription(), Toast.LENGTH_LONG).show());
+    }
+
+    private void fixWidth() {
+        //FIX WIDTH OF CARD TO WIDTH OF SCREEN
+        int width = context.getResources().getDisplayMetrics().widthPixels;
+        binding.cardViewEvenement.setMinimumWidth(width);
     }
 
 

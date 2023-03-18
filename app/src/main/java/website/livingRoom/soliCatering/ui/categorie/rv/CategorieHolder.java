@@ -47,7 +47,7 @@ public class CategorieHolder extends RecyclerView.ViewHolder implements View.OnC
     }
 
     public static CategorieHolder create(ViewGroup parent) {
-        //INSTANTIATE BINDING OBJECT CLASS FROM MODEL PANIER
+        //INSTANTIATE BINDING OBJECT CLASS FROM MODEL CATEGORIE
         ModelCategorieBinding modelCategorieBinding = ModelCategorieBinding
                 .inflate(LayoutInflater.from(parent.getContext()));
 

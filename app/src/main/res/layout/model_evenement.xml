@@ -13,7 +13,7 @@
     style="@style/LinearLayoutPrincipaleFullWidthBlanc">
 
     <androidx.cardview.widget.CardView
-        style="@style/cardViewPrincipalRVGris"
+        style="@style/cardViewPrincipalRVBlanc.Full"
 
         android:id="@+id/cardViewEvenement">
 
@@ -24,7 +24,7 @@
                 style="@style/imageViewPrincipalRV"
 
                 android:id="@+id/imageViewPlat"
-                app:srcCompat="@drawable/cabaneb"
+                app:srcCompat="@drawable/backdescriptionplat"
                 android:contentDescription="@string/description_image_view_event_principal"
                 tools:ignore="MissingConstraints"/>
 
@@ -39,6 +39,7 @@
 
                     android:id="@+id/textViewNomEvenement"
                     android:text="@{evenement.nom}"
+                    android:hint="Titre de l'evenement"
                     tools:ignore="MissingConstraints"/>
 
                 <TextView
@@ -46,6 +47,7 @@
 
                     android:id="@+id/textViewDateEvenement"
                     android:text="@{evenement.date}"
+                    android:hint="00:00:0000"
                     tools:ignore="MissingConstraints" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 

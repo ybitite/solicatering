@@ -15,14 +15,17 @@ import website.livingRoom.soliCatering.utile.Helper;
 public class MiniArticlePanierHolder extends RecyclerView.ViewHolder implements ItemClickListener {
 
     //FIELD
-    static Context context;
-    static ModelMiniArticlePanierBinding binding;
+    private Context context;
+    private final ModelMiniArticlePanierBinding binding;
 
-    public MiniArticlePanierHolder(@NonNull View itemView) {
-        super(itemView);
+    public MiniArticlePanierHolder(ModelMiniArticlePanierBinding modelMiniArticlePanierBinding) {
+        super(modelMiniArticlePanierBinding.getRoot());
 
-        //get context to use later
-        context = binding.getRoot().getContext();
+        //GET CONTEXT TO USE LATER
+        context = modelMiniArticlePanierBinding.getRoot().getContext();
+
+        // instantiate binding object
+        binding = modelMiniArticlePanierBinding;
     }
 
     @Override
@@ -31,9 +34,9 @@ public class MiniArticlePanierHolder extends RecyclerView.ViewHolder implements 
     }
 
     public static MiniArticlePanierHolder create(ViewGroup parent) {
-        binding = ModelMiniArticlePanierBinding
+        ModelMiniArticlePanierBinding modelMiniArticlePanierBinding = ModelMiniArticlePanierBinding
                 .inflate(LayoutInflater.from(parent.getContext()));
-        return new MiniArticlePanierHolder(binding.getRoot());
+        return new MiniArticlePanierHolder(modelMiniArticlePanierBinding);
     }
 
     public void bind(ArticlePanierAndPlat articlePanierAndPlat) {

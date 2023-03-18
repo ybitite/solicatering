@@ -13,7 +13,10 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 import website.livingRoom.soliCatering.databinding.FragmentCategorieBinding;
+import website.livingRoom.soliCatering.db.entitys.Entite;
 import website.livingRoom.soliCatering.ui.categorie.rv.CategorieListAdapter;
 
 

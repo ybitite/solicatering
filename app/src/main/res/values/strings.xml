@@ -37,18 +37,18 @@
     <string name="conteur_file_name" translatable="false">website.livingRoom.marokkanischbernesse.PREFERENCE_FILE_KEY_CONTEUR</string>
 
     <!-- label-->
-    <string name="label_nom" translatable="false">Nom</string>
-    <string name="label_prenom" translatable="false">Prénom</string>
-    <string name="label_rue" translatable="false">Rue</string>
-    <string name="label_numero_rue" translatable="false">Numero</string>
-    <string name="label_code_postal" translatable="false">Code postal</string>
-    <string name="label_ville" translatable="false">Ville</string>
-    <string name="label_email" translatable="false">Email</string>
-    <string name="label_tel" translatable="false">Telephone</string>
-    <string name="label_date_livraison" translatable="false">Date de Livraison</string>
-    <string name="label_heure_livraison" translatable="false">Heure</string>
-    <string name="label_remarque" translatable="false">Remarque</string>
-    <string name="label_nombre" translatable="false">Nombre</string>
+    <string name="label_nom">Nom</string>
+    <string name="label_prenom">Prénom</string>
+    <string name="label_rue">Rue</string>
+    <string name="label_numero_rue">Numero</string>
+    <string name="label_code_postal">Code postal</string>
+    <string name="label_ville">Ville</string>
+    <string name="label_email">E-Mail</string>
+    <string name="label_tel">Téléphone</string>
+    <string name="label_date_livraison">Date de Livraison</string>
+    <string name="label_heure_livraison">Heure</string>
+    <string name="label_remarque">Remarque</string>
+    <string name="label_nombre">Nombre</string>
 
     <string name="validation_en_cours_label" translatable="false">valadiation\nen cours</string>
     <string name="prise_en_charge_label" translatable="false">prise en\ncharge</string>
@@ -75,8 +75,12 @@
     <string name="description_image_view_event_principal" translatable="false">image view event principal</string>
     <string name="description_image_view_plat" translatable="false">photo réelle du plat</string>
     <string name="description_image_view_menu" translatable="false">photo lustration du menu</string>
+    <string name="description_image_view_trait_vertical" translatable="false">trait pour séparation</string>
+
     <string name="description_image_view_categorie" translatable="false">photo lustration du catagorie</string>
     <string name="button_commander" translatable="false">Passez une commande</string>
+    <string name="label_prix_par_personne">Prix par personne</string>
+    <string name="label_nombre_de_point_de_credit">Nombre de point de credit</string>
 
 
 </resources>

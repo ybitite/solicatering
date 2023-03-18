@@ -25,34 +25,38 @@
 
                 <!--image view categorie-->
                 <ImageView
-                    style="@style/ImageViewMedium"
+                    style="@style/ImageViewLarge"
                     android:id="@+id/imageViewCat"
 
-                    app:srcCompat="@drawable/platsprincipale"
+                    app:srcCompat="@drawable/backdescriptionplat"
                     tools:ignore="MissingConstraints" />
 
                 <!--text view titre-->
                 <TextView
                     android:id="@+id/textViewNomCat"
 
-                    style="@style/textViewBase1.GrisPrincipal.Adaptable"
+                    style="@style/textViewBase1.GrisPrincipal.Adaptable.Bold"
+                    android:layout_marginStart="@dimen/medium_margin"
+                    android:layout_marginTop="@dimen/medium_margin"
+                    android:hint="Titre de la catégorie"
+
                     android:text="@{categorie.nom}"
                     android:textAlignment="textStart"
-
                     app:layout_constraintStart_toEndOf="@+id/imageViewCat"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="@+id/imageViewCat" />
 
-                <!--text view description categorie-->
+                <!--text view description-->
                 <TextView
                     android:id="@+id/textViewDiscriptionCat"
 
                     style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
 
+                    android:hint="description de la categorie"
                     android:text="@{categorie.discription}"
                     android:textAlignment="textStart"
 
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imageViewCat"
+                    app:layout_constraintStart_toStartOf="@+id/textViewNomCat"
                     app:layout_constraintTop_toBottomOf="@+id/textViewNomCat" />
 
                 <!--text view contenu 1-->
@@ -60,11 +64,11 @@
                     android:id="@+id/textViewContenuCat1"
 
                     style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
-                    android:text="Tajine"
+                    android:hint="contenu 1"
                     android:textAlignment="textStart"
 
                     app:layout_constraintBottom_toTopOf="@+id/textViewContenuCat2"
-                    app:layout_constraintStart_toEndOf="@+id/imageViewCat" />
+                    app:layout_constraintStart_toStartOf="@+id/textViewDiscriptionCat" />
 
                 <!--text view contenu 2-->
                 <TextView
@@ -72,21 +76,21 @@
 
                     style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
 
-                    android:text="Couscous"
+                    android:hint="contenu 2"
                     android:textAlignment="textStart"
 
                     app:layout_constraintBottom_toTopOf="@+id/textViewContenuCat3"
-                    app:layout_constraintStart_toEndOf="@+id/imageViewCat" />
+                    app:layout_constraintStart_toStartOf="@+id/textViewDiscriptionCat" />
 
                 <!--text view contenu 3-->
                 <TextView
                     android:id="@+id/textViewContenuCat3"
 
                     style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
-                    android:text="Rfissa"
+                    android:hint="contenu 3"
 
                     app:layout_constraintBottom_toTopOf="@+id/textViewContenuCat4"
-                    app:layout_constraintStart_toEndOf="@+id/imageViewCat" />
+                    app:layout_constraintStart_toStartOf="@+id/textViewDiscriptionCat" />
 
                 <!--text view contenu 3 points-->
                 <TextView
@@ -94,21 +98,27 @@
 
                     style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
 
+                    android:layout_marginBottom="@dimen/small_margin"
                     android:gravity="center"
-                    android:text="...."
 
+                    android:hint="...."
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imageViewCat" />
+                    app:layout_constraintStart_toStartOf="@+id/textViewContenuCat3" />
 
                 <!--text view points-->
                 <TextView
                     android:id="@+id/textViewPointCat"
-                    style="@style/textViewBase1.Vert.Small"
-
+                    style="@style/textViewBase1.Vert.Small.Bold"
 
                     android:text="@{categorie.pointFormat}"
+                    android:hint="10 p"
                     android:textAlignment="textStart"
                     android:textStyle="bold"
+
+                    android:layout_marginEnd="@dimen/medium_margin"
+                    android:layout_marginBottom="@dimen/medium_margin"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     tools:ignore="MissingConstraints" />
 
 

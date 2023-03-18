@@ -19,8 +19,7 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            style="@style/WidthParent"
-            android:padding="@dimen/small_margin"
+            style="@style/MarginSmall"
             android:id="@+id/constraintLayoutArticlePanier">
 
             <!--image view plat-->
@@ -28,7 +27,7 @@
                 style="@style/ImageViewSmall"
 
                 android:id="@+id/imageViewTitreAP"
-                app:srcCompat="@drawable/cat_finger_food"
+                app:srcCompat="@drawable/backdescriptionplat"
 
                 app:layout_constraintStart_toStartOf="parent"
 
@@ -65,22 +64,28 @@
 
                 android:id="@+id/tvNbrPlatAP"
                 android:text = "@{articlePanierAndPlat.articlePanier.nombrePlatFormat}"
-                app:layout_constraintEnd_toStartOf="@+id/btIncrement"
+                android:hint="0"
 
+                app:layout_constraintEnd_toStartOf="@+id/btIncrement"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints" />
 
             <!--text view titre plat-->
             <TextView
-                style="@style/textViewBase1.GrisPrincipal"
-
                 android:id="@+id/textViewTitreAP"
+
+                style="@style/textViewBase1.GrisPrincipal"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                android:hint="Titre plat"
+
                 android:text="@{articlePanierAndPlat.plat.nom}"
                 android:textAlignment="textStart"
-
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintEnd_toStartOf="@+id/btDecrement"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/imageViewTitreAP"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="@+id/imageViewTitreAP" />
 
             <!--text view point plat-->
             <TextView
@@ -88,6 +93,7 @@
 
                 android:id="@+id/textViewPointAP"
                 android:text="@{articlePanierAndPlat.plat.pointFormat}"
+                android:hint="10 p"
                 android:textAlignment="textEnd"
 
                 app:layout_constraintStart_toStartOf="@+id/textViewTitreAP"

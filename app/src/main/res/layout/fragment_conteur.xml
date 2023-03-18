@@ -18,55 +18,62 @@
         style="@style/WidthParent"
 
         android:background="@color/grey_400"
-        android:visibility="invisible">
+        android:visibility="visible">
 
         <!--text view titre conteur-->
         <TextView
 
-            style="@style/textViewBase1.Blanc"
             android:id="@+id/textViewTitreConteurCat"
+            style="@style/textViewBase1.Blanc"
 
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginStart="10dp"
+            android:layout_height="@dimen/x_large_margin"
+            android:layout_marginStart="@dimen/medium_margin"
 
+            android:hint="Nom du menu"
             android:text="@{conteur.nameFormat}"
             android:textAlignment="textStart"
 
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textViewLabelPointConteurCat"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="MissingConstraints" />
 
         <!--text view point conteur-->
         <TextView
+            android:id="@+id/textViewPointConteurCat"
             style="@style/textViewBase1.Vert.Small"
 
-            android:id="@+id/textViewPointConteurCat"
 
-            android:layout_marginEnd="10dp"
-
-
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:hint="10 p"
             android:text="@{conteur.pointResteFormat}"
-            android:textAlignment="textStart"
 
+            android:textAlignment="textStart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints,RtlCompat" />
 
         <!--label point conteur-->
         <TextView
-            style="@style/textViewBase1.Blanc.Small"
-
             android:id="@+id/textViewLabelPointConteurCat"
-            android:labelFor="@+id/textViewPointConteurCat"
+
+            style="@style/textViewBase1.Blanc.Small"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
+            android:hint="0 p"
+            android:labelFor="@+id/textViewPointConteurCat"
             android:text="@string/label_point_restant"
             android:textAlignment="textEnd"
 
-            app:layout_constraintEnd_toStartOf="@+id/textViewPointConteurCat"
             app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintEnd_toStartOf="@+id/textViewPointConteurCat"
             app:layout_constraintStart_toEndOf="@+id/textViewTitreConteurCat"
-
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints,RtlCompat" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

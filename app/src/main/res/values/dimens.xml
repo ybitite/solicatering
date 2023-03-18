@@ -5,14 +5,25 @@
 
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+
     <dimen name="height_model_rv">200dp</dimen>
+
     <dimen name="small_margin">5dp</dimen>
     <dimen name="medium_margin">10dp</dimen>
+    <dimen name="large_margin">20dp</dimen>
+    <dimen name="x_large_margin">30dp</dimen>
+
+
     <dimen name="min_size_touch">48dp</dimen>
+
     <dimen name="small_image_size">60dp</dimen>
-    <dimen name="medium_image_size">150dp</dimen>
+    <dimen name="medium_image_size">100dp</dimen>
+    <dimen name="large_image_size">150dp</dimen>
+
     <dimen name="zero_size">0dp</dimen>
     <dimen name="zero_bias">0.0</dimen>
+
+    <dimen name="x_small_text">11sp</dimen>
     <dimen name="small_text">12sp</dimen>
-    <dimen name="normal_text">14sp</dimen>
+    <dimen name="medium_text">14sp</dimen>
 </resources>

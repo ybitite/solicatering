@@ -48,17 +48,19 @@ public class EvenementTeteAdapter extends RecyclerView.Adapter<EvenementTeteAdap
     public void updateDescription() {
         //EXPAND DESCRIPTION
         if (geton == 1) {
-            bindingEvtTete.textViewDescriptionProjet.setText(R.string.description_projet_grande);
-            bindingEvtTete.imageViewAgrandir.setImageResource(android.R.drawable.arrow_up_float);
-            geton = 2;
+            update(R.string.description_projet_grande, android.R.drawable.arrow_up_float, 2);
         }
         //REDUCE DESCRIPTION
         else if (geton == 2) {
-            bindingEvtTete.textViewDescriptionProjet.setText(R.string.description_projet_petite);
-            bindingEvtTete.imageViewAgrandir.setImageResource(android.R.drawable.arrow_down_float);
-            geton = 1;
+            update(R.string.description_projet_petite, android.R.drawable.arrow_down_float, 1);
         }
 
+    }
+
+    private void update(int description_projet_grande, int arrow_up_float, int geton) {
+        bindingEvtTete.textViewDescriptionProjet.setText(description_projet_grande);
+        bindingEvtTete.imageViewAgrandir.setImageResource(arrow_up_float);
+        geton = geton;
     }
 
     static class EvenementTeteHolder extends RecyclerView.ViewHolder {
