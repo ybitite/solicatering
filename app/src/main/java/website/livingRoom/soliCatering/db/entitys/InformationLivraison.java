@@ -108,7 +108,7 @@ public class InformationLivraison extends FormulaireEtat {
     public String getTitreCatering() {
         //get resources from AppUtil
         Resources resources = AppUtile.getResource();
-        return resources.getString(R.string.text_titre_catering) + dateLivr;
+        return resources.getString(R.string.text_titre_catering) + " " + dateLivr;
     }
 
     /*EQUAL ET HASH METHODE*/

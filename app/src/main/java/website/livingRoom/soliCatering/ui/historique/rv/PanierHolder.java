@@ -1,14 +1,12 @@
 package website.livingRoom.soliCatering.ui.historique.rv;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -28,40 +26,29 @@ public class PanierHolder extends RecyclerView.ViewHolder implements ItemClickLi
 
     //FIELD
     private final Context context;
-    private static ModelPanierBinding binding;
-    private  int grey_400;
+    private final ModelPanierBinding binding;
 
-    public PanierHolder(@NonNull View itemView, ModelPanierBinding modelPanierBinding) {
-        super(itemView);
+    public PanierHolder(ModelPanierBinding modelPanierBinding) {
+        super(modelPanierBinding.getRoot());
 
         //GET CONTEXT TO USE LATER
-        context = itemView.getContext();
+        context = modelPanierBinding.getRoot().getContext();
 
         binding =modelPanierBinding;
-
     }
 
     @Override
-    public void onItemClick(View v, int pos) {
-
-    }
+    public void onItemClick(View v, int pos) {    }
 
     public static PanierHolder create(ViewGroup parent) {
         // instantiate binding object
-        ModelPanierBinding modelPanierBinding = ModelPanierBinding.inflate(LayoutInflater.from(parent.getContext()));
+        ModelPanierBinding modelPanierBinding = ModelPanierBinding
+                .inflate(LayoutInflater.from(parent.getContext()));
 
-        return new PanierHolder(modelPanierBinding.getRoot(),modelPanierBinding);
+        return new PanierHolder(modelPanierBinding);
     }
 
-
     public void bind(PanierWithAarticlePanierAndPlat panierWithAarticlePanierAndPlat) {
-
-        //get color from resources
-        grey_400 = ResourcesCompat.getColor(context.getResources(), R.color.grey_400, null);
-
-        //FIX WIDTH OF CARD TO WIDTH OF SCREEN
-        int width = context.getResources().getDisplayMetrics().widthPixels;
-        binding.cardViewPanier.setMinimumWidth(width);
 
         //push data to actualise ui
         binding.setPanier(panierWithAarticlePanierAndPlat.panier);
@@ -74,7 +61,8 @@ public class PanierHolder extends RecyclerView.ViewHolder implements ItemClickLi
         bindSuiviCommande(panierWithAarticlePanierAndPlat.panier.getEtat());
 
         //bind button plus
-        bindButtonPlus();
+
+        fixWhidth();
     }
 
     /**
@@ -100,150 +88,92 @@ public class PanierHolder extends RecyclerView.ViewHolder implements ItemClickLi
     }
 
     //bind suivi de commande
+
     void bindSuiviCommande(int etat) {
-        //local variable
-        String textEtat = "";
-        int colorEtat = Color.RED;
-        int visibilityValue = View.GONE;
 
         /*change color of control considering the stat and save some values considering the stat
          to set later to do control**/
         switch (etat) {
             case 1:
-                bindValidation();
-                textEtat = context.getString(R.string.validation_en_cours_label);
-                colorEtat = ResourcesCompat.getColor(context.getResources(), R.color.red_100, null);
-                visibilityValue = View.VISIBLE;
+                bindValidation(getString(R.string.validation_en_cours_label),getColor(R.color.red_100));
                 break;
             case 2:
-                bindPrisEnCharge();
-                textEtat = context.getString(R.string.prise_en_charge_label);
-                colorEtat = ResourcesCompat.getColor(context.getResources(), R.color.green_100, null);
-                visibilityValue = View.VISIBLE;
+                bindPrisEnCharge(getString(R.string.prise_en_charge_label),getColor(R.color.green_100));
                 break;
             case 3:
-                bindPreparation();
-                textEtat = context.getString(R.string.preparation_en_cours_label);
-                colorEtat = ResourcesCompat.getColor(context.getResources(), R.color.orange_100, null);
+                bindPreparation(getString(R.string.preparation_en_cours_label),getColor(R.color.orange_100));
                 break;
             case 4:
-                bindLivrer();
-                textEtat = context.getString(R.string.catering_livrer_label);
-                colorEtat = ResourcesCompat.getColor(context.getResources(), R.color.grey_200, null);
+                bindLivrer(getString(R.string.catering_livrer_label),getColor(R.color.grey_200));
                 break;
         }
-        //set value getting before to control
-        //text view etat
-        String text='\u2022' + " " + textEtat;
-        binding.textViewEtat.setText(text);
-        binding.textViewEtat.setTextColor(colorEtat);
-
-        //constraint layout info
-        binding.constraintLayoutInfoP.setVisibility(visibilityValue);
-
-        //recycle view contenu
-        binding.miniAPRecyclerView.setVisibility(visibilityValue);
-
-        //button ajouter
-        if (visibilityValue == View.GONE) {
-            binding.imageViewPlusIL.setImageResource(R.drawable.plus_gris);
-            binding.imageViewPlusContenu.setImageResource(R.drawable.plus_gris);
-        } else {
-            binding.imageViewPlusIL.setImageResource(R.drawable.minus_gris);
-            binding.imageViewPlusContenu.setImageResource(R.drawable.minus_gris);
-        }
     }
 
-    private void bindValidation() {
+    private String getString(int id) {
+        return  '\u2022' + " " +context.getString(id);
+    }
+
+    private int getColor(int id) {
+        return ResourcesCompat.getColor(context.getResources(), id, null);
+    }
+
+    private void bindValidation(String textEtat,int colorEtat) {
         //text view titre suivie commande
-        binding.textViewEtatValidation.setTextColor(grey_400);
-
-        //image view check box
-        binding.imageViewCBValidation.setImageResource(R.drawable.checkbox_on_background);
-
+        bindTextAndImageView(binding.textViewEtatValidation, binding.imageViewCBValidation);
+        //text view etat d avencment
+        bindTextViewEtat(textEtat,colorEtat);
     }
 
-    private void bindPrisEnCharge() {
+    private void bindPrisEnCharge(String textEtat,int colorEtat) {
         //bind validation
-        bindValidation();
-
-        //text view titre suivie commande
-        binding.textViewEtatPrisEnCharge.setTextColor(grey_400);
-
-        //image view check box
-        binding.imageViewCBPriseEnCharge.setImageResource(R.drawable.checkbox_on_background);
-
-        //image view trait
-        binding.imageViewTrait1.setColorFilter(grey_400);
+        bindValidation(textEtat,colorEtat);
+        //bind control
+        bindControl(binding.textViewEtatPrisEnCharge, binding.imageViewCBPriseEnCharge, binding.imageViewTrait1);
+        //text view état d'avancement
+        bindTextViewEtat(textEtat,colorEtat);
     }
 
-    private void bindPreparation() {
+    private void bindPreparation(String textEtat,int colorEtat) {
         //bind prise en charge
-        bindPrisEnCharge();
-
-        //text view titre suivie commande
-        binding.textViewEtatPreparation.setTextColor(grey_400);
-
-        //image view check box
-        binding.imageViewCBPreparation.setImageResource(R.drawable.checkbox_on_background);
-
-        //image view trait
-        binding.imageViewTrait2.setColorFilter(grey_400);
+        bindPrisEnCharge(textEtat,colorEtat);
+        //bind control
+        bindControl(binding.textViewEtatPreparation, binding.imageViewCBPreparation, binding.imageViewTrait2);
+        //text view état d'avancement
+        bindTextViewEtat(textEtat,colorEtat);
     }
 
-    private void bindLivrer() {
+    private void bindLivrer(String textEtat,int colorEtat) {
         //bind preparation
-        bindPreparation();
-
-        //text view titre suivie commande
-        binding.textViewEtatLivrer.setTextColor(grey_400);
-
-        //image view check box
-        binding.imageViewCBLivrer.setImageResource(R.drawable.checkbox_on_background);
-
-        //image view trait
-        binding.imageViewTrait3.setColorFilter(grey_400);
-
-        //constraint layout
-        binding.constraintLayoutSuivieCommande.setVisibility(View.GONE);
-
-        //text view label
-        binding.textViewTitreEtatLivraison.setVisibility(View.GONE);
+        bindPreparation(textEtat,colorEtat);
+        //bind control
+        bindControl(binding.textViewEtatLivrer, binding.imageViewCBLivrer, binding.imageViewTrait3);
+        //text view état d'avancement
+        bindTextViewEtat(textEtat,colorEtat);
     }
 
-    private void bindButtonPlus() {
+    private void bindControl(TextView textView, ImageView imageView1, ImageView imageView2) {
+        //bind text and image for check box
+        bindTextAndImageView(textView, imageView1);
+        //image view trait
+        imageView2.setColorFilter(getColor(R.color.grey_400));
+    }
 
-        //button to show more information livraison
-        ConstraintLayout constraintLayoutIL = binding.constraintLayoutInfoP;
-        ImageView imageViewPlusIL = binding.imageViewPlusIL;
-        imageViewPlusIL.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (constraintLayoutIL.getVisibility() == View.GONE) {
-                    constraintLayoutIL.setVisibility(View.VISIBLE);
-                    imageViewPlusIL.setImageResource(R.drawable.minus_gris);
-                } else {
-                    constraintLayoutIL.setVisibility(View.GONE);
-                    imageViewPlusIL.setImageResource(R.drawable.plus_gris);
-                }
-            }
-        });
+    private void bindTextAndImageView(TextView textView, ImageView imageView) {
+        //text view check box
+        textView.setTextColor(getColor(R.color.grey_400));
+        //image view check box
+        imageView.setImageResource(R.drawable.checkbox_on_background);
+    }
 
-        //button to show more contenu
-        RecyclerView miniAPRecyclerView = binding.miniAPRecyclerView;
-        ImageView imageViewPlusContenu = binding.imageViewPlusContenu;
-        imageViewPlusContenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (miniAPRecyclerView.getVisibility() == View.GONE) {
-                    miniAPRecyclerView.setVisibility(View.VISIBLE);
-                    imageViewPlusContenu.setImageResource(R.drawable.minus_gris);
-                } else {
-                    miniAPRecyclerView.setVisibility(View.GONE);
-                    imageViewPlusContenu.setImageResource(R.drawable.plus_gris);
-                }
-            }
-        });
+    private void bindTextViewEtat(String textEtat, int colorEtat) {
+        binding.textViewEtat.setText(textEtat);
+        binding.textViewEtat.setTextColor(colorEtat);
+    }
+
+    private void fixWhidth() {
+        //FIX WIDTH OF CARD TO WIDTH OF SCREEN
+        int width = context.getResources().getDisplayMetrics().widthPixels;
+        binding.cardViewPanier.setMinimumWidth(width);
     }
 
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     android:id="@+id/linearLayoutPlat"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -25,11 +26,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                card_view:layout_constraintEnd_toEndOf="parent"
-                card_view:layout_constraintHorizontal_bias="0.0"
-                card_view:layout_constraintStart_toStartOf="parent"
-                card_view:layout_constraintTop_toTopOf="parent"
-                card_view:srcCompat="@drawable/tajine" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/tajine" />
 
             <LinearLayout
                 android:id="@+id/linearLayout"
@@ -39,11 +40,11 @@
                 android:alpha="0.6"
                 android:background="#000000"
                 android:orientation="horizontal"
-                card_view:layout_constraintBottom_toTopOf="@+id/textViewArTitre"
-                card_view:layout_constraintEnd_toEndOf="@+id/layout_arriere_vigi"
+                app:layout_constraintBottom_toTopOf="@+id/textViewArTitre"
+                app:layout_constraintEnd_toEndOf="@+id/layout_arriere_vigi"
 
-                card_view:layout_constraintStart_toStartOf="@+id/layout_arriere_vigi"
-                card_view:layout_constraintTop_toTopOf="@+id/layout_arriere_vigi">
+                app:layout_constraintStart_toStartOf="@+id/layout_arriere_vigi"
+                app:layout_constraintTop_toTopOf="@+id/layout_arriere_vigi">
 
             </LinearLayout>
 
@@ -53,8 +54,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="50dp"
                 android:orientation="horizontal"
-                card_view:layout_constraintBottom_toTopOf="@+id/textViewArTitre"
-                card_view:layout_constraintStart_toStartOf="parent">
+                app:layout_constraintBottom_toTopOf="@+id/textViewArTitre"
+                app:layout_constraintStart_toStartOf="parent">
 
                 <ImageView
                     android:id="@+id/imageViewVegi"
@@ -64,7 +65,7 @@
                     android:layout_marginTop="7dp"
                     android:layout_marginEnd="7dp"
                     android:layout_marginBottom="7dp"
-                    card_view:srcCompat="@drawable/icon_vegi" />
+                    app:srcCompat="@drawable/icon_vegi" />
 
                 <ImageView
                     android:id="@+id/imageViewDegureEpice"
@@ -74,7 +75,7 @@
                     android:layout_marginTop="7dp"
                     android:layout_marginEnd="7dp"
                     android:layout_marginBottom="7dp"
-                    card_view:srcCompat="@drawable/icon_degure_epice_1" />
+                    app:srcCompat="@drawable/icon_degure_epice_1" />
             </LinearLayout>
 
 
@@ -89,8 +90,8 @@
                 android:textColor="#333333"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                card_view:layout_constraintBottom_toBottomOf="parent"
-                card_view:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
                 android:id="@+id/textViewTitrePlat"
@@ -103,11 +104,11 @@
                 android:textColor="#C5C3C3"
                 android:textSize="22sp"
                 android:textStyle="bold"
-                card_view:layout_constraintBottom_toBottomOf="parent"
-                card_view:layout_constraintEnd_toEndOf="@+id/textViewArTitre"
-                card_view:layout_constraintHorizontal_bias="0.498"
-                card_view:layout_constraintStart_toStartOf="parent"
-                card_view:layout_editor_absoluteY="220dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/textViewArTitre"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_editor_absoluteY="220dp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/griserItemPlat"
@@ -115,10 +116,10 @@
                 android:layout_height="match_parent"
                 android:background="#56383D4A"
                 android:visibility="visible"
-                card_view:layout_constraintBottom_toBottomOf="parent"
-                card_view:layout_constraintEnd_toEndOf="parent"
-                card_view:layout_constraintStart_toStartOf="parent"
-                card_view:layout_constraintTop_toTopOf="parent"></androidx.constraintlayout.widget.ConstraintLayout>
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></androidx.constraintlayout.widget.ConstraintLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

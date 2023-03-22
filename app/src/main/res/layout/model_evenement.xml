@@ -29,25 +29,27 @@
                 tools:ignore="MissingConstraints"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                style="@style/ConstraintLayoutBottom"
-
                 android:id="@+id/constraintLayoutEvenementModel"
+
+                style="@style/ConstraintLayoutBottom"
+                android:padding="@dimen/small_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
                 tools:ignore="MissingConstraints">
 
                 <TextView
-                    style="@style/textViewBase1.Blanc.RecycleViewTitre.left"
-
                     android:id="@+id/textViewNomEvenement"
-                    android:text="@{evenement.nom}"
+
+                    style="@style/textViewBase1.Blanc.RecycleViewTitre.left"
                     android:hint="Titre de l'evenement"
-                    tools:ignore="MissingConstraints"/>
+                    android:text="@{evenement.nom}"
+                    tools:ignore="MissingConstraints" />
 
                 <TextView
-                    style="@style/textViewBase1.Blanc.RecycleViewTitre.right"
-
                     android:id="@+id/textViewDateEvenement"
-                    android:text="@{evenement.date}"
+
+                    style="@style/textViewBase1.Blanc.RecycleViewTitre.right"
                     android:hint="00:00:0000"
+                    android:text="@{evenement.date}"
                     tools:ignore="MissingConstraints" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 

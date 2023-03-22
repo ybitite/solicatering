@@ -41,6 +41,7 @@
                     style="@style/textViewBase1.GrisClair.CaseText"
 
                     android:hint="0"
+                    android:text="@{articlePanierAndPlat.articlePanier.nombrePlatFormat}"
 
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

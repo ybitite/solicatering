@@ -24,15 +24,16 @@
 
             <!--image view plat-->
             <ImageView
-                style="@style/ImageViewSmall"
-
                 android:id="@+id/imageViewTitreAP"
-                app:srcCompat="@drawable/backdescriptionplat"
+
+                style="@style/ImageViewSmall"
+                android:contentDescription="@string/description_image_view_plat"
 
                 app:layout_constraintStart_toStartOf="parent"
 
-                android:contentDescription="@string/description_image_view_plat"
-                tools:ignore="MissingConstraints" />
+                app:srcCompat="@drawable/backdescriptionplat"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="5dp" />
 
             <!--image button plus-->
             <ImageButton
@@ -76,8 +77,8 @@
                 android:id="@+id/textViewTitreAP"
 
                 style="@style/textViewBase1.GrisPrincipal"
-                android:layout_marginStart="@dimen/small_margin"
-                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginStart="@dimen/medium_margin"
+                android:layout_marginTop="@dimen/medium_margin"
                 android:hint="Titre plat"
 
                 android:text="@{articlePanierAndPlat.plat.nom}"
@@ -89,16 +90,16 @@
 
             <!--text view point plat-->
             <TextView
-                style="@style/textViewBase1.GrisClair.Small"
-
                 android:id="@+id/textViewPointAP"
-                android:text="@{articlePanierAndPlat.plat.pointFormat}"
-                android:hint="10 p"
-                android:textAlignment="textEnd"
 
+                style="@style/textViewBase1.GrisPrincipal.Small.Bold"
+                android:layout_width="wrap_content"
+                android:hint="10 p"
+
+                android:text="@{articlePanierAndPlat.plat.pointFormat}"
+                android:textAlignment="textEnd"
                 app:layout_constraintStart_toStartOf="@+id/textViewTitreAP"
-                app:layout_constraintTop_toBottomOf="@+id/textViewTitreAP"
-                android:layout_width="wrap_content" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewTitreAP" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

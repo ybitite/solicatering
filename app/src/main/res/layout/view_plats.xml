@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
@@ -21,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="1dp"
                 android:orientation="horizontal"
-                card_view:cardElevation="5dp">
+                app:cardElevation="5dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayoutViewPlat"
@@ -40,9 +41,9 @@
                         android:text="Ajouter"
                         android:textColor="@color/green_100"
                         android:textSize="10sp"
-                        card_view:layout_constraintBottom_toBottomOf="parent"
-                        card_view:layout_constraintEnd_toEndOf="parent"
-                        card_view:layout_constraintTop_toBottomOf="@+id/textViewDiscription" />
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewDiscription" />
 
                     <Button
                         android:id="@+id/buttonAnnuller"
@@ -54,9 +55,9 @@
                         android:layout_marginBottom="10dp"
                         android:text="annuller"
                         android:textSize="10sp"
-                        card_view:layout_constraintBottom_toBottomOf="parent"
-                        card_view:layout_constraintEnd_toStartOf="@+id/buttonAjouterPanier"
-                        card_view:layout_constraintTop_toBottomOf="@+id/textViewDiscription" />
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/buttonAjouterPanier"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewDiscription" />
 
                     <ImageView
                         android:id="@+id/imageViewPlatTop"
@@ -65,10 +66,10 @@
                         android:scaleType="centerCrop"
                         android:visibility="visible"
 
-                        card_view:layout_constraintEnd_toEndOf="parent"
-                        card_view:layout_constraintStart_toStartOf="parent"
-                        card_view:layout_constraintTop_toTopOf="parent"
-                        card_view:srcCompat="@drawable/tajine" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/tajine" />
 
                     <ImageView
                         android:id="@+id/imageViewVegi"
@@ -76,9 +77,9 @@
                         android:layout_height="30dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="5dp"
-                        card_view:layout_constraintEnd_toEndOf="parent"
-                        card_view:layout_constraintTop_toBottomOf="@+id/imageViewPlatTop"
-                        card_view:srcCompat="@drawable/icon_vegi" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageViewPlatTop"
+                        app:srcCompat="@drawable/icon_vegi" />
 
                     <ImageView
                         android:id="@+id/imageViewDegureEpice"
@@ -86,9 +87,9 @@
                         android:layout_height="30dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="5dp"
-                        card_view:layout_constraintEnd_toStartOf="@+id/imageViewVegi"
-                        card_view:layout_constraintTop_toBottomOf="@+id/imageViewPlatTop"
-                        card_view:srcCompat="@drawable/icon_degure_epice_1" />
+                        app:layout_constraintEnd_toStartOf="@+id/imageViewVegi"
+                        app:layout_constraintTop_toBottomOf="@+id/imageViewPlatTop"
+                        app:srcCompat="@drawable/icon_degure_epice_1" />
 
                     <TextView
                         android:id="@+id/textViewTitreMAP"
@@ -102,8 +103,8 @@
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        card_view:layout_constraintStart_toStartOf="parent"
-                        card_view:layout_constraintTop_toBottomOf="@+id/imageViewPlatTop" />
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageViewPlatTop" />
 
                     <TextView
                         android:id="@+id/textViewPoint"
@@ -116,8 +117,8 @@
                         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                         android:textSize="14sp"
                         android:textStyle="bold"
-                        card_view:layout_constraintStart_toStartOf="parent"
-                        card_view:layout_constraintTop_toBottomOf="@+id/textViewTitreMAP" />
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewTitreMAP" />
 
                     <TextView
                         android:id="@+id/textViewDiscription"
@@ -128,9 +129,9 @@
                         android:layout_marginEnd="20dp"
                         android:text="discription"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                        card_view:layout_constraintEnd_toEndOf="parent"
-                        card_view:layout_constraintStart_toStartOf="parent"
-                        card_view:layout_constraintTop_toBottomOf="@+id/imageButtonDecrement" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageButtonDecrement" />
 
                     <TextView
                         android:id="@+id/textViewNbrPlat"
@@ -147,8 +148,8 @@
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                         android:textColor="#151515"
                         android:textSize="16sp"
-                        card_view:layout_constraintStart_toEndOf="@+id/imageButtonDecrement"
-                        card_view:layout_constraintTop_toBottomOf="@+id/textViewPoint" />
+                        app:layout_constraintStart_toEndOf="@+id/imageButtonDecrement"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewPoint" />
 
                     <ImageButton
                         android:id="@+id/imageButtonIncriment"
@@ -159,8 +160,8 @@
                         android:background="#9AF2F2F2"
                         android:src="@drawable/plus"
                         android:text="Button"
-                        card_view:layout_constraintStart_toEndOf="@+id/textViewNbrPlat"
-                        card_view:layout_constraintTop_toBottomOf="@+id/textViewPoint" />
+                        app:layout_constraintStart_toEndOf="@+id/textViewNbrPlat"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewPoint" />
 
                     <ImageButton
                         android:id="@+id/imageButtonDecrement"
@@ -171,8 +172,8 @@
                         android:layout_marginTop="8dp"
                         android:background="#9AF2F2F2"
                         android:src="@drawable/minus"
-                        card_view:layout_constraintStart_toStartOf="parent"
-                        card_view:layout_constraintTop_toBottomOf="@+id/textViewPoint" />
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewPoint" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>

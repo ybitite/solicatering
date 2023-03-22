@@ -27,8 +27,8 @@
     <!-- Message de conformation-->
     <string name="cf_ajout_article_panier" translatable="false">Cette plat est bien ajouter au panier</string>
     <!-- desciption-->
-    <string name="description_projet_grande" translatable="false">Soli Catering est un projet de l’association Daa Basmatak. Il regroupe plusieur chefs expirimenté de tous les continent, à fin de vous offrir le meilleur dans vos Table.Le profit du projet est distié à aider les personnes en situation précaire dans le Konton de Bern</string>
-    <string name="description_projet_petite" translatable="false">Soli Catering est un projet de l’association Daa Basmatak. Il regroupe plusieur chefs expirimenté de tous les continent, à fin...</string>
+    <string name="description_projet_grande" translatable="false">Soli Catering est un projet du Living Room. Il regroupe plusieurs chefs expirimenté de tous les continent, à fin de vous offrir le meilleur dans vos Table.Le profit du projet est destiné à aider les personnes en situation précaire dans le Konton de Bern</string>
+    <string name="description_projet_petite" translatable="false">Soli Catering est un projet de Living Room. Il regroupe plusieurs chefs expirimenté de tous les continent, à fin...</string>
     <!-- buttonAnnuler-->
     <string name="bt_valider_cmd_0_article" translatable="false">Aucun article ajouté</string>
     <string name="bt_valider_cmd" translatable="false">Valider la commande</string>
@@ -79,8 +79,14 @@
 
     <string name="description_image_view_categorie" translatable="false">photo lustration du catagorie</string>
     <string name="button_commander" translatable="false">Passez une commande</string>
-    <string name="label_prix_par_personne">Prix par personne</string>
-    <string name="label_nombre_de_point_de_credit">Nombre de point de credit</string>
+    <string name="label_prix_par_personne" translatable="false">Prix par personne : </string>
+    <string name="label_nombre_de_point_de_credit" translatable="false">Nombre de point de credit</string>
+    <string name="label_prix_du_catering" translatable="false">Prix du catering</string>
+    <string name="label_nombre_de_personnes" translatable="false">Nombre de personnes : </string>
+    <string name="label_prix_total" translatable="false">Prix total :</string>
+    <string name="label_information_livraison" translatable="false">Information livraison</string>
+    <string name="label_contenu_du_menu" translatable="false">Contenu du menu</string>
+    <string name="label_suivie_de_commande" translatable="false">Suivie de commande</string>
 
 
 </resources>

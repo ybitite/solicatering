@@ -18,20 +18,23 @@ import website.livingRoom.soliCatering.ui.historique.rv.PanierListAdapter;
 
 public class HistoriqueFragment extends Fragment {
 
-    //FIELD
-    private HistoriqueViewModel historiqueViewModel;
-    FragmentHistoriqueBinding binding;
-
     //METHODE
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         //INSTANTIATE BINDING
-        binding = FragmentHistoriqueBinding.inflate(inflater, container, false);
+        FragmentHistoriqueBinding binding = FragmentHistoriqueBinding
+                .inflate(inflater, container, false);
         View root = binding.getRoot();
 
         //INSTANTIATE RV
         RecyclerView rv = binding.panierRecycler;
+        initiateRecycleView(rv);
+
+        return root;
+    }
+
+    private void initiateRecycleView(RecyclerView rv) {
 
         //SET ADAPTER TO RV
         final PanierListAdapter panierListAdapter = new PanierListAdapter(new PanierListAdapter.PanierDiff());
@@ -41,14 +44,16 @@ public class HistoriqueFragment extends Fragment {
         rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
         rv.setItemAnimator(new DefaultItemAnimator());
 
+        observeAndUpdate(panierListAdapter);
+    }
+
+    private void observeAndUpdate(PanierListAdapter panierListAdapter) {
         //OBSERVE DATA FROM LIVE DATA AND UPDATE RV WEN DATA CHANGE
-        historiqueViewModel =
-                new ViewModelProvider(this).get(HistoriqueViewModel.class);
+        //FIELD
+        HistoriqueViewModel historiqueViewModel = new ViewModelProvider(this).get(HistoriqueViewModel.class);
 
         historiqueViewModel.getListPanierWithArticlePanierAndPlat().observe(getViewLifecycleOwner(), listPanierWithAP -> {
             panierListAdapter.submitList(listPanierWithAP);
         });
-
-        return root;
     }
 }

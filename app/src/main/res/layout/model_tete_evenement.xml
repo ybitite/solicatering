@@ -1,34 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8" ?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/linearLayoutTeteEvenement"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    style="@style/LinearLayoutPrincipaleFullWidthBlanc">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewTeteEvenement"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        style="@style/cardViewPrincipalRVBlanc.Full">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayoutTeteEvenement"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/grey_400">
+            style="@style/WidthParent"
+            android:layout_margin="@dimen/small_margin">
 
-            <ImageView
-                android:id="@+id/imageViewAgrandir"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:src="@android:drawable/arrow_down_float"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewDescriptionProjet" />
 
             <ImageView
                 android:id="@+id/imageViewLogo"
@@ -46,22 +30,17 @@
 
             <TextView
                 android:id="@+id/textViewDescriptionProjet"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginEnd="25dp"
-                android:layout_marginBottom="3dp"
-                android:fontFamily="sans-serif"
+                style="@style/textViewBase1.GrisPrincipal.Adaptable"
+
                 android:text="@string/description_projet_petite"
                 android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toTopOf="@+id/imageViewAgrandir"
+
+                android:layout_margin="@dimen/large_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.cardview.widget.CardView>
-
-</androidx.appcompat.widget.LinearLayoutCompat>
+</LinearLayout>

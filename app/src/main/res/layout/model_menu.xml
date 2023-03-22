@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <!--categorie object for data binding-->
+        <!--menu object for data binding-->
         <variable
             name="menu"
             type="website.livingRoom.soliCatering.db.entitys.Menu" />
