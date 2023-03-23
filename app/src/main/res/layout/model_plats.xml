@@ -59,8 +59,9 @@
                     style="@style/textViewBase1.Blanc.Bold"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-
-                    android:text="Tajine aux prunes  "
+                    android:text="@{plat.nom}"
+                    android:hint="Tajine aux prunes  "
+                    android:textColorHint="@color/white_100"
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
