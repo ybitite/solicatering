@@ -1,13 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--edit text-->
+    <style name="EditeTextFormulaire" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">@dimen/zero_size</item>
+        <item name="android:layout_height">@dimen/min_size_touch</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/medium_text</item>
+        <item name="android:paddingStart">@dimen/small_margin</item>
+        <item name="android:paddingEnd">@dimen/small_margin</item>
+        <item name="android:textColor">@color/grey_400</item>
+        <item name="android:background">@color/grey_100</item>
+        <item name="android:textAlignment">textStart</item>
+
+
+    </style>
+
     <!--text view-->
     <style name="textViewBase1" parent="TextAppearance.AppCompat">
         <item name="android:textStyle">normal</item>
         <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">@dimen/medium_text</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:textColor">@color/grey_400</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:clickable">false</item>
-        <item name="android:textSize">@dimen/medium_text</item>
+
+
     </style>
 
     <!--vert-->
@@ -39,6 +60,12 @@
     <style name="textViewBase1.Rouge.Small">
         <item name="android:textSize">@dimen/small_text</item>
         <item name="android:gravity">center</item>
+    </style>
+    <style name="textViewBase1.Rouge.XSmall">
+        <item name="android:textSize">@dimen/x_small_text</item>
+    </style>
+    <style name="textViewBase1.Rouge.XSmall.adaptable">
+        <item name="android:layout_width">@dimen/zero_size</item>
     </style>
 
     <style name="textViewBase1.Rouge.Small.Bold">
@@ -180,9 +207,6 @@
     <style name="ImageButtonSmall" parent="Widget.AppCompat.ImageButton" >
         <item name="android:layout_width">@dimen/min_size_touch</item>
         <item name="android:layout_height">@dimen/min_size_touch</item>
-        <item name="layout_constraintBottom_toBottomOf">parent</item>
-        <item name="layout_constraintTop_toTopOf">parent</item>
-        <item name="android:background">@color/grey_100</item>
     </style>
 
 

@@ -89,13 +89,14 @@ public class PlatsHolder extends RecyclerView.ViewHolder implements View.OnClick
         //SAVE SELECTED PLAT
         platViewModel.setSelectedPlat(plat);
         //NAVIGATE TO VIEW PLAT
-        Navigation.findNavController((Activity) context, R.id.nav_host_fragment_activity_main).navigate(R.id.action_navigation_plat_to_dialogPlat2);
+        Navigation.findNavController((Activity) context, R.id.nav_host_fragment_activity_main)
+                .navigate(R.id.action_navigation_plat_to_dialogPlat2);
     }
 
     private void blockItem(int visible, boolean clickable) {
         //MAKE ITEM GRIS AND POINT GREEN
+        itemView.setClickable(clickable);
         binding.griserItemPlat.setVisibility(visible);
-        binding.linearLayoutPlat.setClickable(clickable);
     }
 
     private void updateIconEpice(Plat plat) {
@@ -112,7 +113,7 @@ public class PlatsHolder extends RecyclerView.ViewHolder implements View.OnClick
 
     private void upDateIconVegi(Plat plat) {
         //SET ICON VEGUI
-        if (plat.getVegui() == "o")
+        if (plat.getVegui().equals("o"))
             setIconVegi(R.drawable.icon_vegi);
         else
             setIconVegi(R.drawable.icon_vegi_no);

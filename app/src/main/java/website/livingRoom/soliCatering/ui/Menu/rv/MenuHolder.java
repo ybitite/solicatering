@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import website.livingRoom.soliCatering.R;
 
-import website.livingRoom.soliCatering.databinding.ModelCategorieBinding;
 import website.livingRoom.soliCatering.databinding.ModelMenuBinding;
 import website.livingRoom.soliCatering.db.entitys.Menu;
 import website.livingRoom.soliCatering.repository.ArticlePanierRepository;
@@ -67,33 +66,43 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
         binding.setMenu(menu);
         binding.imageViewIconMenu.setImageResource(Helper.idResource(menu.getNomPic()));
 
-        //CHANGE COLOR OF ACTUEL MENU
-        int menuActuel = ConteurRepository.getPointDepart();
-        if (menu.getPoint() == menuActuel) {
+        if (menu.getPoint() == ConteurRepository.getPointDepart()) {
             //CHANGE COLOR OF ITEM WHEN IS CLICKED
-            binding.linearLayoutMenu.setBackgroundColor(context.getResources().getColor(R.color.grey_100));
-        } else
+            updateBLinearLayoutColor(R.color.grey_100);
+        }
+        else
             //CHANGE COLOR OF ITEM WHEN IS NOT CLICKED
-            binding.linearLayoutMenu.setBackgroundColor(context.getResources().getColor(R.color.white_100));
+            updateBLinearLayoutColor(R.color.white_100);
 
+        updateItemClick(menu, ConteurRepository.getPointDepart());
+    }
+
+    private void updateItemClick(Menu menu, int menuActuel) {
         //select menu
         setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemClick(View v, int position) {
-                //IF USER CLICK IN THE NEW MENU A NEW CONTEUR START AGAIN
-                if (menu.getPoint() != menuActuel) {
-                    //START NEW CONTEUR
-                    ConteurRepository.setConteur(menu.getNom(), menu.getPoint());
-
-                    //clear list of article panier
-                    articlePanierRepository.deleteCurentPanier(ConteurRepository.getPanierActuel());
-                }
+                updateConteur(menu, menuActuel);
                 //NAVIGATE TO CATEGORIE
                 Navigation.findNavController((Activity) context, R.id.nav_host_fragment_activity_main)
                         .navigate(R.id.action_navigation_menu_to_navigation_categorie);
-
             }
         });
+    }
+
+    private void updateBLinearLayoutColor(int grey_100) {
+        binding.linearLayoutMenu.setBackgroundColor(context.getResources().getColor(grey_100));
+    }
+
+    private void updateConteur(Menu menu, int menuActuel) {
+        //IF USER CLICK IN THE NEW MENU A NEW CONTEUR START AGAIN
+        if (menu.getPoint() != menuActuel) {
+            //START NEW CONTEUR
+            ConteurRepository.setConteur(menu.getNom(), menu.getPoint());
+
+            //clear list of article panier
+            articlePanierRepository.deleteCurentPanier(ConteurRepository.getPanierActuel());
+        }
     }
 
     private void fixWidth() {

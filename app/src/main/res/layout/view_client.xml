@@ -1,499 +1,345 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
+        <!--view model client-->
         <variable
             name="viewModel"
             type="website.livingRoom.soliCatering.ui.client.ClientViewModel" />
 
-        <variable
-            name="dialogClient"
-            type="website.livingRoom.soliCatering.ui.client.DialogClient" />
-
-        <import type="website.livingRoom.soliCatering.ui.client.DialogClient"></import>
     </data>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="website.livingRoom.soliCatering.ui.client.DialogClient">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewViewClient"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="1dp"
-            android:orientation="horizontal"
-            app:cardElevation="5dp">
+            style="@style/WidthHeightParent"
+            android:layout_margin="@dimen/small_margin"
+            app:cardElevation="@dimen/small_margin">
 
             <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                style="@style/WidthHeightParent">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    style="@style/WidthHeightParent"
                     android:orientation="vertical">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/constraintLayoutClient"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:paddingBottom="10dp">
+                        style="@style/WidthHeightParent"
+                        android:padding="@dimen/medium_margin">
 
-                        <Button
-                            android:id="@+id/buttonValider"
-                            style="@style/Widget.AppCompat.Button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="48dp"
-                            android:text="Valider"
-                            android:textColor="@color/green_100"
-                            android:textSize="12sp"
-                            app:layout_constraintBottom_toBottomOf="@+id/editTextNombre"
-                            app:layout_constraintEnd_toEndOf="@+id/editTextRemarque"
-                            app:layout_constraintTop_toTopOf="@+id/editTextNombre" />
+                        <!--titre informatife-->
+                        <TextView
+                            android:id="@+id/textViewTitre"
+                            style="@style/textViewBase1.GrisPrincipal.Small.Bold"
 
+
+                            android:text="@string/label_renseigner_info_livraison"
+
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                        <!--image button close-->
+                        <ImageView
+                            android:id="@+id/imageViewClose"
+                            style="@style/ImageViewXSmall"
+                            android:padding="@dimen/small_margin"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/icon_cancel"
+                            android:contentDescription="@string/description_image_view_fermer" />
+
+                        <!--icon information contact-->
+                        <ImageView
+                            android:id="@+id/ImageViewiconContact"
+                            style="@style/ImageViewXXSmall"
+
+                            app:layout_constraintBottom_toBottomOf="@+id/textViewContactLabel"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/textViewContactLabel"
+                            app:srcCompat="@drawable/contact_icon"
+                            android:contentDescription="@string/description_image_view_information_contact" />
+
+                        <!--label information de contact-->
+                        <TextView
+                            android:id="@+id/textViewContactLabel"
+                            style="@style/textViewBase1.GrisPrincipal.Adaptable"
+
+                            android:text="@string/label_information_de_contact"
+
+                            android:layout_marginStart="@dimen/medium_margin"
+                            android:layout_marginTop="@dimen/medium_margin"
+                            app:layout_constraintStart_toEndOf="@+id/ImageViewiconContact"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewTitre" />
+                        <!--nom-->
                         <EditText
                             android:id="@+id/editTextNom"
-                            style="@style/Widget.AppCompat.AutoCompleteTextView"
-                            android:layout_width="0dp"
-                            android:layout_height="48dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="10dp"
-                            android:background="@color/grey_100"
-                            android:ems="9"
+                            style="@style/EditeTextFormulaire"
+
                             android:hint="@string/label_nom"
-
                             android:inputType="textPersonName"
-                            android:nextFocusDown="@id/editTextPrenom"
-                            android:paddingStart="5dp"
-
-                            android:paddingEnd="5dp"
-
                             android:text="@={viewModel.client.nom}"
-                            android:textAlignment="textStart"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textColor="@color/grey_400"
-                            android:textSize="14sp"
+
+                            android:ems="9"
+                            android:nextFocusDown="@id/editTextPrenom"
+                            android:layout_marginTop="@dimen/medium_margin"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/textViewContactLabel"
-                            app:layout_gravity="center|start" />
+                            android:autofillHints="" />
 
-
+                        <!--prenom-->
                         <EditText
                             android:id="@+id/editTextPrenom"
-                            style="@style/Widget.AppCompat.AutoCompleteTextView"
-                            android:layout_width="0dp"
-                            android:layout_height="48dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginEnd="10dp"
-                            android:background="@color/grey_100"
+                            style="@style/EditeTextFormulaire"
+
                             android:hint="@string/label_prenom"
                             android:inputType="textPersonName"
-
-                            android:nextFocusDown="@id/editTextPhone"
-                            android:paddingStart="5dp"
-                            android:paddingEnd="5dp"
                             android:text="@={viewModel.client.prenom}"
 
-                            android:textAlignment="textStart"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textColor="@color/grey_400"
-                            android:textSize="14sp"
+                            android:nextFocusDown="@id/editTextPhone"
+                            android:layout_marginStart="@dimen/medium_margin"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.0"
                             app:layout_constraintStart_toEndOf="@+id/editTextNom"
                             app:layout_constraintTop_toTopOf="@+id/editTextNom"
-                            app:layout_gravity="center|start" />
+                            android:autofillHints="" />
 
+                        <!--phone-->
                         <EditText
-                            android:id="@+id/editTextRue"
-                            style="@style/Widget.AppCompat.AutoCompleteTextView"
-                            android:layout_width="0dp"
-                            android:layout_height="48dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="10dp"
-                            android:autoText="true"
-                            android:background="@color/grey_100"
-                            android:ems="10"
-                            android:hint="@string/label_rue"
-                            android:inputType="textPostalAddress"
+                            android:id="@+id/editTextPhone"
+                            style="@style/EditeTextFormulaire"
 
-                            android:nextFocusDown="@id/editTextNumRue"
-                            android:paddingStart="5dp"
-                            android:paddingEnd="5dp"
-                            android:text="@={viewModel.informationLivraison.adresse.rue}"
+                            android:hint="@string/label_tel"
+                            android:inputType="phone"
+                            android:text="@={viewModel.client.numTel}"
 
-
-                            android:textAlignment="textStart"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textColor="@color/grey_400"
-                            android:textSize="14sp"
+                            android:ems="7"
+                            android:nextFocusDown="@id/editTextEmail"
+                            android:layout_marginTop="@dimen/medium_margin"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textViewLivraisonLabel"
-                            app:layout_gravity="center|start" />
+                            app:layout_constraintTop_toBottomOf="@+id/editTextNom"
+                            android:autofillHints="" />
 
-                        <EditText
-                            android:id="@+id/editTextNumRue"
-                            style="@style/Widget.AppCompat.AutoCompleteTextView"
-                            android:layout_width="0dp"
-                            android:layout_height="48dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginEnd="10dp"
-                            android:autoText="true"
-                            android:background="@color/grey_100"
-                            android:ems="5"
-                            android:hint="@string/label_numero_rue"
-                            android:inputType="numberDecimal"
-
-                            android:nextFocusDown="@id/editTextCodePostal"
-                            android:paddingStart="5dp"
-                            android:paddingEnd="5dp"
-                            android:text="@={viewModel.informationLivraison.adresse.numeroRueString}"
-
-
-                            android:textAlignment="textStart"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textColor="@color/grey_400"
-                            android:textSize="14sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/editTextRue"
-                            app:layout_constraintTop_toTopOf="@+id/editTextRue"
-                            app:layout_gravity="center|start" />
-
-                        <EditText
-                            android:id="@+id/editTextCodePostal"
-                            style="@style/Widget.AppCompat.AutoCompleteTextView"
-                            android:layout_width="0dp"
-                            android:layout_height="48dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="10dp"
-                            android:autoText="true"
-                            android:background="@color/grey_100"
-                            android:ems="6"
-                            android:hint="@string/label_code_postal"
-                            android:inputType="numberSigned"
-
-                            android:nextFocusDown="@id/editTextVille"
-                            android:paddingStart="5dp"
-                            android:paddingEnd="5dp"
-                            android:text="@={viewModel.informationLivraison.adresse.codePostalString}"
-
-
-                            android:textAlignment="textStart"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textColor="@color/grey_400"
-                            android:textSize="14sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/editTextRue"
-                            app:layout_gravity="center|start" />
-
-                        <EditText
-                            android:id="@+id/editTextVille"
-                            style="@style/Widget.AppCompat.AutoCompleteTextView"
-                            android:layout_width="0dp"
-                            android:layout_height="48dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="10dp"
-                            android:autoText="true"
-                            android:background="@color/grey_100"
-                            android:ems="14"
-                            android:hint="@string/label_ville"
-                            android:inputType="textAutoCorrect|textPostalAddress"
-
-                            android:nextFocusDown="@id/editTextDate"
-                            android:paddingStart="5dp"
-                            android:paddingEnd="5dp"
-                            android:text="@={viewModel.informationLivraison.adresse.ville}"
-
-
-                            android:textAlignment="textStart"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textColor="@color/grey_400"
-                            android:textSize="14sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/editTextCodePostal"
-                            app:layout_constraintTop_toBottomOf="@+id/editTextNumRue"
-                            app:layout_gravity="center|start" />
-
+                        <!--email-->
                         <EditText
                             android:id="@+id/editTextEmail"
-                            style="@style/Widget.AppCompat.AutoCompleteTextView"
-                            android:layout_width="0dp"
-                            android:layout_height="48dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="10dp"
-                            android:autoText="true"
-                            android:background="@color/grey_100"
-                            android:ems="14"
+                            style="@style/EditeTextFormulaire"
+
                             android:hint="@string/label_email"
                             android:inputType="textEmailAddress"
-
-                            android:nextFocusDown="@id/editTextRue"
-                            android:paddingStart="5dp"
-                            android:paddingEnd="5dp"
                             android:text="@={viewModel.client.email}"
 
-
-                            android:textAlignment="textStart"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textColor="@color/grey_400"
-                            android:textSize="14sp"
+                            android:ems="14"
+                            android:nextFocusDown="@id/editTextRue"
+                            android:layout_marginStart="@dimen/medium_margin"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/editTextPhone"
                             app:layout_constraintTop_toBottomOf="@+id/editTextPrenom"
-                            app:layout_gravity="center|start" />
+                            app:layout_constraintTop_toTopOf="@+id/editTextPhone"
+                            android:autofillHints="" />
 
-                        <EditText
-                            android:id="@+id/editTextPhone"
-                            style="@style/Widget.AppCompat.AutoCompleteTextView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="48dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="10dp"
-                            android:autoText="true"
-                            android:background="@color/grey_100"
-                            android:ems="7"
-                            android:hint="@string/label_tel"
-                            android:inputType="phone"
-
-                            android:nextFocusDown="@id/editTextEmail"
-                            android:paddingStart="5dp"
-                            android:paddingEnd="5dp"
-                            android:text="@={viewModel.client.numTel}"
-
-
-                            android:textAlignment="textStart"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textColor="@color/grey_400"
-                            android:textSize="14sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/editTextNom"
-                            app:layout_gravity="center|start" />
-
-                        <EditText
-                            android:id="@+id/editTextDate"
-                            style="@style/Widget.AppCompat.AutoCompleteTextView"
-                            android:layout_width="0dp"
-                            android:layout_height="48dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="10dp"
-                            android:background="@color/grey_100"
-                            android:ems="10"
-                            android:hint="@string/label_date_livraison"
-                            android:inputType="date"
-
-                            android:nextFocusDown="@id/editTextTime"
-                            android:paddingStart="5dp"
-                            android:paddingEnd="5dp"
-                            android:text="@={viewModel.informationLivraison.dateLivr}"
-
-
-                            android:textAlignment="textStart"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textColor="@color/grey_400"
-                            android:textSize="14sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/editTextCodePostal"
-                            app:layout_gravity="center|start" />
-
-                        <EditText
-                            android:id="@+id/editTextTime"
-                            style="@style/Widget.AppCompat.AutoCompleteTextView"
-                            android:layout_width="0dp"
-                            android:layout_height="48dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="10dp"
-                            android:background="@color/grey_100"
-                            android:ems="8"
-                            android:hint="@string/label_heure_livraison"
-                            android:inputType="time"
-                            android:nextFocusDown="@id/editTextPrenom"
-
-                            android:nextFocusForward="@id/editTextRemarque"
-                            android:paddingStart="5dp"
-                            android:paddingEnd="5dp"
-                            android:text="@={viewModel.informationLivraison.heurLivr}"
-
-
-                            android:textAlignment="textStart"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textColor="@color/grey_400"
-                            android:textSize="14sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/editTextDate"
-                            app:layout_constraintTop_toBottomOf="@+id/editTextVille"
-                            app:layout_gravity="center|start" />
-
-                        <EditText
-                            android:id="@+id/editTextRemarque"
-                            style="@style/Widget.AppCompat.AutoCompleteTextView"
-                            android:layout_width="0dp"
-                            android:layout_height="60dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="10dp"
-                            android:background="@color/grey_100"
-                            android:gravity="top"
-                            android:hint="@string/label_remarque"
-                            android:inputType="textMultiLine|textAutoCorrect"
-
-                            android:nextFocusDown="@id/editTextNombre"
-                            android:paddingStart="5dp"
-                            android:paddingTop="5dp"
-
-                            android:paddingEnd="5dp"
-
-                            android:singleLine="true"
-                            android:text="@={viewModel.informationLivraison.remarque}"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textColor="@color/grey_400"
-                            android:textSize="14sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/editTextDate"
-                            app:layout_gravity="center|start" />
-
-                        <EditText
-                            android:id="@+id/editTextNombre"
-                            android:layout_width="wrap_content"
-                            android:layout_height="48dp"
-                            android:layout_marginEnd="10dp"
-                            android:background="#F8F8F8"
-                            android:ems="3"
-                            android:gravity="center"
-                            android:hint="0"
-                            android:inputType="numberDecimal"
-                            android:nextFocusDown="@id/buttonValider"
-
-                            android:paddingStart="5dp"
-                            android:paddingEnd="5dp"
-
-                            android:text="@={viewModel.informationLivraison.nombreString}"
-                            android:textColor="@color/grey_400"
-                            android:textSize="14sp"
-                            app:layout_constraintBottom_toBottomOf="@+id/textViewNombreLabel"
-                            app:layout_constraintEnd_toStartOf="@+id/buttonValider"
-                            app:layout_constraintTop_toTopOf="@+id/textViewNombreLabel" />
-
+                        <!--icon information livraison-->
                         <ImageView
                             android:id="@+id/imageViewIconLivraison"
-                            android:layout_width="15dp"
-                            android:layout_height="0dp"
-                            android:layout_marginStart="10dp"
-                            android:scaleType="fitCenter"
+
+                            style="@style/ImageViewXXSmall"
+
                             app:layout_constraintBottom_toBottomOf="@+id/textViewLivraisonLabel"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="@+id/textViewLivraisonLabel"
-                            app:srcCompat="@drawable/delivery_icon" />
+                            app:srcCompat="@drawable/delivery_icon"
+                            android:contentDescription="@string/description_image_view_information_livraison" />
 
-                        <ImageView
-                            android:id="@+id/ImageViewiconContact"
-                            android:layout_width="15dp"
-                            android:layout_height="0dp"
-                            android:scaleType="fitCenter"
-                            app:layout_constraintBottom_toBottomOf="@+id/textViewContactLabel"
-                            app:layout_constraintStart_toStartOf="@+id/editTextNom"
-                            app:layout_constraintTop_toTopOf="@+id/textViewContactLabel"
-                            app:srcCompat="@drawable/contact_icon" />
-
-
-                        <ImageView
-                            android:id="@+id/imageViewClose"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginEnd="10dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/icon_cancel" />
-
+                        <!--label information de livraison -->
                         <TextView
                             android:id="@+id/textViewLivraisonLabel"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="15dp"
-                            android:text="Information de livraison"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textColor="@color/grey_400"
-                            android:textSize="14sp"
+                            style="@style/textViewBase1.GrisPrincipal.Adaptable"
+
+                            android:text="@string/label_information_de_livraison"
+
+                            android:layout_marginStart="@dimen/medium_margin"
+                            android:layout_marginTop="@dimen/large_margin"
                             app:layout_constraintStart_toEndOf="@+id/imageViewIconLivraison"
                             app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
 
-                        <TextView
-                            android:id="@+id/textViewTitre"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginEnd="5dp"
-                            android:gravity="center|start"
-                            android:paddingStart="15dp"
-                            android:paddingTop="5dp"
-                            android:paddingEnd="20dp"
-                            android:paddingBottom="5dp"
-                            android:text="&#x2022; Veuillez renseigner les informations pour la livraison"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textColor="@color/grey_400"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            app:layout_constraintEnd_toStartOf="@+id/imageViewClose"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                        <!--rue-->
+                        <EditText
+                            android:id="@+id/editTextRue"
+                            style="@style/EditeTextFormulaire"
 
+                            android:hint="@string/label_rue"
+                            android:inputType="textPostalAddress"
+                            android:text="@={viewModel.informationLivraison.adresse.rue}"
+
+                            android:nextFocusDown="@id/editTextNumRue"
+                            android:ems="10"
+                            android:layout_marginTop="@dimen/medium_margin"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewLivraisonLabel"
+                            android:autofillHints="" />
+
+                        <!--numero de rue-->
+                        <EditText
+                            android:id="@+id/editTextNumRue"
+                            style="@style/EditeTextFormulaire"
+
+                            android:hint="@string/label_numero_rue"
+                            android:inputType="numberDecimal"
+                            android:text="@={viewModel.informationLivraison.adresse.numeroRueString}"
+
+                            android:nextFocusDown="@id/editTextCodePostal"
+                            android:ems="5"
+                            android:layout_marginStart="@dimen/medium_margin"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/editTextRue"
+                            app:layout_constraintTop_toTopOf="@+id/editTextRue"
+                            android:autofillHints="" />
+
+                        <!--code postal-->
+                        <EditText
+                            android:id="@+id/editTextCodePostal"
+                            style="@style/EditeTextFormulaire"
+
+                            android:hint="@string/label_code_postal"
+                            android:inputType="numberSigned"
+                            android:text="@={viewModel.informationLivraison.adresse.codePostalString}"
+
+                            android:ems="6"
+                            android:nextFocusDown="@id/editTextVille"
+                            android:layout_marginTop="@dimen/medium_margin"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/editTextRue"
+                            android:autofillHints="" />
+
+                        <!--ville-->
+                        <EditText
+                            android:id="@+id/editTextVille"
+                            style="@style/EditeTextFormulaire"
+
+                            android:hint="@string/label_ville"
+                            android:inputType="textAutoCorrect|textPostalAddress"
+                            android:text="@={viewModel.informationLivraison.adresse.ville}"
+
+                            android:ems="14"
+                            android:nextFocusDown="@id/editTextDate"
+                            android:layout_marginStart="@dimen/medium_margin"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/editTextCodePostal"
+                            app:layout_constraintTop_toTopOf="@+id/editTextCodePostal"
+                            android:autofillHints="" />
+
+                        <!--date-->
+                        <EditText
+                            android:id="@+id/editTextDate"
+                            style="@style/EditeTextFormulaire"
+
+                            android:hint="@string/label_date_livraison"
+                            android:inputType="date"
+                            android:text="@={viewModel.informationLivraison.dateLivr}"
+
+                            android:ems="10"
+                            android:nextFocusDown="@id/editTextTime"
+                            android:layout_marginTop="@dimen/medium_margin"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/editTextCodePostal"
+                            android:autofillHints="" />
+
+                        <!--time-->
+                        <EditText
+                            android:id="@+id/editTextTime"
+                            style="@style/EditeTextFormulaire"
+
+                            android:hint="@string/label_heure_livraison"
+                            android:inputType="time"
+                            android:text="@={viewModel.informationLivraison.heurLivr}"
+
+                            android:ems="8"
+                            android:nextFocusDown="@id/editTextRemarque"
+                            android:layout_marginStart="@dimen/medium_margin"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/editTextDate"
+                            app:layout_constraintTop_toTopOf="@+id/editTextDate"
+                            android:autofillHints="" />
+
+                        <!--remarque-->
+                        <EditText
+                            android:id="@+id/editTextRemarque"
+                            style="@style/EditeTextFormulaire"
+
+
+                            android:hint="@string/label_remarque"
+                            android:inputType="textMultiLine|textAutoCorrect"
+                            android:text="@={viewModel.informationLivraison.remarque}"
+
+                            android:gravity="top"
+                            android:nextFocusDown="@id/editTextNombre"
+                            android:paddingTop="@dimen/small_margin"
+                            android:layout_height="@dimen/small_image_size"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="@dimen/medium_margin"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/editTextDate"
+                            android:autofillHints="" />
+
+                        <!--label nombre-->
                         <TextView
                             android:id="@+id/textViewNombreLabel"
-                            android:layout_width="wrap_content"
-                            android:layout_height="48dp"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginBottom="10dp"
-                            android:background="@color/grey_100"
-                            android:gravity="center_vertical|end"
-                            android:paddingStart="5dp"
-                            android:paddingEnd="5dp"
+                            style="@style/EditeTextFormulaire"
+                            android:labelFor="@+id/editTextNombre"
+                            android:background="@color/white_100"
+
                             android:text="@string/label_nombre"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                            android:textColor="@color/grey_200"
-                            android:textSize="14sp"
+                            android:layout_marginTop="@dimen/large_margin"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toStartOf="@+id/editTextNombre"
                             app:layout_constraintTop_toBottomOf="@+id/textViewError" />
 
-                        <TextView
-                            android:id="@+id/textViewContactLabel"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="10dp"
-                            android:text="Information de Contact"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textColor="@color/grey_400"
-                            android:textSize="14sp"
-                            app:layout_constraintStart_toEndOf="@+id/ImageViewiconContact"
-                            app:layout_constraintTop_toBottomOf="@+id/textViewTitre" />
+                        <!--nombre-->
+                        <EditText
+                            android:id="@+id/editTextNombre"
+                            style="@style/EditeTextFormulaire"
 
+                            android:hint="@string/label_0"
+                            android:inputType="numberDecimal"
+                            android:text="@={viewModel.informationLivraison.nombreString}"
+                            android:textAlignment="center"
+
+                            android:ems="3"
+                            android:nextFocusDown="@id/buttonValider"
+                            android:layout_marginEnd="@dimen/medium_margin"
+                            app:layout_constraintBottom_toBottomOf="@+id/textViewNombreLabel"
+                            app:layout_constraintEnd_toStartOf="@+id/buttonValider"
+                            app:layout_constraintTop_toTopOf="@+id/textViewNombreLabel"
+                            android:autofillHints="" />
+
+                        <!--button valider-->
+                        <Button
+                            android:id="@+id/buttonValider"
+                            style="@style/Button"
+                            android:layout_width="wrap_content"
+
+                            android:text="@string/bt_valider"
+                            android:textColor="@color/green_100"
+
+                            app:layout_constraintBottom_toBottomOf="@+id/editTextNombre"
+                            app:layout_constraintEnd_toEndOf="@+id/editTextRemarque"
+                            app:layout_constraintTop_toTopOf="@+id/editTextNombre" />
+
+                        <!--erreur-->
                         <TextView
                             android:id="@+id/textViewError"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="15dp"
-                            android:layout_marginTop="10dp"
-                            android:singleLine="false"
+                            style="@style/textViewBase1.Rouge.XSmall.adaptable"
+
                             android:text="@{viewModel.client.errorMessage}"
-                            android:textColor="#E53935"
-                            android:textSize="11sp"
                             android:visibility="@{viewModel.client.visibilityError}"
+
+                            android:singleLine="false"
+                            android:layout_marginTop="@dimen/medium_margin"
                             app:layout_constraintEnd_toEndOf="@+id/editTextRemarque"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/editTextRemarque" />
+
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
@@ -501,5 +347,5 @@
 
         </androidx.cardview.widget.CardView>
 
-    </LinearLayout>
+
 </layout>

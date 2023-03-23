@@ -41,6 +41,13 @@ public class PanierFragment extends Fragment {
         //INSTANTIATE CONTROLE
         RecyclerView rv = binding.pRecycler;
 
+        instantiateView(rv);
+
+
+        return root;
+    }
+
+    private void instantiateView(RecyclerView rv) {
         //INSTANTIATE VIEW MODEL
         PanierViewModel panierViewModel = new ViewModelProvider(this).get(PanierViewModel.class);
 
@@ -57,24 +64,28 @@ public class PanierFragment extends Fragment {
         rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
         rv.setItemAnimator(new DefaultItemAnimator());
 
-        //INSTANTIATE LISTENER FOR UPDATE BT VALIDER WEN CONTEUR CHANGE IN SHARED PREFERENCES
-        listenerSP = new SharedPreferences.OnSharedPreferenceChangeListener() {
-            @Override
-            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-                if (key == Conteur.POINT_RESTE_KEY) articlePanierPiedAdapter.bind();
-            }
-        };
 
-        //CREATE INSTANCE OF SHARED PREFERENCES AND REGISTER THE LISTENER IN
-        sharedPreferences = getActivity().getSharedPreferences(String.valueOf(R.string.conteur_file_name), Context.MODE_PRIVATE);
-        sharedPreferences.registerOnSharedPreferenceChangeListener(listenerSP);
+        observeData(panierViewModel, articlePanierListAdapter, articlePanierPiedAdapter);
+    }
 
+    private void observeData(PanierViewModel panierViewModel, ArticlePanierListAdapter articlePanierListAdapter, ArticlePanierPiedAdapter articlePanierPiedAdapter) {
         //OBSERVE DATA FROM LIVE DATA AND UPDATE RV WEN DATA CHANGE
         panierViewModel.getListArticlePanierAndPlat().observe(getViewLifecycleOwner(), articlePanierWithPlat -> {
             // UPDATE THE CACHED COPY OF THE ARTICLE PANIER IN THE ADAPTER.
             articlePanierListAdapter.submitList(articlePanierWithPlat);
         });
-        return root;
+        registreSPLestener(articlePanierPiedAdapter);
+    }
+
+    private void registreSPLestener(ArticlePanierPiedAdapter articlePanierPiedAdapter) {
+        //INSTANTIATE LISTENER FOR UPDATE BT VALIDER WEN CONTEUR CHANGE IN SHARED PREFERENCES
+        listenerSP = (sharedPreferences, key) -> {
+            if (key.equals(Conteur.POINT_RESTE_KEY)) articlePanierPiedAdapter.bind();
+        };
+
+        //CREATE INSTANCE OF SHARED PREFERENCES AND REGISTER THE LISTENER IN
+        sharedPreferences = getActivity().getSharedPreferences(String.valueOf(R.string.conteur_file_name), Context.MODE_PRIVATE);
+        sharedPreferences.registerOnSharedPreferenceChangeListener(listenerSP);
     }
 
     @Override

@@ -34,6 +34,11 @@ public class MenuFragment extends Fragment {
         //INSTANTIATE CONTROLE
         RecyclerView rv = binding.mRecycler;
 
+        instantiateRv(rv);
+        return root;
+    }
+
+    private void instantiateRv(RecyclerView rv) {
         //SET ADAPTER TO RV
         final MenuListAdapter menuListAdapter = new MenuListAdapter(new MenuListAdapter.MenuDiff());
         rv.setAdapter(menuListAdapter);
@@ -42,6 +47,10 @@ public class MenuFragment extends Fragment {
         rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
         rv.setItemAnimator(new DefaultItemAnimator());
 
+        observeData(menuListAdapter);
+    }
+
+    private void observeData(MenuListAdapter menuListAdapter) {
         //OBSERVE DATA FROM LIVE DATA AND UPDATE RV WEN DATA CHANGE
         menuViewModel =
                 new ViewModelProvider(this).get(MenuViewModel.class);
@@ -49,7 +58,6 @@ public class MenuFragment extends Fragment {
         menuViewModel.getListMenu().observe(getViewLifecycleOwner(), menus -> {
             menuListAdapter.submitList(menus);
         });
-        return root;
     }
 
     @Override

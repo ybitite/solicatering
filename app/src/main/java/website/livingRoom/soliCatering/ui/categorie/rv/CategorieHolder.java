@@ -61,21 +61,28 @@ public class CategorieHolder extends RecyclerView.ViewHolder implements View.OnC
         binding.setCategorie(categorie);
         binding.imageViewCat.setImageResource(Helper.idResource(categorie.getNomPic()));
 
+        upDateClick(categorie);
+    }
 
+    private void upDateClick(Categorie categorie) {
         //BLOCK CLICK AND MAKE ITEM GRIS
         if (categorie.getPoint() <= ConteurRepository.getPointReste()) {
 
             changeVisibility(View.INVISIBLE, true, context.getResources().getColor(R.color.green_100));
 
-            setItemClickListener((v, pos) -> {
-                ConteurRepository.setCategorieActuel(categorie.getPoint());
-                Navigation.findNavController((Activity) context, R.id.nav_host_fragment_activity_main).navigate(R.id.action_navigation_categorie_to_navigation_plat);
-            });
+            navigateToPlat(categorie);
         }
         else {
             //MAKE ITEM GRIS AND POINT GREEN
             changeVisibility(View.VISIBLE, false, Color.RED);
         }
+    }
+
+    private void navigateToPlat(Categorie categorie) {
+        setItemClickListener((v, pos) -> {
+            ConteurRepository.setCategorieActuel(categorie.getPoint());
+            Navigation.findNavController((Activity) context, R.id.nav_host_fragment_activity_main).navigate(R.id.action_navigation_categorie_to_navigation_plat);
+        });
     }
 
     private void changeVisibility(int invisible, boolean clickable, int context) {

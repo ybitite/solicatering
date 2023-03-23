@@ -15,14 +15,10 @@ import website.livingRoom.soliCatering.utile.Helper;
 public class MiniArticlePanierHolder extends RecyclerView.ViewHolder implements ItemClickListener {
 
     //FIELD
-    private Context context;
     private final ModelMiniArticlePanierBinding binding;
 
     public MiniArticlePanierHolder(ModelMiniArticlePanierBinding modelMiniArticlePanierBinding) {
         super(modelMiniArticlePanierBinding.getRoot());
-
-        //GET CONTEXT TO USE LATER
-        context = modelMiniArticlePanierBinding.getRoot().getContext();
 
         // instantiate binding object
         binding = modelMiniArticlePanierBinding;

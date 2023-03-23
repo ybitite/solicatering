@@ -13,10 +13,8 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
 
 import website.livingRoom.soliCatering.databinding.FragmentCategorieBinding;
-import website.livingRoom.soliCatering.db.entitys.Entite;
 import website.livingRoom.soliCatering.ui.categorie.rv.CategorieListAdapter;
 
 
@@ -38,6 +36,12 @@ public class CategorieFragment extends Fragment {
         //INSTANTIATE RV
         RecyclerView rv = binding.cRecycler;
 
+        instantiateRv(rv);
+
+        return root;
+    }
+
+    private void instantiateRv(RecyclerView rv) {
         //SET ADAPTER TO RV
         //todo:add adpter when ptcat actuel is ms
         final CategorieListAdapter categorieListAdapter = new CategorieListAdapter(new CategorieListAdapter.CategorieDiff());
@@ -47,6 +51,11 @@ public class CategorieFragment extends Fragment {
         rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
         rv.setItemAnimator(new DefaultItemAnimator());
 
+        //observe data and update recycle view
+        observeDate(categorieListAdapter);
+    }
+
+    private void observeDate(CategorieListAdapter categorieListAdapter) {
         //OBSERVE DATA FROM LIVE DATA AND UPDATE RV WEN DATA CHANGE
         categorieViewModel =
                 new ViewModelProvider(this).get(CategorieViewModel.class);
@@ -54,9 +63,5 @@ public class CategorieFragment extends Fragment {
         categorieViewModel.getListCategorie().observe(getViewLifecycleOwner(), categorie -> {
             categorieListAdapter.submitList(categorie);
         });
-
-        //ConteurRepository.setConteur("Choisir un menu",0,root.getContext());
-
-        return root;
     }
 }

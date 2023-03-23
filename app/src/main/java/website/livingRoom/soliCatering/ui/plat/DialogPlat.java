@@ -96,7 +96,6 @@ public class DialogPlat extends DialogFragment {
         btAjouter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("dialog", "click ajouter");
                 initiateButtonAjouter(view);
             }
         });
@@ -108,7 +107,6 @@ public class DialogPlat extends DialogFragment {
         btIncrement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("dialog", "click increment");
                 incrimenteNbPlat();
             }
         });
@@ -116,7 +114,6 @@ public class DialogPlat extends DialogFragment {
         btDecrement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("dialog", "click decrement");
                 decrementNbPlat();
             }
         });
@@ -155,7 +152,6 @@ public class DialogPlat extends DialogFragment {
         btAnnuller.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("dialog", "click annuler");
                 platViewModel.resetNumberPlat();
                 dismiss();
             }
@@ -205,7 +201,7 @@ public class DialogPlat extends DialogFragment {
     }
 
     private void addToPanier() {
-        /** the all insert, retreive, update and object creating ... go to be excute in background int no ui tread
+        /** the all insert, retreive, update  ... go to be excute in background int no ui tread
          * to not impact to the UI**/
         AppDatabase.databaseWriteExecutor.execute(() -> {
             //GET DATA TO CONSTRUCT NEW ARTICLE PANIER OBJECT

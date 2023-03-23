@@ -23,7 +23,7 @@ public class PlatsListAdapter extends ListAdapter<Plat, PlatsHolder> {
     //METHODE
     @NonNull
     @Override
-    public PlatsHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public PlatsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return PlatsHolder.create(parent);
     }
 

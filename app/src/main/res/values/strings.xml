@@ -76,6 +76,10 @@
     <string name="description_image_view_plat" translatable="false">photo réelle du plat</string>
     <string name="description_image_view_menu" translatable="false">photo lustration du menu</string>
     <string name="description_image_view_trait_vertical" translatable="false">trait pour séparation</string>
+    <string name="description_image_view_fermer" translatable="false">button pour cloturer le dialog</string>
+    <string name="description_image_view_information_livraison" translatable="false">icon information livraison</string>
+    <string name="description_image_view_information_contact" translatable="false">icon information contact</string>
+
 
     <string name="description_image_view_categorie" translatable="false">photo lustration du catagorie</string>
     <string name="button_commander" translatable="false">Passez une commande</string>
@@ -87,6 +91,11 @@
     <string name="label_information_livraison" translatable="false">Information livraison</string>
     <string name="label_contenu_du_menu" translatable="false">Contenu du menu</string>
     <string name="label_suivie_de_commande" translatable="false">Suivie de commande</string>
+    <string name="label_renseigner_info_livraison" translatable="false">• Veuillez renseigner les informations pour la livraison</string>
+    <string name="label_information_de_contact" translatable="false">Information de Contact</string>
+    <string name="label_information_de_livraison" translatable="false">Information de livraison</string>
+    <string name="bt_valider" translatable="false">Valider</string>
+    <string name="label_0">0</string>
 
 
 </resources>
