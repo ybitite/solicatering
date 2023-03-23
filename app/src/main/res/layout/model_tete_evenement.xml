@@ -16,17 +16,15 @@
 
             <ImageView
                 android:id="@+id/imageViewLogo"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="#00212322"
-                android:scaleType="fitCenter"
+                style="@style/ImageViewMedium"
+
+                android:layout_margin="@dimen/small_margin"
+                android:layout_marginBottom="@dimen/small_margin"
                 app:layout_constraintBottom_toTopOf="@+id/textViewDescriptionProjet"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/logo" />
+                app:srcCompat="@drawable/logogray" />
 
             <TextView
                 android:id="@+id/textViewDescriptionProjet"
