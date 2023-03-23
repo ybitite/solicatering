@@ -46,11 +46,16 @@
     </style>
     <!--blanc-->
     <style name="textViewBase1.Blanc" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/white_100</item>
     </style>
     <style name="textViewBase1.Blanc.Small" >
         <item name="android:textSize">@dimen/small_text</item>
 
+    </style>
+    <style name="textViewBase1.Blanc.Bold" >
+        <item name="android:textStyle">bold</item>
     </style>
 
     <!--gris clair-->
@@ -104,29 +109,10 @@
     </style>
 
 
-    <!--blanc-->
-    <style name="textViewBase1.Blanc.RecycleViewTitre">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginStart">@dimen/small_margin</item>
-        <item name="android:layout_marginTop">@dimen/small_margin</item>
-        <item name="android:layout_marginEnd">@dimen/small_margin</item>
-        <item name="android:layout_marginBottom">@dimen/small_margin</item>
-    </style>
-    <style name="textViewBase1.Blanc.RecycleViewTitre.right">
-        <item name="layout_constraintEnd_toEndOf">parent</item>
-    </style>
-    <style name="textViewBase1.Blanc.RecycleViewTitre.left">
-        <item name="layout_constraintStart_toStartOf">parent</item>
-    </style>
-
     <!--image view-->
-    <style name="imageViewPrincipalRV"  parent="ConstraintsParent">
+    <style name="imageViewPrincipalRV"  parent="WidthParent">
         <item name="android:layout_height">@dimen/zero_size</item>
         <item name="android:scaleType">centerCrop</item>
-        <item name="layout_constraintHorizontal_bias">@dimen/zero_bias</item>
-        <item name="layout_constraintVertical_bias">@dimen/zero_bias</item>
-
     </style>
     <style name="ImageViewXXSmall" parent="MarginSmall">
         <item name="android:layout_width">@dimen/xx_small_image_size</item>
@@ -134,6 +120,13 @@
         <item name="android:scaleType">centerCrop</item>
         <item name="color">@color/grey_100</item>
         <item name="android:padding">@dimen/x_small_margin</item>
+    </style>
+
+    <style name="ImageViewXSmall" >
+        <item name="android:layout_width">@dimen/x_small_image_size</item>
+        <item name="android:layout_height">@dimen/x_small_image_size</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:layout_margin">@dimen/x_small_margin</item>
     </style>
     <style name="ImageViewSmall" parent="MarginSmall">
         <item name="android:layout_width">@dimen/small_image_size</item>
@@ -147,6 +140,14 @@
         <item name="android:layout_height">@dimen/zero_size</item>
         <item name="android:scaleType">fitCenter</item>
         <item name="backgroundColor">@color/white_200</item>
+    </style>
+    <style name="ImageViewMedium" >
+        <item name="android:layout_width">@dimen/medium_image_size</item>
+        <item name="android:layout_height">@dimen/medium_image_size</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="android:scaleType">fitXY</item>
     </style>
     <style name="ImageViewLarge" parent="MarginSmall">
         <item name="android:layout_width">@dimen/large_image_size</item>
@@ -162,14 +163,6 @@
         <item name="android:layout_marginStart">@dimen/small_margin</item>
         <item name="android:layout_marginEnd">@dimen/small_margin</item>
         <item name="android:layout_marginBottom">@dimen/special_margin</item>
-        <item name="android:scaleType">fitXY</item>
-    </style>
-    <style name="ImageViewMedium" >
-        <item name="android:layout_width">@dimen/medium_image_size</item>
-        <item name="android:layout_height">@dimen/medium_image_size</item>
-        <item name="layout_constraintBottom_toBottomOf">parent</item>
-        <item name="layout_constraintTop_toTopOf">parent</item>
-        <item name="layout_constraintStart_toStartOf">parent</item>
         <item name="android:scaleType">fitXY</item>
     </style>
     <style name="ImageViewVertical">
@@ -195,7 +188,7 @@
 
     <!--button-->
     <style name="Button" parent="Widget.AppCompat.ImageButton">
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textStyle">normal</item>
         <item name="android:fontFamily">sans-serif</item>
@@ -268,7 +261,9 @@
     <style name="LinearLayoutPrincipaleFullWidthGry" parent="WidthParent">
         <item name="android:background">@color/grey_350</item>
     </style>
-
+    <style name="LinearLayoutButtomItem" parent="WidthParent">
+        <item name="android:background">@color/grey_400</item>
+    </style>
     <!--general attribut-->
     <!--Dimension-->
     <style name="WidthHeightParent">

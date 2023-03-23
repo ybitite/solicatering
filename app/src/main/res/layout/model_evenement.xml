@@ -21,37 +21,57 @@
             style="@style/ConstraintLayoutPrincipal">
 
             <ImageView
-                style="@style/imageViewPrincipalRV"
-
                 android:id="@+id/imageViewPlat"
-                app:srcCompat="@drawable/backdescriptionplat"
+
+                style="@style/imageViewPrincipalRV"
                 android:contentDescription="@string/description_image_view_event_principal"
-                tools:ignore="MissingConstraints"/>
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayoutEvenementModel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/backdescriptionplat"
+                tools:ignore="MissingConstraints" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/constraintLayoutEvenementModel"
-
-                style="@style/ConstraintLayoutBottom"
+                style="@style/LinearLayoutButtomItem"
                 android:padding="@dimen/small_margin"
+
                 app:layout_constraintBottom_toBottomOf="parent"
-                tools:ignore="MissingConstraints">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
 
                 <TextView
                     android:id="@+id/textViewNomEvenement"
 
-                    style="@style/textViewBase1.Blanc.RecycleViewTitre.left"
+                    style="@style/textViewBase1.Blanc.Bold"
+
+                    android:layout_margin="@dimen/small_margin"
+
+
                     android:hint="Titre de l'evenement"
+                    android:textColorHint="@color/white_100"
                     android:text="@{evenement.nom}"
+
                     tools:ignore="MissingConstraints" />
 
                 <TextView
                     android:id="@+id/textViewDateEvenement"
 
-                    style="@style/textViewBase1.Blanc.RecycleViewTitre.right"
+                    style="@style/textViewBase1.Blanc"
+                    android:layout_margin="@dimen/small_margin"
+
+                    android:layout_width="match_parent"
+                    android:textAlignment="textEnd"
+
                     android:hint="00:00:0000"
+                    android:textColorHint="@color/white_100"
                     android:text="@{evenement.date}"
+
                     tools:ignore="MissingConstraints" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

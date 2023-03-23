@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,8 +20,8 @@ import website.livingRoom.soliCatering.repository.ConteurRepository;
 public class ArticlePanierPiedAdapter extends RecyclerView.Adapter<ArticlePanierPiedAdapter.ArticlePanierPiedHolder> {
 
     //FIELD
-    ModelPiedArticlePanierBinding binding;
-    Context context;
+    private ModelPiedArticlePanierBinding binding;
+    private Context context;
 
     //OVERRIDE METHODE
     @NonNull
@@ -56,40 +55,43 @@ public class ArticlePanierPiedAdapter extends RecyclerView.Adapter<ArticlePanier
         //GET POINT RESTE AND CURENT MENNU FROM CONTEUR
         final int ptRest = ConteurRepository.getPointReste();
         final int ptCat = ConteurRepository.getPointDepart();
-        Button buttonValider = binding.buttonValiderCmd;
-        /*DEFINE TEXT, COLOR AND ACCESSIBILITY TO VALIDER BUTTON */
+
+        bindButtonValider(ptRest, ptCat);
+    }
+
+    private void bindButtonValider(int ptRest, int ptCat) {
+        /*update button valider */
         if (ptRest == 0 && ptCat > 0) {
-            buttonValider.setText(R.string.bt_valider_cmd);
-            buttonValider.setClickable(true);
-            int color = ContextCompat.getColor(context, R.color.grey_400);
-            buttonValider.setBackgroundColor(color);
-            buttonValider.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    try {
-                        //TODO: beug dû au context / ok with try catch
-                        Navigation.findNavController((Activity) context, R.id.nav_host_fragment_activity_main)
-                                .navigate(R.id.action_navigation_panier_to_dialogClient);
-                    } catch (Exception exception) {
-                    }
-                }
-            });
-        } else if (0 < ptRest && ptRest < ptCat) {
-            buttonValider.setText(R.string.bt_valider_cmd);
-            buttonValider.setClickable(false);
-            int color = ContextCompat.getColor(context, R.color.grey_300);
-            buttonValider.setBackgroundColor(color);
 
-        } else {
-            buttonValider.setClickable(false);
-            buttonValider.setText(R.string.bt_valider_cmd_0_article);
-            int color = ContextCompat.getColor(context, R.color.grey_300);
-            buttonValider.setBackgroundColor(color);
+            upDateBottonValider(R.string.bt_valider_cmd, true);
+            setOnClickListenerToButtonValider();
+        }
+        else if (0 < ptRest && ptRest < ptCat) {
 
+            upDateBottonValider(R.string.bt_valider_cmd, false);
+        }
+        else {
+            upDateBottonValider(R.string.bt_valider_cmd_0_article, false);
         }
     }
 
-    class ArticlePanierPiedHolder extends RecyclerView.ViewHolder {
+    private void upDateBottonValider(int text, boolean clickable) {
+        Button buttonValider = binding.buttonValiderCmd;
+        buttonValider.setText(text);
+        buttonValider.setClickable(clickable);
+    }
+
+    private void setOnClickListenerToButtonValider() {
+        binding.buttonValiderCmd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController((Activity) context, R.id.nav_host_fragment_activity_main)
+                        .navigate(R.id.action_navigation_panier_to_dialogClient);
+            }
+        });
+    }
+
+    static class ArticlePanierPiedHolder extends RecyclerView.ViewHolder {
         ArticlePanierPiedHolder(View itemView) {
             super(itemView);
         }
