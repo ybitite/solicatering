@@ -55,14 +55,15 @@
                 android:id="@+id/btDecrement"
 
                 style="@style/ImageButtonSmall"
-                android:contentDescription="@string/description_image_view_moin"
+
 
                 android:src="@drawable/minus"
 
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/tvNbrPlatAP"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ImageContrastCheck,MissingConstraints" />
+                tools:ignore="ImageContrastCheck,MissingConstraints"
+                android:contentDescription="@string/description_image_view_moin"/>
 
             <!--text view nombre plat-->
             <TextView

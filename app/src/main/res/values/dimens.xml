@@ -22,6 +22,8 @@
     <dimen name="small_image_size">60dp</dimen>
     <dimen name="medium_image_size">100dp</dimen>
     <dimen name="large_image_size">150dp</dimen>
+    <dimen name="x_large_image_size">180dp</dimen>
+
 
     <dimen name="zero_size">0dp</dimen>
     <dimen name="zero_bias">0.0</dimen>

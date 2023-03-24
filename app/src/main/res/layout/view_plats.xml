@@ -1,182 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+<layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="website.livingRoom.soliCatering.ui.plat.DialogPlat">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <!--object plat for data binding-->
+        <variable
+            name="plat"
+            type="website.livingRoom.soliCatering.db.entitys.Plat" />
+    </data>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewViewPlat"
+        style="@style/WidthHeightParent"
+        android:layout_margin="@dimen/small_margin"
+        app:cardElevation="@dimen/small_margin">
+        <ScrollView
+            style="@style/WidthHeightParent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewViewPlat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:orientation="horizontal"
-                app:cardElevation="5dp">
+            <LinearLayout
+                style="@style/WidthHeightParent"
+                android:orientation="vertical">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayoutViewPlat"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="0dp">
+                    style="@style/WidthHeightParent">
 
-                    <Button
-                        android:id="@+id/buttonAjouterPanier"
-                        style="@style/Widget.AppCompat.Button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:text="Ajouter"
-                        android:textColor="@color/green_100"
-                        android:textSize="10sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewDiscription" />
-
-                    <Button
-                        android:id="@+id/buttonAnnuller"
-                        style="@style/Widget.AppCompat.Button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginEnd="20dp"
-                        android:layout_marginBottom="10dp"
-                        android:text="annuller"
-                        android:textSize="10sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/buttonAjouterPanier"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewDiscription" />
-
+                    <!--button ajouter-->
                     <ImageView
                         android:id="@+id/imageViewPlatTop"
-                        android:layout_width="410dp"
-                        android:layout_height="200dp"
-                        android:scaleType="centerCrop"
-                        android:visibility="visible"
+                        style="@style/imageViewPrincipalRV"
+                        android:layout_height="@dimen/x_large_image_size"
 
+                        android:contentDescription="@string/description_image_view_plat"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/tajine" />
+                        app:srcCompat="@drawable/backdescriptionplat" />
 
                     <ImageView
                         android:id="@+id/imageViewVegi"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="5dp"
+                        style="@style/ImageViewXSmall"
+
+                        android:layout_margin="@dimen/medium_margin"
+                        android:contentDescription="@string/description_image_view_vegi"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imageViewPlatTop"
-                        app:srcCompat="@drawable/icon_vegi" />
+                        app:srcCompat="@drawable/icon_vegi"
+                        tools:ignore="ImageContrastCheck" />
 
                     <ImageView
                         android:id="@+id/imageViewDegureEpice"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="5dp"
+                        style="@style/ImageViewXSmall"
+
+                        android:layout_margin="@dimen/small_margin"
+                        android:contentDescription="@string/description_image_view_vegi"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageViewVegi"
                         app:layout_constraintEnd_toStartOf="@+id/imageViewVegi"
-                        app:layout_constraintTop_toBottomOf="@+id/imageViewPlatTop"
+                        app:layout_constraintTop_toTopOf="@+id/imageViewVegi"
                         app:srcCompat="@drawable/icon_degure_epice_1" />
 
                     <TextView
                         android:id="@+id/textViewTitreMAP"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="5dp"
-                        android:fontFamily="sans-serif-medium"
-                        android:gravity="center_vertical"
-                        android:text="Tajine de poulet "
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
+                        style="@style/textViewBase1.GrisPrincipal.Adaptable.Bold"
+
+                        android:layout_margin="@dimen/medium_margin"
+
+                        android:hint="Titre du plat"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imageViewPlatTop" />
 
                     <TextView
                         android:id="@+id/textViewPoint"
-                        android:layout_width="wrap_content"
-                        android:layout_height="25dp"
-                        android:layout_marginStart="15dp"
-                        android:fontFamily="sans-serif-light"
-                        android:gravity="center_vertical"
-                        android:text="2 point"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
+                        style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
+
+                        android:layout_marginStart="@dimen/medium_margin"
+                        android:layout_marginTop="@dimen/small_margin"
+
+                        android:hint="0 point"
+
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textViewTitreMAP" />
 
                     <TextView
                         android:id="@+id/textViewDiscription"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="20dp"
-                        android:text="discription"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
+
+                        android:layout_marginStart="@dimen/medium_margin"
+
+                        android:layout_marginTop="@dimen/medium_margin"
+                        android:hint="discription"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageButtonDecrement" />
-
-                    <TextView
-                        android:id="@+id/textViewNbrPlat"
-                        android:layout_width="35dp"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="8dp"
-                        android:background="#EFF1F1"
-                        android:clickable="false"
-                        android:ems="1"
-                        android:fontFamily="sans-serif"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        android:text="1"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                        android:textColor="#151515"
-                        android:textSize="16sp"
-                        app:layout_constraintStart_toEndOf="@+id/imageButtonDecrement"
                         app:layout_constraintTop_toBottomOf="@+id/textViewPoint" />
 
                     <ImageButton
                         android:id="@+id/imageButtonIncriment"
-                        style="@android:style/Widget.Holo.Light.ImageButton"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="8dp"
-                        android:background="#9AF2F2F2"
+                        style="@style/ImageButtonSmall"
+
+                        android:contentDescription="@string/description_image_view_plus"
                         android:src="@drawable/plus"
-                        android:text="Button"
+
+                        app:layout_constraintBottom_toBottomOf="@+id/buttonAnnuller"
                         app:layout_constraintStart_toEndOf="@+id/textViewNbrPlat"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewPoint" />
+                        app:layout_constraintTop_toTopOf="@+id/buttonAnnuller"
+                        tools:ignore="ImageContrastCheck" />
+
+                    <TextView
+                        android:id="@+id/textViewNbrPlat"
+                        style="@style/textViewBase1.GrisClair.CaseText"
+                        android:layout_width="@dimen/min_size_touch"
+
+                        android:hint="0"
+
+                        android:textAlignment="center"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageButtonIncriment"
+                        app:layout_constraintStart_toEndOf="@+id/imageButtonDecrement"
+                        app:layout_constraintTop_toTopOf="@+id/imageButtonIncriment" />
 
                     <ImageButton
                         android:id="@+id/imageButtonDecrement"
-                        style="@android:style/Widget.Holo.Light.ImageButton"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginTop="8dp"
-                        android:background="#9AF2F2F2"
+                        style="@style/ImageButtonSmall"
+
+                        android:layout_marginStart="@dimen/medium_margin"
+                        android:contentDescription="@string/description_image_view_moin"
+
                         android:src="@drawable/minus"
+                        app:layout_constraintBottom_toBottomOf="@+id/textViewNbrPlat"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewPoint" />
+                        app:layout_constraintTop_toTopOf="@+id/textViewNbrPlat"
+                        tools:ignore="ImageContrastCheck" />
+
+                    <Button
+                        android:id="@+id/buttonAnnuller"
+                        style="@style/Button"
+                        android:layout_width="wrap_content"
+
+                        android:layout_marginEnd="@dimen/medium_margin"
+
+                        android:text="@string/bt_annuller"
+                        android:textColor="@color/grey_100"
+                        app:layout_constraintBottom_toBottomOf="@+id/buttonAjouterPanier"
+                        app:layout_constraintEnd_toStartOf="@+id/buttonAjouterPanier"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/imageButtonIncriment"
+                        app:layout_constraintTop_toTopOf="@+id/buttonAjouterPanier" />
+
+                    <Button
+                        android:id="@+id/buttonAjouterPanier"
+                        style="@style/Button"
+                        android:layout_width="wrap_content"
+
+                        android:layout_margin="@dimen/medium_margin"
+
+                        android:text="@string/bt_ajouter"
+                        android:textColor="#689F38"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewDiscription" />
+
+                    <!--button annuler-->
+
+                    <!--image plat-->
+
+                    <!--icon vegi-->
+
+                    <!--icon epice-->
+
+                    <!--titre plat-->
+
+                    <!--point plat-->
+
+                    <!--decription plat-->
+
+                    <!--nombre plat-->
+
+                    <!--button increment-->
+
+                    <!--button decrement-->
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </androidx.cardview.widget.CardView>
+</layout>

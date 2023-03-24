@@ -320,8 +320,8 @@
                             android:layout_width="wrap_content"
 
                             android:text="@string/bt_valider"
-                            android:textColor="@color/green_100"
 
+                            android:textColor="@color/green_100"
                             app:layout_constraintBottom_toBottomOf="@+id/editTextNombre"
                             app:layout_constraintEnd_toEndOf="@+id/editTextRemarque"
                             app:layout_constraintTop_toTopOf="@+id/editTextNombre" />

@@ -25,8 +25,8 @@
             <ImageView
                 android:id="@+id/imageViewPlat"
                 style="@style/imageViewPrincipalRV"
-                android:contentDescription="@string/description_image_view_event_principal"
 
+                android:contentDescription="@string/description_image_view_plat"
                 app:layout_constraintBottom_toTopOf="@+id/layout_arriere_vigi"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

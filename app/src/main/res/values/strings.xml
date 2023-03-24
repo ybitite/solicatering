@@ -79,6 +79,9 @@
     <string name="description_image_view_fermer" translatable="false">button pour cloturer le dialog</string>
     <string name="description_image_view_information_livraison" translatable="false">icon information livraison</string>
     <string name="description_image_view_information_contact" translatable="false">icon information contact</string>
+    <string name="description_image_view_vegi" translatable="false">icon indique si le plat est vegan</string>
+    <string name="description_image_view_epice" translatable="false">icon indique le deguré d épice</string>
+
 
 
     <string name="description_image_view_categorie" translatable="false">photo lustration du catagorie</string>
@@ -96,6 +99,8 @@
     <string name="label_information_de_livraison" translatable="false">Information de livraison</string>
     <string name="bt_valider" translatable="false">Valider</string>
     <string name="label_0">0</string>
+    <string name="bt_ajouter">Ajouter</string>
+    <string name="bt_annuller">annuller</string>
 
 
 </resources>
