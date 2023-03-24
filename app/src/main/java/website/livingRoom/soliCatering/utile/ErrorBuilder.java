@@ -4,7 +4,7 @@ package website.livingRoom.soliCatering.utile;
 import android.content.res.Resources;
 
 import website.livingRoom.soliCatering.R;
-import website.livingRoom.soliCatering.db.entitys.Client;
+import website.livingRoom.soliCatering.model.entitys.Client;
 
 
 public class ErrorBuilder {

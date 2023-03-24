@@ -5,10 +5,10 @@ import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 
-import website.livingRoom.soliCatering.db.entitys.ArticlePanier;
-import website.livingRoom.soliCatering.db.entitys.ArticlePanierAndPlat;
-import website.livingRoom.soliCatering.db.room.AppDatabase;
-import website.livingRoom.soliCatering.db.room.DAO.ArticlePanierDAO;
+import website.livingRoom.soliCatering.model.entitys.ArticlePanier;
+import website.livingRoom.soliCatering.model.entitys.ArticlePanierAndPlat;
+import website.livingRoom.soliCatering.model.room.AppDatabase;
+import website.livingRoom.soliCatering.model.room.DAO.ArticlePanierDAO;
 
 import java.util.List;
 

@@ -4,9 +4,9 @@ import android.content.Context;
 
 import androidx.lifecycle.LiveData;
 
-import website.livingRoom.soliCatering.db.entitys.Evenement;
-import website.livingRoom.soliCatering.db.room.AppDatabase;
-import website.livingRoom.soliCatering.db.room.DAO.EvenementDAO;
+import website.livingRoom.soliCatering.model.entitys.Evenement;
+import website.livingRoom.soliCatering.model.room.AppDatabase;
+import website.livingRoom.soliCatering.model.room.DAO.EvenementDAO;
 
 import java.util.List;
 

@@ -11,10 +11,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import website.livingRoom.soliCatering.databinding.ActivityMainBinding;
-import website.livingRoom.soliCatering.db.sharedPreferences.AppSharedPreferences;
+import website.livingRoom.soliCatering.model.sharedPreferences.AppSharedPreferences;
 import website.livingRoom.soliCatering.repository.ConteurRepository;
 
 public class MainActivity extends AppCompatActivity {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="website.livingRoom.soliCatering.ui.categorie.CategorieFragment"
+    tools:context="website.livingRoom.soliCatering.view.categorie.CategorieFragment"
     style="@style/LinearLayoutPrincipaleBlanc"    >
 
     <!--recycle view categorie-->

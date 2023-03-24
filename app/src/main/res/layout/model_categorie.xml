@@ -8,7 +8,7 @@
 
         <variable
             name="categorie"
-            type="website.livingRoom.soliCatering.db.entitys.Categorie" />
+            type="website.livingRoom.soliCatering.model.entitys.Categorie" />
     </data>
 
     <LinearLayout

@@ -6,9 +6,9 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-import website.livingRoom.soliCatering.db.entitys.Plat;
-import website.livingRoom.soliCatering.db.room.AppDatabase;
-import website.livingRoom.soliCatering.db.room.DAO.PlatDAO;
+import website.livingRoom.soliCatering.model.entitys.Plat;
+import website.livingRoom.soliCatering.model.room.AppDatabase;
+import website.livingRoom.soliCatering.model.room.DAO.PlatDAO;
 
 public class PlatRepository {
     //FIELD

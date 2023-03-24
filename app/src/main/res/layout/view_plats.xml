@@ -7,7 +7,7 @@
         <!--object plat for data binding-->
         <variable
             name="plat"
-            type="website.livingRoom.soliCatering.db.entitys.Plat" />
+            type="website.livingRoom.soliCatering.model.entitys.Plat" />
     </data>
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewViewPlat"
@@ -63,9 +63,10 @@
                         android:id="@+id/textViewTitreMAP"
                         style="@style/textViewBase1.GrisPrincipal.Adaptable.Bold"
 
-                        android:layout_margin="@dimen/medium_margin"
-
+                        android:text="@{plat.nom}"
                         android:hint="Titre du plat"
+
+                        android:layout_margin="@dimen/medium_margin"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/imageViewPlatTop" />
 
@@ -73,11 +74,11 @@
                         android:id="@+id/textViewPoint"
                         style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
 
-                        android:layout_marginStart="@dimen/medium_margin"
-                        android:layout_marginTop="@dimen/small_margin"
-
+                        android:text="@{plat.pointFormat}"
                         android:hint="0 point"
 
+                        android:layout_marginStart="@dimen/medium_margin"
+                        android:layout_marginTop="@dimen/small_margin"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textViewTitreMAP" />
 
@@ -85,10 +86,11 @@
                         android:id="@+id/textViewDiscription"
                         style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
 
-                        android:layout_marginStart="@dimen/medium_margin"
-
-                        android:layout_marginTop="@dimen/medium_margin"
+                        android:text="@{plat.discription}"
                         android:hint="discription"
+
+                        android:layout_marginStart="@dimen/medium_margin"
+                        android:layout_marginTop="@dimen/medium_margin"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textViewPoint" />

@@ -4,30 +4,14 @@
     <string name="title_acceuil" translatable="false">Accueil</string>
     <string name="title_commander" translatable="false">Commander</string>
     <string name="title_panier" translatable="false">Panier</string>
-    <string name="title_parametre" translatable="false">Paramètre</string>
     <!-- Preference Titles -->
-    <string name="messages_header" translatable="false">Messages</string>
-    <string name="sync_header" translatable="false">Sync</string>
 
     <!-- Messages Preferences -->
-    <string name="signature_title" translatable="false">Sirha</string>
-    <string name="reply_title" translatable="false">LR</string>
 
     <!-- Sync Preferences -->
-    <string name="sync_title" translatable="false">Sync email periodically</string>
-    <string name="attachment_title" translatable="false">Download incoming attachments</string>
-    <string name="attachment_summary_on" translatable="false">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off" translatable="false">Only download attachments when manually requested</string>
     <!-- Message d'erreur-->
-    <string name="er_ajout_article_panier" translatable="false">:( Impossible de commander cette plat code erreur insert01</string>
-    <string name="er_pas_assez_point" translatable="false">:( Il ne vous reste pas assez de point</string>
-    <string name="er_rentrer_un_nombre" translatable="false">:( Votre saisie est incorrect (trop haut, null ...)</string>
-    <string name="er_nombre_trop_haut" translatable="false">:( le nombre que vous avez rentrer est tres haut</string>
     <!-- Message de conformation-->
-    <string name="cf_ajout_article_panier" translatable="false">Cette plat est bien ajouter au panier</string>
     <!-- desciption-->
-    <string name="description_projet_grande" translatable="false">Soli Catering est un projet du Living Room. Il regroupe plusieurs chefs expirimenté de tous les continent, à fin de vous offrir le meilleur dans vos Table.Le profit du projet est destiné à aider les personnes en situation précaire dans le Konton de Bern</string>
     <string name="description_projet_petite" translatable="false">Soli Catering est un projet de Living Room. Il regroupe plusieurs chefs expirimenté de tous les continent, à fin...</string>
     <!-- buttonAnnuler-->
     <string name="bt_valider_cmd_0_article" translatable="false">Aucun article ajouté</string>
@@ -80,11 +64,8 @@
     <string name="description_image_view_information_livraison" translatable="false">icon information livraison</string>
     <string name="description_image_view_information_contact" translatable="false">icon information contact</string>
     <string name="description_image_view_vegi" translatable="false">icon indique si le plat est vegan</string>
-    <string name="description_image_view_epice" translatable="false">icon indique le deguré d épice</string>
 
 
-
-    <string name="description_image_view_categorie" translatable="false">photo lustration du catagorie</string>
     <string name="button_commander" translatable="false">Passez une commande</string>
     <string name="label_prix_par_personne" translatable="false">Prix par personne : </string>
     <string name="label_nombre_de_point_de_credit" translatable="false">Nombre de point de credit</string>

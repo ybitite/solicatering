@@ -8,4 +8,6 @@ public class Helper {
     public static int idResource(String nom) {
         return AppUtile.getContext().getResources().getIdentifier(nom, "drawable", AppUtile.getContext().getPackageName());
     }
+
+
 }

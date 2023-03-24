@@ -7,7 +7,7 @@
     <data>
         <variable
             name="articlePanierAndPlat"
-            type="website.livingRoom.soliCatering.db.entitys.ArticlePanierAndPlat" />
+            type="website.livingRoom.soliCatering.model.entitys.ArticlePanierAndPlat" />
     </data>
 
 <LinearLayout

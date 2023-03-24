@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="website.livingRoom.soliCatering.ui.historique.HistoriqueFragment"
+    tools:context="website.livingRoom.soliCatering.view.historique.HistoriqueFragment"
     style="@style/LinearLayoutPrincipaleBlanc" >
 
     <!--recycle view panier-->

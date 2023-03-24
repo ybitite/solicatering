@@ -6,7 +6,7 @@
         <!--plat object for data binding-->
         <variable
             name="plat"
-            type="website.livingRoom.soliCatering.db.entitys.Plat" />
+            type="website.livingRoom.soliCatering.model.entitys.Plat" />
     </data>
 <LinearLayout
     android:id="@+id/linearLayoutPlat"

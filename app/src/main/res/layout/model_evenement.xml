@@ -6,7 +6,7 @@
     <data>
         <variable
             name="evenement"
-            type="website.livingRoom.soliCatering.db.entitys.Evenement" />
+            type="website.livingRoom.soliCatering.model.entitys.Evenement" />
     </data>
 
 <LinearLayout

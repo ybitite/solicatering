@@ -1,7 +1,7 @@
 package website.livingRoom.soliCatering.repository;
 
-import static website.livingRoom.soliCatering.db.sharedPreferences.AppSharedPreferences.*;
-import website.livingRoom.soliCatering.db.entitys.Conteur;
+import static website.livingRoom.soliCatering.model.sharedPreferences.AppSharedPreferences.*;
+import website.livingRoom.soliCatering.model.entitys.Conteur;
 
 public class ConteurRepository {
 

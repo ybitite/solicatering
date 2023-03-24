@@ -7,7 +7,7 @@
 
         <variable
             name="panier"
-            type="website.livingRoom.soliCatering.db.entitys.Panier" />
+            type="website.livingRoom.soliCatering.model.entitys.Panier" />
         <import type="android.view.View" />
     </data>
 

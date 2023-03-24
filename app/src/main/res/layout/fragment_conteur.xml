@@ -7,7 +7,7 @@
     <data>
         <variable
             name="conteur"
-            type="website.livingRoom.soliCatering.db.entitys.Conteur" />
+            type="website.livingRoom.soliCatering.model.entitys.Conteur" />
         <variable
             name="mainActivity"
             type="website.livingRoom.soliCatering.MainActivity" />
