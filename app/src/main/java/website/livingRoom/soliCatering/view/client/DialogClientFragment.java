@@ -30,7 +30,7 @@ public class DialogClientFragment extends DialogFragment {
 
     //FIELD
     ClientViewModel clientViewModel;
-    ViewClientBinding viewClientBinding;
+    ViewClientBinding binding;
     Context context;
 
     //OVERRIDE METHODE
@@ -41,18 +41,18 @@ public class DialogClientFragment extends DialogFragment {
         clientViewModel = new ViewModelProvider(this).get(ClientViewModel.class);
 
         //inflate view to get bind
-        viewClientBinding = DataBindingUtil.inflate(inflater, R.layout.view_client, container, false);
+        binding = ViewClientBinding.inflate(inflater, container, false);
 
         //specif at life cycle owner
-        viewClientBinding.setLifecycleOwner(getViewLifecycleOwner());
+        binding.setLifecycleOwner(getViewLifecycleOwner());
 
         //set the view model to the binding class
-        viewClientBinding.setViewModel(clientViewModel);
+        binding.setViewModel(clientViewModel);
 
         //context to use later
-        context = viewClientBinding.getRoot().getContext();
+        context = binding.getRoot().getContext();
         //return view from binding
-        return viewClientBinding.getRoot();
+        return binding.getRoot();
     }
 
     @Override
@@ -65,13 +65,13 @@ public class DialogClientFragment extends DialogFragment {
     private void fixWidth() {
         //FIX WIDTH OF CARD TO WIDTH OF SCREEN
         int width = context.getResources().getDisplayMetrics().widthPixels;
-        viewClientBinding.textViewTitre.setWidth(width);
+        binding.textViewTitre.setWidth(width);
     }
 
     private void bind() {
         fixWidth();
 
-        viewClientBinding.buttonValider.setOnClickListener(new View.OnClickListener() {
+        binding.buttonValider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onValiderClick();

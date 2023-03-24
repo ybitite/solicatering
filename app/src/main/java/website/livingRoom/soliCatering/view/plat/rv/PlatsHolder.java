@@ -15,7 +15,7 @@ import website.livingRoom.soliCatering.databinding.ModelPlatsBinding;
 import website.livingRoom.soliCatering.model.entitys.Plat;
 import website.livingRoom.soliCatering.repository.ConteurRepository;
 import website.livingRoom.soliCatering.utile.ItemClickListener;
-import website.livingRoom.soliCatering.view.plat.IconHolder;
+import website.livingRoom.soliCatering.view.IconHolder;
 import website.livingRoom.soliCatering.viewModel.PlatViewModel;
 import website.livingRoom.soliCatering.utile.Helper;
 
@@ -76,7 +76,7 @@ public class PlatsHolder extends RecyclerView.ViewHolder implements View.OnClick
 
     private void bindImage(Plat plat) {
         //SET DATA IN VIEW
-        binding.imageViewPlat.setImageResource(Helper.idResource(plat.getNomPic()));
+        binding.imageViewPlat.setImageResource(Helper.getIdResourceByName(plat.getNomPic()));
     }
 
     private void updateItemClick(Plat plat, PlatViewModel platViewModel) {

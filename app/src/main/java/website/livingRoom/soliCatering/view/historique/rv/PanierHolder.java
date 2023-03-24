@@ -49,7 +49,7 @@ public class PanierHolder extends RecyclerView.ViewHolder implements View.OnClic
 
         //push data to actualise ui
         binding.setPanier(panierWithAarticlePanierAndPlat.panier);
-        binding.imageViewMenuP.setImageResource(Helper.idResource(panierWithAarticlePanierAndPlat.panier.getNomPic()));
+        binding.imageViewMenuP.setImageResource(Helper.getIdResourceByName(panierWithAarticlePanierAndPlat.panier.getNomPic()));
 
         //bind imbricated recycle view
         bindSecondRecycleView(panierWithAarticlePanierAndPlat.listArticlePanierAndPlat);

@@ -80,7 +80,7 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
     }
 
     private void bindImage(Menu menu) {
-        binding.imageViewIconMenu.setImageResource(Helper.idResource(menu.getNomPic()));
+        binding.imageViewIconMenu.setImageResource(Helper.getIdResourceByName(menu.getNomPic()));
     }
 
     private void updateBLinearLayoutColor(int grey_100) {

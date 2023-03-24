@@ -4,6 +4,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.navigation.Navigation;
 
 import website.livingRoom.soliCatering.R;
+import website.livingRoom.soliCatering.view.IconHolder;
 import website.livingRoom.soliCatering.viewModel.PlatViewModel;
 import website.livingRoom.soliCatering.databinding.ViewPlatsBinding;
 import website.livingRoom.soliCatering.model.entitys.ArticlePanier;
@@ -64,7 +65,7 @@ public class DialogPlatHolder {
 
     private void bindImage(Plat plat) {
         //DEFINE IMAGE PLAT TOP
-        binding.imageViewPlatTop.setImageResource(Helper.idResource(plat.getNomPic()));
+        binding.imageViewPlatTop.setImageResource(Helper.getIdResourceByName(plat.getNomPic()));
     }
 
     private void setLestenerClick() {
@@ -130,16 +131,18 @@ public class DialogPlatHolder {
     private void addToPanier() {
         /*go to be excute in background int no ui tread
           to not impact to the UI**/
-        AppDatabase.databaseWriteExecutor.execute(() -> {
-            //CREATE NEW ARTICLE PANIER or UPDATE it
-            ArticlePanier articlePanier = new ArticlePanier(ConteurRepository.getPanierActuel(),
-                    platViewModel.getSelectedPlat().getValue().getId(),
-                    platViewModel.getNumberPlat().getValue());
-            //update if excite or create a new article panier
-            if (articlePanierRepository.finArticlePanier(articlePanier))
-                articlePanierRepository.updateArticlePanier(articlePanier, platViewModel.getNumberPlat().getValue());
-            else articlePanierRepository.insert(articlePanier);
-        });
+        AppDatabase.databaseWriteExecutor.execute(this::run);
 
+    }
+
+    private void run() {
+        //CREATE NEW ARTICLE PANIER or UPDATE it
+        ArticlePanier articlePanier = new ArticlePanier(ConteurRepository.getPanierActuel(),
+                platViewModel.getSelectedPlat().getValue().getId(),
+                platViewModel.getNumberPlat().getValue());
+        //update if excite or create a new article panier
+        if (articlePanierRepository.finArticlePanier(articlePanier))
+            articlePanierRepository.updateArticlePanier(articlePanier, platViewModel.getNumberPlat().getValue());
+        else articlePanierRepository.insert(articlePanier);
     }
 }

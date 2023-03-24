@@ -30,14 +30,19 @@ public class PlatFragment extends Fragment {
 
         //CREATE BINDING WITH INFLATE LAYOUT
         binding = FragmentPlatBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
 
-        //INSTANTIATE CONTROLE
-        RecyclerView rv = binding.plRecycler;
 
         //INSTANTIATE VIEW MODEL
-        platViewModel =
-                new ViewModelProvider(requireActivity()).get(PlatViewModel.class);
+        platViewModel = new ViewModelProvider(requireActivity()).get(PlatViewModel.class);
+
+        initiateRecycleView();
+
+        return binding.getRoot();
+    }
+
+    private void initiateRecycleView() {
+        //INSTANTIATE CONTROLE
+        RecyclerView rv = binding.plRecycler;
 
         //SET ADAPTER TO RV
         final PlatsListAdapter platsListAdapter = new PlatsListAdapter(new PlatsListAdapter.platDiff(), platViewModel);
@@ -47,17 +52,16 @@ public class PlatFragment extends Fragment {
         rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
         rv.setItemAnimator(new DefaultItemAnimator());
 
+        observeDataAndUpdateView(platsListAdapter);
+    }
+
+    private void observeDataAndUpdateView(PlatsListAdapter platsListAdapter) {
         //GET CURENT CATEGORIE POINT
-        int ptRest = ConteurRepository.getCategorieActuel();
+        int pointCategorie = ConteurRepository.getCategorieActuel();
 
         //OBSERVE DATA FROM LIVE DATA AND UPDATE RV WEN DATA CHANGE
-        platViewModel =
-                new ViewModelProvider(this).get(PlatViewModel.class);
-
-        platViewModel.getAllPlat(ptRest).observe(getViewLifecycleOwner(), plat -> {
+        platViewModel.getAllPlat(pointCategorie).observe(getViewLifecycleOwner(), plat -> {
             platsListAdapter.submitList(plat);
         });
-
-        return root;
     }
 }

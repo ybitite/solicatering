@@ -31,7 +31,7 @@ public class MiniArticlePanierHolder extends RecyclerView.ViewHolder implements 
     public void bind(ArticlePanierAndPlat articlePanierAndPlat) {
 
         binding.setArticlePanierAndPlat(articlePanierAndPlat);
-        binding.imageViewMiniAP.setImageResource(Helper.idResource(articlePanierAndPlat.plat.getNomPic()));
+        binding.imageViewMiniAP.setImageResource(Helper.getIdResourceByName(articlePanierAndPlat.plat.getNomPic()));
     }
 
     @Override

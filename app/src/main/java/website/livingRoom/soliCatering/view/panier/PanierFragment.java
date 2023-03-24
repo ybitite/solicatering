@@ -31,26 +31,26 @@ public class PanierFragment extends Fragment {
     private FragmentPanierBinding binding;
     private SharedPreferences.OnSharedPreferenceChangeListener listenerSP;
     private SharedPreferences sharedPreferences;
+    private PanierViewModel panierViewModel;
 
     //METHODE
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //CREATE BINDING WITH INFLATE LAYOUT
         binding = FragmentPanierBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
 
-        //INSTANTIATE CONTROLE
-        RecyclerView rv = binding.pRecycler;
+        //INSTANTIATE VIEW MODEL
+        panierViewModel = new ViewModelProvider(this).get(PanierViewModel.class);
 
-        instantiateView(rv);
+        initiateRecycleView();
 
 
-        return root;
+        return binding.getRoot();
     }
 
-    private void instantiateView(RecyclerView rv) {
-        //INSTANTIATE VIEW MODEL
-        PanierViewModel panierViewModel = new ViewModelProvider(this).get(PanierViewModel.class);
+    private void initiateRecycleView() {
+        //INSTANTIATE CONTROLE
+        RecyclerView rv = binding.pRecycler;
 
         //SET FOOTER ADAPTER + LIST ADAPTER TO RV
         ArticlePanierListAdapter articlePanierListAdapter = new ArticlePanierListAdapter(new ArticlePanierListAdapter.ArticlePanierWithPlatDiff(), panierViewModel);
@@ -66,19 +66,19 @@ public class PanierFragment extends Fragment {
         rv.setItemAnimator(new DefaultItemAnimator());
 
 
-        observeData(panierViewModel, articlePanierListAdapter, articlePanierPiedAdapter);
+        observeDataAndUpdateView(panierViewModel, articlePanierListAdapter, articlePanierPiedAdapter);
     }
 
-    private void observeData(PanierViewModel panierViewModel, ArticlePanierListAdapter articlePanierListAdapter, ArticlePanierPiedAdapter articlePanierPiedAdapter) {
+    private void observeDataAndUpdateView(PanierViewModel panierViewModel, ArticlePanierListAdapter articlePanierListAdapter, ArticlePanierPiedAdapter articlePanierPiedAdapter) {
         //OBSERVE DATA FROM LIVE DATA AND UPDATE RV WEN DATA CHANGE
         panierViewModel.getListArticlePanierAndPlat().observe(getViewLifecycleOwner(), articlePanierWithPlat -> {
             // UPDATE THE CACHED COPY OF THE ARTICLE PANIER IN THE ADAPTER.
             articlePanierListAdapter.submitList(articlePanierWithPlat);
         });
-        registreSPLestener(articlePanierPiedAdapter);
+        registerSharedPreferencesListener(articlePanierPiedAdapter);
     }
 
-    private void registreSPLestener(ArticlePanierPiedAdapter articlePanierPiedAdapter) {
+    private void registerSharedPreferencesListener(ArticlePanierPiedAdapter articlePanierPiedAdapter) {
         //INSTANTIATE LISTENER FOR UPDATE BT VALIDER WEN CONTEUR CHANGE IN SHARED PREFERENCES
         listenerSP = (sharedPreferences, key) -> {
             if (key.equals(Conteur.POINT_RESTE_KEY)) articlePanierPiedAdapter.bind();
@@ -89,15 +89,15 @@ public class PanierFragment extends Fragment {
         sharedPreferences.registerOnSharedPreferenceChangeListener(listenerSP);
     }
 
+    /* TO LIBER LISTENER*/
+    public void unregisterListener() {
+        sharedPreferences.unregisterOnSharedPreferenceChangeListener(listenerSP);
+    }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         unregisterListener();
         binding = null;
-    }
-
-    /* TO LIBER LISTENER*/
-    public void unregisterListener() {
-        sharedPreferences.unregisterOnSharedPreferenceChangeListener(listenerSP);
     }
 }

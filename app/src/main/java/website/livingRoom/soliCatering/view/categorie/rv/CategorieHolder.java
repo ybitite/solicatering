@@ -55,7 +55,7 @@ public class CategorieHolder extends RecyclerView.ViewHolder implements View.OnC
 
         //SET DATA IN VIEW
         binding.setCategorie(categorie);
-        binding.imageViewCat.setImageResource(Helper.idResource(categorie.getNomPic()));
+        binding.imageViewCat.setImageResource(Helper.getIdResourceByName(categorie.getNomPic()));
 
         upDateClick();
     }

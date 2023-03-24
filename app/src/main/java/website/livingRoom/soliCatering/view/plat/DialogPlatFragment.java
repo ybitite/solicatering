@@ -45,11 +45,5 @@ public class DialogPlatFragment extends DialogFragment {
         DialogPlatHolder dialogPlatHolder = new DialogPlatHolder(platViewModel,articlePanierRepository,binding,requireActivity(),this);
 
         dialogPlatHolder.bind();
-
-
     }
-
-
-
-
 }

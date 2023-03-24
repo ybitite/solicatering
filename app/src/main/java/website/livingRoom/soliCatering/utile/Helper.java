@@ -5,7 +5,7 @@ public class Helper {
 
     //todo replace this methode to much resource
     //RETURN ID RESOURCE FROM CONTEXT
-    public static int idResource(String nom) {
+    public static int getIdResourceByName(String nom) {
         return AppUtile.getContext().getResources().getIdentifier(nom, "drawable", AppUtile.getContext().getPackageName());
     }
 

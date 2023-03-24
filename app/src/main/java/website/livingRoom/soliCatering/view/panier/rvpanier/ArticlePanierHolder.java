@@ -50,7 +50,7 @@ public class ArticlePanierHolder extends RecyclerView.ViewHolder implements View
 
         //SET DATA IN VIEW
         binding.setArticlePanierAndPlat(articlePanierAndPlat);
-        binding.imageViewTitreAP.setImageResource(Helper.idResource(articlePanierAndPlat.plat.getNomPic()));
+        binding.imageViewTitreAP.setImageResource(Helper.getIdResourceByName(articlePanierAndPlat.plat.getNomPic()));
     }
 
     private void bindDecrement(ArticlePanierAndPlat articlePanierAndPlat, PanierViewModel panierViewModel) {

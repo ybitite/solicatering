@@ -30,16 +30,16 @@ public class MenuFragment extends Fragment {
 
         //CREATE BINDING WITH INFLATE LAYOUT
         binding = FragmentMenuBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
 
+        initiateRecycleView();
+
+        return binding.getRoot();
+    }
+
+    private void initiateRecycleView() {
         //INSTANTIATE CONTROLE
         RecyclerView rv = binding.mRecycler;
 
-        instantiateRv(rv);
-        return root;
-    }
-
-    private void instantiateRv(RecyclerView rv) {
         //SET ADAPTER TO RV
         final MenuListAdapter menuListAdapter = new MenuListAdapter(new MenuListAdapter.MenuDiff());
         rv.setAdapter(menuListAdapter);
@@ -48,10 +48,10 @@ public class MenuFragment extends Fragment {
         rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
         rv.setItemAnimator(new DefaultItemAnimator());
 
-        observeData(menuListAdapter);
+        observeDataAndUpdateView(menuListAdapter);
     }
 
-    private void observeData(MenuListAdapter menuListAdapter) {
+    private void observeDataAndUpdateView(MenuListAdapter menuListAdapter) {
         //OBSERVE DATA FROM LIVE DATA AND UPDATE RV WEN DATA CHANGE
         menuViewModel =
                 new ViewModelProvider(this).get(MenuViewModel.class);

@@ -23,6 +23,7 @@ public class AccueilFragment extends Fragment {
 
     //FIELD
     private FragmentAcceuilBinding binding;
+    private AcceuilViewModel acceuilViewModel;
 
     //METHODE
     @Override
@@ -30,6 +31,8 @@ public class AccueilFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         binding = FragmentAcceuilBinding.inflate(inflater, container, false);
+
+        acceuilViewModel =  new ViewModelProvider(this).get(AcceuilViewModel.class);
 
         //initiate recycle view
         initiateRecycleView();
@@ -50,14 +53,12 @@ public class AccueilFragment extends Fragment {
         rv.setItemAnimator(new DefaultItemAnimator());
 
         //observe data from live data and update rv
-        observeAndUpdate(evenementListAdapter);
+        observeDataAndUpdateView(evenementListAdapter);
     }
 
-    private void observeAndUpdate(EvenementListAdapter evenementListAdapter) {
+    private void observeDataAndUpdateView(EvenementListAdapter evenementListAdapter) {
 
         //OBSERVE DATA FROM LIVE DATA AND UPDATE RV WEN DATA CHANGE
-        AcceuilViewModel acceuilViewModel =
-                new ViewModelProvider(this).get(AcceuilViewModel.class);
         acceuilViewModel.getListEvenement().observe(getViewLifecycleOwner(), evenements -> {
             // UPDATE THE CACHED COPY OF THE EVENEMENTS IN THE ADAPTER.
             evenementListAdapter.submitList(evenements);

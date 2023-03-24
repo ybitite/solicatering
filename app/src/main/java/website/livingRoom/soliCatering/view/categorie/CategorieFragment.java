@@ -32,17 +32,17 @@ public class CategorieFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         //INSTANTIATE BINDING
         binding = FragmentCategorieBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
 
-        //INSTANTIATE RV
-        RecyclerView rv = binding.cRecycler;
+        categorieViewModel =  new ViewModelProvider(this).get(CategorieViewModel.class);
 
-        instantiateRv(rv);
+        initiateRecycleView();
 
-        return root;
+        return binding.getRoot();
     }
 
-    private void instantiateRv(RecyclerView rv) {
+    private void initiateRecycleView() {
+        //INSTANTIATE RV
+        RecyclerView rv = binding.cRecycler;
         //SET ADAPTER TO RV
         //todo:add adpter when ptcat actuel is ms
         final CategorieListAdapter categorieListAdapter = new CategorieListAdapter(new CategorieListAdapter.CategorieDiff());
@@ -53,14 +53,11 @@ public class CategorieFragment extends Fragment {
         rv.setItemAnimator(new DefaultItemAnimator());
 
         //observe data and update recycle view
-        observeDate(categorieListAdapter);
+        observeDataAndUpdateView(categorieListAdapter);
     }
 
-    private void observeDate(CategorieListAdapter categorieListAdapter) {
+    private void observeDataAndUpdateView(CategorieListAdapter categorieListAdapter) {
         //OBSERVE DATA FROM LIVE DATA AND UPDATE RV WEN DATA CHANGE
-        categorieViewModel =
-                new ViewModelProvider(this).get(CategorieViewModel.class);
-
         categorieViewModel.getListCategorie().observe(getViewLifecycleOwner(), categorie -> {
             categorieListAdapter.submitList(categorie);
         });
