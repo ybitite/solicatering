@@ -26,7 +26,7 @@ public class ConteurRepository {
     }
 
     //methode to set values
-    public static void setConteur() {
+    public static void resetConteur() {
         createDefaultConteur();
     }
     public static void setConteur(String nom, int ptDepart) {
