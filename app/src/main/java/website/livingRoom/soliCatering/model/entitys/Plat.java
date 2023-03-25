@@ -1,13 +1,8 @@
 package website.livingRoom.soliCatering.model.entitys;
-
-import android.content.res.Resources;
-
 import androidx.room.Entity;
-
 import java.util.Objects;
-
 import website.livingRoom.soliCatering.R;
-import website.livingRoom.soliCatering.utile.AppUtile;
+import website.livingRoom.soliCatering.utile.Helper;
 
 @Entity(tableName = "plats")
 public class Plat extends Entite {
@@ -35,8 +30,7 @@ public class Plat extends Entite {
     //Propriety for binding
     public String getPointFormat(){
         //get resources from AppUtil
-        Resources resources = AppUtile.getResource();
-        return point + resources.getString(R.string.text_point);
+        return point + Helper.getString(R.string.text_point);
     }
 
     //PROPRIETY

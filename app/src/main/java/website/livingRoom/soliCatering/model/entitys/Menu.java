@@ -1,11 +1,10 @@
 package website.livingRoom.soliCatering.model.entitys;
 
-import android.content.res.Resources;
 
 import java.util.Objects;
 
 import website.livingRoom.soliCatering.R;
-import website.livingRoom.soliCatering.utile.AppUtile;
+import website.livingRoom.soliCatering.utile.Helper;
 
 @androidx.room.Entity(tableName = "menus")
 public class Menu extends Entite {
@@ -36,12 +35,10 @@ public class Menu extends Entite {
     }
 
     public String getPrixFormat(){
-        Resources resources = AppUtile.getResource();
-        return prix + " " + resources.getString(R.string.text_devise);
+        return prix + " " + Helper.getString(R.string.text_devise);
     }
     public String getPointFormat(){
-        Resources resources = AppUtile.getResource();
-        return prix + " " + resources.getString(R.string.text_point);
+        return prix + " " + Helper.getString(R.string.text_point);
     }
 
     //OVERRIDE METHODE EQUALS TO COMPARE OBJECT

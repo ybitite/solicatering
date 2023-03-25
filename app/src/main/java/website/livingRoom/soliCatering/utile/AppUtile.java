@@ -2,11 +2,12 @@ package website.livingRoom.soliCatering.utile;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 
 import java.lang.ref.WeakReference;
 
-public class AppUtile extends Application {
+public  class AppUtile extends Application {
 
     //FIELD
     private static Resources resources;
@@ -26,4 +27,5 @@ public class AppUtile extends Application {
     public static Context getContext(){
         return contextWeakReference.get();
     }
+
 }

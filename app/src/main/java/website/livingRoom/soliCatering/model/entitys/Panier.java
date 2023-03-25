@@ -1,7 +1,5 @@
 package website.livingRoom.soliCatering.model.entitys;
 
-import android.content.res.Resources;
-
 import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.Ignore;
@@ -9,7 +7,7 @@ import androidx.room.Ignore;
 import java.util.Objects;
 
 import website.livingRoom.soliCatering.R;
-import website.livingRoom.soliCatering.utile.AppUtile;
+import website.livingRoom.soliCatering.utile.Helper;
 
 /**
 *  nom prenom et prix sont enregistré directement sur cette table d'historique
@@ -77,14 +75,12 @@ public class Panier extends Entite{
 
     public String getPrixFormat() {
         //get resources from AppUtil
-        Resources resources = AppUtile.getResource();
-        return prix + " " + resources.getString(R.string.text_devise);
+        return prix + " " + Helper.getString(R.string.text_devise);
     }
 
     public String getPrixTotalFormat() {
         //get resources from AppUtil
-        Resources resources = AppUtile.getResource();
-        return prix * informationLivraison.getNombre() + " " + resources.getString(R.string.text_devise);
+        return prix * informationLivraison.getNombre() + " " + Helper.getString(R.string.text_devise);
     }
 
     public InformationLivraison getInformationLivraison() {

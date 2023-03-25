@@ -70,28 +70,25 @@ public class PlatsHolder extends RecyclerView.ViewHolder implements View.OnClick
     }
 
     private void bindControl(Plat plat) {
-        bindImage(plat);
-        fixWidth();
+        Helper.bindPicassoImage(plat.getNomPic(),binding.imageViewPlat);
+        Helper.fixWidth(binding.mockViewFormPlat);
         binding.setPlat(plat);
     }
 
-    private void bindImage(Plat plat) {
-        //SET DATA IN VIEW
-        binding.imageViewPlat.setImageResource(Helper.getIdResourceByName(plat.getNomPic()));
-    }
+
 
     private void updateItemClick(Plat plat, PlatViewModel platViewModel) {
         /*BLOCK CLICK AND MAKE ITEM GREW WHEN THE POINT ARE NOT ENOUGH*/
         if (plat.getPoint() <= ConteurRepository.getCategorieActuel()) {
 
-            blockItem(R.color.white_100, true);
+            Helper.blockItem(R.color.white_100,true,itemView,binding.cardViewPlat);
 
             //navigate to dialog en click
             setItemClickListener((v, pos) -> {
                 navigateToDialogPlat(plat, platViewModel); });
         }
         else {
-            blockItem(R.color.green_100, false);
+            Helper.blockItem(R.color.green_100,false,itemView,binding.cardViewPlat);
         }
     }
 
@@ -99,27 +96,7 @@ public class PlatsHolder extends RecyclerView.ViewHolder implements View.OnClick
         //SAVE SELECTED PLAT
         platViewModel.setSelectedPlat(plat);
         //NAVIGATE TO VIEW PLAT
-        naviguer();
-    }
-
-    private void naviguer() {
-        Navigation.findNavController((Activity) context, R.id.nav_host_fragment_activity_main)
-                .navigate(R.id.action_navigation_plat_to_dialogPlat2);
-    }
-
-    private void blockItem(int colorId, boolean clickable) {
-        //MAKE ITEM GRIS AND POINT GREEN
-        itemView.setClickable(clickable);
-        binding.cardViewCategorie.setCardBackgroundColor(getColor(colorId));
-    }
-    private int getColor(int id) {
-        return ResourcesCompat.getColor(context.getResources(), id, null);
-    }
-
-    private void fixWidth() {
-        //FIX WIDTH OF CARD LIKE WIDTH OF SCREEN
-        int width = context.getResources().getDisplayMetrics().widthPixels;
-        binding.mockViewFormPlat.setMinimumWidth(width);
+        Helper.naviguer(R.id.action_navigation_plat_to_dialogPlat2);
     }
 
 }

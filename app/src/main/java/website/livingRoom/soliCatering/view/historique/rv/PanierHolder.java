@@ -1,13 +1,11 @@
 package website.livingRoom.soliCatering.view.historique.rv;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -26,14 +24,11 @@ import java.util.List;
 public class PanierHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
     //FIELD
-    private final Context context;
     private final ModelPanierBinding binding;
 
     public PanierHolder(ModelPanierBinding modelPanierBinding) {
         super(modelPanierBinding.getRoot());
 
-        //GET CONTEXT TO USE LATER
-        context = modelPanierBinding.getRoot().getContext();
 
         binding =modelPanierBinding;
     }
@@ -48,19 +43,20 @@ public class PanierHolder extends RecyclerView.ViewHolder implements View.OnClic
 
     public void bind(PanierWithAarticlePanierAndPlat panierWithAarticlePanierAndPlat) {
 
+        Helper.fixWidth(binding.mockViewFormPanier);
+        Helper.bindPicassoImage(panierWithAarticlePanierAndPlat.panier.getNomPic()
+                ,binding.imageViewMenuP);
+
         //push data to actualise ui
         binding.setPanier(panierWithAarticlePanierAndPlat.panier);
-        binding.imageViewMenuP.setImageResource(Helper.getIdResourceByName(panierWithAarticlePanierAndPlat.panier.getNomPic()));
-
-        //bind imbricated recycle view
-        bindSecondRecycleView(panierWithAarticlePanierAndPlat.listArticlePanierAndPlat);
 
         //bind element of suivie commande
         bindSuiviCommande(panierWithAarticlePanierAndPlat.panier.getEtat());
 
-        //bind button plus
+        //bind imbricated recycle view
+        bindSecondRecycleView(panierWithAarticlePanierAndPlat.listArticlePanierAndPlat);
 
-        fixWhidth();
+
     }
 
     /**
@@ -78,7 +74,7 @@ public class PanierHolder extends RecyclerView.ViewHolder implements View.OnClic
 
 
         //set properties to rv
-        rv.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true));
+        rv.setLayoutManager(new LinearLayoutManager(Helper.getContext(), LinearLayoutManager.HORIZONTAL, true));
         rv.setItemAnimator(new DefaultItemAnimator());
 
         //  this data is already observed
@@ -93,31 +89,28 @@ public class PanierHolder extends RecyclerView.ViewHolder implements View.OnClic
          to set later to do control**/
         switch (etat) {
             case 1:
-                bindValidation(getString(R.string.validation_en_cours_label),getColor(R.color.red_100));
+                bindValidation(getString(R.string.validation_en_cours_label),Helper.getColor(R.color.red_100));
                 break;
             case 2:
-                bindPrisEnCharge(getString(R.string.prise_en_charge_label),getColor(R.color.green_100));
+                bindPrisEnCharge(getString(R.string.prise_en_charge_label),Helper.getColor(R.color.green_100));
                 break;
             case 3:
-                bindPreparation(getString(R.string.preparation_en_cours_label),getColor(R.color.orange_100));
+                bindPreparation(getString(R.string.preparation_en_cours_label),Helper.getColor(R.color.orange_100));
                 break;
             case 4:
-                bindLivrer(getString(R.string.catering_livrer_label),getColor(R.color.grey_200));
+                bindLivrer(getString(R.string.catering_livrer_label),Helper.getColor(R.color.grey_200));
                 break;
         }
     }
 
     private String getString(int id) {
-        return  '\u2022' + " " +context.getString(id);
+        return  '\u2022' + " " +Helper.getContext().getString(id);
     }
 
-    private int getColor(int id) {
-        return ResourcesCompat.getColor(context.getResources(), id, null);
-    }
 
     private void bindValidation(String textEtat,int colorEtat) {
         //text view titre suivie commande
-        bindTextAndImageView(binding.textViewEtatValidation, binding.imageViewCBValidation);
+        bindCheckBoxEtat(binding.textViewEtatValidation, binding.imageViewCBValidation);
         //text view etat d avencment
         bindTextViewEtat(textEtat,colorEtat);
     }
@@ -151,14 +144,14 @@ public class PanierHolder extends RecyclerView.ViewHolder implements View.OnClic
 
     private void bindControl(TextView textView, ImageView imageView1, ImageView imageView2) {
         //bind text and image for check box
-        bindTextAndImageView(textView, imageView1);
+        bindCheckBoxEtat(textView, imageView1);
         //image view trait
-        imageView2.setColorFilter(getColor(R.color.grey_400));
+        imageView2.setColorFilter(Helper.getColor(R.color.grey_400));
     }
 
-    private void bindTextAndImageView(TextView textView, ImageView imageView) {
+    private void bindCheckBoxEtat(TextView textView, ImageView imageView) {
         //text view check box
-        textView.setTextColor(getColor(R.color.grey_400));
+        textView.setTextColor(Helper.getColor(R.color.grey_400));
         //image view check box
         imageView.setImageResource(R.drawable.checkbox_on_background);
     }
@@ -166,12 +159,6 @@ public class PanierHolder extends RecyclerView.ViewHolder implements View.OnClic
     private void bindTextViewEtat(String textEtat, int colorEtat) {
         binding.textViewEtat.setText(textEtat);
         binding.textViewEtat.setTextColor(colorEtat);
-    }
-
-    private void fixWhidth() {
-        //FIX WIDTH OF CARD TO WIDTH OF SCREEN
-        int width = context.getResources().getDisplayMetrics().widthPixels;
-        binding.mockViewFormPanier.setMinimumWidth(width);
     }
 
     @Override

@@ -41,18 +41,12 @@ public class PanierViewModel extends AndroidViewModel {
         /*INCREMENT NUMBER OF PLAT IF IT POINT PLAT ARE LAST OR EQUAL AT POINT RESTE*/
         if (article.plat.getPoint() <= ConteurRepository.getPointReste()) {
 
-            //UPDATE IT IN DATA BASE on work thread
-            articlePanierRepository.updateArticlePanier(article.articlePanier, 1);
-
-            //UPDATE RESTE IN CONTEUR
-            ConteurRepository.upDatePointReste(-article.plat.getPoint());
-
-            //RETURN NEW NUMBER
-            return article.articlePanier.getNombrePlat() + 1;
+            return update(article, 1, -article.plat.getPoint(), article.articlePanier.getNombrePlat() + 1);
         } else return 0;
     }
 
     /*DECREMENT NUMBER PLAT*/
+
     public int decrementNbPlat(int position) {
 
         ArticlePanierAndPlat article = listArticlePanierAndPlat.getValue().get(position);
@@ -61,14 +55,19 @@ public class PanierViewModel extends AndroidViewModel {
         if (article.articlePanier.getNombrePlat() > 1) {
 
             //UPDATE IT IN DATA BASE on work thread
-            articlePanierRepository.updateArticlePanier(article.articlePanier, -1);
-
-            //UPDATE RESTE IN CONTEUR
-            ConteurRepository.upDatePointReste(article.plat.getPoint());
-
-            //RETURN NEW NUMBER
-            return article.articlePanier.getNombrePlat() - 1;
+            return update(article, -1, article.plat.getPoint(), article.articlePanier.getNombrePlat() - 1);
         } else return 0;
+    }
+
+    private int update(ArticlePanierAndPlat article, int nombre, int plat, int articlePanier) {
+        //UPDATE IT IN DATA BASE on work thread
+        articlePanierRepository.updateArticlePanier(article.articlePanier, nombre);
+
+        //UPDATE RESTE IN CONTEUR
+        ConteurRepository.upDatePointReste(plat);
+
+        //RETURN NEW NUMBER
+        return articlePanier;
     }
 
 

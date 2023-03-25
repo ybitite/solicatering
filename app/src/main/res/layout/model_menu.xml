@@ -25,6 +25,14 @@
                 android:layout_margin="@dimen/small_margin">
 
                 <!--image view menu-->
+                <androidx.constraintlayout.utils.widget.MockView
+                    android:id="@+id/mockViewFormMenu"
+                    style="@style/mockViewForm"
+                    android:visibility="invisible"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="0dp" />
+
                 <ImageView
                     android:id="@+id/imageViewIconMenu"
                     style="@style/ImageViewMedium"
@@ -137,10 +145,6 @@
                     app:layout_constraintTop_toBottomOf="@+id/textViewPointMenu"
                     app:layout_constraintVertical_bias="1.0" />
 
-                <androidx.constraintlayout.utils.widget.MockView
-                    android:id="@+id/mockViewFormMenu"
-                    style="@style/mockViewForm"
-                    tools:ignore="MissingConstraints" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>

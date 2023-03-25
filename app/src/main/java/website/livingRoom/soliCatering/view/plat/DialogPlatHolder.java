@@ -35,14 +35,9 @@ public class DialogPlatHolder {
     public void bind() {
         /*BIND VIEW WITH SELECTED PLAT*/
         //OBSERVE SELECTED PLAT
-        platViewModel.getSelectedPlat().observe(fragmentActivity, plat -> {
-
-            bindView(plat);
-        });
+        platViewModel.getSelectedPlat().observe(fragmentActivity, this::bindView);
         //OBSERVE NUMBER PLAT
-        platViewModel.getNumberPlat().observe(fragmentActivity, nbrPlat -> {
-            binding.textViewNbrPlat.setText(String.valueOf(nbrPlat));
-        });
+        platViewModel.getNumberPlat().observe(fragmentActivity, nbrPlat -> binding.textViewNbrPlat.setText(String.valueOf(nbrPlat)));
     }
 
     private void bindView(Plat plat) {
@@ -58,14 +53,8 @@ public class DialogPlatHolder {
     }
 
     private void bindControle(Plat plat) {
-        bindImage(plat);
-
+        Helper.bindPicassoImage(plat.getNomPic(),binding.imageViewPlatTop);
         binding.setPlat(plat);
-    }
-
-    private void bindImage(Plat plat) {
-        //DEFINE IMAGE PLAT TOP
-        binding.imageViewPlatTop.setImageResource(Helper.getIdResourceByName(plat.getNomPic()));
     }
 
     private void setLestenerClick() {
@@ -78,11 +67,21 @@ public class DialogPlatHolder {
     }
 
     private void incrimenteNombre() {
-        platViewModel.incrimenteNbPlat();
+        //IF THE PRODUCT  OF POINT AND NUMBER OF PLAT ARE LAST OR EQUAL AT POINT RESTE
+        if (checkIncrease(ConteurRepository.getPointReste(), platViewModel.getSelectedPlat().getValue().getPoint(), platViewModel.getNumberPlat().getValue())) {
+            platViewModel.incrimenteNbPlat();
+        }
+
+    }
+    private void decrementNombre() {
+        //IF NUMBER ARE MOR THAN 1
+        if (platViewModel.getNumberPlat().getValue() > 1) {
+            platViewModel.decrementNbPlat();
+        }
     }
 
-    private void decrementNombre() {
-        platViewModel.decrementNbPlat();
+    private boolean checkIncrease(int pntReste, int pntPlat, int nbrPlat) {
+        return pntPlat * (nbrPlat + 1) <= pntReste;
     }
 
 
@@ -92,11 +91,11 @@ public class DialogPlatHolder {
             addToPanier();
             //IF POINT FINISH NAVIGATE TO PANIER
             if (newPtRest == 0) {
-                naviguer(R.id.action_dialogPlat_to_navigation_panier);
+                Helper.naviguer(R.id.action_dialogPlat_to_navigation_panier);
             }
             //IF CAN NOT CHOSE IN SEM CATEGORIE NAVIGATE TO CATEGORIE
             else if (newPtRest < ConteurRepository.getCategorieActuel()) {
-                naviguer(R.id.action_dialogPlat_to_navigation_categorie);
+                Helper.naviguer(R.id.action_dialogPlat_to_navigation_categorie);
             }
             //IF CAN NOT CHOSE IN SEM CATEGORIE NAVIGATE TO plat
             else {
@@ -110,11 +109,6 @@ public class DialogPlatHolder {
         platViewModel.resetNumberPlat();
         dialogPlatFragment.dismiss();
     }
-
-    private void naviguer(int action_dialogPlat_to_navigation_panier) {
-        Navigation.findNavController(fragmentActivity, R.id.nav_host_fragment_activity_main).navigate(action_dialogPlat_to_navigation_panier);
-    }
-
     private boolean checkUpDatePointRest() {
         return ConteurRepository.getPointReste()
                 - platViewModel.getSelectedPlat().getValue().getPoint()
@@ -140,6 +134,7 @@ public class DialogPlatHolder {
         ArticlePanier articlePanier = new ArticlePanier(ConteurRepository.getPanierActuel(),
                 platViewModel.getSelectedPlat().getValue().getId(),
                 platViewModel.getNumberPlat().getValue());
+
         //update if excite or create a new article panier
         if (articlePanierRepository.finArticlePanier(articlePanier))
             articlePanierRepository.updateArticlePanier(articlePanier, platViewModel.getNumberPlat().getValue());

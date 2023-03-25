@@ -14,7 +14,7 @@
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewCategorie"
+        android:id="@+id/cardViewPlat"
         style="@style/cardViewPrincipalRVBlanc.Full">
 
         <androidx.constraintlayout.widget.ConstraintLayout

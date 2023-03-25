@@ -59,32 +59,32 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
 
     public void bind(Menu menu) {
         this.menu = menu;
-        fixWidth();
+        Helper.fixWidth(binding.mockViewFormMenu);
 
         bindControl(menu);
 
         if (menu.getPoint() == ConteurRepository.getPointDepart()) {
             //CHANGE COLOR OF ITEM WHEN IS CLICKED
-            updateBLinearLayoutColor(R.color.grey_100);
+            upDateLinearLayoutColor(R.color.grey_100);
         }
         else
             //CHANGE COLOR OF ITEM WHEN IS NOT CLICKED
-            updateBLinearLayoutColor(R.color.white_100);
+            upDateLinearLayoutColor(R.color.white_100);
 
     }
 
     private void bindControl(Menu menu) {
         //SET DATA IN VIEW
         binding.setMenu(menu);
-        bindImage(menu);
+        Helper.bindPicassoImage(menu.getNomPic(),binding.imageViewIconMenu);
     }
 
-    private void bindImage(Menu menu) {
-        binding.imageViewIconMenu.setImageResource(Helper.getIdResourceByName(menu.getNomPic()));
+    private void upDateLinearLayoutColor(int idColor) {
+        binding.linearLayoutMenu.setBackgroundColor(getColor(idColor));
     }
 
-    private void updateBLinearLayoutColor(int grey_100) {
-        binding.linearLayoutMenu.setBackgroundColor(context.getResources().getColor(grey_100));
+    private int getColor(int colorId) {
+        return context.getResources().getColor(colorId);
     }
 
     private void updateConteur(Menu menu, int menuActuel) {
@@ -102,12 +102,6 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
         //NAVIGATE TO CATEGORIE
         Navigation.findNavController((Activity) context, R.id.nav_host_fragment_activity_main)
                 .navigate(R.id.action_navigation_menu_to_navigation_categorie);
-    }
-
-    private void fixWidth() {
-        //FIX WIDTH OF CARD TO WIDTH OF SCREEN
-        int width = context.getResources().getDisplayMetrics().widthPixels;
-        binding.mockViewFormMenu.setMinimumWidth(width);
     }
 
 }

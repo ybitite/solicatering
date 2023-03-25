@@ -44,46 +44,47 @@ public class ArticlePanierHolder extends RecyclerView.ViewHolder implements View
 
     public void bind(ArticlePanierAndPlat articlePanierAndPlat, PanierViewModel panierViewModel) {
 
-        fixWidth();
+        Helper.fixWidth(binding.mockViewFormArticlePanier);
         bindIncrement(panierViewModel);
         bindDecrement(articlePanierAndPlat, panierViewModel);
 
         //SET DATA IN VIEW
         binding.setArticlePanierAndPlat(articlePanierAndPlat);
+        bindImage(articlePanierAndPlat);
+    }
+
+    private void bindImage(ArticlePanierAndPlat articlePanierAndPlat) {
         binding.imageViewTitreAP.setImageResource(Helper.getIdResourceByName(articlePanierAndPlat.plat.getNomPic()));
     }
 
     private void bindDecrement(ArticlePanierAndPlat articlePanierAndPlat, PanierViewModel panierViewModel) {
 
         //SET CLICK LISTENER to DECREMENT BUTTON
-        binding.btDecrement.setOnClickListener(v -> {
-            int nbrPlat = panierViewModel.decrementNbPlat(getBindingAdapterPosition());
-            if (nbrPlat != 0) {
-                //IF THE DECREMENT WAS DONE UPDATE CONTROL
-                binding.tvNbrPlatAP.setText(String.valueOf(nbrPlat));
-            }
-            else {
-                //IF JUST ONE ARTICLE STAY DELETE IT
-                deleteArticlePanier(articlePanierAndPlat);
-            }
-        });
+        binding.btDecrement.setOnClickListener(v -> decrement(articlePanierAndPlat, panierViewModel));
+    }
+
+    private void decrement(ArticlePanierAndPlat articlePanierAndPlat, PanierViewModel panierViewModel) {
+        int nbrPlat = panierViewModel.decrementNbPlat(getBindingAdapterPosition());
+        if (nbrPlat != 0) {
+            //IF THE DECREMENT WAS DONE UPDATE CONTROL
+            binding.tvNbrPlatAP.setText(String.valueOf(nbrPlat));
+        }
+        else {
+            //IF JUST ONE ARTICLE STAY DELETE IT
+            deleteArticlePanier(articlePanierAndPlat);
+        }
     }
 
     private void bindIncrement(PanierViewModel panierViewModel) {
-        binding.btIncrement.setOnClickListener(v -> {
-            //IF THE INCREMENT WAS DONE UPDATE CONTROL
-            int nbrPlat = panierViewModel.incrimenteNbPlat(getBindingAdapterPosition());
-            if (nbrPlat != 0) {
-                binding.tvNbrPlatAP.setText(String.valueOf(nbrPlat));
-            }
-        });
+        binding.btIncrement.setOnClickListener(v -> increment(panierViewModel));
     }
 
-    private void fixWidth() {
-        //FIX WIDTH OF CARD TO WIDTH OF SCREEN
-        int width = context.getResources().getDisplayMetrics().widthPixels;
-        binding.textViewTitreAP.setWidth(width);
-        binding.cardViewArticlePanier.setMinimumWidth(width);
+    private void increment(PanierViewModel panierViewModel) {
+        //IF THE INCREMENT WAS DONE UPDATE CONTROL
+        int nbrPlat = panierViewModel.incrimenteNbPlat(getBindingAdapterPosition());
+        if (nbrPlat != 0) {
+            binding.tvNbrPlatAP.setText(String.valueOf(nbrPlat));
+        }
     }
 
     public void deleteArticlePanier(ArticlePanierAndPlat articlePanierAndPlat) {

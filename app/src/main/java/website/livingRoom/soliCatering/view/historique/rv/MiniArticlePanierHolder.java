@@ -30,13 +30,11 @@ public class MiniArticlePanierHolder extends RecyclerView.ViewHolder implements 
 
     public void bind(ArticlePanierAndPlat articlePanierAndPlat) {
 
+        Helper.bindPicassoImage(articlePanierAndPlat.plat.getNomPic(),binding.imageViewMiniAP);
+
         binding.setArticlePanierAndPlat(articlePanierAndPlat);
-        bindImage(articlePanierAndPlat);
     }
 
-    private void bindImage(ArticlePanierAndPlat articlePanierAndPlat) {
-        binding.imageViewMiniAP.setImageResource(Helper.getIdResourceByName(articlePanierAndPlat.plat.getNomPic()));
-    }
 
     @Override
     public void onClick(View v) {

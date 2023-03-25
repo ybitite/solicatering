@@ -1,14 +1,9 @@
 package website.livingRoom.soliCatering.view.categorie.rv;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.core.content.res.ResourcesCompat;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import website.livingRoom.soliCatering.R;
@@ -20,16 +15,12 @@ import website.livingRoom.soliCatering.utile.Helper;
 public class CategorieHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     //FIELD
     private final ModelCategorieBinding binding;
-    private final Context context;
     private Categorie categorie;
 
 
     //CONTRUCTOR
     public CategorieHolder(ModelCategorieBinding modelCategorieBinding) {
         super(modelCategorieBinding.getRoot());
-
-        //GET CONTEXT TO USE LATER
-        context = modelCategorieBinding.getRoot().getContext();
 
         // instantiate binding object
         binding = modelCategorieBinding;
@@ -52,11 +43,10 @@ public class CategorieHolder extends RecyclerView.ViewHolder implements View.OnC
     public void bind(Categorie categorie) {
         this.categorie=categorie;
 
-        fixWidth();
-
+        Helper.fixWidth(binding.mockViewFormCategorie);
+        Helper.bindPicassoImage(categorie.getNomPic(),binding.imageViewCat);
         //SET DATA IN VIEW
         binding.setCategorie(categorie);
-        binding.imageViewCat.setImageResource(Helper.getIdResourceByName(categorie.getNomPic()));
 
         upDateClick();
     }
@@ -65,38 +55,25 @@ public class CategorieHolder extends RecyclerView.ViewHolder implements View.OnC
         //BLOCK CLICK AND MAKE ITEM GRIS
         if (categorie.getPoint() <= ConteurRepository.getPointReste()) {
 
-            changeVisibility(R.color.white_100, true, context.getResources().getColor(R.color.green_100));
+            changeVisibility(R.color.white_100, true, Helper.getColor(R.color.green_100));
 
         }
         else {
             //MAKE ITEM GRIS AND POINT GREEN
-            changeVisibility(R.color.grey_100, false, context.getResources().getColor(R.color.red_100));
+            changeVisibility(R.color.grey_100, false, Helper.getColor(R.color.red_100));
         }
 
     }
 
     private void changeVisibility(int backGroundColorId, boolean clickable, int pointColorId) {
         //Change visibility and point color
-        blockItem(backGroundColorId,clickable);
+        Helper.blockItem(backGroundColorId,clickable,itemView,binding.cardViewCategorie);
         binding.textViewPointCat.setTextColor(pointColorId);
-    }
-    private void blockItem(int colorId, boolean clickable) {
-        //MAKE ITEM GRIS AND POINT GREEN
-        itemView.setClickable(clickable);
-        binding.cardViewCategorie.setCardBackgroundColor(getColor(colorId));
-    }
-    private int getColor(int id) {
-        return ResourcesCompat.getColor(context.getResources(), id, null);
-    }
-    private void fixWidth() {
-        //FIX WIDTH OF CARD TO WIDTH OF SCREEN
-        int width = context.getResources().getDisplayMetrics().widthPixels;
-        binding.mockViewFormCategorie.setMinimumWidth(width);
     }
 
     @Override
     public void onClick(View v) {
         ConteurRepository.setCategorieActuel(categorie.getPoint());
-        Navigation.findNavController((Activity) context, R.id.nav_host_fragment_activity_main).navigate(R.id.action_navigation_categorie_to_navigation_plat);
+        Helper.naviguer(R.id.action_navigation_categorie_to_navigation_plat);
     }
 }

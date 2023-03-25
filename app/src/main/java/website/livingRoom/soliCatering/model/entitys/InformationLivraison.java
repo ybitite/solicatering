@@ -8,9 +8,9 @@ import androidx.room.Ignore;
 
 import website.livingRoom.soliCatering.BR;
 import website.livingRoom.soliCatering.R;
-import website.livingRoom.soliCatering.utile.AppUtile;
 import website.livingRoom.soliCatering.utile.ExpressionValidateur;
 import website.livingRoom.soliCatering.utile.FormulaireEtat;
+import website.livingRoom.soliCatering.utile.Helper;
 
 import java.util.Objects;
 
@@ -101,14 +101,12 @@ public class InformationLivraison extends FormulaireEtat {
 
     public String getNombreFormat() {
         //get resources from AppUtil
-        Resources resources = AppUtile.getResource();
-        return nombre + " " + resources.getString(R.string.text_point);
+        return nombre + " " + Helper.getString(R.string.text_point);
     }
 
     public String getTitreCatering() {
         //get resources from AppUtil
-        Resources resources = AppUtile.getResource();
-        return resources.getString(R.string.text_titre_catering) + " " + dateLivr;
+        return Helper.getString(R.string.text_titre_catering) + " " + dateLivr;
     }
 
     /*EQUAL ET HASH METHODE*/

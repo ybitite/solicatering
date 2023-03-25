@@ -46,27 +46,17 @@ public class PlatViewModel extends AndroidViewModel {
 
     /*INCREMENT NUMBER PLAT*/
     public void incrimenteNbPlat() {
-
-        //IF THE PRODUCT  OF POINT AND NUMBER OF PLAT ARE LAST OR EQUAL AT POINT RESTE
-        if (checkIncrease(ConteurRepository.getPointReste(), selectedPlat.getValue().getPoint(), nombrePlat.getValue())) {
-            //INCREMENT NUMBER OF PLAT
-            nombrePlat.setValue(nombrePlat.getValue() + 1);
-        }
-    }
-
-    private boolean checkIncrease(int pntReste, int pntPlat, int nbrPlat) {
-        return pntPlat * (nbrPlat + 1) <= pntReste;
+        //INCREMENT NUMBER OF PLAT
+        updateNumerPlat( + 1);
     }
 
     /*DECREMENT NUMBER PLAT*/
     public void decrementNbPlat() {
-        
-        int nbrPlat = nombrePlat.getValue();
-        //IF NUMBER ARE MOR THAN 1
-        if (nbrPlat > 1) {
-            //DECREMENT NUMBER OF PLAT
-            nombrePlat.setValue(nbrPlat - 1);
-        }
+        //DECREMENT NUMBER OF PLAT
+        updateNumerPlat( - 1);
+    }
+    public void updateNumerPlat(int i){
+        nombrePlat.setValue(nombrePlat.getValue() + i);
     }
 
     /*RESET NUMBER PLAT*/

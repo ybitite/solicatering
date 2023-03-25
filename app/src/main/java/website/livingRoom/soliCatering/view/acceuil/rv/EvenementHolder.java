@@ -42,18 +42,13 @@ public class EvenementHolder extends RecyclerView.ViewHolder implements View.OnC
 
     public void bind(Evenement evenement) {
         this.evenement=evenement;
-        fixWidth();
 
+        Helper.fixWidth(binding.mockViewFormEvenement);
+
+        Helper.bindPicassoImage(evenement.getNomPic(),binding.imageViewPlat);
         //SET DATA IN VIEW
         binding.setEvenement(evenement);
-        binding.imageViewPlat.setImageResource(Helper.getIdResourceByName(evenement.getNomPic()));
 
-    }
-
-    private void fixWidth() {
-        //FIX WIDTH OF CARD TO WIDTH OF SCREEN
-        int width = context.getResources().getDisplayMetrics().widthPixels;
-        binding.mockViewFormEvenement.setMinimumWidth(width);
     }
 
     @Override
