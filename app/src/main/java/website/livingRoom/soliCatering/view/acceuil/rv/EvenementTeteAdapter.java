@@ -8,8 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import website.livingRoom.soliCatering.R;
-import website.livingRoom.soliCatering.databinding.ModelTeteEvenementBinding;
-
 public class EvenementTeteAdapter extends RecyclerView.Adapter<EvenementTeteAdapter.EvenementTeteHolder> {
 
     //OVERRIDE METHODE

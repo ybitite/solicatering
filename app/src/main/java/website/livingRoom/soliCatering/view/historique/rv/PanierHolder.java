@@ -18,6 +18,7 @@ import website.livingRoom.soliCatering.databinding.ModelPanierBinding;
 import website.livingRoom.soliCatering.model.entitys.ArticlePanierAndPlat;
 import website.livingRoom.soliCatering.model.entitys.PanierWithAarticlePanierAndPlat;
 import website.livingRoom.soliCatering.utile.Helper;
+import website.livingRoom.soliCatering.view.panier.rvpanier.ArticlePanierListAdapter;
 
 import java.util.List;
 
@@ -71,7 +72,7 @@ public class PanierHolder extends RecyclerView.ViewHolder implements View.OnClic
 
         //set adapter to rv
         final MiniArticlePanierListAdapter miniArticlePanierListAdapter =
-                new MiniArticlePanierListAdapter(new MiniArticlePanierListAdapter.ArticlePanierWithPlatDiff());
+                new MiniArticlePanierListAdapter(new ArticlePanierListAdapter.ArticlePanierWithPlatDiff());
 
         rv.setAdapter(miniArticlePanierListAdapter);
 
@@ -170,7 +171,7 @@ public class PanierHolder extends RecyclerView.ViewHolder implements View.OnClic
     private void fixWhidth() {
         //FIX WIDTH OF CARD TO WIDTH OF SCREEN
         int width = context.getResources().getDisplayMetrics().widthPixels;
-        binding.cardViewPanier.setMinimumWidth(width);
+        binding.mockViewFormPanier.setMinimumWidth(width);
     }
 
     @Override

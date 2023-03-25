@@ -47,9 +47,12 @@ public class EvenementBtCmdAdapter extends RecyclerView.Adapter<EvenementBtCmdAd
     //METHOD BIND
     private void bind() {
         //NAVIGATE TO COMMANDE ON BUTTON CLICK
-        binding.buttonCommander.setOnClickListener(view ->
-                Navigation.findNavController((Activity) context, R.id.nav_host_fragment_activity_main)
-                        .navigate(R.id.action_navigation_home_to_navigation_commande));
+        binding.buttonCommander.setOnClickListener(view ->naviguer());
+    }
+
+    private void naviguer() {
+        Navigation.findNavController((Activity) context, R.id.nav_host_fragment_activity_main)
+                .navigate(R.id.action_navigation_home_to_navigation_commande);
     }
 
     //HOLDER

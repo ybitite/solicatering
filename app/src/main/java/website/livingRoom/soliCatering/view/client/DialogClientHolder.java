@@ -94,6 +94,6 @@ public class DialogClientHolder {
     private void fixWidth() {
         //FIX WIDTH OF CARD TO WIDTH OF SCREEN
         int width = fragmentActivity.getApplicationContext().getResources().getDisplayMetrics().widthPixels;
-        binding.textViewTitre.setWidth(width);
+        binding.mockViewFormClient.setMinimumWidth(width);
     }
 }

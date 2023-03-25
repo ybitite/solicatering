@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.core.content.res.ResourcesCompat;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -64,28 +65,33 @@ public class CategorieHolder extends RecyclerView.ViewHolder implements View.OnC
         //BLOCK CLICK AND MAKE ITEM GRIS
         if (categorie.getPoint() <= ConteurRepository.getPointReste()) {
 
-            changeVisibility(View.INVISIBLE, true, context.getResources().getColor(R.color.green_100));
+            changeVisibility(R.color.white_100, true, context.getResources().getColor(R.color.green_100));
 
         }
         else {
             //MAKE ITEM GRIS AND POINT GREEN
-            changeVisibility(View.VISIBLE, false, Color.RED);
+            changeVisibility(R.color.grey_100, false, context.getResources().getColor(R.color.red_100));
         }
 
     }
 
-    private void changeVisibility(int invisible, boolean clickable, int context) {
+    private void changeVisibility(int backGroundColorId, boolean clickable, int pointColorId) {
         //Change visibility and point color
-        binding.griserItemCat.setVisibility(invisible);
-        binding.linearLayoutCategorie.setClickable(clickable);
-        binding.textViewPointCat.setTextColor(context);
+        blockItem(backGroundColorId,clickable);
+        binding.textViewPointCat.setTextColor(pointColorId);
     }
-
+    private void blockItem(int colorId, boolean clickable) {
+        //MAKE ITEM GRIS AND POINT GREEN
+        itemView.setClickable(clickable);
+        binding.cardViewCategorie.setCardBackgroundColor(getColor(colorId));
+    }
+    private int getColor(int id) {
+        return ResourcesCompat.getColor(context.getResources(), id, null);
+    }
     private void fixWidth() {
         //FIX WIDTH OF CARD TO WIDTH OF SCREEN
         int width = context.getResources().getDisplayMetrics().widthPixels;
-        binding.constraintLayoutCategorie.setMinimumWidth(width);
-        binding.cardViewCategorie.setMinimumWidth(width);
+        binding.mockViewFormCategorie.setMinimumWidth(width);
     }
 
     @Override

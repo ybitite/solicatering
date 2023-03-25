@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.core.content.res.ResourcesCompat;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -83,14 +84,14 @@ public class PlatsHolder extends RecyclerView.ViewHolder implements View.OnClick
         /*BLOCK CLICK AND MAKE ITEM GREW WHEN THE POINT ARE NOT ENOUGH*/
         if (plat.getPoint() <= ConteurRepository.getCategorieActuel()) {
 
-            blockItem(View.INVISIBLE, true);
+            blockItem(R.color.white_100, true);
 
             //navigate to dialog en click
             setItemClickListener((v, pos) -> {
                 navigateToDialogPlat(plat, platViewModel); });
         }
         else {
-            blockItem(View.VISIBLE, false);
+            blockItem(R.color.green_100, false);
         }
     }
 
@@ -106,17 +107,19 @@ public class PlatsHolder extends RecyclerView.ViewHolder implements View.OnClick
                 .navigate(R.id.action_navigation_plat_to_dialogPlat2);
     }
 
-    private void blockItem(int visible, boolean clickable) {
+    private void blockItem(int colorId, boolean clickable) {
         //MAKE ITEM GRIS AND POINT GREEN
         itemView.setClickable(clickable);
-        binding.griserItemPlat.setVisibility(visible);
+        binding.cardViewCategorie.setCardBackgroundColor(getColor(colorId));
     }
-
+    private int getColor(int id) {
+        return ResourcesCompat.getColor(context.getResources(), id, null);
+    }
 
     private void fixWidth() {
         //FIX WIDTH OF CARD LIKE WIDTH OF SCREEN
         int width = context.getResources().getDisplayMetrics().widthPixels;
-        binding.cardViewCategorie.setMinimumWidth(width);
+        binding.mockViewFormPlat.setMinimumWidth(width);
     }
 
 }

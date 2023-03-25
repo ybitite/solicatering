@@ -246,6 +246,17 @@
     <style name="RecycleViewFull" parent="ConstraintsParent">
     </style>
 
+    <style name="mockViewForm">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/zero_size</item>
+        <item name="android:visibility">invisible</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintTop_toTopOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="layout_constraintBottom_toBottomOf">parent</item>
+        <item name="layout_constraintHorizontal_bias">@dimen/zero_bias</item>
+        <item name="layout_constraintVertical_bias">@dimen/zero_bias</item>
+    </style>
     <!--constraint layout-->
     <style name="ConstraintLayoutPrincipal">
         <item name="android:layout_width">match_parent</item>

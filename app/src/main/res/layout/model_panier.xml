@@ -430,6 +430,10 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <androidx.constraintlayout.utils.widget.MockView
+                    android:id="@+id/mockViewFormPanier"
+                    style="@style/mockViewForm"
+                    tools:ignore="MissingConstraints" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>

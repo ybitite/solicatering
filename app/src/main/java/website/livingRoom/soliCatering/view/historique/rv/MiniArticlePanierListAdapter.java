@@ -27,16 +27,4 @@ public class MiniArticlePanierListAdapter extends ListAdapter<ArticlePanierAndPl
         holder.bind(getItem(position));
     }
 
-    /* IMPLEMENTATION OF DIFFUTIL, ITEMCALLBACK FOR CALCULATING THE DIFF BETWEEN OLD AND NEW ITEM*/
-    public static class ArticlePanierWithPlatDiff extends DiffUtil.ItemCallback<ArticlePanierAndPlat> {
-        @Override
-        public boolean areItemsTheSame(@NonNull ArticlePanierAndPlat oldItem, @NonNull ArticlePanierAndPlat newItem) {
-            return oldItem.articlePanier.getIdPanier() == newItem.articlePanier.getIdPanier();
-        }
-
-        @Override
-        public boolean areContentsTheSame(@NonNull ArticlePanierAndPlat oldItem, @NonNull ArticlePanierAndPlat newItem) {
-            return oldItem.articlePanier.getNombrePlat() == oldItem.articlePanier.getNombrePlat();
-        }
-    }
 }

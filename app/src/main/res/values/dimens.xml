@@ -21,6 +21,8 @@
 
 
     <dimen name="zero_size">0dp</dimen>
+    <dimen name="zero_bias">0.0</dimen>
+
 
     <dimen name="x_small_text">11sp</dimen>
     <dimen name="small_text">12sp</dimen>

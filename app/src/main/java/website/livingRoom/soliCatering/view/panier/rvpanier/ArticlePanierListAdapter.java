@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import website.livingRoom.soliCatering.model.entitys.ArticlePanierAndPlat;
-import website.livingRoom.soliCatering.repository.ArticlePanierRepository;
-import website.livingRoom.soliCatering.repository.ConteurRepository;
 import website.livingRoom.soliCatering.viewModel.PanierViewModel;
 
 public class ArticlePanierListAdapter extends ListAdapter<ArticlePanierAndPlat, ArticlePanierHolder> {
     //FIELD
     final PanierViewModel panierViewModel;
+    private ArticlePanierHolder holder;
+
 
     //CREATE SIMPLE CALLBACK TO DELETE ITEM ON SWIPED LEF OR RIGHT
     public ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
@@ -23,13 +23,18 @@ public class ArticlePanierListAdapter extends ListAdapter<ArticlePanierAndPlat, 
         public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
             return false;
         }
-
         @Override
         public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-            deleteArticlePanier(viewHolder);
+                holder.deleteArticlePanier(getItem(viewHolder.getLayoutPosition()));
+        }
+        @Override
+        public int getSwipeDirs(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+            if (viewHolder instanceof  ArticlePanierPiedAdapter.ArticlePanierPiedHolder) return 0;
+            return super.getSwipeDirs(recyclerView, viewHolder);
         }
 
     };
+
     //CONSTRUCTOR
     public ArticlePanierListAdapter(@NonNull DiffUtil.ItemCallback<ArticlePanierAndPlat> diffCallback, PanierViewModel panierViewModel) {
         super(diffCallback);
@@ -47,18 +52,8 @@ public class ArticlePanierListAdapter extends ListAdapter<ArticlePanierAndPlat, 
 
     @Override
     public void onBindViewHolder(@NonNull ArticlePanierHolder holder, int position) {
+        this.holder=holder;
         holder.bind(getItem(position), panierViewModel);
-    }
-
-    //DELETE all article panier in the curent panier from data base
-    private void deleteArticlePanier(RecyclerView.ViewHolder viewHolder) {
-        //DELETE ARTICLE PANIER FROM DATA BASE
-        ArticlePanierRepository articlePanierRepository = new ArticlePanierRepository(viewHolder.itemView.getContext());
-        articlePanierRepository.deleteArticlePanier(getItem(viewHolder.getBindingAdapterPosition()).articlePanier);
-
-        //UPDATE RESTE POINT IN CONTEUR
-        ArticlePanierAndPlat articlePanierAndPlat = getItem(viewHolder.getBindingAdapterPosition());
-        ConteurRepository.upDatePointReste(articlePanierAndPlat.plat.getPoint() * articlePanierAndPlat.articlePanier.getNombrePlat());
     }
 
     /* IMPLEMENTATION OF DIFFUTIL, ITEMCALLBACK FOR CALCULATING THE DIFF BETWEEN OLD AND NEW ITEM*/

@@ -53,7 +53,7 @@ public class EvenementHolder extends RecyclerView.ViewHolder implements View.OnC
     private void fixWidth() {
         //FIX WIDTH OF CARD TO WIDTH OF SCREEN
         int width = context.getResources().getDisplayMetrics().widthPixels;
-        binding.cardViewEvenement.setMinimumWidth(width);
+        binding.mockViewFormEvenement.setMinimumWidth(width);
     }
 
     @Override

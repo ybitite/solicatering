@@ -107,8 +107,7 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
     private void fixWidth() {
         //FIX WIDTH OF CARD TO WIDTH OF SCREEN
         int width = context.getResources().getDisplayMetrics().widthPixels;
-        binding.cardViewMenu.setMinimumWidth(width);
-        binding.imageViewiFormMenu.setMinimumWidth(width);
+        binding.mockViewFormMenu.setMinimumWidth(width);
     }
 
 }
