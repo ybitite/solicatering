@@ -37,7 +37,7 @@ public class DialogPlatHolder {
         //OBSERVE SELECTED PLAT
         platViewModel.getSelectedPlat().observe(fragmentActivity, this::bindView);
         //OBSERVE NUMBER PLAT
-        platViewModel.getNumberPlat().observe(fragmentActivity, nbrPlat -> binding.textViewNbrPlat.setText(String.valueOf(nbrPlat)));
+        platViewModel.getNumberPlat().observe(fragmentActivity, this::upDateNombrePlatTextView);
     }
 
     private void bindView(Plat plat) {
@@ -91,11 +91,11 @@ public class DialogPlatHolder {
             addToPanier();
             //IF POINT FINISH NAVIGATE TO PANIER
             if (newPtRest == 0) {
-                Helper.naviguer(R.id.action_dialogPlat_to_navigation_panier);
+                naviguer(R.id.action_dialogPlat_to_navigation_panier);
             }
             //IF CAN NOT CHOSE IN SEM CATEGORIE NAVIGATE TO CATEGORIE
             else if (newPtRest < ConteurRepository.getCategorieActuel()) {
-                Helper.naviguer(R.id.action_dialogPlat_to_navigation_categorie);
+                naviguer(R.id.action_dialogPlat_to_navigation_categorie);
             }
             //IF CAN NOT CHOSE IN SEM CATEGORIE NAVIGATE TO plat
             else {
@@ -103,6 +103,10 @@ public class DialogPlatHolder {
             }
             platViewModel.resetNumberPlat();
         }
+    }
+
+    private void naviguer(int actionId) {
+        Navigation.findNavController(fragmentActivity,R.id.nav_host_fragment_activity_main).navigate(actionId);
     }
 
     private void annuller() {
@@ -139,5 +143,9 @@ public class DialogPlatHolder {
         if (articlePanierRepository.finArticlePanier(articlePanier))
             articlePanierRepository.updateArticlePanier(articlePanier, platViewModel.getNumberPlat().getValue());
         else articlePanierRepository.insert(articlePanier);
+    }
+
+    private void upDateNombrePlatTextView(Integer nbrPlat) {
+        binding.textViewNbrPlat.setText(String.valueOf(nbrPlat));
     }
 }

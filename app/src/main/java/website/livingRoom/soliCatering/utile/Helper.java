@@ -9,8 +9,10 @@ import android.widget.ImageView;
 
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.utils.widget.MockView;
-import androidx.navigation.Navigation;
+import androidx.navigation.ActivityKt;
+import androidx.navigation.ViewKt;
 
+import kotlin.*;
 import website.livingRoom.soliCatering.R;
 
 public class Helper {
@@ -45,9 +47,8 @@ public class Helper {
         imageView.setImageResource(getIdResourceByName(imageName));
     }
 
-    public static void naviguer(int idActionNavigation) {
-        Navigation.findNavController((Activity) getContext(), R.id.nav_host_fragment_activity_main)
-                .navigate(idActionNavigation);
+    public static void naviguer() {
+
     }
 
     public static Context getContext() {

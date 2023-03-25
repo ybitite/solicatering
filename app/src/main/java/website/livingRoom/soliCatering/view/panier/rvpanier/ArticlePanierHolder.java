@@ -45,16 +45,13 @@ public class ArticlePanierHolder extends RecyclerView.ViewHolder implements View
     public void bind(ArticlePanierAndPlat articlePanierAndPlat, PanierViewModel panierViewModel) {
 
         Helper.fixWidth(binding.mockViewFormArticlePanier);
-        bindIncrement(panierViewModel);
-        bindDecrement(articlePanierAndPlat, panierViewModel);
+        Helper.bindPicassoImage(articlePanierAndPlat.plat.getNomPic(),binding.imageViewTitreAP);
 
         //SET DATA IN VIEW
         binding.setArticlePanierAndPlat(articlePanierAndPlat);
-        bindImage(articlePanierAndPlat);
-    }
 
-    private void bindImage(ArticlePanierAndPlat articlePanierAndPlat) {
-        binding.imageViewTitreAP.setImageResource(Helper.getIdResourceByName(articlePanierAndPlat.plat.getNomPic()));
+        bindIncrement(panierViewModel);
+        bindDecrement(articlePanierAndPlat, panierViewModel);
     }
 
     private void bindDecrement(ArticlePanierAndPlat articlePanierAndPlat, PanierViewModel panierViewModel) {

@@ -46,7 +46,11 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
     @Override
     public void onClick(View v) {
         updateConteur(menu, ConteurRepository.getPointDepart());
-        naviguer();
+        naviguer(R.id.action_navigation_menu_to_navigation_categorie);
+    }
+
+    private void naviguer(int actionId) {
+        Navigation.findNavController(itemView).navigate(actionId);
     }
 
 
@@ -79,13 +83,10 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
         Helper.bindPicassoImage(menu.getNomPic(),binding.imageViewIconMenu);
     }
 
-    private void upDateLinearLayoutColor(int idColor) {
-        binding.linearLayoutMenu.setBackgroundColor(getColor(idColor));
+    private void upDateLinearLayoutColor(int colorId) {
+        binding.linearLayoutMenu.setBackgroundColor(Helper.getColor(colorId));
     }
 
-    private int getColor(int colorId) {
-        return context.getResources().getColor(colorId);
-    }
 
     private void updateConteur(Menu menu, int menuActuel) {
         //IF USER CLICK IN THE NEW MENU A NEW CONTEUR START AGAIN
@@ -96,12 +97,6 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
             //clear list of article panier
             articlePanierRepository.deleteCurentPanier(ConteurRepository.getPanierActuel());
         }
-    }
-
-    private void naviguer() {
-        //NAVIGATE TO CATEGORIE
-        Navigation.findNavController((Activity) context, R.id.nav_host_fragment_activity_main)
-                .navigate(R.id.action_navigation_menu_to_navigation_categorie);
     }
 
 }

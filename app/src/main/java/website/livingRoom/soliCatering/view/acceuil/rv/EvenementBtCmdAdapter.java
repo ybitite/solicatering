@@ -12,11 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import website.livingRoom.soliCatering.R;
 import website.livingRoom.soliCatering.databinding.ModelBtCmdEvenementBinding;
+import website.livingRoom.soliCatering.utile.Helper;
 
 public class EvenementBtCmdAdapter extends RecyclerView.Adapter<EvenementBtCmdAdapter.EvenementBtCmdHolder> {
 
-    //FIELD
-    private ModelBtCmdEvenementBinding binding;
+
     private Context context;
 
     //OVERRIDE METHODE
@@ -27,7 +27,6 @@ public class EvenementBtCmdAdapter extends RecyclerView.Adapter<EvenementBtCmdAd
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.model_bt_cmd_evenement, parent, false);
 
-        binding = ModelBtCmdEvenementBinding.bind(view);
 
         context = parent.getContext();
 
@@ -36,7 +35,7 @@ public class EvenementBtCmdAdapter extends RecyclerView.Adapter<EvenementBtCmdAd
 
     @Override
     public void onBindViewHolder(@NonNull EvenementBtCmdHolder holder, int position) {
-        bind();
+        holder.bind();
     }
 
     @Override
@@ -44,22 +43,25 @@ public class EvenementBtCmdAdapter extends RecyclerView.Adapter<EvenementBtCmdAd
         return 1;
     }
 
-    //METHOD BIND
-    private void bind() {
-        //NAVIGATE TO COMMANDE ON BUTTON CLICK
-        binding.buttonCommander.setOnClickListener(view ->naviguer());
-    }
 
-    private void naviguer() {
-        Navigation.findNavController((Activity) context, R.id.nav_host_fragment_activity_main)
-                .navigate(R.id.action_navigation_home_to_navigation_commande);
-    }
 
     //HOLDER
     static class EvenementBtCmdHolder extends RecyclerView.ViewHolder {
+        //FIELD
+        private ModelBtCmdEvenementBinding binding;
+
         public EvenementBtCmdHolder(View itemView) {
             super(itemView);
+            binding = ModelBtCmdEvenementBinding.bind(itemView);
+        }
+        //METHOD BIND
+        private void bind() {
+            //NAVIGATE TO COMMANDE ON BUTTON CLICK
+            binding.buttonCommander.setOnClickListener(view -> naviguer(R.id.action_navigation_home_to_navigation_commande));
         }
 
+        private void naviguer(int actionId) {
+            Navigation.findNavController(itemView).navigate(actionId);
+        }
     }
 }

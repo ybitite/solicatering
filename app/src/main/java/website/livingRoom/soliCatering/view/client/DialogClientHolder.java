@@ -1,6 +1,10 @@
 package website.livingRoom.soliCatering.view.client;
 
 
+
+import androidx.fragment.app.FragmentActivity;
+import androidx.navigation.Navigation;
+
 import website.livingRoom.soliCatering.R;
 import website.livingRoom.soliCatering.databinding.ViewClientBinding;
 import website.livingRoom.soliCatering.model.entitys.Client;
@@ -19,10 +23,12 @@ public class DialogClientHolder {
 
     private final ViewClientBinding binding;
     private final ClientViewModel clientViewModel;
+    private final FragmentActivity fragmentActivity;
 
-    public DialogClientHolder(ViewClientBinding binding, ClientViewModel clientViewModel) {
+    public DialogClientHolder(ViewClientBinding binding, ClientViewModel clientViewModel, FragmentActivity fragmentActivity) {
         this.binding = binding;
         this.clientViewModel = clientViewModel;
+        this.fragmentActivity = fragmentActivity;
     }
 
     public void bind() {
@@ -42,9 +48,14 @@ public class DialogClientHolder {
           this bloc and data access on one shut can have impact to the UI if we use UI thread**/
             AppDatabase.databaseWriteExecutor.execute(this::run);
 
-            Helper.naviguer(R.id.action_dialogClient_to_historiqueFragment);
+            naviguer(R.id.action_dialogClient_to_historiqueFragment);
         }
     }
+
+    private void naviguer(int actionId) {
+        Navigation.findNavController(fragmentActivity,R.id.nav_host_fragment_activity_main).navigate(actionId);
+    }
+
     private void run() {
 
         insertData();

@@ -47,7 +47,7 @@ public class DialogClientFragment extends DialogFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        DialogClientHolder dialogClientHolder= new DialogClientHolder(binding,clientViewModel);
+        DialogClientHolder dialogClientHolder= new DialogClientHolder(binding,clientViewModel, requireActivity());
         dialogClientHolder.bind();
     }
 

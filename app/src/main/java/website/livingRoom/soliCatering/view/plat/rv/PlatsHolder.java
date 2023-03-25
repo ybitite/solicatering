@@ -96,7 +96,11 @@ public class PlatsHolder extends RecyclerView.ViewHolder implements View.OnClick
         //SAVE SELECTED PLAT
         platViewModel.setSelectedPlat(plat);
         //NAVIGATE TO VIEW PLAT
-        Helper.naviguer(R.id.action_navigation_plat_to_dialogPlat2);
+        naviguer(R.id.action_navigation_plat_to_dialogPlat2);
+    }
+
+    private void naviguer(int action_navigation_plat_to_dialogPlat2) {
+        Navigation.findNavController(itemView).navigate(actionId);
     }
 
 }

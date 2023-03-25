@@ -38,7 +38,7 @@ public class Menu extends Entite {
         return prix + " " + Helper.getString(R.string.text_devise);
     }
     public String getPointFormat(){
-        return prix + " " + Helper.getString(R.string.text_point);
+        return point + " " + Helper.getString(R.string.text_point);
     }
 
     //OVERRIDE METHODE EQUALS TO COMPARE OBJECT
