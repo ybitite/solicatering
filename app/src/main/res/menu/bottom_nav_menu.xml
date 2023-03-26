@@ -4,17 +4,17 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_acceuil" />
+        android:title="@string/title_home" />
 
     <item
         android:id="@+id/navigation_menu"
         android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_commander" />
+        android:title="@string/title_menu" />
 
     <item
         android:id="@+id/navigation_categorie"
         android:icon="?android:attr/listChoiceIndicatorSingle"
-        android:title="categorie" />
+        android:title="@string/title_categorie" />
 
     <item
         android:id="@+id/navigation_panier"
@@ -24,7 +24,7 @@
     <item
         android:id="@+id/navigation_historique"
         android:icon="?android:attr/listChoiceIndicatorMultiple"
-        android:title="@string/title_panier" />
+        android:title="@string/title_Historique" />
 
 
 </menu>

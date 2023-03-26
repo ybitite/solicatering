@@ -28,8 +28,8 @@ public class ArticlePanierListAdapter extends ListAdapter<ArticlePanierAndPlat, 
                 holder.deleteArticlePanier(getItem(viewHolder.getLayoutPosition()));
         }
         @Override
-        public int getSwipeDirs(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
-            if (viewHolder instanceof  ArticlePanierPiedAdapter.ArticlePanierPiedHolder) return 0;
+        public int getSwipeDirs(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
+            if (viewHolder instanceof  ArticlePanierPiedHolder) return 0;
             return super.getSwipeDirs(recyclerView, viewHolder);
         }
 

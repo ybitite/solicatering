@@ -7,7 +7,7 @@ import androidx.lifecycle.LiveData;
 import website.livingRoom.soliCatering.model.entitys.Panier;
 import website.livingRoom.soliCatering.model.entitys.PanierWithAarticlePanierAndPlat;
 import website.livingRoom.soliCatering.model.room.AppDatabase;
-import website.livingRoom.soliCatering.model.room.DAO.PanierDAO;
+import website.livingRoom.soliCatering.model.room.dao.PanierDAO;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class PanierRepository {
     public PanierRepository(Context context) {
         //GET DATA BASE
         AppDatabase db = AppDatabase.getDatabase(context);
-        //GET LIVE DATA LIST PANIER FROM DAO
+        //GET LIVE DATA LIST PANIER FROM dao
         panierDAO = db.panierDAO();
         listPanierWithAarticlePanier = panierDAO.getPanierWithArticlePanierAndPlats();
     }

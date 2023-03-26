@@ -51,7 +51,7 @@
                     android:layout_margin="@dimen/small_margin"
 
 
-                    android:hint="Titre de l'evenement"
+                    android:hint="@string/titre_de_l_evenement"
                     android:textColorHint="@color/white_100"
                     android:text="@{evenement.nom}"
 
@@ -66,7 +66,7 @@
                     android:layout_width="match_parent"
                     android:textAlignment="textEnd"
 
-                    android:hint="00:00:0000"
+                    android:hint="@string/date"
                     android:textColorHint="@color/white_100"
                     android:text="@{evenement.date}"
 

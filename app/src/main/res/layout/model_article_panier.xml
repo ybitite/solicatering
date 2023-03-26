@@ -71,7 +71,7 @@
 
                 android:id="@+id/tvNbrPlatAP"
                 android:text = "@{articlePanierAndPlat.articlePanier.nombrePlatFormat}"
-                android:hint="0"
+                android:hint="@string/zero"
                 android:textAlignment="center"
 
                 app:layout_constraintEnd_toStartOf="@+id/btIncrement"
@@ -86,7 +86,7 @@
                 style="@style/textViewBase1.GrisPrincipal"
                 android:layout_marginStart="@dimen/medium_margin"
                 android:layout_marginTop="@dimen/medium_margin"
-                android:hint="Titre plat"
+                android:hint="@string/titre_plat"
 
                 android:text="@{articlePanierAndPlat.plat.nom}"
                 android:textAlignment="textStart"
@@ -101,7 +101,7 @@
 
                 style="@style/textViewBase1.GrisPrincipal.Small.Bold"
                 android:layout_width="wrap_content"
-                android:hint="10 p"
+                android:hint="@string/zero_point"
 
                 android:text="@{articlePanierAndPlat.plat.pointFormat}"
                 android:textAlignment="textEnd"

@@ -1,6 +1,5 @@
 package website.livingRoom.soliCatering.model.entitys;
 
-import android.content.res.Resources;
 
 import androidx.databinding.Bindable;
 import androidx.room.Embedded;
@@ -21,7 +20,7 @@ public class InformationLivraison extends FormulaireEtat {
     private String remarque;
     private short nombre;
     @Embedded
-    protected Adresse adresse;
+    protected final Adresse adresse;
 
     //constructor
     public InformationLivraison(String dateLivr, String heurLivr, String remarque, short nombre, Adresse adresse) {
@@ -90,7 +89,7 @@ public class InformationLivraison extends FormulaireEtat {
         return dateLivr + " - " + heurLivr;
     }
 
-    /*FOR DAO AND NORMAL ACCESS*/
+    /*FOR dao AND NORMAL ACCESS*/
     public short getNombre() {
         return nombre;
     }

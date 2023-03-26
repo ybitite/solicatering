@@ -1,4 +1,4 @@
-package website.livingRoom.soliCatering.view.Menu;
+package website.livingRoom.soliCatering.view.menu;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import website.livingRoom.soliCatering.viewModel.MenuViewModel;
 import website.livingRoom.soliCatering.databinding.FragmentMenuBinding;
-import website.livingRoom.soliCatering.view.Menu.rv.MenuListAdapter;
+import website.livingRoom.soliCatering.viewModel.MenuViewModel;
+import website.livingRoom.soliCatering.view.menu.rv.MenuListAdapter;
 
 
 public class MenuFragment extends Fragment {
@@ -56,9 +56,7 @@ public class MenuFragment extends Fragment {
         menuViewModel =
                 new ViewModelProvider(this).get(MenuViewModel.class);
 
-        menuViewModel.getListMenu().observe(getViewLifecycleOwner(), menus -> {
-            menuListAdapter.submitList(menus);
-        });
+        menuViewModel.getListMenu().observe(getViewLifecycleOwner(), menus -> menuListAdapter.submitList(menus));
     }
 
     @Override

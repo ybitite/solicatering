@@ -60,8 +60,6 @@ public class PlatFragment extends Fragment {
         int pointCategorie = ConteurRepository.getCategorieActuel();
 
         //OBSERVE DATA FROM LIVE DATA AND UPDATE RV WEN DATA CHANGE
-        platViewModel.getAllPlat(pointCategorie).observe(getViewLifecycleOwner(), plat -> {
-            platsListAdapter.submitList(plat);
-        });
+        platViewModel.getAllPlat(pointCategorie).observe(getViewLifecycleOwner(), plat -> platsListAdapter.submitList(plat));
     }
 }

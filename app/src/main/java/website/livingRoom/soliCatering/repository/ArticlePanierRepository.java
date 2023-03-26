@@ -8,14 +8,14 @@ import androidx.lifecycle.LiveData;
 import website.livingRoom.soliCatering.model.entitys.ArticlePanier;
 import website.livingRoom.soliCatering.model.entitys.ArticlePanierAndPlat;
 import website.livingRoom.soliCatering.model.room.AppDatabase;
-import website.livingRoom.soliCatering.model.room.DAO.ArticlePanierDAO;
+import website.livingRoom.soliCatering.model.room.dao.ArticlePanierDAO;
 
 import java.util.List;
 
 public class ArticlePanierRepository {
     //FIELD
     final ArticlePanierDAO articlePanierDAO;
-    LiveData<List<ArticlePanierAndPlat>> listArticlePanierWithPlat = new LiveData<List<ArticlePanierAndPlat>>() {
+    LiveData<List<ArticlePanierAndPlat>> listArticlePanierWithPlat = new LiveData<>() {
     };
 
     //CONSTRUCTOR
@@ -23,7 +23,7 @@ public class ArticlePanierRepository {
         //GET DATA BASE
         AppDatabase db = AppDatabase.getDatabase(context);
         Log.i("Article Panier ", db.toString());
-        //GET LIVE DATA LIST ARCTILE PANIER FROM DAO
+        //GET LIVE DATA LIST ARCTILE PANIER FROM dao
         articlePanierDAO = db.articlePanierDAO();
     }
 
@@ -45,26 +45,20 @@ public class ArticlePanierRepository {
 
     //UPDATE GIVEN ARTICLE PANIER
     public void updateArticlePanier(ArticlePanier articlePanier, int nombre) {
-        AppDatabase.databaseWriteExecutor.execute(() -> {
-            articlePanierDAO.updateNombreArticlePanier(articlePanier.getIdPlats(),
-                    articlePanier.getIdPanier(), nombre);
-        });
+        AppDatabase.databaseWriteExecutor.execute(() -> articlePanierDAO.updateNombreArticlePanier(articlePanier.getIdPlats(),
+                articlePanier.getIdPanier(), nombre));
     }
 
     //DELETE CURENT PANIER IN THE SEM CURENT PANIER
     public void deleteCurentPanier(int idPanier) {
         //DO THE DELETE IN NON-UI THREAD
-        AppDatabase.databaseWriteExecutor.execute(() -> {
-            articlePanierDAO.deleteArticlePanier(idPanier);
-        });
+        AppDatabase.databaseWriteExecutor.execute(() -> articlePanierDAO.deleteArticlePanier(idPanier));
     }
 
     //DELETE GIVING ARTICLE PANIER
     public void deleteArticlePanier(ArticlePanier articlePanier) {
         //DO THE DELETE IN NON-UI THREAD
-        AppDatabase.databaseWriteExecutor.execute(() -> {
-            articlePanierDAO.deleteArticlePanier(articlePanier);
-        });
+        AppDatabase.databaseWriteExecutor.execute(() -> articlePanierDAO.deleteArticlePanier(articlePanier));
     }
 
 

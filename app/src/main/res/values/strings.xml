@@ -1,9 +1,13 @@
 <resources>
     <string name="app_name">Soli Catering</string>
     <!-- Menu title -->
-    <string name="title_acceuil" translatable="false">Accueil</string>
-    <string name="title_commander" translatable="false">Commander</string>
+    <string name="title_home" translatable="false">Accueil</string>
+    <string name="title_menu" translatable="false">Menu</string>
+    <string name="title_Historique" translatable="false">Historique</string>
     <string name="title_panier" translatable="false">Panier</string>
+    <string name="title_categorie" translatable="false">categorie</string>
+
+
     <!-- Preference Titles -->
 
     <!-- Messages Preferences -->
@@ -59,11 +63,17 @@
     <string name="description_image_view_event_principal" translatable="false">image view event principal</string>
     <string name="description_image_view_plat" translatable="false">photo réelle du plat</string>
     <string name="description_image_view_menu" translatable="false">photo lustration du menu</string>
-    <string name="description_image_view_trait_vertical" translatable="false">trait pour séparation</string>
+    <string name="description_image_view_trait_vertical" translatable="false">trait vertical pour séparation</string>
+    <string name="description_image_view_trait_horizontal" translatable="false">trait horizontal pour séparation</string>
     <string name="description_image_view_fermer" translatable="false">button pour cloturer le dialog</string>
     <string name="description_image_view_information_livraison" translatable="false">icon information livraison</string>
     <string name="description_image_view_information_contact" translatable="false">icon information contact</string>
     <string name="description_image_view_vegi" translatable="false">icon indique si le plat est vegan</string>
+    <string name="description_image_view_categorie" translatable="false">photo lustration categorie</string>
+    <string name="description_image_view_check_box" translatable="false">icon check box ilustre l\'etat d\'avancement</string>
+    <string name="description_image_view_logo_soli_catering" translatable="false">logo du projet soli catering</string>
+
+
 
 
     <string name="button_commander" translatable="false">Passez une commande</string>
@@ -79,9 +89,34 @@
     <string name="label_information_de_contact" translatable="false">Information de Contact</string>
     <string name="label_information_de_livraison" translatable="false">Information de livraison</string>
     <string name="bt_valider" translatable="false">Valider</string>
-    <string name="label_0">0</string>
-    <string name="bt_ajouter">Ajouter</string>
-    <string name="bt_annuller">annuller</string>
+    <string name="label_0" translatable="false">0</string>
+    <string name="bt_ajouter" translatable="false">Ajouter</string>
+    <string name="bt_annuller" translatable="false">annuller</string>
+    <string name="titre_du_menu" translatable="false">Titre du menu</string>
+    <string name="zero_point" translatable="false">0 p</string>
+    <string name="zero" translatable="false">0</string>
+    <string name="titre_plat" translatable="false">Titre plat</string>
+    <string name="description" translatable="false">description</string>
+    <string name="titre_de_la_cat_gorie" translatable="false">Titre de la catégorie</string>
+    <string name="description_de_la_categorie" translatable="false">description de la categorie</string>
+    <string name="contenu_1" translatable="false">contenu 1</string>
+    <string name="contenu_2" translatable="false">contenu 2</string>
+    <string name="contenu_3" translatable="false">contenu 3</string>
+    <string name="trois_point" translatable="false">....</string>
+    <string name="titre_de_l_evenement" translatable="false">Titre de l\'evenement</string>
+    <string name="date" translatable="false">00:00:0000</string>
+    <string name="titre_menu" translatable="false">Titre Menu</string>
+    <string name="description_menu" translatable="false">description menu</string>
+    <string name="zero_devise" translatable="false">00 CHF</string>
+    <string name="temps_necessaire" translatable="false">*temps necessaire</string>
+    <string name="titre_catering" translatable="false">Titre Catering</string>
+    <string name="etat_d_avancement" translatable="false">Etat d\'avancement</string>
+    <string name="nom_prenom" translatable="false">Nom Prenom</string>
+    <string name="adresse_complete" translatable="false">Adresse Complete</string>
+    <string name="information_livraion" translatable="false">Information livraion</string>
+    <string name="bt_valider_la_commande" translatable="false">Valider la commande</string>
+    <string name="title_dialog_plat">DialogPlat</string>
+    <string name="title_dialog_client">view_client</string>
 
 
 </resources>

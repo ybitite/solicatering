@@ -56,8 +56,6 @@ public class HistoriqueFragment extends Fragment {
     private void observeDataAndUpdateView(PanierListAdapter panierListAdapter) {
 
         //OBSERVE DATA FROM LIVE DATA AND UPDATE RV WEN DATA CHANGE
-        historiqueViewModel.getListPanierWithArticlePanierAndPlat().observe(getViewLifecycleOwner(), listPanierWithAP -> {
-            panierListAdapter.submitList(listPanierWithAP);
-        });
+        historiqueViewModel.getListPanierWithArticlePanierAndPlat().observe(getViewLifecycleOwner(), listPanierWithAP -> panierListAdapter.submitList(listPanierWithAP));
     }
 }

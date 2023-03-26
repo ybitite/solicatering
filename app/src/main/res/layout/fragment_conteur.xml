@@ -30,7 +30,7 @@
             android:layout_height="@dimen/x_large_margin"
             android:layout_marginStart="@dimen/medium_margin"
 
-            android:hint="Nom du menu"
+            android:hint="@string/titre_du_menu"
             android:text="@{conteur.nameFormat}"
             android:textAlignment="textStart"
 
@@ -47,7 +47,7 @@
 
 
             android:layout_marginEnd="@dimen/medium_margin"
-            android:hint="10 p"
+            android:hint="@string/zero_point"
             android:text="@{conteur.pointResteFormat}"
 
             android:textAlignment="textStart"
@@ -64,7 +64,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
-            android:hint="0 p"
+            android:hint="@string/zero_point"
             android:labelFor="@+id/textViewPointConteurCat"
             android:text="@string/label_point_restant"
             android:textAlignment="textEnd"

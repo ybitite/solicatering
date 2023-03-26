@@ -1,7 +1,7 @@
+
 package website.livingRoom.soliCatering.view.acceuil.rv;
 
-import android.app.Activity;
-import android.content.Context;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import website.livingRoom.soliCatering.R;
 import website.livingRoom.soliCatering.databinding.ModelBtCmdEvenementBinding;
-import website.livingRoom.soliCatering.utile.Helper;
 
-public class EvenementBtCmdAdapter extends RecyclerView.Adapter<EvenementBtCmdAdapter.EvenementBtCmdHolder> {
-
-
-    private Context context;
+public class EvenementBtCmdAdapter extends RecyclerView.Adapter<EvenementBtCmdHolder> {
 
     //OVERRIDE METHODE
     @NonNull
@@ -26,9 +22,6 @@ public class EvenementBtCmdAdapter extends RecyclerView.Adapter<EvenementBtCmdAd
 
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.model_bt_cmd_evenement, parent, false);
-
-
-        context = parent.getContext();
 
         return new EvenementBtCmdHolder(view);
     }
@@ -45,23 +38,4 @@ public class EvenementBtCmdAdapter extends RecyclerView.Adapter<EvenementBtCmdAd
 
 
 
-    //HOLDER
-    static class EvenementBtCmdHolder extends RecyclerView.ViewHolder {
-        //FIELD
-        private ModelBtCmdEvenementBinding binding;
-
-        public EvenementBtCmdHolder(View itemView) {
-            super(itemView);
-            binding = ModelBtCmdEvenementBinding.bind(itemView);
-        }
-        //METHOD BIND
-        private void bind() {
-            //NAVIGATE TO COMMANDE ON BUTTON CLICK
-            binding.buttonCommander.setOnClickListener(view -> naviguer(R.id.action_navigation_home_to_navigation_commande));
-        }
-
-        private void naviguer(int actionId) {
-            Navigation.findNavController(itemView).navigate(actionId);
-        }
-    }
 }

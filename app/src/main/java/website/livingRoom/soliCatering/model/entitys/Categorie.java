@@ -1,8 +1,6 @@
 package website.livingRoom.soliCatering.model.entitys;
 
 
-import android.content.res.Resources;
-
 import androidx.room.Entity;
 
 

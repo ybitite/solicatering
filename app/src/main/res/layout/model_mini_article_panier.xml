@@ -40,7 +40,7 @@
                     android:id="@+id/tvNbrPlatMiniAP"
                     style="@style/textViewBase1.GrisClair.CaseText"
 
-                    android:hint="0"
+                    android:hint="@string/zero"
                     android:text="@{articlePanierAndPlat.articlePanier.nombrePlatFormat}"
 
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -54,7 +54,7 @@
                     style="@style/textViewBase1.GrisPrincipal"
 
                     android:text="@{articlePanierAndPlat.plat.nom}"
-                    android:hint="Titre plat"
+                    android:hint="@string/titre_plat"
                     android:textAlignment="textStart"
 
                     android:layout_marginStart="@dimen/small_margin"
@@ -68,7 +68,7 @@
                     style="@style/textViewBase1.GrisPrincipal"
 
                     android:text="@{articlePanierAndPlat.plat.pointFormat}"
-                    android:hint=" 0 p"
+                    android:hint="@string/zero"
                     android:textAlignment="textStart"
 
                     android:layout_marginStart="@dimen/small_margin"

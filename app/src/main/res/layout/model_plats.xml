@@ -46,13 +46,15 @@
                     android:id="@+id/imageViewVegi"
                     style="@style/ImageViewXSmall"
 
-                    app:srcCompat="@drawable/icon_vegi" />
+                    app:srcCompat="@drawable/icon_vegi"
+                    android:contentDescription="@string/description_image_view_vegi" />
 
                 <ImageView
                     android:id="@+id/imageViewDegureEpice"
                     style="@style/ImageViewXSmall"
 
-                    app:srcCompat="@drawable/icon_degure_epice_1" />
+                    app:srcCompat="@drawable/icon_degure_epice_1"
+                android:contentDescription="@string/description_image_view_vegi" />
 
                 <TextView
                     android:id="@+id/textViewTitrePlat"
@@ -60,7 +62,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="@{plat.nom}"
-                    android:hint="Tajine aux prunes  "
+                    android:hint="@string/titre_plat"
                     android:textColorHint="@color/white_100"
                     android:textAlignment="textEnd" />
             </LinearLayout>

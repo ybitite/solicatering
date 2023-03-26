@@ -2,13 +2,12 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
     app:startDestination="@+id/navigation_home">
     <!-- aceuille -->
     <fragment
         android:id="@+id/navigation_home"
         android:name="website.livingRoom.soliCatering.view.acceuil.AccueilFragment"
-        android:label="@string/title_acceuil"
+        android:label="@string/title_home"
         tools:layout="@layout/fragment_acceuil">
         <action
             android:id="@+id/action_navigation_home_to_navigation_commande"
@@ -17,8 +16,8 @@
     <!-- menu -->
     <fragment
         android:id="@+id/navigation_menu"
-        android:name="website.livingRoom.soliCatering.view.Menu.MenuFragment"
-        android:label="@string/title_commander"
+        android:name="website.livingRoom.soliCatering.view.menu.MenuFragment"
+        android:label="@string/title_menu"
         tools:layout="@layout/fragment_menu">
         <action
             android:id="@+id/action_navigation_menu_to_navigation_categorie"
@@ -28,7 +27,7 @@
     <fragment
         android:id="@+id/navigation_categorie"
         android:name="website.livingRoom.soliCatering.view.categorie.CategorieFragment"
-        android:label="categorie"
+        android:label="@string/title_categorie"
         tools:layout="@layout/fragment_categorie">
         <action
             android:id="@+id/action_navigation_categorie_to_navigation_plat"
@@ -38,7 +37,7 @@
     <fragment
         android:id="@+id/navigation_plat"
         android:name="website.livingRoom.soliCatering.view.plat.PlatFragment"
-        android:label="plat"
+        android:label="@string/titre_plat"
         tools:layout="@layout/fragment_plat">
         <action
             android:id="@+id/action_navigation_plat_to_dialogPlat2"
@@ -58,7 +57,7 @@
     <dialog
         android:id="@+id/dialogPlat"
         android:name="website.livingRoom.soliCatering.view.plat.DialogPlatFragment"
-        android:label="DialogPlat"
+        android:label="@string/title_dialog_plat"
         tools:layout="@layout/view_plats">
         <action
             android:id="@+id/action_dialogPlat_to_navigation_panier"
@@ -75,7 +74,7 @@
     <dialog
         android:id="@+id/dialogClient"
         android:name="website.livingRoom.soliCatering.view.client.DialogClientFragment"
-        android:label="view_client"
+        android:label="@string/title_dialog_client"
         tools:layout="@layout/view_client">
         <action
             android:id="@+id/action_dialogClient_to_historiqueFragment"
@@ -84,7 +83,7 @@
     <fragment
         android:id="@+id/navigation_historique"
         android:name="website.livingRoom.soliCatering.view.historique.HistoriqueFragment"
-        android:label="hitorique"
+        android:label="@string/title_Historique"
         tools:layout="@layout/fragment_historique" />
 
 </navigation>

@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData;
 
 import website.livingRoom.soliCatering.model.entitys.Categorie;
 import website.livingRoom.soliCatering.model.room.AppDatabase;
-import website.livingRoom.soliCatering.model.room.DAO.CategorieDAO;
+import website.livingRoom.soliCatering.model.room.dao.CategorieDAO;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ public class CategorieRepository {
     public CategorieRepository(Context context) {
         //GET DATA BASE
         AppDatabase db = AppDatabase.getDatabase(context);
-        //GET LIVE DATA LIST CATEGORIE FROM DAO
+        //GET LIVE DATA LIST CATEGORIE FROM dao
         CategorieDAO categorieDAO = db.categorieDAO();
         listCategorie = categorieDAO.getCategories();
     }

@@ -1,7 +1,5 @@
-package website.livingRoom.soliCatering.view.Menu.rv;
+package website.livingRoom.soliCatering.view.menu.rv;
 
-import android.app.Activity;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,16 +18,12 @@ import website.livingRoom.soliCatering.utile.Helper;
 public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     //FIELD
     private final ModelMenuBinding binding;
-    private final Context context;
-    ArticlePanierRepository articlePanierRepository;
+    final ArticlePanierRepository articlePanierRepository;
     Menu menu;
 
     //CONSTRUCTOR
     public MenuHolder(ModelMenuBinding modelMenuBinding) {
         super(modelMenuBinding.getRoot());
-
-        //GET CONTEXT TO USE LATER
-        context = modelMenuBinding.getRoot().getContext();
 
         // instantiate binding object
         binding = modelMenuBinding;
@@ -38,7 +32,7 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
         itemView.setOnClickListener(this);
 
         //INSTANTIATE REPOSITORY
-        articlePanierRepository = new ArticlePanierRepository(context);
+        articlePanierRepository = new ArticlePanierRepository(binding.getRoot().getContext());
     }
 
     //METHODE

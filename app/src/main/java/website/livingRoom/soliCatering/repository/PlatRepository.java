@@ -8,7 +8,7 @@ import java.util.List;
 
 import website.livingRoom.soliCatering.model.entitys.Plat;
 import website.livingRoom.soliCatering.model.room.AppDatabase;
-import website.livingRoom.soliCatering.model.room.DAO.PlatDAO;
+import website.livingRoom.soliCatering.model.room.dao.PlatDAO;
 
 public class PlatRepository {
     //FIELD
@@ -19,7 +19,7 @@ public class PlatRepository {
     public PlatRepository(Context context) {
         //GET DATA BASE
         AppDatabase db = AppDatabase.getDatabase(context);
-        //GET LIVE DATA LIST PLAT FROM DAO
+        //GET LIVE DATA LIST PLAT FROM dao
         platDAO = db.platDAO();
     }
 

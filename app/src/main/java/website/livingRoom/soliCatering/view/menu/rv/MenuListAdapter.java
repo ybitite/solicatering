@@ -1,4 +1,4 @@
-package website.livingRoom.soliCatering.view.Menu.rv;
+package website.livingRoom.soliCatering.view.menu.rv;
 
 import android.view.ViewGroup;
 

@@ -15,13 +15,13 @@ import website.livingRoom.soliCatering.model.entitys.Evenement;
 import website.livingRoom.soliCatering.model.entitys.Menu;
 import website.livingRoom.soliCatering.model.entitys.Panier;
 import website.livingRoom.soliCatering.model.entitys.Plat;
-import website.livingRoom.soliCatering.model.room.DAO.ArticlePanierDAO;
-import website.livingRoom.soliCatering.model.room.DAO.CategorieDAO;
-import website.livingRoom.soliCatering.model.room.DAO.ClientDAO;
-import website.livingRoom.soliCatering.model.room.DAO.EvenementDAO;
-import website.livingRoom.soliCatering.model.room.DAO.MenuDAO;
-import website.livingRoom.soliCatering.model.room.DAO.PanierDAO;
-import website.livingRoom.soliCatering.model.room.DAO.PlatDAO;
+import website.livingRoom.soliCatering.model.room.dao.ArticlePanierDAO;
+import website.livingRoom.soliCatering.model.room.dao.CategorieDAO;
+import website.livingRoom.soliCatering.model.room.dao.ClientDAO;
+import website.livingRoom.soliCatering.model.room.dao.EvenementDAO;
+import website.livingRoom.soliCatering.model.room.dao.MenuDAO;
+import website.livingRoom.soliCatering.model.room.dao.PanierDAO;
+import website.livingRoom.soliCatering.model.room.dao.PlatDAO;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -43,7 +43,7 @@ public abstract class AppDatabase extends RoomDatabase {
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
     //METHODE
-    //EXPOSE DAO WITH ABSTRACT METHODE
+    //EXPOSE dao WITH ABSTRACT METHODE
     public abstract EvenementDAO evenementDAO();
     public abstract MenuDAO menuDAO();
     public abstract CategorieDAO categorieDAO();

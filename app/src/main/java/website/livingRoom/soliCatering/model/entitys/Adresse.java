@@ -76,7 +76,7 @@ public class Adresse extends FormulaireEtat {
     public String getCompletAdresse() {
         return rue + " " + numeroRue + ", " + codePostal + " " + ville + ".";
     }
-    /*FOR DAO AND NORMAL ACCESS*/
+    /*FOR dao AND NORMAL ACCESS*/
     public int getNumeroRue() {
         return numeroRue;
     }

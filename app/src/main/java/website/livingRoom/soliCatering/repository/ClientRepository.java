@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData;
 
 import website.livingRoom.soliCatering.model.entitys.Client;
 import website.livingRoom.soliCatering.model.room.AppDatabase;
-import website.livingRoom.soliCatering.model.room.DAO.ClientDAO;
+import website.livingRoom.soliCatering.model.room.dao.ClientDAO;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class ClientRepository {
     public ClientRepository(Context context) {
         //GET DATA BASE
         AppDatabase db = AppDatabase.getDatabase(context);
-        //GET LIVE DATA LIST CLIENT FROM DAO
+        //GET LIVE DATA LIST CLIENT FROM dao
         clientDAO = db.clientDAO();
     }
 

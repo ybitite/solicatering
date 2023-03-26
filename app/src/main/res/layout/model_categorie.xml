@@ -29,7 +29,8 @@
                     android:id="@+id/imageViewCat"
 
                     app:srcCompat="@drawable/backdescriptionplat"
-                    tools:ignore="MissingConstraints" />
+                    tools:ignore="MissingConstraints"
+                    android:contentDescription="@string/description_image_view_categorie" />
 
                 <!--text view titre-->
                 <TextView
@@ -38,7 +39,7 @@
                     style="@style/textViewBase1.GrisPrincipal.Adaptable.Bold"
                     android:layout_marginStart="@dimen/medium_margin"
                     android:layout_marginTop="@dimen/medium_margin"
-                    android:hint="Titre de la catégorie"
+                    android:hint="@string/titre_de_la_cat_gorie"
 
                     android:text="@{categorie.nom}"
                     android:textAlignment="textStart"
@@ -51,7 +52,7 @@
 
                     style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
 
-                    android:hint="description de la categorie"
+                    android:hint="@string/description_de_la_categorie"
                     android:text="@{categorie.discription}"
                     android:textAlignment="textStart"
 
@@ -64,7 +65,7 @@
                     android:id="@+id/textViewContenuCat1"
 
                     style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
-                    android:hint="contenu 1"
+                    android:hint="@string/contenu_1"
                     android:textAlignment="textStart"
 
                     app:layout_constraintBottom_toTopOf="@+id/textViewContenuCat2"
@@ -76,7 +77,7 @@
 
                     style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
 
-                    android:hint="contenu 2"
+                    android:hint="@string/contenu_2"
                     android:textAlignment="textStart"
 
                     app:layout_constraintBottom_toTopOf="@+id/textViewContenuCat3"
@@ -87,7 +88,7 @@
                     android:id="@+id/textViewContenuCat3"
 
                     style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
-                    android:hint="contenu 3"
+                    android:hint="@string/contenu_3"
 
                     app:layout_constraintBottom_toTopOf="@+id/textViewContenuCat4"
                     app:layout_constraintStart_toStartOf="@+id/textViewDiscriptionCat" />
@@ -101,7 +102,7 @@
                     android:layout_marginBottom="@dimen/small_margin"
                     android:gravity="center"
 
-                    android:hint="...."
+                    android:hint="@string/trois_point"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/textViewContenuCat3" />
 
@@ -111,7 +112,7 @@
                     style="@style/textViewBase1.Vert.Small.Bold"
 
                     android:text="@{categorie.pointFormat}"
-                    android:hint="10 p"
+                    android:hint="@string/zero_point"
                     android:textAlignment="textStart"
                     android:textStyle="bold"
 

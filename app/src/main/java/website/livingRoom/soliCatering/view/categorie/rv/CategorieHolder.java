@@ -78,7 +78,7 @@ public class CategorieHolder extends RecyclerView.ViewHolder implements View.OnC
         naviguer(R.id.action_navigation_categorie_to_navigation_plat);
     }
 
-    private void naviguer(int action_navigation_categorie_to_navigation_plat) {
+    private void naviguer(int actionId) {
         Navigation.findNavController(itemView).navigate(actionId);
     }
 }

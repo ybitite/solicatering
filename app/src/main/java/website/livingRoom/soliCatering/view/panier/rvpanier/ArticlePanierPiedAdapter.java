@@ -17,7 +17,7 @@ import website.livingRoom.soliCatering.databinding.ModelPiedArticlePanierBinding
 import website.livingRoom.soliCatering.repository.ConteurRepository;
 
 
-public class ArticlePanierPiedAdapter extends RecyclerView.Adapter<ArticlePanierPiedAdapter.ArticlePanierPiedHolder> {
+public class ArticlePanierPiedAdapter extends RecyclerView.Adapter<ArticlePanierPiedHolder> {
 
     //FIELD
     private ModelPiedArticlePanierBinding binding;
@@ -82,18 +82,9 @@ public class ArticlePanierPiedAdapter extends RecyclerView.Adapter<ArticlePanier
     }
 
     private void setOnClickListenerToButtonValider() {
-        binding.buttonValiderCmd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController((Activity) context, R.id.nav_host_fragment_activity_main)
-                        .navigate(R.id.action_navigation_panier_to_dialogClient);
-            }
-        });
+        binding.buttonValiderCmd.setOnClickListener(v -> Navigation.findNavController((Activity) context, R.id.nav_host_fragment_activity_main)
+                .navigate(R.id.action_navigation_panier_to_dialogClient));
     }
 
-    static class ArticlePanierPiedHolder extends RecyclerView.ViewHolder {
-        ArticlePanierPiedHolder(View itemView) {
-            super(itemView);
-        }
-    }
+
 }

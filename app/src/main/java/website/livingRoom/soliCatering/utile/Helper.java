@@ -1,7 +1,6 @@
 package website.livingRoom.soliCatering.utile;
 
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.view.View;
@@ -9,11 +8,7 @@ import android.widget.ImageView;
 
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.utils.widget.MockView;
-import androidx.navigation.ActivityKt;
-import androidx.navigation.ViewKt;
 
-import kotlin.*;
-import website.livingRoom.soliCatering.R;
 
 public class Helper {
 
@@ -47,9 +42,6 @@ public class Helper {
         imageView.setImageResource(getIdResourceByName(imageName));
     }
 
-    public static void naviguer() {
-
-    }
 
     public static Context getContext() {
         return AppUtile.getContext();

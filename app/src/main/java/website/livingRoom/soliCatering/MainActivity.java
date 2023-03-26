@@ -49,9 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private void initiateContour() {
 
         //INSTANTIATE LISTENER TO UPDATE UI WEN DATA IN SHARED PREFERENCES CHANGE
-        listener = (SharedPreferences sharedPreferences, String key) -> {
-            updateConteurControl();
-        };
+        listener = (SharedPreferences sharedPreferences, String key) -> updateConteurControl();
 
         //GET INSTANCE OF SP TO REGISTER A LISTENER
         sharedPreferences = AppSharedPreferences.getSharedPreferences(getBaseContext());

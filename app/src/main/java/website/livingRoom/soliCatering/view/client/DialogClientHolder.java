@@ -24,11 +24,13 @@ public class DialogClientHolder {
     private final ViewClientBinding binding;
     private final ClientViewModel clientViewModel;
     private final FragmentActivity fragmentActivity;
+    private final DialogClientFragment dialogClientFragment;
 
-    public DialogClientHolder(ViewClientBinding binding, ClientViewModel clientViewModel, FragmentActivity fragmentActivity) {
+    public DialogClientHolder(ViewClientBinding binding, ClientViewModel clientViewModel, FragmentActivity fragmentActivity,DialogClientFragment dialogClientFragment) {
         this.binding = binding;
         this.clientViewModel = clientViewModel;
         this.fragmentActivity = fragmentActivity;
+        this.dialogClientFragment = dialogClientFragment;
     }
 
     public void bind() {
@@ -36,6 +38,11 @@ public class DialogClientHolder {
         Helper.fixWidth(binding.mockViewFormClient);
 
         binding.buttonValider.setOnClickListener(v -> onValiderClick());
+        binding.imageViewClose.setOnClickListener(v -> onAnnullerClick());
+    }
+
+    private void onAnnullerClick() {
+        dialogClientFragment.dismiss();
     }
 
     //methode to link to onclick valider button listener

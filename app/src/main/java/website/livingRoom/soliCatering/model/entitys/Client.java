@@ -75,7 +75,7 @@ public class Client extends FormulaireEtat {
             notifyPropertyChanged(BR.numTel);
         this.numTel = numTel;
     }
-    /*FOR DAO AND NORMAL ACCESS*/
+    /*FOR dao AND NORMAL ACCESS*/
     public int getIdClient() {
         return idClient;
     }

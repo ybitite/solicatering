@@ -51,7 +51,7 @@ public class FormulaireEtat extends BaseObservable {
 
     //TO OBSERVE CHANGE
     @Ignore
-    protected PropertyChangeRegistry callbacks;
+    protected final PropertyChangeRegistry callbacks;
 
     //CONSTRUCTOR
     public FormulaireEtat() {

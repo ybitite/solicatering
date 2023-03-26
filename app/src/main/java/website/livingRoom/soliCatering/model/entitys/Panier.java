@@ -26,6 +26,7 @@ public class Panier extends Entite{
     final float prix;
     final int etat;
     @Embedded
+    final
     InformationLivraison informationLivraison;
 
     //CONSTRUCTOR

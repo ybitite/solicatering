@@ -1,12 +1,9 @@
 package website.livingRoom.soliCatering.view.plat.rv;
 
-import android.app.Activity;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.core.content.res.ResourcesCompat;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,13 +21,11 @@ public class PlatsHolder extends RecyclerView.ViewHolder implements View.OnClick
     //FIELD
     private ItemClickListener itemClickListener;
     private final ModelPlatsBinding binding;
-    private final Context context;
 
     public PlatsHolder(ModelPlatsBinding modelPlatsBinding) {
         super(modelPlatsBinding.getRoot());
 
         //GET CONTEXT TO USE LATER
-        context = modelPlatsBinding.getRoot().getContext();
 
         // instantiate binding object
         binding = modelPlatsBinding;
@@ -84,8 +79,7 @@ public class PlatsHolder extends RecyclerView.ViewHolder implements View.OnClick
             Helper.blockItem(R.color.white_100,true,itemView,binding.cardViewPlat);
 
             //navigate to dialog en click
-            setItemClickListener((v, pos) -> {
-                navigateToDialogPlat(plat, platViewModel); });
+            setItemClickListener((v, pos) -> navigateToDialogPlat(plat, platViewModel));
         }
         else {
             Helper.blockItem(R.color.green_100,false,itemView,binding.cardViewPlat);
@@ -99,7 +93,7 @@ public class PlatsHolder extends RecyclerView.ViewHolder implements View.OnClick
         naviguer(R.id.action_navigation_plat_to_dialogPlat2);
     }
 
-    private void naviguer(int action_navigation_plat_to_dialogPlat2) {
+    private void naviguer(int actionId) {
         Navigation.findNavController(itemView).navigate(actionId);
     }
 

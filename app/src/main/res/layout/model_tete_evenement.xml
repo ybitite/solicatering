@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/linearLayoutTeteEvenement"
     style="@style/LinearLayoutPrincipaleFullWidthBlanc">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewTeteEvenement"
-        style="@style/cardViewPrincipalRVBlanc.Full">
+    <androidx.cardview.widget.CardView style="@style/cardViewPrincipalRVBlanc.Full">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayoutTeteEvenement"
             style="@style/WidthParent"
             android:layout_margin="@dimen/small_margin">
 
 
             <ImageView
-                android:id="@+id/imageViewLogo"
                 style="@style/ImageViewMedium"
 
                 android:layout_margin="@dimen/small_margin"
@@ -24,7 +19,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/logogray" />
+                app:srcCompat="@drawable/logogray"
+                android:contentDescription="@string/description_image_view_logo_soli_catering" />
 
             <TextView
                 android:id="@+id/textViewDescriptionProjet"

@@ -58,8 +58,6 @@ public class CategorieFragment extends Fragment {
 
     private void observeDataAndUpdateView(CategorieListAdapter categorieListAdapter) {
         //OBSERVE DATA FROM LIVE DATA AND UPDATE RV WEN DATA CHANGE
-        categorieViewModel.getListCategorie().observe(getViewLifecycleOwner(), categorie -> {
-            categorieListAdapter.submitList(categorie);
-        });
+        categorieViewModel.getListCategorie().observe(getViewLifecycleOwner(), categorie -> categorieListAdapter.submitList(categorie));
     }
 }

@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import website.livingRoom.soliCatering.R;
-public class EvenementTeteAdapter extends RecyclerView.Adapter<EvenementTeteAdapter.EvenementTeteHolder> {
+public class EvenementTeteAdapter extends RecyclerView.Adapter<EvenementTeteHolder> {
 
     //OVERRIDE METHODE
     @NonNull
@@ -23,7 +23,6 @@ public class EvenementTeteAdapter extends RecyclerView.Adapter<EvenementTeteAdap
 
     @Override
     public void onBindViewHolder(@NonNull EvenementTeteHolder holder, int position) {
-        bind();
     }
 
     @Override
@@ -31,14 +30,5 @@ public class EvenementTeteAdapter extends RecyclerView.Adapter<EvenementTeteAdap
         return 1;
     }
 
-    //METHODE BIND
-    public void bind() {
-    }
-
-    static class EvenementTeteHolder extends RecyclerView.ViewHolder {
-        public EvenementTeteHolder(View view) {
-            super(view);
-        }
-    }
 }
 

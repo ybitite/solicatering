@@ -32,7 +32,7 @@
                     android:layout_marginStart="@dimen/medium_margin"
                     android:layout_marginTop="@dimen/medium_margin"
 
-                    android:hint="Titre Catering"
+                    android:hint="@string/titre_catering"
                     android:text="@{String.valueOf(panier.informationLivraison.titreCatering)}"
 
                     app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +42,7 @@
                     android:id="@+id/textViewEtat"
                     style="@style/textViewBase1.Rouge.Small"
 
-                    android:hint="Etat d'avancement"
+                    android:hint="@string/etat_d_avancement"
                     android:layout_marginTop="@dimen/small_margin"
 
                     app:layout_constraintEnd_toEndOf="parent"
@@ -76,7 +76,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        android:contentDescription="TODO" />
+                        android:contentDescription="@string/description_image_view_menu" />
                     <!--label nombre personnne-->
                     <TextView
                         android:id="@+id/textViewNombreLabelP"
@@ -120,7 +120,7 @@
                         android:id="@+id/textViewNombreP"
                         style="@style/textViewBase1.GrisPrincipal.Small.Adaptable.bold.claire"
 
-                        android:hint="100 p"
+                        android:hint="@string/zero_point"
                         android:text="@{panier.informationLivraison.nombreFormat}"
 
                         app:layout_constraintBottom_toBottomOf="@+id/textViewNombreLabelP"
@@ -131,7 +131,7 @@
                         android:id="@+id/textViewPrixMenuP"
                         style="@style/textViewBase1.GrisPrincipal.Small.Adaptable.bold.claire"
 
-                        android:hint="20 CHF"
+                        android:hint="@string/zero_devise"
                         android:text="@{panier.prixFormat}"
 
                         app:layout_constraintBottom_toBottomOf="@+id/textViewPrixMenuLabel"
@@ -142,7 +142,7 @@
                         android:id="@+id/textViewPrixTotal"
                         style="@style/textViewBase1.GrisPrincipal.Small.Adaptable.bold.claire"
 
-                        android:hint="2000 CHF"
+                        android:hint="@string/zero_devise"
                         android:text="@{panier.prixTotalFormat}"
 
                         app:layout_constraintBottom_toBottomOf="@+id/textViewPrixTotalLabel"
@@ -183,14 +183,14 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/delivery_icon"
-                        android:contentDescription="TODO" />
+                        android:contentDescription="@string/description_image_view_information_contact" />
                     <!--nom prenom-->
                     <TextView
                         android:id="@+id/textViewNomPrenomP"
                         style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
 
 
-                        android:hint="Nom Prenom"
+                        android:hint="@string/nom_prenom"
                         android:text="@{panier.nomPrenom}"
 
                         android:layout_marginStart="@dimen/small_margin"
@@ -207,7 +207,7 @@
                         android:layout_marginStart="@dimen/small_margin"
                         android:layout_marginTop="@dimen/medium_margin"
 
-                        android:hint="Adresse Complete"
+                        android:hint="@string/adresse_complete"
                         android:text="@{panier.informationLivraison.adresse.getCompletAdresse()}"
 
                         app:layout_constraintEnd_toEndOf="parent"
@@ -220,7 +220,7 @@
                         style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
 
 
-                        android:hint="Information livraion"
+                        android:hint="@string/information_livraion"
                         android:text="@{panier.informationLivraison.getDateHeure()}"
 
                         android:layout_marginStart="@dimen/small_margin"
@@ -303,7 +303,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="1.0"
                             app:srcCompat="@android:drawable/checkbox_off_background"
-                            android:contentDescription="TODO" />
+                            android:contentDescription="@string/description_image_view_check_box" />
 
                         <ImageView
                             android:id="@+id/imageViewCBValidation"
@@ -317,7 +317,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="1.0"
                             app:srcCompat="@android:drawable/checkbox_on_background"
-                            android:contentDescription="TODO" />
+                            android:contentDescription="@string/description_image_view_check_box" />
 
                         <ImageView
                             android:id="@+id/imageViewCBPriseEnCharge"
@@ -331,7 +331,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="1.0"
                             app:srcCompat="@android:drawable/checkbox_off_background"
-                            android:contentDescription="TODO" />
+                            android:contentDescription="@string/description_image_view_check_box" />
 
                         <ImageView
                             android:id="@+id/imageViewCBLivrer"
@@ -344,7 +344,7 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="1.0"
                             app:srcCompat="@android:drawable/checkbox_off_background"
-                            android:contentDescription="TODO" />
+                            android:contentDescription="@string/description_image_view_check_box" />
                         <!--trait-->
                         <ImageView
                             android:id="@+id/imageViewTrait1"
@@ -354,7 +354,7 @@
                             app:layout_constraintEnd_toStartOf="@+id/imageViewCBPriseEnCharge"
                             app:layout_constraintStart_toEndOf="@+id/imageViewCBValidation"
                             app:srcCompat="@color/grey_200"
-                            android:contentDescription="TODO" />
+                            android:contentDescription="@string/description_image_view_trait_horizontal" />
 
                         <ImageView
                             android:id="@+id/imageViewTrait2"
@@ -364,7 +364,7 @@
                             app:layout_constraintEnd_toStartOf="@+id/imageViewCBPreparation"
                             app:layout_constraintStart_toEndOf="@+id/imageViewCBPriseEnCharge"
                             app:srcCompat="@color/grey_200"
-                            android:contentDescription="TODO" />
+                            android:contentDescription="@string/description_image_view_trait_horizontal" />
 
                         <ImageView
                             android:id="@+id/imageViewTrait3"
@@ -374,7 +374,7 @@
                             app:layout_constraintEnd_toStartOf="@+id/imageViewCBLivrer"
                             app:layout_constraintStart_toEndOf="@+id/imageViewCBPreparation"
                             app:srcCompat="@color/grey_200"
-                            android:contentDescription="TODO" />
+                            android:contentDescription="@string/description_image_view_trait_horizontal" />
                         <!--text etape-->
                         <TextView
                             android:id="@+id/textViewEtatValidation"

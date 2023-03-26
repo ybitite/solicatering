@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayoutPiedAP"
     style="@style/MarginSmall">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/buttonValiderCmd"
             style="@style/Button.InItem"
-            android:text="Valider la commande"
+            android:text="@string/bt_valider_la_commande"
             tools:ignore="MissingConstraints" />
 
 </LinearLayout>

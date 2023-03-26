@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData;
 
 import website.livingRoom.soliCatering.model.entitys.Menu;
 import website.livingRoom.soliCatering.model.room.AppDatabase;
-import website.livingRoom.soliCatering.model.room.DAO.MenuDAO;
+import website.livingRoom.soliCatering.model.room.dao.MenuDAO;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class MenuRepository {
     public MenuRepository(Context context) {
         //GET DATA BASE
         AppDatabase db = AppDatabase.getDatabase(context);
-        //GET LIVE DATA LIST EVENT FROM DAO
+        //GET LIVE DATA LIST EVENT FROM dao
         menuDAO = db.menuDAO();
         listMenu = menuDAO.getMenus();
     }

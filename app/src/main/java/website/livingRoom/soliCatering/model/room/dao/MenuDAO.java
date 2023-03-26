@@ -1,4 +1,4 @@
-package website.livingRoom.soliCatering.model.room.DAO;
+package website.livingRoom.soliCatering.model.room.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;

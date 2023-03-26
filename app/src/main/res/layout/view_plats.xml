@@ -64,7 +64,7 @@
                         style="@style/textViewBase1.GrisPrincipal.Adaptable.Bold"
 
                         android:text="@{plat.nom}"
-                        android:hint="Titre du plat"
+                        android:hint="@string/titre_plat"
 
                         android:layout_margin="@dimen/medium_margin"
                         app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +75,7 @@
                         style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
 
                         android:text="@{plat.pointFormat}"
-                        android:hint="0 point"
+                        android:hint="@string/zero_point"
 
                         android:layout_marginStart="@dimen/medium_margin"
                         android:layout_marginTop="@dimen/small_margin"
@@ -87,7 +87,7 @@
                         style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
 
                         android:text="@{plat.discription}"
-                        android:hint="discription"
+                        android:hint="@string/description"
 
                         android:layout_marginStart="@dimen/medium_margin"
                         android:layout_marginTop="@dimen/medium_margin"
@@ -112,7 +112,7 @@
                         style="@style/textViewBase1.GrisClair.CaseText"
                         android:layout_width="@dimen/min_size_touch"
 
-                        android:hint="0"
+                        android:hint="@string/zero"
 
                         android:textAlignment="center"
                         app:layout_constraintBottom_toBottomOf="@+id/imageButtonIncriment"

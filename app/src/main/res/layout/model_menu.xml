@@ -57,7 +57,7 @@
                     style="@style/textViewBase1.GrisPrincipal.Adaptable.Bold"
 
                     android:text="@{menu.nom}"
-                    android:hint="Menu Gourmant*"
+                    android:hint="@string/titre_menu"
                     android:textAlignment="textStart"
 
                     android:layout_marginStart="@dimen/large_margin"
@@ -72,7 +72,7 @@
                     style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
 
                     android:text="@{menu.discription}"
-                    android:hint="Le menu parfet porfet pour vos invitaion et vos fetes..."
+                    android:hint="@string/description_menu"
                     android:textAlignment="textStart"
 
                     app:layout_constraintEnd_toEndOf="@+id/textViewNomMenu"
@@ -97,7 +97,7 @@
                     style="@style/textViewBase1.GrisPrincipal.Small.Adaptable.bold"
 
                     android:text="@{menu.prixFormat}"
-                    android:hint="20 CHF"
+                    android:hint="@string/zero_devise"
                     android:textAlignment="textStart"
 
                     app:layout_constraintEnd_toEndOf="@+id/textViewParixMenuLabel"
@@ -122,7 +122,7 @@
                     style="@style/textViewBase1.Vert.Small.Bold.Adaptable"
 
                     android:text="@{menu.pointFormat}"
-                    android:hint="10 points"
+                    android:hint="@string/zero_point"
                     android:textAlignment="textStart"
 
                     app:layout_constraintEnd_toEndOf="@+id/textViewPointMenuLabel"
@@ -134,7 +134,7 @@
                     style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
 
                     android:text="@{menu.info}"
-                    android:hint="*Le menu doit etre commander 72h à l’avance"
+                    android:hint="@string/temps_necessaire"
                     android:textAlignment="textStart"
                     android:textSize="@dimen/x_small_text"
 
