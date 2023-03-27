@@ -115,8 +115,9 @@
     <string name="adresse_complete" translatable="false">Adresse Complete</string>
     <string name="information_livraion" translatable="false">Information livraion</string>
     <string name="bt_valider_la_commande" translatable="false">Valider la commande</string>
-    <string name="title_dialog_plat">DialogPlat</string>
-    <string name="title_dialog_client">view_client</string>
+    <string name="title_dialog_plat" translatable="false">DialogPlat</string>
+    <string name="title_dialog_client" translatable="false">view_client</string>
+    <string name="url_image_picasso" translatable="false">https://192.168.1.25/solicatering/</string>
 
 
 </resources>

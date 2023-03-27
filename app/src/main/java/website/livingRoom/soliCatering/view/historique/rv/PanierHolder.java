@@ -44,8 +44,7 @@ public class PanierHolder extends RecyclerView.ViewHolder implements View.OnClic
     public void bind(PanierWithAarticlePanierAndPlat panierWithAarticlePanierAndPlat) {
 
         Helper.fixWidth(binding.mockViewFormPanier);
-        Helper.bindPicassoImage(panierWithAarticlePanierAndPlat.panier.getNomPic()
-                ,binding.imageViewMenuP);
+        Helper.bindPicassoImage(panierWithAarticlePanierAndPlat.panier.getNomPic(),binding.imageViewMenuP);
 
         //push data to actualise ui
         binding.setPanier(panierWithAarticlePanierAndPlat.panier);

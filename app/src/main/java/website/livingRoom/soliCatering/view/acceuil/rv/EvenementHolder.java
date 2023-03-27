@@ -8,6 +8,9 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+
 import website.livingRoom.soliCatering.databinding.ModelEvenementBinding;
 import website.livingRoom.soliCatering.model.entitys.Evenement;
 import website.livingRoom.soliCatering.utile.Helper;
@@ -40,7 +43,7 @@ public class EvenementHolder extends RecyclerView.ViewHolder implements View.OnC
         return new EvenementHolder(modelEvenementBinding);
     }
 
-    public void bind(Evenement evenement) {
+    public void bind(Evenement evenement) throws NoSuchAlgorithmException, KeyManagementException {
         this.evenement=evenement;
 
         Helper.fixWidth(binding.mockViewFormEvenement);

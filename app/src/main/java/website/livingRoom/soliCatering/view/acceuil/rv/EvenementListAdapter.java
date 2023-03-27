@@ -6,6 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+
 import website.livingRoom.soliCatering.model.entitys.Evenement;
 
 
@@ -25,7 +28,13 @@ public class EvenementListAdapter extends ListAdapter<Evenement, EvenementHolder
 
     @Override
     public void onBindViewHolder(@NonNull EvenementHolder holder, int position) {
-        holder.bind(getItem(position));
+        try {
+            holder.bind(getItem(position));
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        } catch (KeyManagementException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 

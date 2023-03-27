@@ -1,4 +1,4 @@
-package website.livingRoom.soliCatering.view;
+package website.livingRoom.soliCatering.utile;
 
 import android.widget.ImageView;
 

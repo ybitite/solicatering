@@ -9,6 +9,15 @@ import android.widget.ImageView;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.utils.widget.MockView;
 
+import com.squareup.picasso.OkHttp3Downloader;
+import com.squareup.picasso.Picasso;
+
+import java.io.IOException;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+
+import website.livingRoom.soliCatering.R;
+
 
 public class Helper {
 
@@ -37,9 +46,8 @@ public class Helper {
         return getResources().getString(idStringResource);
     }
 
-    public static void bindPicassoImage(String  imageName, ImageView imageView) {
-        //SET DATA IN VIEW
-        imageView.setImageResource(getIdResourceByName(imageName));
+    public static void bindPicassoImage( String  imageName, ImageView imageView) {
+        AppPicasso.getInstance().load(getResources().getString(R.string.url_image_picasso) + imageName).into(imageView);
     }
 
 

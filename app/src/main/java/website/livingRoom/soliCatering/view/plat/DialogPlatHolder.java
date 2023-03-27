@@ -4,7 +4,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.navigation.Navigation;
 
 import website.livingRoom.soliCatering.R;
-import website.livingRoom.soliCatering.view.IconHolder;
+import website.livingRoom.soliCatering.utile.IconHolder;
 import website.livingRoom.soliCatering.viewModel.PlatViewModel;
 import website.livingRoom.soliCatering.databinding.ViewPlatsBinding;
 import website.livingRoom.soliCatering.model.entitys.ArticlePanier;

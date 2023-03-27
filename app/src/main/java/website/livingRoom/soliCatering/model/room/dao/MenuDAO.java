@@ -17,7 +17,7 @@ public interface MenuDAO {
     void insert(Menu menu);
 
     //SELECT ALL MENU FROM MENUS TABLE
-    @Query("SELECT * FROM menus ORDER BY point ASC")
+    @Query("SELECT * FROM menus ORDER BY point desc")
     LiveData<List<Menu>> getMenus();
 
     //select current menu
