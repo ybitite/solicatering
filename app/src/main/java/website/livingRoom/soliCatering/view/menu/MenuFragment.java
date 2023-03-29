@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import website.livingRoom.soliCatering.databinding.FragmentMenuBinding;
+import website.livingRoom.soliCatering.viewModel.CategorieViewModel;
+import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 import website.livingRoom.soliCatering.viewModel.MenuViewModel;
 import website.livingRoom.soliCatering.view.menu.rv.MenuListAdapter;
 
@@ -21,6 +23,8 @@ public class MenuFragment extends Fragment {
 
     //FIELD
     MenuViewModel menuViewModel;
+
+    ConteurViewModel conteurViewModel;
     FragmentMenuBinding binding;
 
     //METHODE
@@ -30,6 +34,8 @@ public class MenuFragment extends Fragment {
 
         //CREATE BINDING WITH INFLATE LAYOUT
         binding = FragmentMenuBinding.inflate(inflater, container, false);
+
+        conteurViewModel = new ViewModelProvider(requireActivity()).get(ConteurViewModel.class);
 
         initiateRecycleView();
 
@@ -41,7 +47,7 @@ public class MenuFragment extends Fragment {
         RecyclerView rv = binding.mRecycler;
 
         //SET ADAPTER TO RV
-        final MenuListAdapter menuListAdapter = new MenuListAdapter(new MenuListAdapter.MenuDiff());
+        final MenuListAdapter menuListAdapter = new MenuListAdapter(new MenuListAdapter.MenuDiff(),conteurViewModel);
         rv.setAdapter(menuListAdapter);
 
         //SET PROPERTIES TO RV

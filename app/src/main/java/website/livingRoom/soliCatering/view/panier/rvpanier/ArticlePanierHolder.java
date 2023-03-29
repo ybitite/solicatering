@@ -1,6 +1,5 @@
 package website.livingRoom.soliCatering.view.panier.rvpanier;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,22 +9,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import website.livingRoom.soliCatering.databinding.ModelArticlePanierBinding;
 import website.livingRoom.soliCatering.model.entitys.ArticlePanierAndPlat;
 import website.livingRoom.soliCatering.repository.ArticlePanierRepository;
-import website.livingRoom.soliCatering.repository.ConteurRepository;
+import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 import website.livingRoom.soliCatering.viewModel.PanierViewModel;
 import website.livingRoom.soliCatering.utile.Helper;
 
 public class ArticlePanierHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     //FIELD
     private final ModelArticlePanierBinding binding;
-    private final Context context;
 
+    private final ConteurViewModel conteurViewModel;
 
     //CONSTRUCTOR
-    public ArticlePanierHolder(ModelArticlePanierBinding modelArticlePanierBinding) {
+    public ArticlePanierHolder(ModelArticlePanierBinding modelArticlePanierBinding, ConteurViewModel conteurViewModel) {
         super(modelArticlePanierBinding.getRoot());
 
-        //GET CONTEXT TO USE LATER
-        context = modelArticlePanierBinding.getRoot().getContext();
+        this.conteurViewModel=conteurViewModel;
 
         // instantiate binding object
         binding = modelArticlePanierBinding;
@@ -34,12 +32,12 @@ public class ArticlePanierHolder extends RecyclerView.ViewHolder implements View
         itemView.setOnClickListener(this);
     }
 
-    public static ArticlePanierHolder create(ViewGroup parent) {
+    public static ArticlePanierHolder create(ViewGroup parent, ConteurViewModel conteurViewModel) {
         //GENERATE CLASS FROM MODEL ARTICLE PANIER
         ModelArticlePanierBinding modelArticlePanierBinding = ModelArticlePanierBinding
                 .inflate(LayoutInflater.from(parent.getContext()));
 
-        return new ArticlePanierHolder(modelArticlePanierBinding);
+        return new ArticlePanierHolder(modelArticlePanierBinding,conteurViewModel);
     }
 
     public void bind(ArticlePanierAndPlat articlePanierAndPlat, PanierViewModel panierViewModel) {
@@ -86,11 +84,12 @@ public class ArticlePanierHolder extends RecyclerView.ViewHolder implements View
 
     public void deleteArticlePanier(ArticlePanierAndPlat articlePanierAndPlat) {
         //DELETE ARTICLE PANIER FROM DATA BASE
-        ArticlePanierRepository articlePanierRepository = new ArticlePanierRepository(context);
+        ArticlePanierRepository articlePanierRepository = new ArticlePanierRepository(binding.getRoot().getContext());
         articlePanierRepository.deleteArticlePanier(articlePanierAndPlat.articlePanier);
 
         //UPDATE RESTE POINT IN CONTEUR
-        ConteurRepository.upDatePointReste(articlePanierAndPlat.plat.getPoint());
+        conteurViewModel.getConteur().upDatePointReste(articlePanierAndPlat.plat.getPoint()
+                * articlePanierAndPlat.articlePanier.getNombrePlat());
     }
 
     @Override

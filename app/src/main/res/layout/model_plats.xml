@@ -22,6 +22,11 @@
             android:layout_margin="@dimen/small_margin">
 
 
+            <androidx.constraintlayout.utils.widget.MockView
+                android:id="@+id/mockViewFormPlat"
+                style="@style/mockViewForm"
+                tools:ignore="MissingConstraints" />
+
             <ImageView
                 android:id="@+id/imageViewPlat"
                 style="@style/imageViewPrincipalRV"
@@ -67,10 +72,6 @@
                     android:textAlignment="textEnd" />
             </LinearLayout>
 
-            <androidx.constraintlayout.utils.widget.MockView
-                android:id="@+id/mockViewFormPlat"
-                style="@style/mockViewForm"
-                tools:ignore="MissingConstraints" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

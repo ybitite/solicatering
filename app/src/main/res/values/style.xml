@@ -214,10 +214,7 @@
     </style>
     <!--button in item-->
     <style name="Button.InItem">
-        <item name="layout_constraintStart_toStartOf">parent</item>
-        <item name="layout_constraintTop_toTopOf">parent</item>
-        <item name="layout_constraintEnd_toEndOf">parent</item>
-        <item name="layout_constraintBottom_toBottomOf">parent</item>
+
         <item name="backgroundTint">@color/grey_400</item>
         <item name="android:textColor">@color/white_100</item>
         <item name="android:padding">@dimen/large_margin</item>

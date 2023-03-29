@@ -12,8 +12,8 @@ import website.livingRoom.soliCatering.R;
 import website.livingRoom.soliCatering.databinding.ModelMenuBinding;
 import website.livingRoom.soliCatering.model.entitys.Menu;
 import website.livingRoom.soliCatering.repository.ArticlePanierRepository;
-import website.livingRoom.soliCatering.repository.ConteurRepository;
 import website.livingRoom.soliCatering.utile.Helper;
+import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 
 public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     //FIELD
@@ -21,9 +21,13 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
     final ArticlePanierRepository articlePanierRepository;
     Menu menu;
 
+    private ConteurViewModel conteurViewModel;
+
     //CONSTRUCTOR
-    public MenuHolder(ModelMenuBinding modelMenuBinding) {
+    public MenuHolder(ModelMenuBinding modelMenuBinding, ConteurViewModel conteurViewModel) {
         super(modelMenuBinding.getRoot());
+
+        this.conteurViewModel=conteurViewModel;
 
         // instantiate binding object
         binding = modelMenuBinding;
@@ -33,14 +37,16 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
 
         //INSTANTIATE REPOSITORY
         articlePanierRepository = new ArticlePanierRepository(binding.getRoot().getContext());
+
+        this.conteurViewModel = conteurViewModel;
     }
 
     //METHODE
-
-    @Override
-    public void onClick(View v) {
-        updateConteur(menu, ConteurRepository.getPointDepart());
-        naviguer(R.id.action_navigation_menu_to_navigation_categorie);
+    static MenuHolder create(ViewGroup parent, ConteurViewModel conteurViewModel) {
+        //INSTANTIATE BINDING OBJECT CLASS FROM MODEL MENU
+        ModelMenuBinding modelMenuBinding = ModelMenuBinding
+                .inflate(LayoutInflater.from(parent.getContext()));
+        return new MenuHolder(modelMenuBinding,conteurViewModel);
     }
 
     private void naviguer(int actionId) {
@@ -48,20 +54,13 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
     }
 
 
-    static MenuHolder create(ViewGroup parent) {
-        //INSTANTIATE BINDING OBJECT CLASS FROM MODEL MENU
-        ModelMenuBinding modelMenuBinding = ModelMenuBinding
-                .inflate(LayoutInflater.from(parent.getContext()));
-        return new MenuHolder(modelMenuBinding);
-    }
-
     public void bind(Menu menu) {
         this.menu = menu;
         Helper.fixWidth(binding.mockViewFormMenu);
 
         bindControl(menu);
 
-        if (menu.getPoint() == ConteurRepository.getPointDepart()) {
+        if (menu.getPoint() == conteurViewModel.getConteur().getPointDepart()) {
             //CHANGE COLOR OF ITEM WHEN IS CLICKED
             upDateLinearLayoutColor(R.color.grey_100);
         }
@@ -86,11 +85,17 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
         //IF USER CLICK IN THE NEW MENU A NEW CONTEUR START AGAIN
         if (menu.getPoint() != menuActuel) {
             //START NEW CONTEUR
-            ConteurRepository.setConteur(menu.getNom(), menu.getPoint());
+            conteurViewModel.setConteur(menu.getNom(), menu.getPoint());
 
             //clear list of article panier
-            articlePanierRepository.deleteCurentPanier(ConteurRepository.getPanierActuel());
+            articlePanierRepository.deleteCurentPanier(conteurViewModel.getConteur().getPanierActuel());
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+        updateConteur(menu, conteurViewModel.getConteur().getPointDepart());
+        naviguer(R.id.action_navigation_menu_to_navigation_categorie);
     }
 
 }

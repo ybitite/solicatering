@@ -5,13 +5,13 @@ import androidx.navigation.Navigation;
 
 import website.livingRoom.soliCatering.R;
 import website.livingRoom.soliCatering.utile.IconHolder;
+import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 import website.livingRoom.soliCatering.viewModel.PlatViewModel;
 import website.livingRoom.soliCatering.databinding.ViewPlatsBinding;
 import website.livingRoom.soliCatering.model.entitys.ArticlePanier;
 import website.livingRoom.soliCatering.model.entitys.Plat;
 import website.livingRoom.soliCatering.model.room.AppDatabase;
 import website.livingRoom.soliCatering.repository.ArticlePanierRepository;
-import website.livingRoom.soliCatering.repository.ConteurRepository;
 import website.livingRoom.soliCatering.utile.Helper;
 
 public class DialogPlatHolder {
@@ -23,9 +23,12 @@ public class DialogPlatHolder {
 
     private final DialogPlatFragment dialogPlatFragment;
 
-    public DialogPlatHolder(PlatViewModel platViewModel, ArticlePanierRepository articlePanierRepository,
+    private final ConteurViewModel conteurViewModel;
+
+    public DialogPlatHolder(PlatViewModel platViewModel, ConteurViewModel conteurViewModel, ArticlePanierRepository articlePanierRepository,
                             ViewPlatsBinding binding, FragmentActivity fragmentActivity, DialogPlatFragment dialogPlatFragment) {
         this.platViewModel = platViewModel;
+        this.conteurViewModel = conteurViewModel;
         this.articlePanierRepository = articlePanierRepository;
         this.binding = binding;
         this.fragmentActivity=fragmentActivity;
@@ -68,7 +71,7 @@ public class DialogPlatHolder {
 
     private void incrimenteNombre() {
         //IF THE PRODUCT  OF POINT AND NUMBER OF PLAT ARE LAST OR EQUAL AT POINT RESTE
-        if (checkIncrease(ConteurRepository.getPointReste(), platViewModel.getSelectedPlat().getValue().getPoint(), platViewModel.getNumberPlat().getValue())) {
+        if (checkIncrease(conteurViewModel.getConteur().getPointReste(), platViewModel.getSelectedPlat().getValue().getPoint(), platViewModel.getNumberPlat().getValue())) {
             platViewModel.incrimenteNbPlat();
         }
 
@@ -94,7 +97,7 @@ public class DialogPlatHolder {
                 naviguer(R.id.action_dialogPlat_to_navigation_panier);
             }
             //IF CAN NOT CHOSE IN SEM CATEGORIE NAVIGATE TO CATEGORIE
-            else if (newPtRest < ConteurRepository.getCategorieActuel()) {
+            else if (newPtRest < conteurViewModel.getConteur().getCategorieActuel()) {
                 naviguer(R.id.action_dialogPlat_to_navigation_categorie);
             }
             //IF CAN NOT CHOSE IN SEM CATEGORIE NAVIGATE TO plat
@@ -114,16 +117,16 @@ public class DialogPlatHolder {
         dialogPlatFragment.dismiss();
     }
     private boolean checkUpDatePointRest() {
-        return ConteurRepository.getPointReste()
+        return conteurViewModel.getConteur().getPointReste()
                 - platViewModel.getSelectedPlat().getValue().getPoint()
                 * platViewModel.getNumberPlat().getValue() >=0;
     }
 
     private int upDatePtRest() {
         /*SAVE NEW RESTE POINT IN CONTEUR*/
-        ConteurRepository.upDatePointReste(- platViewModel.getSelectedPlat().getValue().getPoint()
+        conteurViewModel.getConteur().upDatePointReste(- platViewModel.getSelectedPlat().getValue().getPoint()
                 * platViewModel.getNumberPlat().getValue());
-        return ConteurRepository.getPointReste();
+        return conteurViewModel.getConteur().getPointReste();
     }
 
     private void addToPanier() {
@@ -135,7 +138,7 @@ public class DialogPlatHolder {
 
     private void run() {
         //CREATE NEW ARTICLE PANIER or UPDATE it
-        ArticlePanier articlePanier = new ArticlePanier(ConteurRepository.getPanierActuel(),
+        ArticlePanier articlePanier = new ArticlePanier(conteurViewModel.getConteur().getPanierActuel(),
                 platViewModel.getSelectedPlat().getValue().getId(),
                 platViewModel.getNumberPlat().getValue());
 

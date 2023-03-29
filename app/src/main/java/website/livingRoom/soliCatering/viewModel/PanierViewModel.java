@@ -7,7 +7,6 @@ import androidx.lifecycle.LiveData;
 
 import website.livingRoom.soliCatering.model.entitys.ArticlePanierAndPlat;
 import website.livingRoom.soliCatering.repository.ArticlePanierRepository;
-import website.livingRoom.soliCatering.repository.ConteurRepository;
 
 import java.util.List;
 
@@ -16,18 +15,20 @@ public class PanierViewModel extends AndroidViewModel {
     private  LiveData<List<ArticlePanierAndPlat>> listArticlePanierAndPlat = new LiveData<>() {};
     private final ArticlePanierRepository articlePanierRepository;
 
+    private final ConteurViewModel conteurViewModel;
     //CONSTRUCTOR
-    public PanierViewModel(Application application) {
+    public PanierViewModel(Application application, ConteurViewModel conteurViewModel) {
         super(application);
 
         articlePanierRepository = new ArticlePanierRepository(application);
+        this.conteurViewModel = conteurViewModel;
     }
 
     /*TO OBSERVED LIVE DATA LIST ARTICLE PANIER FROM REPOSITORY*/
     public  LiveData<List<ArticlePanierAndPlat>> getListArticlePanierAndPlat() {
 
         //GET DATA LIVE OF LIST OF ARTICLE IN THIS PANIER
-        listArticlePanierAndPlat = articlePanierRepository.getListArticlePanierWithPlat(ConteurRepository.getPanierActuel());
+        listArticlePanierAndPlat = articlePanierRepository.getListArticlePanierWithPlat(conteurViewModel.getConteur().getPanierActuel());
 
         //RETURN LIVE DATA LIST
         return listArticlePanierAndPlat;
@@ -39,7 +40,7 @@ public class PanierViewModel extends AndroidViewModel {
         ArticlePanierAndPlat article = listArticlePanierAndPlat.getValue().get(position);
 
         /*INCREMENT NUMBER OF PLAT IF IT POINT PLAT ARE LAST OR EQUAL AT POINT RESTE*/
-        if (article.plat.getPoint() <= ConteurRepository.getPointReste()) {
+        if (article.plat.getPoint() <= conteurViewModel.getConteur().getPointReste()) {
 
             return update(article, 1, -article.plat.getPoint(), article.articlePanier.getNombrePlat() + 1);
         } else return 0;
@@ -64,7 +65,7 @@ public class PanierViewModel extends AndroidViewModel {
         articlePanierRepository.updateArticlePanier(article.articlePanier, nombre);
 
         //UPDATE RESTE IN CONTEUR
-        ConteurRepository.upDatePointReste(plat);
+        conteurViewModel.getConteur().upDatePointReste(plat);
 
         //RETURN NEW NUMBER
         return articlePanier;

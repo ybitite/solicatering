@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 import website.livingRoom.soliCatering.viewModel.PlatViewModel;
 import website.livingRoom.soliCatering.databinding.FragmentPlatBinding;
 import website.livingRoom.soliCatering.repository.ConteurRepository;
@@ -23,7 +24,7 @@ public class PlatFragment extends Fragment {
     //FIELD
     PlatViewModel platViewModel;
     FragmentPlatBinding binding;
-
+    private ConteurViewModel conteurViewModel;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -35,6 +36,8 @@ public class PlatFragment extends Fragment {
         //INSTANTIATE VIEW MODEL
         platViewModel = new ViewModelProvider(requireActivity()).get(PlatViewModel.class);
 
+        conteurViewModel = new ViewModelProvider(requireActivity()).get(ConteurViewModel.class);
+
         initiateRecycleView();
 
         return binding.getRoot();
@@ -45,7 +48,7 @@ public class PlatFragment extends Fragment {
         RecyclerView rv = binding.plRecycler;
 
         //SET ADAPTER TO RV
-        final PlatsListAdapter platsListAdapter = new PlatsListAdapter(new PlatsListAdapter.platDiff(), platViewModel);
+        final PlatsListAdapter platsListAdapter = new PlatsListAdapter(new PlatsListAdapter.platDiff(), platViewModel, conteurViewModel);
         rv.setAdapter(platsListAdapter);
 
         //SET PROPERTIES TO RV
@@ -56,10 +59,9 @@ public class PlatFragment extends Fragment {
     }
 
     private void observeDataAndUpdateView(PlatsListAdapter platsListAdapter) {
-        //GET CURENT CATEGORIE POINT
-        int pointCategorie = ConteurRepository.getCategorieActuel();
 
         //OBSERVE DATA FROM LIVE DATA AND UPDATE RV WEN DATA CHANGE
-        platViewModel.getAllPlat(pointCategorie).observe(getViewLifecycleOwner(), plat -> platsListAdapter.submitList(plat));
+        platViewModel.getAllPlat(conteurViewModel.getConteur().getCategorieActuel())
+                .observe(getViewLifecycleOwner(), plat -> platsListAdapter.submitList(plat));
     }
 }

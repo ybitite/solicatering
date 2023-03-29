@@ -13,10 +13,10 @@ import website.livingRoom.soliCatering.model.entitys.Menu;
 import website.livingRoom.soliCatering.model.entitys.Panier;
 import website.livingRoom.soliCatering.model.room.AppDatabase;
 import website.livingRoom.soliCatering.repository.ClientRepository;
-import website.livingRoom.soliCatering.repository.ConteurRepository;
 import website.livingRoom.soliCatering.repository.PanierRepository;
 import website.livingRoom.soliCatering.utile.Helper;
 import website.livingRoom.soliCatering.viewModel.ClientViewModel;
+import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 
 public class DialogClientHolder {
 
@@ -26,11 +26,14 @@ public class DialogClientHolder {
     private final FragmentActivity fragmentActivity;
     private final DialogClientFragment dialogClientFragment;
 
-    public DialogClientHolder(ViewClientBinding binding, ClientViewModel clientViewModel, FragmentActivity fragmentActivity,DialogClientFragment dialogClientFragment) {
+    private final ConteurViewModel conteurViewModel;
+
+    public DialogClientHolder(ViewClientBinding binding, ClientViewModel clientViewModel, FragmentActivity fragmentActivity, DialogClientFragment dialogClientFragment, ConteurViewModel conteurViewModel) {
         this.binding = binding;
         this.clientViewModel = clientViewModel;
         this.fragmentActivity = fragmentActivity;
         this.dialogClientFragment = dialogClientFragment;
+        this.conteurViewModel = conteurViewModel;
     }
 
     public void bind() {
@@ -78,7 +81,7 @@ public class DialogClientHolder {
         ClientRepository clientRepository = new ClientRepository(Helper.getContext());
         clientRepository.insertClient(client);
 
-        Menu menu = clientViewModel.getCurrentMenu(ConteurRepository.getPointDepart());
+        Menu menu = clientViewModel.getCurrentMenu(conteurViewModel.getConteur().getPointDepart());
         InformationLivraison informationLivraison = clientViewModel.getInformationLivraison();
 
         insertPanier(menu, client,informationLivraison);
@@ -87,7 +90,7 @@ public class DialogClientHolder {
     private void insertPanier(Menu menu, Client client, InformationLivraison informationLivraison) {
 
         //create panier object
-        Panier panier = new Panier(ConteurRepository.getPanierActuel(), client.getIdClient(), client.getNomPrenom(),
+        Panier panier = new Panier(conteurViewModel.getConteur().getPanierActuel(), client.getIdClient(), client.getNomPrenom(),
                 1, menu.getId(), menu.getPrix(),
                 menu.getNomPic(), informationLivraison);
 
@@ -99,9 +102,9 @@ public class DialogClientHolder {
     private void updateConteur() {
         /*already asynchronous**/
         //create new id for panier
-        ConteurRepository.updatePanierActuel();
+        conteurViewModel.getConteur().updatePanierActuel();
 
         //create default conteur
-        ConteurRepository.resetConteur();
+        conteurViewModel.resetConteur();
     }
 }

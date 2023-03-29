@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 import website.livingRoom.soliCatering.viewModel.PlatViewModel;
 import website.livingRoom.soliCatering.databinding.ViewPlatsBinding;
 
@@ -18,6 +19,8 @@ import website.livingRoom.soliCatering.repository.ArticlePanierRepository;
 public class DialogPlatFragment extends DialogFragment {
     //FIELD
     private PlatViewModel platViewModel;
+
+    private ConteurViewModel conteurViewModel;
     private ArticlePanierRepository articlePanierRepository;
 
     private ViewPlatsBinding binding;
@@ -29,9 +32,13 @@ public class DialogPlatFragment extends DialogFragment {
 
         //INSTANTIATE LIVE MODEL
         platViewModel = new ViewModelProvider(requireActivity()).get(PlatViewModel.class);
+
+        conteurViewModel = new ViewModelProvider(requireActivity()).get(ConteurViewModel.class);
+
         //INSTANTIATE binding
         binding = ViewPlatsBinding.inflate(inflater, container, false);
 
+        //INSTANTIATE reposiroty
         articlePanierRepository = new ArticlePanierRepository(getContext());
 
         //CREATE VIEW FROM INFLATER
@@ -42,7 +49,7 @@ public class DialogPlatFragment extends DialogFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //BIND VIEW
-        DialogPlatHolder dialogPlatHolder = new DialogPlatHolder(platViewModel,articlePanierRepository,binding,requireActivity(),this);
+        DialogPlatHolder dialogPlatHolder = new DialogPlatHolder(platViewModel,conteurViewModel,articlePanierRepository,binding,requireActivity(),this);
 
         dialogPlatHolder.bind();
     }

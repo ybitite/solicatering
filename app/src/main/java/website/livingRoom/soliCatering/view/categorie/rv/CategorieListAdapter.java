@@ -7,19 +7,23 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 
 import website.livingRoom.soliCatering.model.entitys.Categorie;
+import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 
 public class CategorieListAdapter extends ListAdapter<Categorie, CategorieHolder> {
 
+        private final ConteurViewModel conteurViewModel;
+
     //CONSTRUCTOR
-    public CategorieListAdapter(@NonNull DiffUtil.ItemCallback<Categorie> diffCallback) {
+    public CategorieListAdapter(@NonNull DiffUtil.ItemCallback<Categorie> diffCallback, ConteurViewModel conteurViewModel) {
         super(diffCallback);
+        this.conteurViewModel = conteurViewModel;
     }
 
     //METHODE
     @NonNull
     @Override
     public CategorieHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return CategorieHolder.create(parent);
+        return CategorieHolder.create(parent,conteurViewModel);
     }
 
     @Override

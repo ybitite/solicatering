@@ -6,11 +6,8 @@
     <!--object conteur for data binding-->
     <data>
         <variable
-            name="conteur"
-            type="website.livingRoom.soliCatering.model.entitys.Conteur" />
-        <variable
-            name="mainActivity"
-            type="website.livingRoom.soliCatering.MainActivity" />
+            name="viewModel"
+            type="website.livingRoom.soliCatering.viewModel.ConteurViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,7 +28,7 @@
             android:layout_marginStart="@dimen/medium_margin"
 
             android:hint="@string/titre_du_menu"
-            android:text="@{conteur.nameFormat}"
+            android:text="@{viewModel.conteur.nameFormat}"
             android:textAlignment="textStart"
 
             app:layout_constraintBottom_toBottomOf="parent"
@@ -48,7 +45,7 @@
 
             android:layout_marginEnd="@dimen/medium_margin"
             android:hint="@string/zero_point"
-            android:text="@{conteur.pointResteFormat}"
+            android:text="@{viewModel.conteur.pointResteFormat}"
 
             android:textAlignment="textStart"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -64,7 +61,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
-            android:hint="@string/zero_point"
             android:labelFor="@+id/textViewPointConteurCat"
             android:text="@string/label_point_restant"
             android:textAlignment="textEnd"

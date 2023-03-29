@@ -17,12 +17,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import website.livingRoom.soliCatering.viewModel.CategorieViewModel;
 import website.livingRoom.soliCatering.databinding.FragmentCategorieBinding;
 import website.livingRoom.soliCatering.view.categorie.rv.CategorieListAdapter;
+import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 
 
 public class CategorieFragment extends Fragment {
 
     //FIELD
     CategorieViewModel categorieViewModel;
+    ConteurViewModel conteurViewModel;
     FragmentCategorieBinding binding;
 
 
@@ -35,6 +37,8 @@ public class CategorieFragment extends Fragment {
 
         categorieViewModel =  new ViewModelProvider(this).get(CategorieViewModel.class);
 
+        conteurViewModel = new ViewModelProvider(requireActivity()).get(ConteurViewModel.class);
+
         initiateRecycleView();
 
         return binding.getRoot();
@@ -45,7 +49,7 @@ public class CategorieFragment extends Fragment {
         RecyclerView rv = binding.cRecycler;
         //SET ADAPTER TO RV
         //todo:add adpter when ptcat actuel is ms
-        final CategorieListAdapter categorieListAdapter = new CategorieListAdapter(new CategorieListAdapter.CategorieDiff());
+        final CategorieListAdapter categorieListAdapter = new CategorieListAdapter(new CategorieListAdapter.CategorieDiff(),conteurViewModel);
         rv.setAdapter(categorieListAdapter);
 
         //SET PROPERTIES TO RV
@@ -58,6 +62,6 @@ public class CategorieFragment extends Fragment {
 
     private void observeDataAndUpdateView(CategorieListAdapter categorieListAdapter) {
         //OBSERVE DATA FROM LIVE DATA AND UPDATE RV WEN DATA CHANGE
-        categorieViewModel.getListCategorie().observe(getViewLifecycleOwner(), categorie -> categorieListAdapter.submitList(categorie));
+        categorieViewModel.getListCategorie().observe(getViewLifecycleOwner(), categorieListAdapter::submitList);
     }
 }

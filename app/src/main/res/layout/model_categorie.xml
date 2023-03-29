@@ -23,6 +23,10 @@
                 android:id="@+id/constraintLayoutCategorie"
                 style="@style/WidthParent">
 
+                <androidx.constraintlayout.utils.widget.MockView
+                    android:id="@+id/mockViewFormCategorie"
+                    style="@style/mockViewForm"
+                    tools:ignore="MissingConstraints" />
                 <!--image view categorie-->
                 <ImageView
                     style="@style/ImageViewLarge"
@@ -122,11 +126,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     tools:ignore="MissingConstraints" />
 
-
-                <androidx.constraintlayout.utils.widget.MockView
-                    android:id="@+id/mockViewFormCategorie"
-                    style="@style/mockViewForm"
-                    tools:ignore="MissingConstraints" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

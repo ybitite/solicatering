@@ -1,6 +1,5 @@
 package website.livingRoom.soliCatering.view.client;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,14 +11,16 @@ import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import website.livingRoom.soliCatering.databinding.ViewClientBinding;
+import website.livingRoom.soliCatering.viewModel.CategorieViewModel;
 import website.livingRoom.soliCatering.viewModel.ClientViewModel;
+import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 
 public class DialogClientFragment extends DialogFragment {
 
     //FIELD
     ClientViewModel clientViewModel;
+    ConteurViewModel conteurViewModel;
     ViewClientBinding binding;
-    Context context;
 
     //OVERRIDE METHODE
     @Nullable
@@ -27,6 +28,8 @@ public class DialogClientFragment extends DialogFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //instantiate live model
         clientViewModel = new ViewModelProvider(this).get(ClientViewModel.class);
+
+        conteurViewModel = new ViewModelProvider(requireActivity()).get(ConteurViewModel.class);
 
         //inflate view to get bind
         binding = ViewClientBinding.inflate(inflater, container, false);
@@ -37,8 +40,6 @@ public class DialogClientFragment extends DialogFragment {
         //set the view model to the binding class
         binding.setViewModel(clientViewModel);
 
-        //context to use later
-        context = binding.getRoot().getContext();
         //return view from binding
         return binding.getRoot();
     }
@@ -47,7 +48,7 @@ public class DialogClientFragment extends DialogFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        DialogClientHolder dialogClientHolder= new DialogClientHolder(binding,clientViewModel, requireActivity(),this);
+        DialogClientHolder dialogClientHolder= new DialogClientHolder(binding,clientViewModel, requireActivity(),this, conteurViewModel);
         dialogClientHolder.bind();
     }
 

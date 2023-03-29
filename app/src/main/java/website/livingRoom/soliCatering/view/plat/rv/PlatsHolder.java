@@ -11,9 +11,9 @@ import website.livingRoom.soliCatering.R;
 
 import website.livingRoom.soliCatering.databinding.ModelPlatsBinding;
 import website.livingRoom.soliCatering.model.entitys.Plat;
-import website.livingRoom.soliCatering.repository.ConteurRepository;
 import website.livingRoom.soliCatering.utile.ItemClickListener;
 import website.livingRoom.soliCatering.utile.IconHolder;
+import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 import website.livingRoom.soliCatering.viewModel.PlatViewModel;
 import website.livingRoom.soliCatering.utile.Helper;
 
@@ -21,11 +21,12 @@ public class PlatsHolder extends RecyclerView.ViewHolder implements View.OnClick
     //FIELD
     private ItemClickListener itemClickListener;
     private final ModelPlatsBinding binding;
+    private final ConteurViewModel conteurViewModel;
 
-    public PlatsHolder(ModelPlatsBinding modelPlatsBinding) {
+    public PlatsHolder(ModelPlatsBinding modelPlatsBinding, ConteurViewModel conteurViewModel) {
         super(modelPlatsBinding.getRoot());
 
-        //GET CONTEXT TO USE LATER
+        this.conteurViewModel = conteurViewModel;
 
         // instantiate binding object
         binding = modelPlatsBinding;
@@ -44,12 +45,12 @@ public class PlatsHolder extends RecyclerView.ViewHolder implements View.OnClick
         this.itemClickListener = ic;
     }
 
-    public static PlatsHolder create(ViewGroup parent) {
+    public static PlatsHolder create(ViewGroup parent, ConteurViewModel conteurViewModel) {
         //GENERATE CLASS FROM MODEL EVENT
         ModelPlatsBinding modelPlatsBinding = ModelPlatsBinding
                 .inflate(LayoutInflater.from(parent.getContext()));
 
-        return new PlatsHolder(modelPlatsBinding);
+        return new PlatsHolder(modelPlatsBinding,conteurViewModel);
     }
 
     public void bind(Plat plat, PlatViewModel platViewModel) {
@@ -74,7 +75,7 @@ public class PlatsHolder extends RecyclerView.ViewHolder implements View.OnClick
 
     private void updateItemClick(Plat plat, PlatViewModel platViewModel) {
         /*BLOCK CLICK AND MAKE ITEM GREW WHEN THE POINT ARE NOT ENOUGH*/
-        if (plat.getPoint() <= ConteurRepository.getCategorieActuel()) {
+        if (plat.getPoint() <= conteurViewModel.getConteur().getCategorieActuel()) {
 
             Helper.blockItem(R.color.white_100,true,itemView,binding.cardViewPlat);
 

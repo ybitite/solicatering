@@ -9,11 +9,13 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import website.livingRoom.soliCatering.model.entitys.ArticlePanierAndPlat;
+import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 import website.livingRoom.soliCatering.viewModel.PanierViewModel;
 
 public class ArticlePanierListAdapter extends ListAdapter<ArticlePanierAndPlat, ArticlePanierHolder> {
     //FIELD
     final PanierViewModel panierViewModel;
+    final ConteurViewModel conteurViewModel;
     private ArticlePanierHolder holder;
 
 
@@ -36,9 +38,10 @@ public class ArticlePanierListAdapter extends ListAdapter<ArticlePanierAndPlat, 
     };
 
     //CONSTRUCTOR
-    public ArticlePanierListAdapter(@NonNull DiffUtil.ItemCallback<ArticlePanierAndPlat> diffCallback, PanierViewModel panierViewModel) {
+    public ArticlePanierListAdapter(@NonNull DiffUtil.ItemCallback<ArticlePanierAndPlat> diffCallback, PanierViewModel panierViewModel, ConteurViewModel conteurViewModel) {
         super(diffCallback);
         this.panierViewModel = panierViewModel;
+        this.conteurViewModel = conteurViewModel;
 
     }
 
@@ -47,7 +50,7 @@ public class ArticlePanierListAdapter extends ListAdapter<ArticlePanierAndPlat, 
     @Override
     public ArticlePanierHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        return ArticlePanierHolder.create(parent);
+        return ArticlePanierHolder.create(parent,conteurViewModel);
     }
 
     @Override

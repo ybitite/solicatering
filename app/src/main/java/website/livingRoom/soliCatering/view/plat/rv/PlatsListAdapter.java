@@ -7,16 +7,19 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 
 import website.livingRoom.soliCatering.model.entitys.Plat;
+import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 import website.livingRoom.soliCatering.viewModel.PlatViewModel;
 
 public class PlatsListAdapter extends ListAdapter<Plat, PlatsHolder> {
     //FIELD
     final PlatViewModel platViewModel;
+    final ConteurViewModel conteurViewModel;
 
     //CONSTRUCTOR
-    public PlatsListAdapter(@NonNull DiffUtil.ItemCallback<Plat> diffCallback, PlatViewModel platViewModel) {
+    public PlatsListAdapter(@NonNull DiffUtil.ItemCallback<Plat> diffCallback, PlatViewModel platViewModel, ConteurViewModel conteurViewModel) {
         super(diffCallback);
         this.platViewModel = platViewModel;
+        this.conteurViewModel = conteurViewModel;
 
     }
 
@@ -24,7 +27,7 @@ public class PlatsListAdapter extends ListAdapter<Plat, PlatsHolder> {
     @NonNull
     @Override
     public PlatsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return PlatsHolder.create(parent);
+        return PlatsHolder.create(parent,conteurViewModel);
     }
 
     @Override

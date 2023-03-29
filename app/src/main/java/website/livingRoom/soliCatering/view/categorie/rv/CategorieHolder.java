@@ -10,35 +10,37 @@ import androidx.recyclerview.widget.RecyclerView;
 import website.livingRoom.soliCatering.R;
 import website.livingRoom.soliCatering.databinding.ModelCategorieBinding;
 import website.livingRoom.soliCatering.model.entitys.Categorie;
-import website.livingRoom.soliCatering.repository.ConteurRepository;
 import website.livingRoom.soliCatering.utile.Helper;
+import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 
 public class CategorieHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     //FIELD
     private final ModelCategorieBinding binding;
     private Categorie categorie;
-
+        private final ConteurViewModel conteurViewModel;
 
     //CONTRUCTOR
-    public CategorieHolder(ModelCategorieBinding modelCategorieBinding) {
+    public CategorieHolder(ModelCategorieBinding modelCategorieBinding, ConteurViewModel conteurViewModel) {
         super(modelCategorieBinding.getRoot());
+
+        this.conteurViewModel = conteurViewModel;
 
         // instantiate binding object
         binding = modelCategorieBinding;
 
         //SET CLICK LISTENER IN ITEM
         itemView.setOnClickListener(this);
+
     }
 
     //METHODE
 
 
-    public static CategorieHolder create(ViewGroup parent) {
+    public static CategorieHolder create(ViewGroup parent, ConteurViewModel conteurViewModel) {
         //INSTANTIATE BINDING OBJECT CLASS FROM MODEL CATEGORIE
         ModelCategorieBinding modelCategorieBinding = ModelCategorieBinding
                 .inflate(LayoutInflater.from(parent.getContext()));
-
-        return new CategorieHolder(modelCategorieBinding);
+        return new CategorieHolder(modelCategorieBinding,conteurViewModel);
     }
 
     public void bind(Categorie categorie) {
@@ -54,7 +56,7 @@ public class CategorieHolder extends RecyclerView.ViewHolder implements View.OnC
 
     private void upDateClick() {
         //BLOCK CLICK AND MAKE ITEM GRIS
-        if (categorie.getPoint() <= ConteurRepository.getPointReste()) {
+        if (categorie.getPoint() <= conteurViewModel.getConteur().getPointReste()) {
 
             changeVisibility(R.color.white_100, true, Helper.getColor(R.color.green_100));
 
@@ -74,7 +76,7 @@ public class CategorieHolder extends RecyclerView.ViewHolder implements View.OnC
 
     @Override
     public void onClick(View v) {
-        ConteurRepository.setCategorieActuel(categorie.getPoint());
+        conteurViewModel.getConteur().setCategorieActuel(categorie.getPoint());
         naviguer(R.id.action_navigation_categorie_to_navigation_plat);
     }
 

@@ -30,6 +30,8 @@
                         android:id="@+id/imageViewPlatTop"
                         style="@style/imageViewPrincipalRV"
                         android:layout_height="@dimen/x_large_image_size"
+                        android:layout_width="match_parent"
+                        android:scaleType="fitXY"
 
                         android:contentDescription="@string/description_image_view_plat"
                         app:layout_constraintEnd_toEndOf="parent"

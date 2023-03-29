@@ -7,19 +7,23 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 
 import website.livingRoom.soliCatering.model.entitys.Menu;
+import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 
 public class MenuListAdapter extends ListAdapter<Menu, MenuHolder> {
 
+    ConteurViewModel conteurViewModel;
+
     //CONSTRUCTOR
-    public MenuListAdapter(@NonNull DiffUtil.ItemCallback<Menu> diffCallback) {
+    public MenuListAdapter(@NonNull DiffUtil.ItemCallback<Menu> diffCallback, ConteurViewModel conteurViewModel) {
         super(diffCallback);
+        this.conteurViewModel = conteurViewModel;
     }
 
     //METHODE
     @NonNull
     @Override
     public MenuHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return MenuHolder.create(parent);
+        return MenuHolder.create(parent,conteurViewModel);
     }
 
     @Override

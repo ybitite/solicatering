@@ -37,11 +37,6 @@ public class PanierRepository {
         return listPanierWithAarticlePanier;
     }
 
-    //DELETE CURENT PANIER IN THE SEM CURENT PANIER
-    public void deletePanier(int idPanier) {
-        //DO THE DELETE IN NON-UI THREAD
-        AppDatabase.databaseWriteExecutor.execute(() -> panierDAO.deletePanier(idPanier));
-    }
 
 
 }
