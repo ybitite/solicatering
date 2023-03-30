@@ -16,7 +16,7 @@ public class ConteurHolder {
     private final NavController navController;
 
 
-    public ConteurHolder(ActivityMainBinding bindingActivity, NavController navController, ConteurViewModel conteurViewModel, MainActivity mainActivity) {
+    public ConteurHolder(ConteurViewModel conteurViewModel, NavController navController,ActivityMainBinding bindingActivity, MainActivity mainActivity) {
         this.navController = navController;
         this.bindingActivity = bindingActivity;
         bindingActivity.includeConteur.setLifecycleOwner(mainActivity);
@@ -25,7 +25,7 @@ public class ConteurHolder {
 
     public void conteurVisibility() {
         //GET CONTEUR CONSTRAINT LAYOUT FROM BINDING
-        ConstraintLayout cl = bindingActivity.includeConteur.constraintLayoutConteurCat;
+        ConstraintLayout constraintLayoutConteur = bindingActivity.includeConteur.constraintLayoutConteurCat;
 
         //ADD DESTINATION LISTENER TO NAVIGATION CONTROLLER
         /*LISTEN TO CHANGE OF DESTINATION? CONTEUR VISIBILITY WEN DESTINATION CHANGE*/
@@ -35,10 +35,10 @@ public class ConteurHolder {
                 case R.id.navigation_plat:
                 case R.id.navigation_panier:
                 case R.id.dialogPlat:
-                    cl.setVisibility(View.VISIBLE);
+                    constraintLayoutConteur.setVisibility(View.VISIBLE);
                     break;
                 default:
-                    cl.setVisibility(View.GONE);
+                    constraintLayoutConteur.setVisibility(View.GONE);
                     break;
             }
         });

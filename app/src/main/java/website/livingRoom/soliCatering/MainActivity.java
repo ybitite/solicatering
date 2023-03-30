@@ -1,6 +1,5 @@
 package website.livingRoom.soliCatering;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +9,6 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 import website.livingRoom.soliCatering.databinding.ActivityMainBinding;
-import website.livingRoom.soliCatering.model.sharedPreferences.AppSharedPreferences;
 import website.livingRoom.soliCatering.model.sharedPreferences.ConteurSharedPreferencesOA;
 import website.livingRoom.soliCatering.view.conteur.ConteurHolder;
 import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
@@ -18,10 +16,7 @@ import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 public class MainActivity extends AppCompatActivity {
 
     //FIELD
-    private SharedPreferences sharedPreferences;
     private static ActivityMainBinding bindingActivity;
-    private ConteurHolder conteurHolder;
-    private AppSharedPreferences appSharedPreferences;
 
     private ConteurViewModel conteurViewModel;
 
@@ -39,9 +34,6 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(bindingActivity.navView, navController);
 
 
-        appSharedPreferences = AppSharedPreferences.getInstance();
-        sharedPreferences = appSharedPreferences.getSharedPreferences();
-
         bindConteur(navController);
 
     }
@@ -52,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         }
         conteurViewModel = new ViewModelProvider(this).get(ConteurViewModel.class);
 
-        conteurHolder = new ConteurHolder(bindingActivity, navController,conteurViewModel,this);
+        ConteurHolder conteurHolder = new ConteurHolder(conteurViewModel, navController, bindingActivity, this);
 
         /*CHANGE CONTEUR VISIBILITY WEN DESTINATION CHANGE*/
         conteurHolder.conteurVisibility();
@@ -61,13 +53,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onPause() {
-
         conteurViewModel.saveConteur();
         super.onPause();
     }
 
     @Override
     protected void onDestroy() {
+        conteurViewModel.saveConteur();
         super.onDestroy();
     }
 }
