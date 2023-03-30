@@ -107,6 +107,8 @@ public class DialogPlatHolder {
                 dialogPlatFragment.dismiss();
             }
             platViewModel.resetNumberPlat();
+            //save date
+            conteurViewModel.saveConteur();
         }
     }
 

@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private static ActivityMainBinding bindingActivity;
 
     private ConteurViewModel conteurViewModel;
+    private NavController navController;
 
 
     @Override
@@ -30,15 +31,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(bindingActivity.getRoot());
 
         //NAVIGATION CONTROL AND MENU INSTANTIATION
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupWithNavController(bindingActivity.navView, navController);
 
 
-        bindConteur(navController);
 
     }
 
-    private void bindConteur(NavController navController) {
+    @Override
+    protected void onStart() {
+        bindConteur();
+        super.onStart();
+    }
+
+    private void bindConteur() {
         if (!ConteurSharedPreferencesOA.createConteur()){
             ConteurSharedPreferencesOA.createDefaultConteur();
         }
@@ -51,15 +57,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onPause() {
-        conteurViewModel.saveConteur();
-        super.onPause();
-    }
 
     @Override
     protected void onDestroy() {
-        conteurViewModel.saveConteur();
         super.onDestroy();
     }
 }

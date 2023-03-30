@@ -59,15 +59,17 @@ public class ArticlePanierHolder extends RecyclerView.ViewHolder implements View
     }
 
     private void decrement(ArticlePanierAndPlat articlePanierAndPlat, PanierViewModel panierViewModel) {
-        int nbrPlat = panierViewModel.decrementNbPlat(getBindingAdapterPosition());
-        if (nbrPlat != 0) {
+        int newNumberPlat = panierViewModel.decrementNbPlat(getBindingAdapterPosition());
+        if (newNumberPlat != 0) {
             //IF THE DECREMENT WAS DONE UPDATE CONTROL
-            binding.tvNbrPlatAP.setText(String.valueOf(nbrPlat));
+            binding.tvNbrPlatAP.setText(String.valueOf(newNumberPlat));
         }
         else {
             //IF JUST ONE ARTICLE STAY DELETE IT
             deleteArticlePanier(articlePanierAndPlat);
         }
+        //save date
+        conteurViewModel.saveConteur();
     }
 
     private void bindIncrement(PanierViewModel panierViewModel) {
@@ -76,9 +78,11 @@ public class ArticlePanierHolder extends RecyclerView.ViewHolder implements View
 
     private void increment(PanierViewModel panierViewModel) {
         //IF THE INCREMENT WAS DONE UPDATE CONTROL
-        int nbrPlat = panierViewModel.incrimenteNbPlat(getBindingAdapterPosition());
-        if (nbrPlat != 0) {
-            binding.tvNbrPlatAP.setText(String.valueOf(nbrPlat));
+        int newNumberPlat = panierViewModel.incrimenteNbPlat(getBindingAdapterPosition());
+        if (newNumberPlat != 0) {
+            binding.tvNbrPlatAP.setText(String.valueOf(newNumberPlat));
+            //save date
+            conteurViewModel.saveConteur();
         }
     }
 
