@@ -35,9 +35,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(bindingActivity.getRoot());
 
         //NAVIGATION CONTROL AND MENU INSTANTIATION
-/*        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_menu, R.id.navigation_categorie,R.id.navigation_panier,R.id.navigation_historique)
-                .build();*/
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupWithNavController(bindingActivity.navView, navController);
 
@@ -62,6 +59,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onPause() {
+
+        conteurViewModel.saveConteur();
+        super.onPause();
+    }
 
     @Override
     protected void onDestroy() {

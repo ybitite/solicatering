@@ -11,12 +11,11 @@ import website.livingRoom.soliCatering.repository.ConteurRepository;
 
 public class ConteurViewModel extends AndroidViewModel {
 
-    ConteurRepository conteurRepository;
+    final ConteurRepository conteurRepository;
     Conteur conteur;
 
     public ConteurViewModel(@NonNull Application application) {
         super(application);
-
 
         conteurRepository = new ConteurRepository();
         conteur = conteurRepository.getConteur();
@@ -42,9 +41,8 @@ public class ConteurViewModel extends AndroidViewModel {
         conteurRepository.resetConteur();
     }
 
-    @Override
-    protected void onCleared() {
+    public void saveConteur() {
         conteurRepository.setConteur(conteur);
-        super.onCleared();
     }
+
 }

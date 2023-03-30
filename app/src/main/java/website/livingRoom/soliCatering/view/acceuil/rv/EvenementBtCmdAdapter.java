@@ -7,11 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import website.livingRoom.soliCatering.R;
-import website.livingRoom.soliCatering.databinding.ModelBtCmdEvenementBinding;
 
 public class EvenementBtCmdAdapter extends RecyclerView.Adapter<EvenementBtCmdHolder> {
 

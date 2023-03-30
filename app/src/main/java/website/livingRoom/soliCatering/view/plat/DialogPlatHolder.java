@@ -3,6 +3,8 @@ package website.livingRoom.soliCatering.view.plat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.navigation.Navigation;
 
+import java.util.Objects;
+
 import website.livingRoom.soliCatering.R;
 import website.livingRoom.soliCatering.utile.IconHolder;
 import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
@@ -71,7 +73,7 @@ public class DialogPlatHolder {
 
     private void incrimenteNombre() {
         //IF THE PRODUCT  OF POINT AND NUMBER OF PLAT ARE LAST OR EQUAL AT POINT RESTE
-        if (checkIncrease(conteurViewModel.getConteur().getPointReste(), platViewModel.getSelectedPlat().getValue().getPoint(), platViewModel.getNumberPlat().getValue())) {
+        if (checkIncrease(conteurViewModel.getConteur().getPointReste(), Objects.requireNonNull(platViewModel.getSelectedPlat().getValue()).getPoint(), platViewModel.getNumberPlat().getValue())) {
             platViewModel.incrimenteNbPlat();
         }
 
@@ -118,13 +120,13 @@ public class DialogPlatHolder {
     }
     private boolean checkUpDatePointRest() {
         return conteurViewModel.getConteur().getPointReste()
-                - platViewModel.getSelectedPlat().getValue().getPoint()
+                - Objects.requireNonNull(platViewModel.getSelectedPlat().getValue()).getPoint()
                 * platViewModel.getNumberPlat().getValue() >=0;
     }
 
     private int upDatePtRest() {
         /*SAVE NEW RESTE POINT IN CONTEUR*/
-        conteurViewModel.getConteur().upDatePointReste(- platViewModel.getSelectedPlat().getValue().getPoint()
+        conteurViewModel.getConteur().upDatePointReste(- Objects.requireNonNull(platViewModel.getSelectedPlat().getValue()).getPoint()
                 * platViewModel.getNumberPlat().getValue());
         return conteurViewModel.getConteur().getPointReste();
     }
@@ -139,7 +141,7 @@ public class DialogPlatHolder {
     private void run() {
         //CREATE NEW ARTICLE PANIER or UPDATE it
         ArticlePanier articlePanier = new ArticlePanier(conteurViewModel.getConteur().getPanierActuel(),
-                platViewModel.getSelectedPlat().getValue().getId(),
+                Objects.requireNonNull(platViewModel.getSelectedPlat().getValue()).getId(),
                 platViewModel.getNumberPlat().getValue());
 
         //update if excite or create a new article panier

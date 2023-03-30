@@ -1,5 +1,6 @@
 package website.livingRoom.soliCatering.model.entitys;
 
+
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
@@ -62,6 +63,19 @@ public class Conteur extends BaseObservable {
 
     }
 
+    @Bindable
+    public String getTextButtonValiderValue(){
+
+        if (isPanierNotEmpty()) return Helper.getString(R.string.bt_valider_cmd);
+
+        else return Helper.getString(R.string.bt_valider_cmd_0_article);
+    }
+
+    @Bindable
+    public boolean getClickableButtonValiderValue(){
+        return isPanierFull();
+    }
+
     public void setName(String value) {
         name = value;
         notifyPropertyChanged(BR.nameFormat);
@@ -75,20 +89,36 @@ public class Conteur extends BaseObservable {
     public void setPointReste(int value) {
         pointReste = value;
         notifyPropertyChanged(BR.pointResteFormat);
+        notifyPropertyChanged(BR.clickableButtonValiderValue);
+        notifyPropertyChanged(BR.textButtonValiderValue);
+    }
+
+    public void upDatePointReste(int value) {
+        pointReste += value;
+        notifyPropertyChanged(BR.pointResteFormat);
+        notifyPropertyChanged(BR.clickableButtonValiderValue);
+        notifyPropertyChanged(BR.textButtonValiderValue);
     }
 
     public void setCategorieActuel(int value) {
         categorieActuel = value;
     }
 
-
     //methode tu update value
-    public void upDatePointReste(int value) {
-        pointReste += value;
-        notifyPropertyChanged(BR.pointResteFormat);
-    }
 
     public void updatePanierActuel() {
         panierActuel ++ ;
+    }
+
+    private boolean isPanierNotEmpty() {
+        return pointReste < pointDepart  && isMenuSelected();
+    }
+
+    public boolean isPanierFull() {
+        return pointReste == 0 && isMenuSelected();
+    }
+
+    private boolean isMenuSelected() {
+        return pointDepart > 0;
     }
 }

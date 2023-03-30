@@ -1,22 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    style="@style/MarginSmall">
+    xmlns:tools="http://schemas.android.com/tools">
+
+        <data>
+                <variable
+                    name="viewModel"
+                    type="website.livingRoom.soliCatering.viewModel.ConteurViewModel" />
+        </data>
 
 
-        <androidx.constraintlayout.utils.widget.MockView
-            android:id="@+id/mockViewFormPiedArticlePanier"
-            style="@style/mockViewForm"
-            tools:ignore="MissingConstraints" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            style="@style/MarginSmall">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonValiderCmd"
-            style="@style/Button.InItem"
-            android:text="@string/bt_valider_la_commande"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.utils.widget.MockView
+                    android:id="@+id/mockViewFormPiedArticlePanier"
+                    style="@style/mockViewForm"
+                    tools:ignore="MissingConstraints" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/buttonValiderCmd"
+                    style="@style/Button.InItem"
+                    android:hint="@string/bt_valider_la_commande"
+
+                    android:text="@{viewModel.conteur.textButtonValiderValue}"
+                    android:clickable="@{viewModel.conteur.clickableButtonValiderValue}"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

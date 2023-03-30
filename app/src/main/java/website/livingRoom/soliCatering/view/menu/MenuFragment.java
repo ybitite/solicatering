@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import website.livingRoom.soliCatering.databinding.FragmentMenuBinding;
-import website.livingRoom.soliCatering.viewModel.CategorieViewModel;
 import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 import website.livingRoom.soliCatering.viewModel.MenuViewModel;
 import website.livingRoom.soliCatering.view.menu.rv.MenuListAdapter;

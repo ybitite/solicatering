@@ -13,17 +13,17 @@
 
     <item
         android:id="@+id/navigation_categorie"
-        android:icon="?android:attr/listChoiceIndicatorSingle"
+        android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="@string/title_categorie" />
 
     <item
         android:id="@+id/navigation_panier"
-        android:icon="@drawable/paniericone"
+        android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="@string/title_panier" />
 
     <item
         android:id="@+id/navigation_historique"
-        android:icon="?android:attr/listChoiceIndicatorMultiple"
+        android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="@string/title_Historique" />
 
 

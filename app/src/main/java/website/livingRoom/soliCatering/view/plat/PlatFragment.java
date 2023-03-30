@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 import website.livingRoom.soliCatering.viewModel.PlatViewModel;
 import website.livingRoom.soliCatering.databinding.FragmentPlatBinding;
-import website.livingRoom.soliCatering.repository.ConteurRepository;
 import website.livingRoom.soliCatering.view.plat.rv.PlatsListAdapter;
 
 public class PlatFragment extends Fragment {

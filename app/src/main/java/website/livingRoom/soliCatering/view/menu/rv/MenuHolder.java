@@ -62,11 +62,11 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
 
         if (menu.getPoint() == conteurViewModel.getConteur().getPointDepart()) {
             //CHANGE COLOR OF ITEM WHEN IS CLICKED
-            upDateLinearLayoutColor(R.color.grey_100);
+            upDateCardViewColor(R.color.grey_100);
         }
         else
             //CHANGE COLOR OF ITEM WHEN IS NOT CLICKED
-            upDateLinearLayoutColor(R.color.white_100);
+            upDateCardViewColor(R.color.white_100);
 
     }
 
@@ -76,8 +76,8 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
         Helper.bindPicassoImage(menu.getNomPic(),binding.imageViewIconMenu);
     }
 
-    private void upDateLinearLayoutColor(int colorId) {
-        binding.linearLayoutMenu.setBackgroundColor(Helper.getColor(colorId));
+    private void upDateCardViewColor(int colorId) {
+        binding.cardViewMenu.setBackgroundColor(Helper.getColor(colorId));
     }
 
 

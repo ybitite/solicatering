@@ -11,7 +11,6 @@ import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import website.livingRoom.soliCatering.databinding.ViewClientBinding;
-import website.livingRoom.soliCatering.viewModel.CategorieViewModel;
 import website.livingRoom.soliCatering.viewModel.ClientViewModel;
 import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 

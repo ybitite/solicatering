@@ -1,6 +1,5 @@
 package website.livingRoom.soliCatering.view.conteur;
 
-import android.content.SharedPreferences;
 import android.view.View;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -9,7 +8,6 @@ import androidx.navigation.NavController;
 import website.livingRoom.soliCatering.MainActivity;
 import website.livingRoom.soliCatering.R;
 import website.livingRoom.soliCatering.databinding.ActivityMainBinding;
-import website.livingRoom.soliCatering.model.entitys.Conteur;
 import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 
 public class ConteurHolder {

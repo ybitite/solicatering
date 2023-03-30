@@ -11,7 +11,7 @@ import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 
 public class MenuListAdapter extends ListAdapter<Menu, MenuHolder> {
 
-    ConteurViewModel conteurViewModel;
+    final ConteurViewModel conteurViewModel;
 
     //CONSTRUCTOR
     public MenuListAdapter(@NonNull DiffUtil.ItemCallback<Menu> diffCallback, ConteurViewModel conteurViewModel) {
