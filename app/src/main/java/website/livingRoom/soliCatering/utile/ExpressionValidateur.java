@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 import kotlin.ranges.IntRange;
 
-public class ExpressionValidateur {
+public abstract class ExpressionValidateur {
     //FIELD STATIC FOR PATTERN
     private final static String GENERAL_PATTERN = "^[a-zA-Z_\\däöüÄÖÜùûÿàâæéèêëïîôœÙÛŸÀÂÆÉÈÊËÏÎÔŒ' ]*$";
     private final static String NUMERO_RUE_PATTERN = "^\\d{1,6}$";

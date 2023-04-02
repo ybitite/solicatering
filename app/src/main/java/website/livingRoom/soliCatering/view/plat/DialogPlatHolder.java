@@ -99,7 +99,7 @@ public class DialogPlatHolder {
                 Helper.naviguer(R.id.action_global_navigation_panier);
             }
             //IF CAN NOT CHOSE IN SEM CATEGORIE NAVIGATE TO CATEGORIE
-            else if (newPtRest < conteurViewModel.getConteur().getCategorieActuel()) {
+            else if ( conteurViewModel.getConteur().isSemCategoriePossible(newPtRest)) {
                 Helper.naviguer(R.id.action_dialogPlat_to_navigation_categorie);
             }
             //IF CAN NOT CHOSE IN SEM CATEGORIE NAVIGATE TO plat

@@ -41,7 +41,7 @@ public class PanierViewModel extends AndroidViewModel {
         ArticlePanierAndPlat article = Objects.requireNonNull(listArticlePanierAndPlat.getValue()).get(position);
 
         /*INCREMENT NUMBER OF PLAT IF IT POINT PLAT ARE LAST OR EQUAL AT POINT RESTE*/
-        if (article.plat.getPoint() <= conteurViewModel.getConteur().getPointReste()) {
+        if (conteurViewModel.getConteur().isEnoughRestePoint(article.plat.getPoint())) {
 
             return update(article, 1, -article.plat.getPoint());
         } else return 0;

@@ -14,7 +14,7 @@ import androidx.navigation.Navigation;
 import website.livingRoom.soliCatering.R;
 
 
-public class Helper {
+public abstract class Helper {
 
     //RETURN ID RESOURCE FROM CONTEXT
 

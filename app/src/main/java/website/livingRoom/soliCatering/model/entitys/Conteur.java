@@ -121,4 +121,14 @@ public class Conteur extends BaseObservable {
     private boolean isMenuSelected() {
         return pointDepart > 0;
     }
+
+    public boolean isEnoughRestePoint(int value){
+        return value <= pointReste;
+    }
+    public boolean isSemMenu(int value){
+        return value == pointDepart;
+    }
+    public boolean isSemCategoriePossible(int value){
+        return value < categorieActuel;
+    }
 }

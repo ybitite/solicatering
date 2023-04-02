@@ -60,7 +60,7 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
 
         bindControl(menu);
 
-        if (menu.getPoint() == conteurViewModel.getConteur().getPointDepart()) {
+        if (conteurViewModel.getConteur().isSemMenu(menu.getPoint())) {
             //CHANGE COLOR OF ITEM WHEN IS CLICKED
             upDateCardViewColor(R.color.grey_100);
         }

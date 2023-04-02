@@ -54,14 +54,13 @@ public class CategorieHolder extends RecyclerView.ViewHolder implements View.OnC
     }
 
     private void upDateClick() {
-        //BLOCK CLICK AND MAKE ITEM GRIS
-        if (categorie.getPoint() <= conteurViewModel.getConteur().getPointReste()) {
+        //BLOCK CLICK AND MAKE ITEM GRIS when not point enough for categorise
+        if (conteurViewModel.getConteur().isEnoughRestePoint(categorie.getPoint())) {
 
             changeVisibility(R.color.white_100, true, Helper.getColor(R.color.green_100));
 
         }
         else {
-            //MAKE ITEM GRIS AND POINT GREEN
             changeVisibility(R.color.grey_100, false, Helper.getColor(R.color.red_100));
         }
 
