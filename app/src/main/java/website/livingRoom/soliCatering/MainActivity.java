@@ -1,12 +1,20 @@
 package website.livingRoom.soliCatering;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.BottomNavigationViewKt;
 import androidx.navigation.ui.NavigationUI;
+
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import website.livingRoom.soliCatering.databinding.ActivityMainBinding;
 import website.livingRoom.soliCatering.model.sharedPreferences.ConteurSharedPreferencesOA;
@@ -17,30 +25,31 @@ public class MainActivity extends AppCompatActivity {
 
     //FIELD
     private static ActivityMainBinding bindingActivity;
-
     private ConteurViewModel conteurViewModel;
     private NavController navController;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //INSTANTIATE BINDING FOR ACTIVITY TO update ui from code
         bindingActivity = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(bindingActivity.getRoot());
 
-        //NAVIGATION CONTROL AND MENU INSTANTIATION
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupWithNavController(bindingActivity.navView, navController);
 
-
+        bindConteur();
 
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
+    }
+
+
+    @Override
     protected void onStart() {
-        bindConteur();
         super.onStart();
     }
 
@@ -54,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
 
         /*CHANGE CONTEUR VISIBILITY WEN DESTINATION CHANGE*/
         conteurHolder.conteurVisibility();
-
     }
 
 
