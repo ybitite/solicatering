@@ -63,4 +63,9 @@ public class PlatFragment extends Fragment {
         platViewModel.getAllPlat(conteurViewModel.getConteur().getCategorieActuel())
                 .observe(getViewLifecycleOwner(), plat -> platsListAdapter.submitList(plat));
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
 }

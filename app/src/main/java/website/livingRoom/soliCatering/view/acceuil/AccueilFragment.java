@@ -41,19 +41,27 @@ public class AccueilFragment extends Fragment {
     }
 
     private void initiateRecycleView() {
-
-        //create concat adapter from HEADER ADAPTER + BT COMMANDER ADAPTER + LIST ADAPTER
-        final EvenementListAdapter evenementListAdapter = new EvenementListAdapter(new EvenementListAdapter.EvenementDiff());
-        final ConcatAdapter concatAdapter = new ConcatAdapter(new EvenementTeteAdapter(),  new EvenementBtCmdAdapter(), evenementListAdapter);
-
-        //SET PROPERTIES TO RV
         RecyclerView rv = binding.evRecycler;
-        rv.setAdapter(concatAdapter);
+
+        final EvenementListAdapter evenementListAdapter = setAdapterToRv(rv);
+
         rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
         rv.setItemAnimator(new DefaultItemAnimator());
 
         //observe data from live data and update rv
         observeDataAndUpdateView(evenementListAdapter);
+    }
+
+    @NonNull
+    private EvenementListAdapter setAdapterToRv(RecyclerView rv) {
+        //create concat adapter from HEADER ADAPTER + BT COMMANDER ADAPTER + LIST ADAPTER
+        final EvenementListAdapter evenementListAdapter = new EvenementListAdapter(new EvenementListAdapter.EvenementDiff());
+        final ConcatAdapter concatAdapter = new ConcatAdapter(new EvenementTeteAdapter(),  new EvenementBtCmdAdapter(), evenementListAdapter);
+
+        //SET PROPERTIES TO RV
+
+        rv.setAdapter(concatAdapter);
+        return evenementListAdapter;
     }
 
     private void observeDataAndUpdateView(EvenementListAdapter evenementListAdapter) {

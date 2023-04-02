@@ -80,5 +80,8 @@ public class PanierFragment extends Fragment {
         panierViewModel.getListArticlePanierAndPlat().observe(getViewLifecycleOwner(), articlePanierListAdapter::submitList);
     }
 
-
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
 }

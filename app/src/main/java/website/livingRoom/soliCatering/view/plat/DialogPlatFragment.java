@@ -53,4 +53,9 @@ public class DialogPlatFragment extends DialogFragment {
 
         dialogPlatHolder.bind();
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
 }

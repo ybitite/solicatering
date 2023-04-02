@@ -51,4 +51,8 @@ public class DialogClientFragment extends DialogFragment {
         dialogClientHolder.bind();
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
 }

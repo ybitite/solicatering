@@ -1,7 +1,7 @@
 package website.livingRoom.soliCatering;
 
 import android.os.Bundle;
-import android.view.Menu;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -23,7 +23,9 @@ public class MainActivity extends AppCompatActivity {
     private static ActivityMainBinding bindingActivity;
     private ConteurViewModel conteurViewModel;
     private NavController navController;
+    private ConteurHolder conteurHolder;
 
+    //beginning of life cycle
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,18 +36,13 @@ public class MainActivity extends AppCompatActivity {
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupWithNavController(bindingActivity.navView, navController);
 
-        bindConteur();
-
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        return super.onCreateOptionsMenu(menu);
-    }
-
-
+    //activity is visible
     @Override
     protected void onStart() {
+        //create conteur view with live model
+        bindConteur();
         super.onStart();
     }
 
@@ -55,13 +52,28 @@ public class MainActivity extends AppCompatActivity {
         }
         conteurViewModel = new ViewModelProvider(this).get(ConteurViewModel.class);
 
-        ConteurHolder conteurHolder = new ConteurHolder(conteurViewModel, navController, bindingActivity, this);
+        conteurHolder = new ConteurHolder(conteurViewModel, navController, bindingActivity, this);
+    }
 
-        /*CHANGE CONTEUR VISIBILITY WEN DESTINATION CHANGE*/
-        conteurHolder.conteurVisibility();
+    //activity is accessible
+    @Override
+    protected void onResume() {
+        //start to listen to destination and up date visibility of conteur
+        conteurHolder.registerListenerForVisibility();
+        super.onResume();
+    }
+
+    //activity is not any more accessible
+    @Override
+    protected void onPause() {
+        //stop to listen to destination and up date visibility of conteur
+        conteurHolder.unregisterListenerForVisibility();
+        super.onPause();
     }
 
 
+
+    //end of life cycle
     @Override
     protected void onDestroy() {
         super.onDestroy();

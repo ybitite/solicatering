@@ -1,9 +1,10 @@
 package website.livingRoom.soliCatering.view.conteur;
 
+import android.os.Bundle;
 import android.view.View;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
 
 import website.livingRoom.soliCatering.MainActivity;
 import website.livingRoom.soliCatering.R;
@@ -23,25 +24,36 @@ public class ConteurHolder {
         bindingActivity.includeConteur.setViewModel(conteurViewModel);
     }
 
-    public void conteurVisibility() {
-        //GET CONTEUR CONSTRAINT LAYOUT FROM BINDING
-        ConstraintLayout constraintLayoutConteur = bindingActivity.includeConteur.constraintLayoutConteurCat;
+    public void registerListenerForVisibility() {
 
-        //ADD DESTINATION LISTENER TO NAVIGATION CONTROLLER
-        /*LISTEN TO CHANGE OF DESTINATION? CONTEUR VISIBILITY WEN DESTINATION CHANGE*/
-        navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
-            switch (destination.getId()) {
-                case R.id.navigation_menu:
-                case R.id.navigation_categorie:
-                case R.id.navigation_plat:
-                case R.id.navigation_panier:
-                case R.id.dialogPlat:
-                    constraintLayoutConteur.setVisibility(View.VISIBLE);
-                    break;
-                default:
-                    constraintLayoutConteur.setVisibility(View.GONE);
-                    break;
-            }
-        });
+        //add on destination changer listener to navigation controller
+
+        navController.addOnDestinationChangedListener(this::onDestinationChanged);
+    }
+
+    public void unregisterListenerForVisibility() {
+        //remove on destination changer listener
+        navController.removeOnDestinationChangedListener(this::onDestinationChanged);
+    }
+
+    //to listen  change of destination and update conteur visibility wen destination change
+    private void onDestinationChanged(NavController controller, NavDestination destination, Bundle arguments) {
+        switch (destination.getId()) {
+            case R.id.navigation_menu:
+            case R.id.navigation_categorie:
+            case R.id.navigation_plat:
+            case R.id.navigation_panier:
+            case R.id.dialogPlat:
+                updateConteurVisibility(View.VISIBLE);
+                break;
+            default:
+                updateConteurVisibility(View.GONE);
+                break;
+        }
+    }
+
+    //update conteur visibility
+    private void updateConteurVisibility(int visible) {
+        bindingActivity.includeConteur.constraintLayoutConteurCat.setVisibility(visible);
     }
 }

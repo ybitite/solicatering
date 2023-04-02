@@ -64,4 +64,9 @@ public class CategorieFragment extends Fragment {
         //OBSERVE DATA FROM LIVE DATA AND UPDATE RV WEN DATA CHANGE
         categorieViewModel.getListCategorie().observe(getViewLifecycleOwner(), categorieListAdapter::submitList);
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
 }
