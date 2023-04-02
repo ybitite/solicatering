@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/nav_host_fragment_activity_main" />
 
-    <!--navigation host fragment-->
+    <!--navigation_selction host fragment-->
     <fragment
         android:id="@+id/nav_host_fragment_activity_main"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -27,7 +27,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/includeConteur"
         app:navGraph="@navigation/mobile_navigation"/>
-    <!--bottom navigation view-->
+    <!--bottom navigation_selction view-->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="0dp"

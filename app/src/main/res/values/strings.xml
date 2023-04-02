@@ -2,10 +2,12 @@
     <string name="app_name">Soli Catering</string>
     <!-- Menu title -->
     <string name="title_home" translatable="false">Accueil</string>
-    <string name="title_menu" translatable="false">Menu</string>
+    <string name="title_menu" translatable="false">Menus</string>
     <string name="title_Historique" translatable="false">Historique</string>
     <string name="title_panier" translatable="false">Panier</string>
-    <string name="title_categorie" translatable="false">categorie</string>
+    <string name="title_categorie" translatable="false">Categories</string>
+    <string name="title_plat" translatable="false">Plats</string>
+
 
 
     <!-- Preference Titles -->

@@ -3,11 +3,13 @@ package website.livingRoom.soliCatering.view.acceuil.rv;
 
 import android.view.View;
 
-import androidx.navigation.Navigation;
+
 import androidx.recyclerview.widget.RecyclerView;
+
 
 import website.livingRoom.soliCatering.R;
 import website.livingRoom.soliCatering.databinding.ModelBtCmdEvenementBinding;
+import website.livingRoom.soliCatering.utile.Helper;
 
 //HOLDER
 public class EvenementBtCmdHolder extends RecyclerView.ViewHolder {
@@ -21,10 +23,9 @@ public class EvenementBtCmdHolder extends RecyclerView.ViewHolder {
     //METHOD BIND
     public void bind() {
         //NAVIGATE TO COMMANDE ON BUTTON CLICK
-        binding.buttonCommander.setOnClickListener(view -> naviguer(R.id.action_navigation_home_to_navigation_commande));
+        binding.buttonCommander.setOnClickListener(view -> Helper.naviguer(R.id.action_global_navigation_home_to_navigation_menu));
+
     }
 
-    private void naviguer(int actionId) {
-        Navigation.findNavController(itemView).navigate(actionId);
-    }
+
 }

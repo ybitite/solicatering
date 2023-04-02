@@ -31,6 +31,7 @@ public class ConteurHolder {
         /*LISTEN TO CHANGE OF DESTINATION? CONTEUR VISIBILITY WEN DESTINATION CHANGE*/
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
             switch (destination.getId()) {
+                case R.id.navigation_menu:
                 case R.id.navigation_categorie:
                 case R.id.navigation_plat:
                 case R.id.navigation_panier:

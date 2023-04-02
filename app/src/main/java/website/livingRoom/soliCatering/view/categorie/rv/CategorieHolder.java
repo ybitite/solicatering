@@ -4,7 +4,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import website.livingRoom.soliCatering.R;
@@ -77,10 +76,7 @@ public class CategorieHolder extends RecyclerView.ViewHolder implements View.OnC
     @Override
     public void onClick(View v) {
         conteurViewModel.getConteur().setCategorieActuel(categorie.getPoint());
-        naviguer(R.id.action_navigation_categorie_to_navigation_plat);
+        Helper.naviguer(R.id.action_navigation_categorie_to_navigation_plat);
     }
 
-    private void naviguer(int actionId) {
-        Navigation.findNavController(itemView).navigate(actionId);
-    }
 }

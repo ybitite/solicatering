@@ -17,7 +17,7 @@ public abstract class AppPicasso {
     public static Picasso getInstance(){
         if(INSTANCE == null){
                 try {
-                    INSTANCE =new  Picasso.Builder(AppUtile.getContext()).downloader(new OkHttp3Downloader(AppOkHttpClient.getTrustAllCertsClient())).build();
+                    INSTANCE =new  Picasso.Builder(Helper.getContext()).downloader(new OkHttp3Downloader(AppOkHttpClient.getTrustAllCertsClient())).build();
                 } catch (NoSuchAlgorithmException e) {
                     throw new RuntimeException(e);
                 } catch (KeyManagementException e) {

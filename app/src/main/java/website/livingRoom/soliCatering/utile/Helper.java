@@ -1,6 +1,7 @@
 package website.livingRoom.soliCatering.utile;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.utils.widget.MockView;
+import androidx.navigation.Navigation;
 
 import website.livingRoom.soliCatering.R;
 
@@ -15,9 +17,7 @@ import website.livingRoom.soliCatering.R;
 public class Helper {
 
     //RETURN ID RESOURCE FROM CONTEXT
-    public static int getIdResourceByName(String nom) {
-        return getResources().getIdentifier(nom, "drawable", getContext().getPackageName());
-    }
+
 
     public static void fixWidth(MockView mockView){
         //FIX WIDTH OF CARD TO WIDTH OF SCREEN
@@ -51,5 +51,8 @@ public class Helper {
         return AppUtile.getResource();
     }
 
+    public static void naviguer(int actionId) {
+        Navigation.findNavController((Activity) AppUtile.getActivity(),R.id.nav_host_fragment_activity_main).navigate(actionId);
+    }
 
 }

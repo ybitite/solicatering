@@ -2,19 +2,15 @@ package website.livingRoom.soliCatering;
 
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.BottomNavigationViewKt;
+
 import androidx.navigation.ui.NavigationUI;
 
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import website.livingRoom.soliCatering.databinding.ActivityMainBinding;
 import website.livingRoom.soliCatering.model.sharedPreferences.ConteurSharedPreferencesOA;

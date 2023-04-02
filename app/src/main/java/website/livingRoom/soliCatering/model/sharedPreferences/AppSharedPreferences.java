@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 
 import website.livingRoom.soliCatering.R;
 import website.livingRoom.soliCatering.utile.AppUtile;
+import website.livingRoom.soliCatering.utile.Helper;
 
 public abstract class AppSharedPreferences{
     //FIELD
@@ -25,7 +26,7 @@ public abstract class AppSharedPreferences{
                 INSTANCE = new  AppSharedPreferences() {
                 };
                 sharedPreferences =
-                        AppUtile.getContext().getSharedPreferences(String.valueOf(R.string.conteur_file_name), Context.MODE_PRIVATE);
+                        Helper.getContext().getSharedPreferences(String.valueOf(R.string.conteur_file_name), Context.MODE_PRIVATE);
             }
         }
         return INSTANCE;

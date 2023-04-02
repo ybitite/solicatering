@@ -12,7 +12,7 @@ public class ErrorBuilder {
     public static StringBuilder buildErrorMessage() {
 
         //get resources from AppUtil
-        Resources resources = AppUtile.getResource();
+        Resources resources = Helper.getResources();
 
         //create string builder to concatenate all error message
         StringBuilder builder = new StringBuilder();

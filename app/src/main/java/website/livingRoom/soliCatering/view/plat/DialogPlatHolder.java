@@ -96,11 +96,11 @@ public class DialogPlatHolder {
             addToPanier();
             //IF POINT FINISH NAVIGATE TO PANIER
             if (newPtRest == 0) {
-                naviguer(R.id.action_dialogPlat_to_navigation_panier);
+                Helper.naviguer(R.id.action_global_navigation_panier);
             }
             //IF CAN NOT CHOSE IN SEM CATEGORIE NAVIGATE TO CATEGORIE
             else if (newPtRest < conteurViewModel.getConteur().getCategorieActuel()) {
-                naviguer(R.id.action_dialogPlat_to_navigation_categorie);
+                Helper.naviguer(R.id.action_dialogPlat_to_navigation_categorie);
             }
             //IF CAN NOT CHOSE IN SEM CATEGORIE NAVIGATE TO plat
             else {
@@ -112,9 +112,6 @@ public class DialogPlatHolder {
         }
     }
 
-    private void naviguer(int actionId) {
-        Navigation.findNavController(fragmentActivity,R.id.nav_host_fragment_activity_main).navigate(actionId);
-    }
 
     private void annuller() {
         platViewModel.resetNumberPlat();

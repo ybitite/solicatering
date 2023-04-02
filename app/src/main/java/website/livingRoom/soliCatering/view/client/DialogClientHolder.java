@@ -58,7 +58,7 @@ public class DialogClientHolder {
           this bloc and data access on one shut can have impact to the UI if we use UI thread**/
             AppDatabase.databaseWriteExecutor.execute(this::run);
 
-            naviguer(R.id.action_dialogClient_to_historiqueFragment);
+            Helper.naviguer(R.id.action_global_navigation_historique);
         }
     }
 

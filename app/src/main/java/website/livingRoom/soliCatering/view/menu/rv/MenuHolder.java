@@ -95,7 +95,7 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
     @Override
     public void onClick(View v) {
         updateConteur(menu, conteurViewModel.getConteur().getPointDepart());
-        naviguer(R.id.action_navigation_menu_to_navigation_categorie);
+        Helper.naviguer(R.id.action_navigation_menu_to_navigation_categorie);
     }
 
 }
