@@ -9,10 +9,14 @@
         android:id="@+id/navigation_home"
         android:name="website.livingRoom.soliCatering.view.acceuil.AccueilFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_acceuil">
+        tools:layout="@layout/fragment_acceuil"
+
+        app:enterAnim="@anim/transition_right_to_left"
+        app:exitAnim="@anim/transition_left_to_right">
         <action
             android:id="@+id/action_global_navigation_home_to_navigation_menu"
             app:destination="@id/navigation_selction"
+
             app:popUpTo="@id/navigation_home"
             app:popUpToSaveState="true" />
     </fragment>
@@ -26,16 +30,24 @@
         android:name="website.livingRoom.soliCatering.view.historique.HistoriqueFragment"
         android:label="@string/title_Historique"
 
-        tools:layout="@layout/fragment_historique" />
+        tools:layout="@layout/fragment_historique"
+
+        app:enterAnim="@anim/transition_right_to_left"
+        app:exitAnim="@anim/transition_left_to_right"/>
     <navigation
         android:id="@+id/navigation_selction"
-        app:startDestination="@id/navigation_menu">
+        app:startDestination="@id/navigation_menu"
+        app:enterAnim="@anim/transition_right_to_left"
+        app:exitAnim="@anim/transition_left_to_right">
         <fragment
             android:id="@+id/navigation_menu"
             android:name="website.livingRoom.soliCatering.view.menu.MenuFragment"
             android:label="@string/title_menu"
 
-            tools:layout="@layout/fragment_menu">
+            tools:layout="@layout/fragment_menu"
+
+
+            app:exitAnim="@anim/transition_left_to_right">
             <action
                 android:id="@+id/action_navigation_menu_to_navigation_categorie"
                 app:destination="@id/navigation_categorie"
@@ -47,7 +59,10 @@
             android:name="website.livingRoom.soliCatering.view.categorie.CategorieFragment"
             android:label="@string/title_categorie"
 
-            tools:layout="@layout/fragment_categorie">
+            tools:layout="@layout/fragment_categorie"
+
+            app:enterAnim="@anim/transition_right_to_left"
+            app:exitAnim="@anim/transition_left_to_right">
             <action
                 android:id="@+id/action_navigation_categorie_to_navigation_plat"
                 app:destination="@id/navigation_plat" />
@@ -69,7 +84,9 @@
             android:name="website.livingRoom.soliCatering.view.plat.PlatFragment"
             android:label="@string/titre_plat"
 
-            tools:layout="@layout/fragment_plat">
+            tools:layout="@layout/fragment_plat"
+
+            app:enterAnim="@anim/transition_right_to_left">
             <action
                 android:id="@+id/action_navigation_plat_to_dialogPlat"
                 app:destination="@id/dialogPlat" />
@@ -81,7 +98,10 @@
     </navigation>
     <navigation
         android:id="@+id/navigation_order"
-        app:startDestination="@id/navigation_panier">
+        app:startDestination="@id/navigation_panier"
+
+        app:enterAnim="@anim/transition_right_to_left"
+        app:exitAnim="@anim/transition_left_to_right">
         <fragment
             android:id="@+id/navigation_panier"
             android:name="website.livingRoom.soliCatering.view.panier.PanierFragment"

@@ -65,50 +65,12 @@
                     app:layout_constraintTop_toBottomOf="@+id/textViewNomCat" />
 
                 <!--text view contenu 1-->
-                <TextView
-                    android:id="@+id/textViewContenuCat1"
-
-                    style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
-                    android:hint="@string/contenu_1"
-                    android:textAlignment="textStart"
-
-                    app:layout_constraintBottom_toTopOf="@+id/textViewContenuCat2"
-                    app:layout_constraintStart_toStartOf="@+id/textViewDiscriptionCat" />
 
                 <!--text view contenu 2-->
-                <TextView
-                    android:id="@+id/textViewContenuCat2"
-
-                    style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
-
-                    android:hint="@string/contenu_2"
-                    android:textAlignment="textStart"
-
-                    app:layout_constraintBottom_toTopOf="@+id/textViewContenuCat3"
-                    app:layout_constraintStart_toStartOf="@+id/textViewDiscriptionCat" />
 
                 <!--text view contenu 3-->
-                <TextView
-                    android:id="@+id/textViewContenuCat3"
-
-                    style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
-                    android:hint="@string/contenu_3"
-
-                    app:layout_constraintBottom_toTopOf="@+id/textViewContenuCat4"
-                    app:layout_constraintStart_toStartOf="@+id/textViewDiscriptionCat" />
 
                 <!--text view contenu 3 points-->
-                <TextView
-                    android:id="@+id/textViewContenuCat4"
-
-                    style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
-
-                    android:layout_marginBottom="@dimen/small_margin"
-                    android:gravity="center"
-
-                    android:hint="@string/trois_point"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/textViewContenuCat3" />
 
                 <!--text view points-->
                 <TextView
