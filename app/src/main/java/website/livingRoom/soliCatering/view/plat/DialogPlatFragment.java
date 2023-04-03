@@ -24,6 +24,7 @@ public class DialogPlatFragment extends DialogFragment {
     private ArticlePanierRepository articlePanierRepository;
 
     private ViewPlatsBinding binding;
+    private DialogPlatHolder dialogPlatHolder;
 
     //METHODE
     @Nullable
@@ -49,7 +50,7 @@ public class DialogPlatFragment extends DialogFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //BIND VIEW
-        DialogPlatHolder dialogPlatHolder = new DialogPlatHolder(platViewModel,conteurViewModel,articlePanierRepository,binding,requireActivity(),this);
+        dialogPlatHolder = new DialogPlatHolder(platViewModel,conteurViewModel,articlePanierRepository,binding,requireActivity(),this);
 
         dialogPlatHolder.bind();
     }

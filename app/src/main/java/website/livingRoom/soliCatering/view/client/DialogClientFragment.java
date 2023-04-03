@@ -20,6 +20,7 @@ public class DialogClientFragment extends DialogFragment {
     ClientViewModel clientViewModel;
     ConteurViewModel conteurViewModel;
     ViewClientBinding binding;
+    DialogClientHolder dialogClientHolder;
 
     //OVERRIDE METHODE
     @Nullable
@@ -47,7 +48,7 @@ public class DialogClientFragment extends DialogFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        DialogClientHolder dialogClientHolder= new DialogClientHolder(binding,clientViewModel, requireActivity(),this, conteurViewModel);
+        dialogClientHolder= new DialogClientHolder(binding,clientViewModel, requireActivity(),this, conteurViewModel);
         dialogClientHolder.bind();
     }
 
