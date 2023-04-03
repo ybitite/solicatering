@@ -38,7 +38,7 @@ public class PanierViewModel extends AndroidViewModel {
     /*INCREMENT NUMBER PLAT*/
     public int incrimenteNbPlat(int position) {
 
-        ArticlePanierAndPlat article = Objects.requireNonNull(listArticlePanierAndPlat.getValue()).get(position);
+        ArticlePanierAndPlat article = listArticlePanierAndPlat.getValue().get(position);
 
         /*INCREMENT NUMBER OF PLAT IF IT POINT PLAT ARE LAST OR EQUAL AT POINT RESTE*/
         if (conteurViewModel.getConteur().isEnoughRestePoint(article.plat.getPoint())) {
@@ -51,7 +51,7 @@ public class PanierViewModel extends AndroidViewModel {
 
     public int decrementNbPlat(int position) {
 
-        ArticlePanierAndPlat article = Objects.requireNonNull(listArticlePanierAndPlat.getValue()).get(position);
+        ArticlePanierAndPlat article = listArticlePanierAndPlat.getValue().get(position);
 
         /*DECREMENT NUMBER OF PLAT IF IT POSSIBLE IF NUMBER ARE MOR THAN 1*/
         if (article.articlePanier.getNombrePlat() > 1) {
