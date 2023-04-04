@@ -63,7 +63,9 @@ public class PlatViewModel extends AndroidViewModel {
         nombrePlat.setValue(1);
     }
 
-
+    public void setNombrePlat(int value){
+        nombrePlat.setValue(value);
+    }
 
 
 }

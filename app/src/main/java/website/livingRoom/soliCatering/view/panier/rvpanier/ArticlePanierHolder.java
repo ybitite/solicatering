@@ -3,6 +3,7 @@ package website.livingRoom.soliCatering.view.panier.rvpanier;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,6 +13,7 @@ import website.livingRoom.soliCatering.repository.ArticlePanierRepository;
 import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 import website.livingRoom.soliCatering.viewModel.PanierViewModel;
 import website.livingRoom.soliCatering.utile.Helper;
+import website.livingRoom.soliCatering.viewModel.PlatViewModel;
 
 public class ArticlePanierHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     //FIELD
@@ -19,11 +21,14 @@ public class ArticlePanierHolder extends RecyclerView.ViewHolder implements View
 
     private final ConteurViewModel conteurViewModel;
 
+    private final PlatViewModel platViewModel;
+
     //CONSTRUCTOR
-    public ArticlePanierHolder(ModelArticlePanierBinding modelArticlePanierBinding, ConteurViewModel conteurViewModel) {
+    public ArticlePanierHolder(ModelArticlePanierBinding modelArticlePanierBinding, ConteurViewModel conteurViewModel,PlatViewModel platViewModel) {
         super(modelArticlePanierBinding.getRoot());
 
         this.conteurViewModel=conteurViewModel;
+        this.platViewModel=platViewModel;
 
         // instantiate binding object
         binding = modelArticlePanierBinding;
@@ -32,12 +37,12 @@ public class ArticlePanierHolder extends RecyclerView.ViewHolder implements View
         itemView.setOnClickListener(this);
     }
 
-    public static ArticlePanierHolder create(ViewGroup parent, ConteurViewModel conteurViewModel) {
+    public static ArticlePanierHolder create(ViewGroup parent, ConteurViewModel conteurViewModel,PlatViewModel platViewModel) {
         //GENERATE CLASS FROM MODEL ARTICLE PANIER
         ModelArticlePanierBinding modelArticlePanierBinding = ModelArticlePanierBinding
                 .inflate(LayoutInflater.from(parent.getContext()));
 
-        return new ArticlePanierHolder(modelArticlePanierBinding,conteurViewModel);
+        return new ArticlePanierHolder(modelArticlePanierBinding,conteurViewModel,platViewModel);
     }
 
     public void bind(ArticlePanierAndPlat articlePanierAndPlat, PanierViewModel panierViewModel) {
@@ -101,6 +106,5 @@ public class ArticlePanierHolder extends RecyclerView.ViewHolder implements View
 
     @Override
     public void onClick(View v) {
-
     }
 }

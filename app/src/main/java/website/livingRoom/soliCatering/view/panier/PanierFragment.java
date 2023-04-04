@@ -20,6 +20,7 @@ import website.livingRoom.soliCatering.view.panier.rvpanier.ArticlePanierListAda
 import website.livingRoom.soliCatering.view.panier.rvpanier.ArticlePanierPiedAdapter;
 import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 import website.livingRoom.soliCatering.viewModel.PanierViewModel;
+import website.livingRoom.soliCatering.viewModel.PlatViewModel;
 
 
 public class PanierFragment extends Fragment {
@@ -29,6 +30,7 @@ public class PanierFragment extends Fragment {
     private PanierViewModel panierViewModel;
     private ConteurViewModel conteurViewModel;
     private ModelPiedArticlePanierBinding modelPiedArticlePanierBinding;
+    private PlatViewModel platViewModel;
 
     //METHODE
     @Override
@@ -40,6 +42,7 @@ public class PanierFragment extends Fragment {
         //INSTANTIATE VIEW MODEL
         conteurViewModel = new ViewModelProvider(requireActivity()).get(ConteurViewModel.class);
         panierViewModel = new PanierViewModel(getActivity().getApplication(),conteurViewModel);
+        platViewModel = new ViewModelProvider(requireActivity()).get(PlatViewModel.class);
 
 
         return binding.getRoot();
@@ -65,7 +68,7 @@ public class PanierFragment extends Fragment {
 
         //SET FOOTER ADAPTER + LIST ADAPTER TO RV
         ArticlePanierListAdapter articlePanierListAdapter =
-                new ArticlePanierListAdapter(new ArticlePanierListAdapter.ArticlePanierWithPlatDiff( ), panierViewModel, conteurViewModel);
+                new ArticlePanierListAdapter(new ArticlePanierListAdapter.ArticlePanierWithPlatDiff( ), panierViewModel, conteurViewModel,platViewModel);
 
         ArticlePanierPiedAdapter articlePanierPiedAdapter = new ArticlePanierPiedAdapter(conteurViewModel, modelPiedArticlePanierBinding);
 
