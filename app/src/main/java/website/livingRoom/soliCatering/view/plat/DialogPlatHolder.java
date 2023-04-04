@@ -1,5 +1,8 @@
 package website.livingRoom.soliCatering.view.plat;
 
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
+
 import website.livingRoom.soliCatering.R;
 import website.livingRoom.soliCatering.databinding.ViewPlatsBinding;
 import website.livingRoom.soliCatering.model.entitys.ArticlePanier;
@@ -79,9 +82,14 @@ public class DialogPlatHolder {
 
     private void ajouter( ) {
         if(checkUpDatePointRest()){
-            int newPtRest = upDatePtRest();
+            //update badge number
+            conteurViewModel.updateBadgeOrderNumber();
+
+            //add panier to data base
             addToPanier();
+
             //IF POINT FINISH NAVIGATE TO PANIER
+            int newPtRest = upDatePtRest();
             if (newPtRest == 0) {
                 Helper.naviguer(R.id.action_global_navigation_panier);
             }

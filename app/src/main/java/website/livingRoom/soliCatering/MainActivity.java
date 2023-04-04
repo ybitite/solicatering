@@ -8,6 +8,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.badge.BadgeDrawable;
+
 import website.livingRoom.soliCatering.databinding.ActivityMainBinding;
 import website.livingRoom.soliCatering.model.sharedPreferences.ConteurSharedPreferencesOA;
 import website.livingRoom.soliCatering.view.conteur.ConteurHolder;
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private ConteurViewModel conteurViewModel;
     private NavController navController;
     private ConteurHolder conteurHolder;
+    private BadgeDrawable badgeOrder;
 
     //beginning of life cycle
     @Override
@@ -31,9 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupWithNavController(binding.navView, navController);
-
     }
-
 
     //activity is visible
     @Override
@@ -50,12 +51,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void bindConteur() {
+
         if (!ConteurSharedPreferencesOA.createConteur()){
             ConteurSharedPreferencesOA.createDefaultConteur();
         }
         conteurViewModel = new ViewModelProvider(this).get(ConteurViewModel.class);
 
-        conteurHolder = new ConteurHolder(binding.includeConteur, navController);
+        setupBadge();
+
+        conteurHolder = new ConteurHolder(binding.includeConteur, navController, badgeOrder,conteurViewModel);
+    }
+
+    private void setupBadge() {
+
+        badgeOrder = binding.navView.getOrCreateBadge(R.id.navigation_order);
+
+        badgeOrder.setVisible(false);
+
+        conteurViewModel.getBadgeOrderNumber().observe(this, number -> {
+            if(number != 0){
+                if (!badgeOrder.isVisible()) badgeOrder.setVisible(true);
+                badgeOrder.setNumber(number);
+            }
+        });
     }
 
     //activity is accessible
@@ -75,11 +93,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //activity is not any more visible in foreground
-
-
     @Override
     protected void onStop() {
-        binding = null;
         super.onStop( );
     }
 

@@ -82,7 +82,7 @@ public class PlatsHolder extends RecyclerView.ViewHolder implements View.OnClick
             setItemClickListener((v, pos) -> navigateToDialogPlat(plat, platViewModel));
         }
         else {
-            Helper.blockItem(R.color.green_100,false,itemView,binding.cardViewPlat);
+            Helper.blockItem(R.color.red_100,false,itemView,binding.cardViewPlat);
         }
     }
 

@@ -6,25 +6,30 @@ import android.view.View;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 
+import com.google.android.material.badge.BadgeDrawable;
+
 import website.livingRoom.soliCatering.R;
 import website.livingRoom.soliCatering.databinding.FragmentConteurBinding;
+import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 
 public class ConteurHolder {
     //FIELD
     private final FragmentConteurBinding binding;
     private final NavController navController;
+    private final BadgeDrawable badgeOrder;
+    private final ConteurViewModel conteurViewModel;
 
 
-    public ConteurHolder(FragmentConteurBinding binding, NavController navController) {
-        this.navController = navController;
+    public ConteurHolder(FragmentConteurBinding binding, NavController navController, BadgeDrawable badgeOrder, ConteurViewModel conteurViewModel) {
         this.binding = binding;
-
+        this.navController = navController;
+        this.badgeOrder = badgeOrder;
+        this.conteurViewModel = conteurViewModel;
     }
 
     public void registerListenerForVisibility() {
 
         //add on destination changer listener to navigation controller
-
         navController.addOnDestinationChangedListener(this::onDestinationChanged);
     }
 
@@ -39,8 +44,15 @@ public class ConteurHolder {
             case R.id.navigation_menu:
             case R.id.navigation_categorie:
             case R.id.navigation_plat:
-            case R.id.navigation_panier:
             case R.id.dialogPlat:
+                updateConteurVisibility(View.VISIBLE);
+                break;
+            case R.id.navigation_panier:
+                if (badgeOrder != null) {
+                    badgeOrder.setVisible(false);
+                    badgeOrder.clearNumber();
+                    conteurViewModel.resetBadgeOrderNumber();
+                }
                 updateConteurVisibility(View.VISIBLE);
                 break;
             default:

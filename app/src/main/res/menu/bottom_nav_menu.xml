@@ -8,13 +8,13 @@
 
     <item
         android:id="@+id/navigation_selction"
-        android:icon="@drawable/contact_icon"
+        android:icon="@drawable/icon_menus"
         android:title="@string/title_menu" />
 
 
     <item
         android:id="@+id/navigation_order"
-        android:icon="@drawable/delivery_icon"
+        android:icon="@drawable/paniericone"
         android:title="@string/title_panier" />
 
     <item
