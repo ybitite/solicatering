@@ -6,22 +6,19 @@ import android.view.View;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 
-import website.livingRoom.soliCatering.MainActivity;
 import website.livingRoom.soliCatering.R;
-import website.livingRoom.soliCatering.databinding.ActivityMainBinding;
-import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
+import website.livingRoom.soliCatering.databinding.FragmentConteurBinding;
 
 public class ConteurHolder {
     //FIELD
-    private final ActivityMainBinding bindingActivity;
+    private final FragmentConteurBinding binding;
     private final NavController navController;
 
 
-    public ConteurHolder(ConteurViewModel conteurViewModel, NavController navController,ActivityMainBinding bindingActivity, MainActivity mainActivity) {
+    public ConteurHolder(FragmentConteurBinding binding, NavController navController) {
         this.navController = navController;
-        this.bindingActivity = bindingActivity;
-        bindingActivity.includeConteur.setLifecycleOwner(mainActivity);
-        bindingActivity.includeConteur.setViewModel(conteurViewModel);
+        this.binding = binding;
+
     }
 
     public void registerListenerForVisibility() {
@@ -54,6 +51,6 @@ public class ConteurHolder {
 
     //update conteur visibility
     private void updateConteurVisibility(int visible) {
-        bindingActivity.includeConteur.constraintLayoutConteurCat.setVisibility(visible);
+        binding.constraintLayoutConteurCat.setVisibility(visible);
     }
 }

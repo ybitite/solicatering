@@ -1,7 +1,6 @@
 package website.livingRoom.soliCatering;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -20,7 +19,7 @@ import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 public class MainActivity extends AppCompatActivity {
 
     //FIELD
-    private static ActivityMainBinding bindingActivity;
+    private static ActivityMainBinding binding;
     private ConteurViewModel conteurViewModel;
     private NavController navController;
     private ConteurHolder conteurHolder;
@@ -30,19 +29,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        bindingActivity = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(bindingActivity.getRoot());
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-        NavigationUI.setupWithNavController(bindingActivity.navView, navController);
+        NavigationUI.setupWithNavController(binding.navView, navController);
 
     }
+
 
     //activity is visible
     @Override
     protected void onStart() {
         //create conteur view with live model
         bindConteur();
+
+        //specif at life cycle owner
+        binding.includeConteur.setLifecycleOwner(this);
+
+        //set the view model to the binding class
+        binding.includeConteur.setViewModel(conteurViewModel);
         super.onStart();
     }
 
@@ -52,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         }
         conteurViewModel = new ViewModelProvider(this).get(ConteurViewModel.class);
 
-        conteurHolder = new ConteurHolder(conteurViewModel, navController, bindingActivity, this);
+        conteurHolder = new ConteurHolder(binding.includeConteur, navController);
     }
 
     //activity is accessible
@@ -71,11 +77,19 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
     }
 
+    //activity is not any more visible in foreground
 
+
+    @Override
+    protected void onStop() {
+        binding = null;
+        super.onStop( );
+    }
 
     //end of life cycle
     @Override
     protected void onDestroy() {
         super.onDestroy();
     }
+
 }
