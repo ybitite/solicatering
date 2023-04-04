@@ -37,9 +37,15 @@ public class PlatFragment extends Fragment {
 
         conteurViewModel = new ViewModelProvider(requireActivity()).get(ConteurViewModel.class);
 
-        initiateRecycleView();
 
         return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        initiateRecycleView();
+
+        super.onViewCreated(view, savedInstanceState);
     }
 
     private void initiateRecycleView() {

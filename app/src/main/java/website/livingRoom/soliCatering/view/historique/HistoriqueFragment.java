@@ -31,9 +31,15 @@ public class HistoriqueFragment extends Fragment {
 
         historiqueViewModel = new ViewModelProvider(this).get(HistoriqueViewModel.class);
 
-        initiateRecycleView();
 
         return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        initiateRecycleView();
+
+        super.onViewCreated(view, savedInstanceState);
     }
 
     private void initiateRecycleView() {
