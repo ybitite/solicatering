@@ -8,7 +8,6 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import website.livingRoom.soliCatering.R;
-
 import website.livingRoom.soliCatering.databinding.ModelMenuBinding;
 import website.livingRoom.soliCatering.model.entitys.Menu;
 import website.livingRoom.soliCatering.repository.ArticlePanierRepository;

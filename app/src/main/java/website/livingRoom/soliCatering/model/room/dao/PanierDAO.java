@@ -7,10 +7,10 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Transaction;
 
+import java.util.List;
+
 import website.livingRoom.soliCatering.model.entitys.Panier;
 import website.livingRoom.soliCatering.model.entitys.PanierWithAarticlePanierAndPlat;
-
-import java.util.List;
 
 @Dao
 public interface PanierDAO {

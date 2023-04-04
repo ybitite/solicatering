@@ -8,6 +8,9 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 import website.livingRoom.soliCatering.model.entitys.ArticlePanier;
 import website.livingRoom.soliCatering.model.entitys.Categorie;
 import website.livingRoom.soliCatering.model.entitys.Client;
@@ -22,9 +25,6 @@ import website.livingRoom.soliCatering.model.room.dao.EvenementDAO;
 import website.livingRoom.soliCatering.model.room.dao.MenuDAO;
 import website.livingRoom.soliCatering.model.room.dao.PanierDAO;
 import website.livingRoom.soliCatering.model.room.dao.PlatDAO;
-
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 @Database(entities = {Evenement.class, Menu.class, Categorie.class, Plat.class, ArticlePanier.class, Panier.class, Client.class},
         version = 1

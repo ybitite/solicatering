@@ -10,11 +10,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import website.livingRoom.soliCatering.databinding.ViewPlatsBinding;
+import website.livingRoom.soliCatering.repository.ArticlePanierRepository;
 import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 import website.livingRoom.soliCatering.viewModel.PlatViewModel;
-import website.livingRoom.soliCatering.databinding.ViewPlatsBinding;
-
-import website.livingRoom.soliCatering.repository.ArticlePanierRepository;
 
 public class DialogPlatFragment extends DialogFragment {
     //FIELD

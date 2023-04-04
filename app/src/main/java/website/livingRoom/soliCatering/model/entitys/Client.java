@@ -5,11 +5,11 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import java.util.Objects;
+
 import website.livingRoom.soliCatering.BR;
 import website.livingRoom.soliCatering.utile.ExpressionValidateur;
 import website.livingRoom.soliCatering.utile.FormulaireEtat;
-
-import java.util.Objects;
 
 @Entity(tableName = "clients")
 public class Client extends FormulaireEtat {

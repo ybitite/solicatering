@@ -8,10 +8,10 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Transaction;
 
+import java.util.List;
+
 import website.livingRoom.soliCatering.model.entitys.ArticlePanier;
 import website.livingRoom.soliCatering.model.entitys.ArticlePanierAndPlat;
-
-import java.util.List;
 
 @Dao
 public interface ArticlePanierDAO {

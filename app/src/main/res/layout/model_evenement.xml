@@ -14,7 +14,7 @@
 
     <androidx.cardview.widget.CardView
         style="@style/cardViewPrincipalRVBlanc.Full"
-
+        app:cardBackgroundColor="@color/grey_400"
         android:id="@+id/cardViewEvenement">
 
         <androidx.constraintlayout.widget.ConstraintLayout

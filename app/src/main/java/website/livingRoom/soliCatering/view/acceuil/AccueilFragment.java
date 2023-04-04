@@ -14,11 +14,11 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import website.livingRoom.soliCatering.viewModel.AcceuilViewModel;
 import website.livingRoom.soliCatering.databinding.FragmentAcceuilBinding;
 import website.livingRoom.soliCatering.view.acceuil.rv.EvenementBtCmdAdapter;
 import website.livingRoom.soliCatering.view.acceuil.rv.EvenementListAdapter;
 import website.livingRoom.soliCatering.view.acceuil.rv.EvenementTeteAdapter;
+import website.livingRoom.soliCatering.viewModel.AcceuilViewModel;
 
 public class AccueilFragment extends Fragment {
 

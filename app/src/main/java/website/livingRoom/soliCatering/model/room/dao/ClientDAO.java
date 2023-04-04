@@ -7,9 +7,9 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import website.livingRoom.soliCatering.model.entitys.Client;
-
 import java.util.List;
+
+import website.livingRoom.soliCatering.model.entitys.Client;
 
 
 @Dao

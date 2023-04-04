@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/icon_vegi"
+        android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_home" />
 
     <item
@@ -14,12 +14,12 @@
 
     <item
         android:id="@+id/navigation_order"
-        android:icon="@drawable/icon_degure_epice_1"
+        android:icon="@drawable/delivery_icon"
         android:title="@string/title_panier" />
 
     <item
         android:id="@+id/navigation_historique"
-        android:icon="@drawable/icon_degure_epice_3"
+        android:icon="@drawable/delivery_icon"
         android:title="@string/title_Historique" />
 
 

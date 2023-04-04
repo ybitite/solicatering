@@ -8,14 +8,13 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import website.livingRoom.soliCatering.R;
-
 import website.livingRoom.soliCatering.databinding.ModelPlatsBinding;
 import website.livingRoom.soliCatering.model.entitys.Plat;
-import website.livingRoom.soliCatering.utile.ItemClickListener;
+import website.livingRoom.soliCatering.utile.Helper;
 import website.livingRoom.soliCatering.utile.IconHolder;
+import website.livingRoom.soliCatering.utile.ItemClickListener;
 import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 import website.livingRoom.soliCatering.viewModel.PlatViewModel;
-import website.livingRoom.soliCatering.utile.Helper;
 
 public class PlatsHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     //FIELD

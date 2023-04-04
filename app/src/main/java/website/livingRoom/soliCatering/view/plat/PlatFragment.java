@@ -11,12 +11,11 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
-import website.livingRoom.soliCatering.viewModel.PlatViewModel;
 import website.livingRoom.soliCatering.databinding.FragmentPlatBinding;
 import website.livingRoom.soliCatering.view.plat.rv.PlatsListAdapter;
+import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
+import website.livingRoom.soliCatering.viewModel.PlatViewModel;
 
 public class PlatFragment extends Fragment {
 

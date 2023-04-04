@@ -10,15 +10,14 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import website.livingRoom.soliCatering.R;
+import java.util.List;
 
+import website.livingRoom.soliCatering.R;
 import website.livingRoom.soliCatering.databinding.ModelPanierBinding;
 import website.livingRoom.soliCatering.model.entitys.ArticlePanierAndPlat;
 import website.livingRoom.soliCatering.model.entitys.PanierWithAarticlePanierAndPlat;
 import website.livingRoom.soliCatering.utile.Helper;
 import website.livingRoom.soliCatering.view.panier.rvpanier.ArticlePanierListAdapter;
-
-import java.util.List;
 
 
 public class PanierHolder extends RecyclerView.ViewHolder implements View.OnClickListener{

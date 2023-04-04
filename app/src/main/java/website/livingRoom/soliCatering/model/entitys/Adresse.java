@@ -3,12 +3,11 @@ package website.livingRoom.soliCatering.model.entitys;
 import androidx.databinding.Bindable;
 import androidx.room.Ignore;
 
+import java.util.Objects;
 
 import website.livingRoom.soliCatering.BR;
 import website.livingRoom.soliCatering.utile.ExpressionValidateur;
 import website.livingRoom.soliCatering.utile.FormulaireEtat;
-
-import java.util.Objects;
 
 public class Adresse extends FormulaireEtat {
     //field

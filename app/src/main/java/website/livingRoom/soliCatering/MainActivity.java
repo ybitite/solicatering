@@ -6,10 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-
 import androidx.navigation.ui.NavigationUI;
-
-
 
 import website.livingRoom.soliCatering.databinding.ActivityMainBinding;
 import website.livingRoom.soliCatering.model.sharedPreferences.ConteurSharedPreferencesOA;

@@ -5,12 +5,12 @@ import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 
+import java.util.List;
+
 import website.livingRoom.soliCatering.model.entitys.ArticlePanier;
 import website.livingRoom.soliCatering.model.entitys.ArticlePanierAndPlat;
 import website.livingRoom.soliCatering.model.room.AppDatabase;
 import website.livingRoom.soliCatering.model.room.dao.ArticlePanierDAO;
-
-import java.util.List;
 
 public class ArticlePanierRepository {
     //FIELD

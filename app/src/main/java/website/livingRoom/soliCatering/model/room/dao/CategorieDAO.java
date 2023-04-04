@@ -6,9 +6,9 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import website.livingRoom.soliCatering.model.entitys.Categorie;
-
 import java.util.List;
+
+import website.livingRoom.soliCatering.model.entitys.Categorie;
 
 @Dao
 public interface CategorieDAO {

@@ -5,10 +5,10 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import java.util.List;
+
 import website.livingRoom.soliCatering.model.entitys.Evenement;
 import website.livingRoom.soliCatering.repository.EvenementRepository;
-
-import java.util.List;
 
 public class AcceuilViewModel extends AndroidViewModel {
     //FIELD

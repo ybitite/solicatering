@@ -3,16 +3,15 @@ package website.livingRoom.soliCatering.view.panier.rvpanier;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import website.livingRoom.soliCatering.databinding.ModelArticlePanierBinding;
 import website.livingRoom.soliCatering.model.entitys.ArticlePanierAndPlat;
 import website.livingRoom.soliCatering.repository.ArticlePanierRepository;
+import website.livingRoom.soliCatering.utile.Helper;
 import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 import website.livingRoom.soliCatering.viewModel.PanierViewModel;
-import website.livingRoom.soliCatering.utile.Helper;
 import website.livingRoom.soliCatering.viewModel.PlatViewModel;
 
 public class ArticlePanierHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

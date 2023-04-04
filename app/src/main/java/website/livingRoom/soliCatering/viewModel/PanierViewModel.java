@@ -5,11 +5,10 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import java.util.List;
+
 import website.livingRoom.soliCatering.model.entitys.ArticlePanierAndPlat;
 import website.livingRoom.soliCatering.repository.ArticlePanierRepository;
-
-import java.util.List;
-import java.util.Objects;
 
 public class PanierViewModel extends AndroidViewModel {
     //FIELD

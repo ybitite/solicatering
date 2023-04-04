@@ -1,7 +1,6 @@
 package website.livingRoom.soliCatering.utile;
 
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.view.View;

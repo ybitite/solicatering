@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import website.livingRoom.soliCatering.R;
-import website.livingRoom.soliCatering.utile.AppUtile;
 import website.livingRoom.soliCatering.utile.Helper;
 
 public abstract class AppSharedPreferences{

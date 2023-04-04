@@ -3,9 +3,7 @@ package website.livingRoom.soliCatering.view.acceuil.rv;
 
 import android.view.View;
 
-
 import androidx.recyclerview.widget.RecyclerView;
-
 
 import website.livingRoom.soliCatering.R;
 import website.livingRoom.soliCatering.databinding.ModelBtCmdEvenementBinding;

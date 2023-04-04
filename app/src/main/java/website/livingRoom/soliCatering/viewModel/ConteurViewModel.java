@@ -5,7 +5,6 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 
-
 import website.livingRoom.soliCatering.model.entitys.Conteur;
 import website.livingRoom.soliCatering.repository.ConteurRepository;
 

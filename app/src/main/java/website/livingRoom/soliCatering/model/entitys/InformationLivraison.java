@@ -5,13 +5,13 @@ import androidx.databinding.Bindable;
 import androidx.room.Embedded;
 import androidx.room.Ignore;
 
+import java.util.Objects;
+
 import website.livingRoom.soliCatering.BR;
 import website.livingRoom.soliCatering.R;
 import website.livingRoom.soliCatering.utile.ExpressionValidateur;
 import website.livingRoom.soliCatering.utile.FormulaireEtat;
 import website.livingRoom.soliCatering.utile.Helper;
-
-import java.util.Objects;
 
 public class InformationLivraison extends FormulaireEtat {
     //field

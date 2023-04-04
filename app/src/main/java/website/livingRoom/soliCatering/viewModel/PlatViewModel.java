@@ -6,10 +6,10 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import java.util.List;
+
 import website.livingRoom.soliCatering.model.entitys.Plat;
 import website.livingRoom.soliCatering.repository.PlatRepository;
-
-import java.util.List;
 
 public class PlatViewModel extends AndroidViewModel {
 

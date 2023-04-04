@@ -13,7 +13,6 @@ import androidx.lifecycle.ViewModelProvider;
 import website.livingRoom.soliCatering.databinding.ViewClientBinding;
 import website.livingRoom.soliCatering.repository.ClientRepository;
 import website.livingRoom.soliCatering.repository.PanierRepository;
-import website.livingRoom.soliCatering.utile.Helper;
 import website.livingRoom.soliCatering.viewModel.ClientViewModel;
 import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 

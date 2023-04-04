@@ -4,11 +4,11 @@ import android.content.Context;
 
 import androidx.lifecycle.LiveData;
 
+import java.util.List;
+
 import website.livingRoom.soliCatering.model.entitys.Categorie;
 import website.livingRoom.soliCatering.model.room.AppDatabase;
 import website.livingRoom.soliCatering.model.room.dao.CategorieDAO;
-
-import java.util.List;
 
 public class CategorieRepository {
     //FIELD

@@ -3,7 +3,6 @@ package website.livingRoom.soliCatering.model.entitys;
 
 import androidx.room.Entity;
 
-
 import java.util.Objects;
 
 import website.livingRoom.soliCatering.R;
