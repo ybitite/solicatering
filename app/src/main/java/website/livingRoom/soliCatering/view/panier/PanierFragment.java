@@ -12,9 +12,6 @@ import androidx.recyclerview.widget.ConcatAdapter;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.Objects;
 
 import website.livingRoom.soliCatering.databinding.FragmentPanierBinding;
 import website.livingRoom.soliCatering.databinding.ModelPiedArticlePanierBinding;
@@ -54,34 +51,37 @@ public class PanierFragment extends Fragment {
     }
 
     private void initiateRecycleView() {
-        //INSTANTIATE CONTROLE
-        RecyclerView rv = binding.pRecycler;
+
 
         //SET FOOTER ADAPTER + LIST ADAPTER TO RV
         ArticlePanierListAdapter articlePanierListAdapter =
-                new ArticlePanierListAdapter(new ArticlePanierListAdapter.ArticlePanierWithPlatDiff(), panierViewModel,conteurViewModel);
-        ArticlePanierPiedAdapter articlePanierPiedAdapter = new ArticlePanierPiedAdapter(conteurViewModel,modelPiedArticlePanierBinding);
+                new ArticlePanierListAdapter(new ArticlePanierListAdapter.ArticlePanierWithPlatDiff( ), panierViewModel, conteurViewModel);
+
+        ArticlePanierPiedAdapter articlePanierPiedAdapter = new ArticlePanierPiedAdapter(conteurViewModel, modelPiedArticlePanierBinding);
+
         ConcatAdapter concatAdapter = new ConcatAdapter(articlePanierListAdapter, articlePanierPiedAdapter);
-        rv.setAdapter(concatAdapter);
+
+        binding.pRecycler.setAdapter(concatAdapter);
 
         //ATTACHE ITEM TOUCHE HELPER TO RECYCLE VIEW
-        new ItemTouchHelper(articlePanierListAdapter.simpleCallback).attachToRecyclerView(rv);
+        new ItemTouchHelper(articlePanierListAdapter.simpleCallback).attachToRecyclerView(binding.pRecycler);
 
         //SET PROPERTIES TO RV
-        rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        rv.setItemAnimator(new DefaultItemAnimator());
+        binding.pRecycler.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        binding.pRecycler.setItemAnimator(new DefaultItemAnimator());
 
 
-        observeDataAndUpdateView(panierViewModel, articlePanierListAdapter, articlePanierPiedAdapter);
+        observeDataAndUpdateView(panierViewModel, articlePanierListAdapter);
     }
 
-    private void observeDataAndUpdateView(PanierViewModel panierViewModel, ArticlePanierListAdapter articlePanierListAdapter, ArticlePanierPiedAdapter articlePanierPiedAdapter) {
+    private void observeDataAndUpdateView(PanierViewModel panierViewModel, ArticlePanierListAdapter articlePanierListAdapter) {
         //OBSERVE DATA FROM LIVE DATA AND UPDATE RV WEN DATA CHANGE
         panierViewModel.getListArticlePanierAndPlat().observe(getViewLifecycleOwner(), articlePanierListAdapter::submitList);
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onDestroyView() {
+        binding=null;
+        super.onDestroyView( );
     }
 }

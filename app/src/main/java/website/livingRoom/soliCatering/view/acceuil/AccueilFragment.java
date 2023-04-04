@@ -32,24 +32,27 @@ public class AccueilFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         binding = FragmentAcceuilBinding.inflate(inflater, container, false);
-
         acceuilViewModel =  new ViewModelProvider(this).get(AcceuilViewModel.class);
-
-        //initiate recycle view
-        initiateRecycleView();
 
         return binding.getRoot();
     }
 
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        //initiate recycle view et observer live data
+        initiateRecycleView();
+
+        super.onViewCreated(view, savedInstanceState);
+    }
+
 
     private void initiateRecycleView() {
-        RecyclerView rv = binding.evRecycler;
 
-        final EvenementListAdapter evenementListAdapter = setAdapterToRv(rv);
+        final EvenementListAdapter evenementListAdapter = setAdapterToRv(binding.evRecycler);
 
-        rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        rv.setItemAnimator(new DefaultItemAnimator());
+        binding.evRecycler.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        binding.evRecycler.setItemAnimator(new DefaultItemAnimator());
 
         //observe data from live data and update rv
         observeDataAndUpdateView(evenementListAdapter);
@@ -58,8 +61,10 @@ public class AccueilFragment extends Fragment {
     @NonNull
     private EvenementListAdapter setAdapterToRv(RecyclerView rv) {
         //create concat adapter from HEADER ADAPTER + BT COMMANDER ADAPTER + LIST ADAPTER
-        final EvenementListAdapter evenementListAdapter = new EvenementListAdapter(new EvenementListAdapter.EvenementDiff());
-        final ConcatAdapter concatAdapter = new ConcatAdapter(new EvenementTeteAdapter(),  new EvenementBtCmdAdapter(), evenementListAdapter);
+        final EvenementListAdapter evenementListAdapter =
+                new EvenementListAdapter(new EvenementListAdapter.EvenementDiff());
+        final ConcatAdapter concatAdapter =
+                new ConcatAdapter(new EvenementTeteAdapter(),  new EvenementBtCmdAdapter(), evenementListAdapter);
 
         //SET PROPERTIES TO RV
 
@@ -70,14 +75,14 @@ public class AccueilFragment extends Fragment {
     private void observeDataAndUpdateView(EvenementListAdapter evenementListAdapter) {
 
         //OBSERVE DATA FROM LIVE DATA AND UPDATE RV WEN DATA CHANGE
-        acceuilViewModel.getListEvenement().observe(getViewLifecycleOwner(), evenements -> {
-            // UPDATE THE CACHED COPY OF THE EVENEMENTS IN THE ADAPTER.
-            evenementListAdapter.submitList(evenements);
-        });
+        // UPDATE THE CACHED COPY OF THE EVENEMENTS IN THE ADAPTER.
+        acceuilViewModel.getListEvenement().observe(getViewLifecycleOwner(), evenementListAdapter::submitList);
     }
+
 
     @Override
     public void onDestroyView() {
+        binding = null;
         super.onDestroyView();
     }
 

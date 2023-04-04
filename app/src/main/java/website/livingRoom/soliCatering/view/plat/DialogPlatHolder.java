@@ -1,48 +1,35 @@
 package website.livingRoom.soliCatering.view.plat;
 
-import androidx.fragment.app.FragmentActivity;
-import androidx.navigation.Navigation;
-
-import java.util.Objects;
-
 import website.livingRoom.soliCatering.R;
-import website.livingRoom.soliCatering.utile.IconHolder;
-import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
-import website.livingRoom.soliCatering.viewModel.PlatViewModel;
 import website.livingRoom.soliCatering.databinding.ViewPlatsBinding;
 import website.livingRoom.soliCatering.model.entitys.ArticlePanier;
 import website.livingRoom.soliCatering.model.entitys.Plat;
 import website.livingRoom.soliCatering.model.room.AppDatabase;
 import website.livingRoom.soliCatering.repository.ArticlePanierRepository;
 import website.livingRoom.soliCatering.utile.Helper;
+import website.livingRoom.soliCatering.utile.IconHolder;
+import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
+import website.livingRoom.soliCatering.viewModel.PlatViewModel;
 
 public class DialogPlatHolder {
-    private final PlatViewModel platViewModel;
-    private final ArticlePanierRepository articlePanierRepository;
     private final ViewPlatsBinding binding;
-
-    private final FragmentActivity fragmentActivity;
-
-    private final DialogPlatFragment dialogPlatFragment;
-
     private final ConteurViewModel conteurViewModel;
+    private final PlatViewModel platViewModel;
+    private ArticlePanierRepository articlePanierRepository;
 
-    public DialogPlatHolder(PlatViewModel platViewModel, ConteurViewModel conteurViewModel, ArticlePanierRepository articlePanierRepository,
-                            ViewPlatsBinding binding, FragmentActivity fragmentActivity, DialogPlatFragment dialogPlatFragment) {
+    public DialogPlatHolder(ViewPlatsBinding binding, PlatViewModel platViewModel, ConteurViewModel conteurViewModel, ArticlePanierRepository articlePanierRepository){
+        this.binding = binding;
         this.platViewModel = platViewModel;
         this.conteurViewModel = conteurViewModel;
         this.articlePanierRepository = articlePanierRepository;
-        this.binding = binding;
-        this.fragmentActivity=fragmentActivity;
-        this.dialogPlatFragment=dialogPlatFragment;
     }
 
     public void bind() {
         /*BIND VIEW WITH SELECTED PLAT*/
         //OBSERVE SELECTED PLAT
-        platViewModel.getSelectedPlat().observe(fragmentActivity, this::bindView);
+        platViewModel.getSelectedPlat().observe(binding.getLifecycleOwner( ), this::bindView);
         //OBSERVE NUMBER PLAT
-        platViewModel.getNumberPlat().observe(fragmentActivity, this::upDateNombrePlatTextView);
+        platViewModel.getNumberPlat().observe(binding.getLifecycleOwner(), this::upDateNombrePlatTextView);
     }
 
     private void bindView(Plat plat) {
@@ -104,7 +91,7 @@ public class DialogPlatHolder {
             }
             //IF CAN NOT CHOSE IN SEM CATEGORIE NAVIGATE TO plat
             else {
-                dialogPlatFragment.dismiss();
+                Helper.naviguer(R.id.action_dialogPlat_to_navigation_plat);
             }
             platViewModel.resetNumberPlat();
             //save date
@@ -115,7 +102,8 @@ public class DialogPlatHolder {
 
     private void annuller() {
         platViewModel.resetNumberPlat();
-        dialogPlatFragment.dismiss();
+
+        Helper.naviguer(R.id.action_dialogPlat_to_navigation_plat);
     }
     private boolean checkUpDatePointRest() {
         return conteurViewModel.getConteur().getPointReste()
@@ -151,5 +139,11 @@ public class DialogPlatHolder {
 
     private void upDateNombrePlatTextView(Integer nbrPlat) {
         binding.textViewNbrPlat.setText(String.valueOf(nbrPlat));
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        articlePanierRepository = null;
+        super.finalize( );
     }
 }

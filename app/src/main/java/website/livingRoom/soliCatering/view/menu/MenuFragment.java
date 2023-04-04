@@ -42,16 +42,14 @@ public class MenuFragment extends Fragment {
     }
 
     private void initiateRecycleView() {
-        //INSTANTIATE CONTROLE
-        RecyclerView rv = binding.mRecycler;
 
         //SET ADAPTER TO RV
         final MenuListAdapter menuListAdapter = new MenuListAdapter(new MenuListAdapter.MenuDiff(),conteurViewModel);
-        rv.setAdapter(menuListAdapter);
+        binding.mRecycler.setAdapter(menuListAdapter);
 
         //SET PROPERTIES TO RV
-        rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        rv.setItemAnimator(new DefaultItemAnimator());
+        binding.mRecycler.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        binding.mRecycler.setItemAnimator(new DefaultItemAnimator());
 
         observeDataAndUpdateView(menuListAdapter);
     }
@@ -66,6 +64,7 @@ public class MenuFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
+        binding = null;
         super.onDestroyView();
     }
 

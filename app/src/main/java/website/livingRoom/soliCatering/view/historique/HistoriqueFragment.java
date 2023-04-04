@@ -11,11 +11,10 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import website.livingRoom.soliCatering.viewModel.HistoriqueViewModel;
 import website.livingRoom.soliCatering.databinding.FragmentHistoriqueBinding;
 import website.livingRoom.soliCatering.view.historique.rv.PanierListAdapter;
+import website.livingRoom.soliCatering.viewModel.HistoriqueViewModel;
 
 public class HistoriqueFragment extends Fragment {
 
@@ -39,16 +38,13 @@ public class HistoriqueFragment extends Fragment {
 
     private void initiateRecycleView() {
 
-        //INSTANTIATE RV
-        RecyclerView rv = binding.panierRecycler;
-
         //SET ADAPTER TO RV
         final PanierListAdapter panierListAdapter = new PanierListAdapter(new PanierListAdapter.PanierDiff());
-        rv.setAdapter(panierListAdapter);
+        binding.panierRecycler.setAdapter(panierListAdapter);
 
         //SET PROPERTIES TO RV
-        rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        rv.setItemAnimator(new DefaultItemAnimator());
+        binding.panierRecycler.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        binding.panierRecycler.setItemAnimator(new DefaultItemAnimator());
 
         observeDataAndUpdateView(panierListAdapter);
     }
@@ -56,11 +52,12 @@ public class HistoriqueFragment extends Fragment {
     private void observeDataAndUpdateView(PanierListAdapter panierListAdapter) {
 
         //OBSERVE DATA FROM LIVE DATA AND UPDATE RV WEN DATA CHANGE
-        historiqueViewModel.getListPanierWithArticlePanierAndPlat().observe(getViewLifecycleOwner(), listPanierWithAP -> panierListAdapter.submitList(listPanierWithAP));
+        historiqueViewModel.getListPanierWithArticlePanierAndPlat().observe(getViewLifecycleOwner(), panierListAdapter::submitList);
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onDestroyView() {
+        binding = null;
+        super.onDestroyView();
     }
 }

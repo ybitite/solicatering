@@ -18,13 +18,13 @@ import website.livingRoom.soliCatering.repository.ArticlePanierRepository;
 
 public class DialogPlatFragment extends DialogFragment {
     //FIELD
+    private ViewPlatsBinding binding;
     private PlatViewModel platViewModel;
 
     private ConteurViewModel conteurViewModel;
+    private DialogPlatHolder dialogPlatHolder;
     private ArticlePanierRepository articlePanierRepository;
 
-    private ViewPlatsBinding binding;
-    private DialogPlatHolder dialogPlatHolder;
 
     //METHODE
     @Nullable
@@ -50,13 +50,18 @@ public class DialogPlatFragment extends DialogFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //BIND VIEW
-        dialogPlatHolder = new DialogPlatHolder(platViewModel,conteurViewModel,articlePanierRepository,binding,requireActivity(),this);
+        dialogPlatHolder = new DialogPlatHolder(binding,platViewModel,conteurViewModel,articlePanierRepository);
 
+        //set life cycle here and not on onStart to use it to observe live data in dialogPlatHolder.bind()
+        binding.setLifecycleOwner(getViewLifecycleOwner());
+
+        //observe live data and bond view
         dialogPlatHolder.bind();
     }
 
+
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onDestroyView() {
+        super.onDestroyView( );
     }
 }

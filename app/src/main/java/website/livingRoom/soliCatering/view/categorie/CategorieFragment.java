@@ -11,12 +11,10 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-
-import website.livingRoom.soliCatering.viewModel.CategorieViewModel;
 import website.livingRoom.soliCatering.databinding.FragmentCategorieBinding;
 import website.livingRoom.soliCatering.view.categorie.rv.CategorieListAdapter;
+import website.livingRoom.soliCatering.viewModel.CategorieViewModel;
 import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 
 
@@ -45,16 +43,14 @@ public class CategorieFragment extends Fragment {
     }
 
     private void initiateRecycleView() {
-        //INSTANTIATE RV
-        RecyclerView rv = binding.cRecycler;
+
         //SET ADAPTER TO RV
-        //todo:add adpter when ptcat actuel is ms
         final CategorieListAdapter categorieListAdapter = new CategorieListAdapter(new CategorieListAdapter.CategorieDiff(),conteurViewModel);
-        rv.setAdapter(categorieListAdapter);
+        binding.cRecycler.setAdapter(categorieListAdapter);
 
         //SET PROPERTIES TO RV
-        rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        rv.setItemAnimator(new DefaultItemAnimator());
+        binding.cRecycler.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        binding.cRecycler.setItemAnimator(new DefaultItemAnimator());
 
         //observe data and update recycle view
         observeDataAndUpdateView(categorieListAdapter);
@@ -66,7 +62,8 @@ public class CategorieFragment extends Fragment {
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onDestroyView() {
+        binding = null;
+        super.onDestroyView();
     }
 }

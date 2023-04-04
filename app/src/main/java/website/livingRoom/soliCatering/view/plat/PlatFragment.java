@@ -43,16 +43,14 @@ public class PlatFragment extends Fragment {
     }
 
     private void initiateRecycleView() {
-        //INSTANTIATE CONTROLE
-        RecyclerView rv = binding.plRecycler;
 
         //SET ADAPTER TO RV
         final PlatsListAdapter platsListAdapter = new PlatsListAdapter(new PlatsListAdapter.platDiff(), platViewModel, conteurViewModel);
-        rv.setAdapter(platsListAdapter);
+        binding.plRecycler.setAdapter(platsListAdapter);
 
         //SET PROPERTIES TO RV
-        rv.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        rv.setItemAnimator(new DefaultItemAnimator());
+        binding.plRecycler.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        binding.plRecycler.setItemAnimator(new DefaultItemAnimator());
 
         observeDataAndUpdateView(platsListAdapter);
     }
@@ -65,7 +63,8 @@ public class PlatFragment extends Fragment {
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onDestroyView() {
+        binding = null;
+        super.onDestroyView( );
     }
 }

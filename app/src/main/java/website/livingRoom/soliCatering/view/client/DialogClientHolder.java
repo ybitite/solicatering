@@ -2,9 +2,6 @@ package website.livingRoom.soliCatering.view.client;
 
 
 
-import androidx.fragment.app.FragmentActivity;
-import androidx.navigation.Navigation;
-
 import website.livingRoom.soliCatering.R;
 import website.livingRoom.soliCatering.databinding.ViewClientBinding;
 import website.livingRoom.soliCatering.model.entitys.Client;
@@ -23,17 +20,19 @@ public class DialogClientHolder {
 
     private final ViewClientBinding binding;
     private final ClientViewModel clientViewModel;
-    private final FragmentActivity fragmentActivity;
-    private final DialogClientFragment dialogClientFragment;
 
     private final ConteurViewModel conteurViewModel;
 
-    public DialogClientHolder(ViewClientBinding binding, ClientViewModel clientViewModel, FragmentActivity fragmentActivity, DialogClientFragment dialogClientFragment, ConteurViewModel conteurViewModel) {
+    private ClientRepository clientRepository;
+
+    private PanierRepository panierRepository;
+
+    public DialogClientHolder(ViewClientBinding binding, ClientViewModel clientViewModel, ConteurViewModel conteurViewModel, ClientRepository clientRepository, PanierRepository panierRepository) {
         this.binding = binding;
         this.clientViewModel = clientViewModel;
-        this.fragmentActivity = fragmentActivity;
-        this.dialogClientFragment = dialogClientFragment;
         this.conteurViewModel = conteurViewModel;
+        this.clientRepository = clientRepository;
+        this.panierRepository = panierRepository;
     }
 
     public void bind() {
@@ -45,7 +44,7 @@ public class DialogClientHolder {
     }
 
     private void onAnnullerClick() {
-        dialogClientFragment.dismiss();
+        Helper.naviguer(R.id.action_dialogClient_to_navigation_panier);
     }
 
     //methode to link to onclick valider button listener
@@ -62,9 +61,6 @@ public class DialogClientHolder {
         }
     }
 
-    private void naviguer(int actionId) {
-        Navigation.findNavController(fragmentActivity,R.id.nav_host_fragment_activity_main).navigate(actionId);
-    }
 
     private void run() {
 
@@ -78,7 +74,6 @@ public class DialogClientHolder {
         Client client = clientViewModel.getClient();
 
         //Insert client or update it in Data Base
-        ClientRepository clientRepository = new ClientRepository(Helper.getContext());
         clientRepository.insertClient(client);
 
         Menu menu = clientViewModel.getCurrentMenu(conteurViewModel.getConteur().getPointDepart());
@@ -95,7 +90,6 @@ public class DialogClientHolder {
                 menu.getNomPic(), informationLivraison);
 
         //insert panier in date base
-        PanierRepository panierRepository = new PanierRepository(Helper.getContext());
         panierRepository.insertPanier(panier);
     }
 
@@ -106,5 +100,12 @@ public class DialogClientHolder {
 
         //create default conteur
         conteurViewModel.resetConteur();
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        clientRepository = null;
+        panierRepository = null;
+        super.finalize( );
     }
 }
