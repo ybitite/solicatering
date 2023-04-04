@@ -52,7 +52,7 @@ public abstract class Helper {
     }
 
     public static void naviguer(int actionId) {
-        Navigation.findNavController((Activity) AppUtile.getActivity(),R.id.nav_host_fragment_activity_main).navigate(actionId);
+        Navigation.findNavController( AppUtile.getActivity(),R.id.nav_host_fragment_activity_main).navigate(actionId);
     }
 
 }

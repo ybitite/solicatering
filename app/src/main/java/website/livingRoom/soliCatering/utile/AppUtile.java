@@ -45,9 +45,7 @@ public  class AppUtile extends Application {
     private final ActivityLifecycleCallbacks callback = new ActivityLifecycleCallbacks() {
         @Override
         public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {
-            if(AppUtile.activityWeakReference == null){
                 AppUtile.activityWeakReference = new WeakReference<>(activity);
-            }
         }
 
         @Override
