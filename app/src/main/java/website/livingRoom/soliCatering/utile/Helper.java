@@ -44,14 +44,14 @@ public abstract class Helper {
 
 
     public static Context getContext() {
-        return AppUtile.getContext();
+        return SoliCateringApplication.getContext();
     }
     public static Resources getResources(){
-        return AppUtile.getResource();
+        return SoliCateringApplication.getResource();
     }
 
     public static void naviguer(int actionId) {
-        Navigation.findNavController( AppUtile.getActivity(),R.id.nav_host_fragment_activity_main).navigate(actionId);
+        Navigation.findNavController( SoliCateringApplication.getActivity(),R.id.nav_host_fragment_activity_main).navigate(actionId);
     }
 
 }

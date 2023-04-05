@@ -56,7 +56,7 @@ public class DialogClientHolder {
         /* ... go to be excute in background because all
           this bloc and data access on one shut can have impact to the UI if we use UI thread**/
             AppDatabase.databaseWriteExecutor.execute(this::run);
-
+            updateConteur();
             Helper.naviguer(R.id.action_global_navigation_historique);
         }
     }
@@ -66,7 +66,7 @@ public class DialogClientHolder {
 
         insertData();
 
-        updateConteur();
+
     }
 
     private void insertData() {

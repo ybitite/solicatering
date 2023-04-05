@@ -12,12 +12,11 @@ import androidx.annotation.Nullable;
 import java.lang.ref.WeakReference;
 
 
-public  class AppUtile extends Application {
+public  class SoliCateringApplication extends Application {
 
     //FIELD
     private static Resources resources;
     private static WeakReference<Context> contextWeakReference;
-
     private static WeakReference<Activity> activityWeakReference;
 
 
@@ -44,7 +43,7 @@ public  class AppUtile extends Application {
     private final ActivityLifecycleCallbacks callback = new ActivityLifecycleCallbacks() {
         @Override
         public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {
-                AppUtile.activityWeakReference = new WeakReference<>(activity);
+                SoliCateringApplication.activityWeakReference = new WeakReference<>(activity);
         }
 
         @Override
