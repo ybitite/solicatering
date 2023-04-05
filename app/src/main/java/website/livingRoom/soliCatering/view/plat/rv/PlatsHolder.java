@@ -75,9 +75,6 @@ public class PlatsHolder extends RecyclerView.ViewHolder implements View.OnClick
     private void updateItemClick(Plat plat, PlatViewModel platViewModel) {
         /*BLOCK CLICK AND MAKE ITEM GREW WHEN THE POINT ARE NOT ENOUGH*/
         if (conteurViewModel.getConteur().isEnoughRestePoint(plat.getPoint())) {
-
-            Helper.blockItem(R.color.white_100,true,itemView,binding.cardViewPlat);
-
             //navigate to dialog en click
             setItemClickListener((v, pos) -> navigateToDialogPlat(plat, platViewModel));
         }

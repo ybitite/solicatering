@@ -17,12 +17,13 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewMenu"
-            style="@style/cardViewPrincipalRVBlanc.Full">
+            style="@style/cardViewPrincipalRVBlanc.Full"
+            app:cardCornerRadius="@dimen/radius_small">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayoutMenu"
-                style="@style/WidthParent"
-                android:layout_margin="@dimen/small_margin">
+                style="@style/ConstraintLayoutShapeBackGround"
+                android:background="@drawable/shape_background">
 
                 <!--image view menu-->
                 <androidx.constraintlayout.utils.widget.MockView
@@ -37,32 +38,33 @@
                     android:id="@+id/imageViewIconMenu"
                     style="@style/ImageViewMedium"
                     android:layout_marginStart="@dimen/large_margin"
+                    android:contentDescription="@string/description_image_view_menu"
                     app:srcCompat="@drawable/backdescriptionplat"
-                    tools:ignore="MissingConstraints"
-                    android:contentDescription="@string/description_image_view_menu" />
+                    tools:ignore="MissingConstraints" />
 
                 <!--image view vertical-->
                 <ImageView
                     android:id="@+id/imageViewTraitMenu"
                     style="@style/ImageViewVertical"
+                    android:contentDescription="@string/description_image_view_trait_vertical"
                     app:layout_constraintStart_toEndOf="@+id/imageViewIconMenu"
                     app:srcCompat="@drawable/trait_menu"
+                    app:tint="@color/grey_400"
                     tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteY="20dp"
-                    android:contentDescription="@string/description_image_view_trait_vertical" />
+                    tools:layout_editor_absoluteY="20dp" />
 
                 <!--text view titre menu-->
                 <TextView
                     android:id="@+id/textViewNomMenu"
                     style="@style/textViewBase1.GrisPrincipal.Adaptable.Bold"
 
-                    android:text="@{menu.nom}"
-                    android:hint="@string/titre_menu"
-                    android:textAlignment="textStart"
-
                     android:layout_marginStart="@dimen/large_margin"
                     android:layout_marginTop="@dimen/large_margin"
                     android:layout_marginEnd="@dimen/large_margin"
+
+                    android:hint="@string/titre_menu"
+                    android:text="@{menu.nom}"
+                    android:textAlignment="textStart"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageViewTraitMenu"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -71,8 +73,8 @@
                     android:id="@+id/textViewDiscriptionMenu"
                     style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
 
-                    android:text="@{menu.discription}"
                     android:hint="@string/description_menu"
+                    android:text="@{menu.discription}"
                     android:textAlignment="textStart"
 
                     app:layout_constraintEnd_toEndOf="@+id/textViewNomMenu"
@@ -83,9 +85,9 @@
                     android:id="@+id/textViewParixMenuLabel"
                     style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
 
-                    android:text="@string/label_prix_par_personne"
                     android:layout_marginTop="@dimen/small_margin"
                     android:labelFor="@+id/textViewPrixMenu"
+                    android:text="@string/label_prix_par_personne"
 
                     android:textAlignment="textStart"
                     app:layout_constraintEnd_toEndOf="@+id/textViewNomMenu"
@@ -96,8 +98,8 @@
                     android:id="@+id/textViewPrixMenu"
                     style="@style/textViewBase1.GrisPrincipal.Small.Adaptable.bold"
 
-                    android:text="@{menu.prixFormat}"
                     android:hint="@string/zero_devise"
+                    android:text="@{menu.prixFormat}"
                     android:textAlignment="textStart"
 
                     app:layout_constraintEnd_toEndOf="@+id/textViewParixMenuLabel"
@@ -108,9 +110,9 @@
                     android:id="@+id/textViewPointMenuLabel"
                     style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
 
-                    android:text="@string/label_nombre_de_point_de_credit"
                     android:layout_marginTop="@dimen/small_margin"
                     android:labelFor="@+id/textViewPointMenu"
+                    android:text="@string/label_nombre_de_point_de_credit"
 
                     android:textAlignment="textStart"
                     app:layout_constraintEnd_toEndOf="@+id/textViewNomMenu"
@@ -121,8 +123,8 @@
                     android:id="@+id/textViewPointMenu"
                     style="@style/textViewBase1.Vert.Small.Bold.Adaptable"
 
-                    android:text="@{menu.pointFormat}"
                     android:hint="@string/zero_point"
+                    android:text="@{menu.pointFormat}"
                     android:textAlignment="textStart"
 
                     app:layout_constraintEnd_toEndOf="@+id/textViewPointMenuLabel"
@@ -133,12 +135,12 @@
                     android:id="@+id/textViewInfoMenu"
                     style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
 
-                    android:text="@{menu.info}"
-                    android:hint="@string/temps_necessaire"
-                    android:textAlignment="textStart"
-                    android:textSize="@dimen/x_small_text"
-
                     android:layout_marginBottom="@dimen/large_margin"
+                    android:hint="@string/temps_necessaire"
+                    android:text="@{menu.info}"
+                    android:textAlignment="textStart"
+
+                    android:textSize="@dimen/x_small_text"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/textViewNomMenu"
                     app:layout_constraintStart_toStartOf="@+id/textViewNomMenu"

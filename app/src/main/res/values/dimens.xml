@@ -28,4 +28,8 @@
     <dimen name="small_text">12sp</dimen>
     <dimen name="medium_text">14sp</dimen>
     <dimen name="special_margin">14dp</dimen>
+
+    <dimen name="radius_small">10dp</dimen>
+
+    <dimen name="small_elevation">4dp</dimen>
 </resources>

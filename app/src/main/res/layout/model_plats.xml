@@ -41,7 +41,7 @@
             <LinearLayout
                 android:id="@+id/layout_arriere_vigi"
                 style="@style/LinearLayoutButtomItem"
-                android:padding="@dimen/small_margin"
+                android:padding="@dimen/medium_margin"
 
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

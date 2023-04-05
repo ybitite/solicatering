@@ -21,7 +21,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayoutCategorie"
-                style="@style/WidthParent">
+                style="@style/ConstraintLayoutShapeBackGround">
 
                 <androidx.constraintlayout.utils.widget.MockView
                     android:id="@+id/mockViewFormCategorie"

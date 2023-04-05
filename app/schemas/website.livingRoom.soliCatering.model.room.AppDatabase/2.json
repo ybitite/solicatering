@@ -1,0 +1,472 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "0d337db92286c91c199abb65d10ba5ec",
+    "entities": [
+      {
+        "tableName": "evenements",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`nb` INTEGER NOT NULL, `date` TEXT, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nom` TEXT, `discription` TEXT, `idPic` INTEGER NOT NULL, `nomPic` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "nb",
+            "columnName": "nb",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nom",
+            "columnName": "nom",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "discription",
+            "columnName": "discription",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "idPic",
+            "columnName": "idPic",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nomPic",
+            "columnName": "nomPic",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "menus",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`point` INTEGER NOT NULL, `prix` REAL NOT NULL, `info` TEXT, `idColor` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nom` TEXT, `discription` TEXT, `idPic` INTEGER NOT NULL, `nomPic` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "point",
+            "columnName": "point",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "prix",
+            "columnName": "prix",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "info",
+            "columnName": "info",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "idColor",
+            "columnName": "idColor",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nom",
+            "columnName": "nom",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "discription",
+            "columnName": "discription",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "idPic",
+            "columnName": "idPic",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nomPic",
+            "columnName": "nomPic",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "categories",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`point` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nom` TEXT, `discription` TEXT, `idPic` INTEGER NOT NULL, `nomPic` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "point",
+            "columnName": "point",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nom",
+            "columnName": "nom",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "discription",
+            "columnName": "discription",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "idPic",
+            "columnName": "idPic",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nomPic",
+            "columnName": "nomPic",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "plats",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`point` INTEGER NOT NULL, `degureEpice` INTEGER NOT NULL, `tempsEnJour` INTEGER NOT NULL, `prix` REAL NOT NULL, `type` TEXT, `vegui` TEXT, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nom` TEXT, `discription` TEXT, `idPic` INTEGER NOT NULL, `nomPic` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "point",
+            "columnName": "point",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "degureEpice",
+            "columnName": "degureEpice",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tempsEnJour",
+            "columnName": "tempsEnJour",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "prix",
+            "columnName": "prix",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "vegui",
+            "columnName": "vegui",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nom",
+            "columnName": "nom",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "discription",
+            "columnName": "discription",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "idPic",
+            "columnName": "idPic",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nomPic",
+            "columnName": "nomPic",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "articlepaniers",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `idPanier` INTEGER NOT NULL, `idPlats` INTEGER NOT NULL, `nombrePlat` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idPanier",
+            "columnName": "idPanier",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idPlats",
+            "columnName": "idPlats",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombrePlat",
+            "columnName": "nombrePlat",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "paniers",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idClientOwner` INTEGER NOT NULL, `nomPrenom` TEXT, `idMenu` INTEGER NOT NULL, `prix` REAL NOT NULL, `etat` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nom` TEXT, `discription` TEXT, `idPic` INTEGER NOT NULL, `nomPic` TEXT, `dateLivr` TEXT, `heurLivr` TEXT, `remarque` TEXT, `nombre` INTEGER, `rue` TEXT, `numeroRue` INTEGER, `codePostal` INTEGER, `ville` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "idClientOwner",
+            "columnName": "idClientOwner",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nomPrenom",
+            "columnName": "nomPrenom",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "idMenu",
+            "columnName": "idMenu",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "prix",
+            "columnName": "prix",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "etat",
+            "columnName": "etat",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nom",
+            "columnName": "nom",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "discription",
+            "columnName": "discription",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "idPic",
+            "columnName": "idPic",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nomPic",
+            "columnName": "nomPic",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "informationLivraison.dateLivr",
+            "columnName": "dateLivr",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "informationLivraison.heurLivr",
+            "columnName": "heurLivr",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "informationLivraison.remarque",
+            "columnName": "remarque",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "informationLivraison.nombre",
+            "columnName": "nombre",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "informationLivraison.adresse.rue",
+            "columnName": "rue",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "informationLivraison.adresse.numeroRue",
+            "columnName": "numeroRue",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "informationLivraison.adresse.codePostal",
+            "columnName": "codePostal",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "informationLivraison.adresse.ville",
+            "columnName": "ville",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "clients",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idClient` INTEGER NOT NULL, `nom` TEXT, `prenom` TEXT, `email` TEXT, `numTel` TEXT, PRIMARY KEY(`idClient`))",
+        "fields": [
+          {
+            "fieldPath": "idClient",
+            "columnName": "idClient",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nom",
+            "columnName": "nom",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "prenom",
+            "columnName": "prenom",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "email",
+            "columnName": "email",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "numTel",
+            "columnName": "numTel",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "idClient"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0d337db92286c91c199abb65d10ba5ec')"
+    ]
+  }
+}

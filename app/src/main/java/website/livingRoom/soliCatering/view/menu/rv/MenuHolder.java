@@ -48,10 +48,6 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
         return new MenuHolder(modelMenuBinding,conteurViewModel);
     }
 
-    private void naviguer(int actionId) {
-        Navigation.findNavController(itemView).navigate(actionId);
-    }
-
 
     public void bind(Menu menu) {
         this.menu = menu;
@@ -63,9 +59,7 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
             //CHANGE COLOR OF ITEM WHEN IS CLICKED
             upDateCardViewColor(R.color.grey_100);
         }
-        else
-            //CHANGE COLOR OF ITEM WHEN IS NOT CLICKED
-            upDateCardViewColor(R.color.white_100);
+
 
     }
 
@@ -76,7 +70,7 @@ public class MenuHolder extends RecyclerView.ViewHolder implements View.OnClickL
     }
 
     private void upDateCardViewColor(int colorId) {
-        binding.cardViewMenu.setBackgroundColor(Helper.getColor(colorId));
+        binding.constraintLayoutMenu.setBackgroundColor(Helper.getColor(colorId));
     }
 
 

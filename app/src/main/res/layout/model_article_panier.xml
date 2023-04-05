@@ -19,7 +19,7 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            style="@style/MarginSmall"
+            style="@style/ConstraintLayoutShapeBackGround"
             android:id="@+id/constraintLayoutArticlePanier"
             android:padding="@dimen/small_margin">
 

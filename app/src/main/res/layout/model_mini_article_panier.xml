@@ -21,7 +21,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayoutMiniArticlePanier"
-                style="@style/MarginSmall">
+                style="@style/ConstraintLayoutShapeBackGround">
 
                 <!--image view plat-->
                 <ImageView

@@ -207,7 +207,7 @@
     <style name="Button" parent="Widget.AppCompat.ImageButton">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textStyle">normal</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/medium_text</item>
@@ -215,8 +215,8 @@
     <!--button in item-->
     <style name="Button.InItem">
 
-        <item name="backgroundTint">@color/grey_400</item>
-        <item name="android:textColor">@color/white_100</item>
+        <item name="android:background">@drawable/shape_background</item>
+        <item name="android:textColor">@color/grey_400</item>
         <item name="android:padding">@dimen/large_margin</item>
 
     </style>
@@ -226,6 +226,10 @@
     <style name="cardViewPrincipalRVBlanc" parent="MarginSmall">
         <item name="android:orientation">vertical</item>
         <item name="cardBackgroundColor">@color/white_100</item>
+        <item name="cardCornerRadius">@dimen/radius_small</item>
+        <item name="cardElevation">@dimen/small_elevation</item>
+        <item name="cardMaxElevation">@dimen/small_elevation</item>
+
     </style>
     <style name="cardViewPrincipalRVBlanc.Full" >
         <item name="android:layout_width">match_parent</item>
@@ -253,6 +257,7 @@
     </style>
     <!--constraint layout-->
     <style name="ConstraintLayoutPrincipal">
+        <item name="android:background">@drawable/shape_background</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/height_model_rv</item>
     </style>
@@ -264,6 +269,9 @@
 
     </style>
 
+    <style name="ConstraintLayoutShapeBackGround" parent="WidthParent">
+        <item name="android:background">@drawable/shape_background</item>
+    </style>
 
     <!--linear layout-->
     <style name="LinearLayoutPrincipaleBlanc" parent="WidthHeightParent">
