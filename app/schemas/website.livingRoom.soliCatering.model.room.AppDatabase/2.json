@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 2,
-    "identityHash": "0d337db92286c91c199abb65d10ba5ec",
+    "identityHash": "54d5c10a4ee127d70ad5584411697e00",
     "entities": [
       {
         "tableName": "evenements",
@@ -62,7 +62,7 @@
       },
       {
         "tableName": "menus",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`point` INTEGER NOT NULL, `prix` REAL NOT NULL, `info` TEXT, `idColor` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nom` TEXT, `discription` TEXT, `idPic` INTEGER NOT NULL, `nomPic` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`point` INTEGER NOT NULL, `prix` REAL NOT NULL, `info` TEXT, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nom` TEXT, `discription` TEXT, `idPic` INTEGER NOT NULL, `nomPic` TEXT)",
         "fields": [
           {
             "fieldPath": "point",
@@ -81,12 +81,6 @@
             "columnName": "info",
             "affinity": "TEXT",
             "notNull": false
-          },
-          {
-            "fieldPath": "idColor",
-            "columnName": "idColor",
-            "affinity": "INTEGER",
-            "notNull": true
           },
           {
             "fieldPath": "id",
@@ -466,7 +460,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0d337db92286c91c199abb65d10ba5ec')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '54d5c10a4ee127d70ad5584411697e00')"
     ]
   }
 }
