@@ -271,6 +271,7 @@
 
     <style name="ConstraintLayoutShapeBackGround" parent="WidthParent">
         <item name="android:background">@drawable/shape_background</item>
+        <item name="android:padding">@dimen/medium_margin</item>
     </style>
 
     <!--linear layout-->

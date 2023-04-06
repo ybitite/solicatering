@@ -17,14 +17,18 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewPanier"
-            style="@style/cardViewPrincipalRVBlanc.Full">
+            style="@style/cardViewPrincipalRVBlanc.Full"
+            android:layout_margin="@dimen/medium_margin">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayoutPanier"
-                style="@style/WidthParent"
-                android:padding="@dimen/small_margin"
-                android:background="@color/white_100">
+                style="@style/ConstraintLayoutShapeBackGround">
                 <!--titre catering-->
+                <androidx.constraintlayout.utils.widget.MockView
+                    android:id="@+id/mockViewFormPanier"
+                    style="@style/mockViewForm"
+                    tools:ignore="MissingConstraints" />
+
                 <TextView
                     android:id="@+id/textViewTitrePanier"
                     style="@style/textViewBase1.GrisPrincipal.Adaptable.Bold"
@@ -44,6 +48,7 @@
 
                     android:hint="@string/etat_d_avancement"
                     android:layout_marginTop="@dimen/small_margin"
+                    android:textAlignment="center"
 
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -52,16 +57,18 @@
                     android:id="@+id/textViewTitreContenuLabel"
                     style="@style/textViewBase1.GrisPrincipal.Adaptable"
 
-                    android:text="@string/label_prix_du_catering"
-
-                    android:layout_marginStart="@dimen/medium_margin"
                     android:layout_marginTop="@dimen/medium_margin"
+                    android:textAlignment="center"
+
+                    android:text="@string/label_prix_du_catering"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewTitrePanier" />
                 <!--section prix-->
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayoutMenuP"
-                    style="@style/ConstraintLayoutGrisClaire"
+                    style="@style/ConstraintLayoutShapeBackGround"
+                    android:layout_margin="@dimen/small_margin"
 
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -156,17 +163,19 @@
                     style="@style/textViewBase1.GrisPrincipal.Adaptable"
 
 
-                    android:text="@string/label_information_livraison"
-
-                    android:layout_marginStart="@dimen/medium_margin"
                     android:layout_marginTop="@dimen/medium_margin"
+                    android:textAlignment="center"
+
+                    android:text="@string/label_information_livraison"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayoutMenuP" />
 
                 <!--section information-->
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayoutInfoP"
-                    style="@style/ConstraintLayoutGrisClaire"
+                    style="@style/ConstraintLayoutShapeBackGround"
+                    android:layout_margin="@dimen/small_margin"
 
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -238,16 +247,17 @@
                     android:id="@+id/textViewTitreContenuLabelP"
                     style="@style/textViewBase1.GrisPrincipal.Adaptable"
 
-                    android:text="@string/label_contenu_du_menu"
-
-                    android:layout_marginStart="@dimen/medium_margin"
                     android:layout_marginTop="@dimen/medium_margin"
+                    android:textAlignment="center"
+
+                    android:text="@string/label_contenu_du_menu"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayoutInfoP" />
                 <!--recycle view contenu-->
                 <LinearLayout
                     android:id="@+id/linearLayoutRVMiniAP"
-                    style="@style/LinearLayoutPrincipaleFullWidthBlanc"
+                    style="@style/ConstraintLayoutShapeBackGround"
 
                     android:padding="@dimen/small_margin"
                     android:layout_margin="@dimen/small_margin"
@@ -275,7 +285,8 @@
                     app:layout_constraintTop_toBottomOf="@+id/linearLayoutRVMiniAP" />
                 <!--section suivi de commande-->
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    style="@style/ConstraintLayoutGrisClaire"
+                    style="@style/ConstraintLayoutShapeBackGround"
+                    android:layout_margin="@dimen/small_margin"
 
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -430,10 +441,6 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.constraintlayout.utils.widget.MockView
-                    android:id="@+id/mockViewFormPanier"
-                    style="@style/mockViewForm"
-                    tools:ignore="MissingConstraints" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
