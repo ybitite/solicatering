@@ -277,20 +277,20 @@
                             style="@style/EditeTextFormulaire"
 
 
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/small_image_size"
+                            android:layout_marginTop="@dimen/medium_margin"
+
+                            android:autofillHints=""
+                            android:gravity="top"
                             android:hint="@string/label_remarque"
                             android:inputType="textMultiLine|textAutoCorrect"
-                            android:text="@={viewModel.informationLivraison.remarque}"
-
-                            android:gravity="top"
                             android:nextFocusDown="@id/editTextNombre"
                             android:paddingTop="@dimen/small_margin"
-                            android:layout_height="@dimen/small_image_size"
-                            android:layout_width="match_parent"
-                            android:layout_marginTop="@dimen/medium_margin"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/editTextDate"
-                            android:autofillHints="" />
+                            android:text="@={viewModel.informationLivraison.remarque}"
+                            app:layout_constraintEnd_toEndOf="@+id/editTextTime"
+                            app:layout_constraintStart_toStartOf="@+id/editTextDate"
+                            app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
 
                         <!--label nombre-->
                         <TextView

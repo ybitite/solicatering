@@ -22,11 +22,12 @@
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/buttonValiderCmd"
                     style="@style/Button.InItem"
+                    android:layout_width="0dp"
+
+                    android:clickable="@{viewModel.conteur.clickableButtonValiderValue}"
                     android:hint="@string/bt_valider_la_commande"
 
                     android:text="@{viewModel.conteur.textButtonValiderValue}"
-                    android:clickable="@{viewModel.conteur.clickableButtonValiderValue}"
-
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

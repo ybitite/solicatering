@@ -17,13 +17,11 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewMenu"
-            style="@style/cardViewPrincipalRVBlanc.Full"
-            app:cardCornerRadius="@dimen/radius_small">
+            style="@style/cardViewPrincipalRVBlanc.Full">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayoutMenu"
-                style="@style/ConstraintLayoutShapeBackGround"
-                android:background="@drawable/shape_background">
+                style="@style/ConstraintLayoutShapeBackGround">
 
                 <!--image view menu-->
                 <androidx.constraintlayout.utils.widget.MockView

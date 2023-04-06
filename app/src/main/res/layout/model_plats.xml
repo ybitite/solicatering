@@ -18,8 +18,7 @@
         style="@style/cardViewPrincipalRVBlanc.Full">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            style="@style/ConstraintLayoutPrincipal"
-            android:layout_margin="@dimen/small_margin">
+            style="@style/ConstraintLayoutPrincipal">
 
 
             <androidx.constraintlayout.utils.widget.MockView
