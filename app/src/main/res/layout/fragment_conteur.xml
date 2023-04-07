@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayoutConteurCat"
         style="@style/WidthParent"
-
+        android:padding="@dimen/medium_margin"
         android:background="@color/grey_400"
         android:visibility="visible">
 

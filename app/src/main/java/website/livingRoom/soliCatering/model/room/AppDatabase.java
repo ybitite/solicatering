@@ -37,9 +37,9 @@ public abstract class AppDatabase extends RoomDatabase {
     /*DEFINED A SINGLETON, PREVENT MULTIPLE INSTANCES OF DATA BASE OPENED AT THE SAME TIME.*/
     private static volatile AppDatabase INSTANCE;
     /*FIXED THREAD POOL*/
-    private static final int NUMBER_OF_THREADS = 4;
+    public static final int NUMBER_OF_THREADS = 4;
     /* EXECUTOR SERVICE TO RUN DATA BASE OPERATIONS ASYNCHRONOUSLY ON A BACKGROUND THREAD*/
-    public static final ExecutorService databaseWriteExecutor =
+    public static  ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
     //METHODE
@@ -76,4 +76,11 @@ public abstract class AppDatabase extends RoomDatabase {
             });
         }
     };
+
+    public static ExecutorService getDatabaseWriteExecutor() {
+        if (AppDatabase.databaseWriteExecutor.isShutdown()){
+            AppDatabase.databaseWriteExecutor = Executors.newFixedThreadPool(AppDatabase.NUMBER_OF_THREADS);
+        }
+        return databaseWriteExecutor;
+    }
 }

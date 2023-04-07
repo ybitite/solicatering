@@ -61,19 +61,18 @@ public class PanierHolder extends RecyclerView.ViewHolder implements View.OnClic
      * to bind the imbricated recycle view
      **/
     void bindSecondRecycleView(List<ArticlePanierAndPlat> articlePanierAndPlat) {
-        //instantiate rv
-        RecyclerView rv = binding.miniAPRecyclerView;
+
 
         //set adapter to rv
         final MiniArticlePanierListAdapter miniArticlePanierListAdapter =
                 new MiniArticlePanierListAdapter(new ArticlePanierListAdapter.ArticlePanierWithPlatDiff());
 
-        rv.setAdapter(miniArticlePanierListAdapter);
+        binding.miniAPRecyclerView.setAdapter(miniArticlePanierListAdapter);
 
 
         //set properties to rv
-        rv.setLayoutManager(new LinearLayoutManager(Helper.getContext(), LinearLayoutManager.HORIZONTAL, true));
-        rv.setItemAnimator(new DefaultItemAnimator());
+        binding.miniAPRecyclerView.setLayoutManager(new LinearLayoutManager(Helper.getContext(), LinearLayoutManager.HORIZONTAL, true));
+        binding.miniAPRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
         //  this data is already observed
         miniArticlePanierListAdapter.submitList(articlePanierAndPlat);

@@ -1,6 +1,7 @@
 package website.livingRoom.soliCatering.viewModel;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
@@ -8,6 +9,7 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 import website.livingRoom.soliCatering.model.entitys.ArticlePanierAndPlat;
+import website.livingRoom.soliCatering.model.room.AppDatabase;
 import website.livingRoom.soliCatering.repository.ArticlePanierRepository;
 
 public class PanierViewModel extends AndroidViewModel {
@@ -62,7 +64,14 @@ public class PanierViewModel extends AndroidViewModel {
 
     private int update(ArticlePanierAndPlat article, int upDateValue, int pointPlat) {
         //UPDATE IT IN DATA BASE on work thread
-        articlePanierRepository.updateArticlePanier(article.articlePanier, upDateValue);
+        AppDatabase.getDatabaseWriteExecutor().execute(()->{
+            try {
+                articlePanierRepository.updateArticlePanier(article.articlePanier, upDateValue);
+            }
+            catch (Exception exception){
+                Log.e("update artPanier failed",exception.getMessage());
+            }
+        });
 
         //UPDATE RESTE IN CONTEUR
         conteurViewModel.getConteur().upDatePointReste(pointPlat);

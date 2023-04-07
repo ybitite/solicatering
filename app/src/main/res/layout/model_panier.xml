@@ -17,8 +17,7 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewPanier"
-            style="@style/cardViewPrincipalRVBlanc.Full"
-            android:layout_margin="@dimen/medium_margin">
+            style="@style/cardViewPrincipalRVBlanc.Full">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayoutPanier"
@@ -258,7 +257,6 @@
                 <LinearLayout
                     android:id="@+id/linearLayoutRVMiniAP"
                     style="@style/ConstraintLayoutShapeBackGround"
-
                     android:padding="@dimen/small_margin"
                     android:layout_margin="@dimen/small_margin"
                     android:orientation="horizontal"

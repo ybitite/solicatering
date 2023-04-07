@@ -14,12 +14,5 @@ public class ConteurRepository {
         ConteurSharedPreferencesOA.setConteur(conteur);
     }
 
-    public void resetConteur() {
-        ConteurSharedPreferencesOA.createDefaultConteur();
-    }
-
-
-
-
 
 }

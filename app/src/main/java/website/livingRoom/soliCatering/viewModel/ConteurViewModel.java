@@ -55,7 +55,8 @@ public class ConteurViewModel extends AndroidViewModel {
     }
 
     public void resetConteur(){
-        conteurRepository.resetConteur();
+        conteur.resetConteur();
+        conteurRepository.setConteur(conteur);
         resetBadgeOrderNumber();
     }
 

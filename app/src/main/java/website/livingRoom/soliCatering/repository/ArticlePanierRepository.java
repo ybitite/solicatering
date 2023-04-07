@@ -22,7 +22,6 @@ public class ArticlePanierRepository {
     public ArticlePanierRepository(Context context) {
         //GET DATA BASE
         AppDatabase db = AppDatabase.getDatabase(context);
-        Log.i("Article Panier ", db.toString());
         //GET LIVE DATA LIST ARCTILE PANIER FROM dao
         articlePanierDAO = db.articlePanierDAO();
     }
@@ -33,33 +32,46 @@ public class ArticlePanierRepository {
         return listArticlePanierWithPlat;
     }
 
-    //find article panier
+    //find article panier call form background thread
     public boolean finArticlePanier(ArticlePanier articlePanier) {
         return articlePanierDAO.getArticlePanier(articlePanier.getIdPlats(), articlePanier.getIdPanier()) != null;
     }
 
-    //INSERT NEW ARTICLE PANIER IN DATA BASE
+    //INSERT NEW ARTICLE PANIER IN DATA BASE call form background thread
     public void insert(ArticlePanier articlePanier) {
         articlePanierDAO.insert(articlePanier);
     }
 
-    //UPDATE GIVEN ARTICLE PANIER
+    //UPDATE GIVEN ARTICLE PANIER call form background thread
     public void updateArticlePanier(ArticlePanier articlePanier, int nombre) {
-        AppDatabase.databaseWriteExecutor.execute(() -> articlePanierDAO.updateNombreArticlePanier(articlePanier.getIdPlats(),
-                articlePanier.getIdPanier(), nombre));
+        articlePanierDAO.updateNombreArticlePanier(articlePanier.getIdPlats( ),articlePanier.getIdPanier( ), nombre);
     }
 
     //DELETE CURENT PANIER IN THE SEM CURENT PANIER
     public void deleteCurentPanier(int idPanier) {
         //DO THE DELETE IN NON-UI THREAD
-        AppDatabase.databaseWriteExecutor.execute(() -> articlePanierDAO.deleteArticlePanier(idPanier));
+        AppDatabase.getDatabaseWriteExecutor().execute(() -> {
+            try {
+                articlePanierDAO.deleteArticlePanier(idPanier);
+
+            }
+            catch (Exception exception){
+                Log.e("delete artPanier failed",exception.getMessage());
+            }
+        });
     }
 
     //DELETE GIVING ARTICLE PANIER
     public void deleteArticlePanier(ArticlePanier articlePanier) {
         //DO THE DELETE IN NON-UI THREAD
-        AppDatabase.databaseWriteExecutor.execute(() -> articlePanierDAO.deleteArticlePanier(articlePanier));
+        AppDatabase.getDatabaseWriteExecutor().execute(() -> {
+            try {
+                articlePanierDAO.deleteArticlePanier(articlePanier);
+
+            }
+            catch (Exception exception){
+                Log.e("delete artPanier failed",exception.getMessage());
+            }
+        });
     }
-
-
 }

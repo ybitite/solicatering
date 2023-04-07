@@ -120,6 +120,7 @@
     <string name="title_dialog_plat" translatable="false">DialogPlat</string>
     <string name="title_dialog_client" translatable="false">view_client</string>
     <string name="url_image_picasso" translatable="false">https://192.168.1.25/solicatering/</string>
+    <string name="text_aucun_menu">Aucun menu</string>
 
 
 </resources>

@@ -131,4 +131,12 @@ public class Conteur extends BaseObservable {
     public boolean isSemCategoriePossible(int value){
         return value < categorieActuel;
     }
+
+    public void resetConteur(){
+        setName(Helper.getString(R.string.text_aucun_menu));
+        setPointDepart(0);
+        setPointReste(0);
+        setCategorieActuel(0);
+        updatePanierActuel();
+    }
 }

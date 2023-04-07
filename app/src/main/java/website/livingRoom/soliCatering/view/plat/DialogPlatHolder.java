@@ -1,7 +1,11 @@
 package website.livingRoom.soliCatering.view.plat;
 
+import android.util.Log;
+
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
+
+import java.util.concurrent.Executors;
 
 import website.livingRoom.soliCatering.R;
 import website.livingRoom.soliCatering.databinding.ViewPlatsBinding;
@@ -129,20 +133,24 @@ public class DialogPlatHolder {
     private void addToPanier() {
         /*go to be excute in background int no ui tread
           to not impact to the UI**/
-        AppDatabase.databaseWriteExecutor.execute(this::run);
-
+        AppDatabase.getDatabaseWriteExecutor().execute(this::run);
     }
 
     private void run() {
-        //CREATE NEW ARTICLE PANIER or UPDATE it
-        ArticlePanier articlePanier = new ArticlePanier(conteurViewModel.getConteur().getPanierActuel(),
-                platViewModel.getSelectedPlat().getValue().getId(),
-                platViewModel.getNumberPlat().getValue());
+        try {
+            //CREATE NEW ARTICLE PANIER or UPDATE it
+            ArticlePanier articlePanier = new ArticlePanier(conteurViewModel.getConteur().getPanierActuel(),
+                    platViewModel.getSelectedPlat().getValue().getId(),
+                    platViewModel.getNumberPlat().getValue());
 
-        //update if excite or create a new article panier
-        if (articlePanierRepository.finArticlePanier(articlePanier))
-            articlePanierRepository.updateArticlePanier(articlePanier, platViewModel.getNumberPlat().getValue());
-        else articlePanierRepository.insert(articlePanier);
+            //update if excite or create a new article panier
+            if (articlePanierRepository.finArticlePanier(articlePanier))
+                articlePanierRepository.updateArticlePanier(articlePanier, platViewModel.getNumberPlat().getValue());
+            else articlePanierRepository.insert(articlePanier);
+        }
+        catch (Exception exception){
+            Log.e("up/ins artPanier failed",exception.getMessage());
+        }
     }
 
     private void upDateNombrePlatTextView(Integer nbrPlat) {

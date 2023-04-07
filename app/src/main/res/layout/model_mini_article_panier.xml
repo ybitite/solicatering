@@ -43,6 +43,7 @@
                     android:hint="@string/zero"
                     android:text="@{articlePanierAndPlat.articlePanier.nombrePlatFormat}"
 
+                    android:layout_margin="@dimen/small_margin"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/textViewPointMiniAP"
