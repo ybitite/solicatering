@@ -15,9 +15,10 @@
         app:exitAnim="@anim/transition_left_to_right">
         <action
             android:id="@+id/action_global_navigation_home_to_navigation_menu"
-            app:destination="@id/navigation_selction"
+            app:destination="@id/navigation_menu"
 
             app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="false"
             app:popUpToSaveState="true" />
     </fragment>
     <!-- menu -->
@@ -34,26 +35,28 @@
 
         app:enterAnim="@anim/transition_right_to_left"
         app:exitAnim="@anim/transition_left_to_right"/>
+    <fragment
+        android:id="@+id/navigation_menu"
+        android:name="website.livingRoom.soliCatering.view.menu.MenuFragment"
+        android:label="@string/title_menu"
+
+        tools:layout="@layout/fragment_menu"
+
+
+        app:exitAnim="@anim/transition_left_to_right">
+        <action
+            android:id="@+id/action_navigation_menu_to_navigation_categorie"
+            app:destination="@id/navigation_selction"
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="false"
+            app:popUpToSaveState="true" />
+    </fragment>
     <navigation
         android:id="@+id/navigation_selction"
-        app:startDestination="@id/navigation_menu"
+        app:startDestination="@id/navigation_categorie"
         app:enterAnim="@anim/transition_right_to_left"
         app:exitAnim="@anim/transition_left_to_right">
-        <fragment
-            android:id="@+id/navigation_menu"
-            android:name="website.livingRoom.soliCatering.view.menu.MenuFragment"
-            android:label="@string/title_menu"
 
-            tools:layout="@layout/fragment_menu"
-
-
-            app:exitAnim="@anim/transition_left_to_right">
-            <action
-                android:id="@+id/action_navigation_menu_to_navigation_categorie"
-                app:destination="@id/navigation_categorie"
-                app:launchSingleTop="false"
-                app:popUpToInclusive="false" />
-        </fragment>
         <fragment
             android:id="@+id/navigation_categorie"
             android:name="website.livingRoom.soliCatering.view.categorie.CategorieFragment"
@@ -100,7 +103,9 @@
         <action
             android:id="@+id/action_global_navigation_panier"
             app:destination="@id/navigation_order"
-            app:popUpTo="@id/navigation_selction" />
+            app:popUpTo="@id/navigation_home"
+            app:popUpToInclusive="false"
+            app:popUpToSaveState="true" />
     </navigation>
     <navigation
         android:id="@+id/navigation_order"
@@ -133,7 +138,8 @@
         <action
             android:id="@+id/action_global_navigation_historique"
             app:destination="@id/navigation_historique"
-            app:popUpTo="@id/navigation_order" />
+            app:popUpTo="@id/navigation_order"
+            app:popUpToInclusive="false" />
     </navigation>
 
 </navigation>
