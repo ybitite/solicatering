@@ -23,7 +23,7 @@
                     android:id="@+id/buttonValiderCmd"
                     style="@style/Button.InItem"
                     android:layout_width="0dp"
-
+                    android:layout_margin="@dimen/small_margin"
                     android:clickable="@{viewModel.conteur.clickableButtonValiderValue}"
                     android:hint="@string/bt_valider_la_commande"
 

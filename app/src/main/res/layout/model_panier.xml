@@ -17,7 +17,9 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewPanier"
-            style="@style/cardViewPrincipalRVBlanc.Full">
+            style="@style/cardViewPrincipalRVBlanc.Full"
+            android:layout_margin="@dimen/medium_margin"
+            android:layout_height="wrap_content">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayoutPanier"
@@ -174,8 +176,9 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayoutInfoP"
                     style="@style/ConstraintLayoutShapeBackGround"
-                    android:layout_margin="@dimen/small_margin"
+                    android:layout_width="0dp"
 
+                    android:layout_margin="@dimen/small_margin"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewTitreLivraisonLabel">
@@ -184,25 +187,25 @@
                         android:id="@+id/imageViewInfoP"
                         style="@style/ImageViewSmall.Adaptable"
 
+                        android:contentDescription="@string/description_image_view_information_contact"
                         android:padding="@dimen/medium_margin"
-                        android:scaleType="fitCenter"
 
+                        android:scaleType="fitCenter"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/delivery_icon"
-                        android:contentDescription="@string/description_image_view_information_contact" />
+                        app:srcCompat="@drawable/delivery_icon" />
                     <!--nom prenom-->
                     <TextView
                         android:id="@+id/textViewNomPrenomP"
                         style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
 
 
-                        android:hint="@string/nom_prenom"
-                        android:text="@{panier.nomPrenom}"
-
                         android:layout_marginStart="@dimen/small_margin"
                         android:layout_marginTop="@dimen/medium_margin"
+
+                        android:hint="@string/nom_prenom"
+                        android:text="@{panier.nomPrenom}"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/imageViewInfoP"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -228,12 +231,12 @@
                         style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
 
 
-                        android:hint="@string/information_livraion"
-                        android:text="@{panier.informationLivraison.getDateHeure()}"
-
                         android:layout_marginStart="@dimen/small_margin"
                         android:layout_marginTop="@dimen/medium_margin"
+
                         android:layout_marginBottom="@dimen/medium_margin"
+                        android:hint="@string/information_livraion"
+                        android:text="@{panier.informationLivraison.getDateHeure()}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -257,6 +260,7 @@
                 <LinearLayout
                     android:id="@+id/linearLayoutRVMiniAP"
                     style="@style/ConstraintLayoutShapeBackGround"
+
                     android:padding="@dimen/small_margin"
                     android:layout_margin="@dimen/small_margin"
                     android:orientation="horizontal"
