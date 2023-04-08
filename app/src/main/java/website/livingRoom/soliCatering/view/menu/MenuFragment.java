@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import website.livingRoom.soliCatering.databinding.FragmentMenuBinding;
+import website.livingRoom.soliCatering.model.room.AppDatabase;
 import website.livingRoom.soliCatering.view.menu.rv.MenuListAdapter;
 import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 import website.livingRoom.soliCatering.viewModel.MenuViewModel;
@@ -66,6 +67,12 @@ public class MenuFragment extends Fragment {
                 new ViewModelProvider(this).get(MenuViewModel.class);
 
         menuViewModel.getListMenu().observe(getViewLifecycleOwner(), menus -> menuListAdapter.submitList(menus));
+    }
+
+    @Override
+    public void onPause() {
+        AppDatabase.shutdownAfterTermination();
+        super.onPause( );
     }
 
     @Override

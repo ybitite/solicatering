@@ -53,7 +53,6 @@ public class ArticlePanierRepository {
         AppDatabase.getDatabaseWriteExecutor().execute(() -> {
             try {
                 articlePanierDAO.deleteArticlePanier(idPanier);
-
             }
             catch (Exception exception){
                 Log.e("delete artPanier failed",exception.getMessage());
@@ -67,7 +66,6 @@ public class ArticlePanierRepository {
         AppDatabase.getDatabaseWriteExecutor().execute(() -> {
             try {
                 articlePanierDAO.deleteArticlePanier(articlePanier);
-
             }
             catch (Exception exception){
                 Log.e("delete artPanier failed",exception.getMessage());

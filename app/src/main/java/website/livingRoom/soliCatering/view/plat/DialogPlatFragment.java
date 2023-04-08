@@ -11,6 +11,7 @@ import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import website.livingRoom.soliCatering.databinding.ViewPlatsBinding;
+import website.livingRoom.soliCatering.model.room.AppDatabase;
 import website.livingRoom.soliCatering.repository.ArticlePanierRepository;
 import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
 import website.livingRoom.soliCatering.viewModel.PlatViewModel;
@@ -58,6 +59,11 @@ public class DialogPlatFragment extends DialogFragment {
         dialogPlatHolder.bind();
     }
 
+    @Override
+    public void onPause() {
+        AppDatabase.shutdownAfterTermination();
+        super.onPause( );
+    }
 
     @Override
     public void onDestroyView() {

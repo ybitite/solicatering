@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import website.livingRoom.soliCatering.databinding.FragmentPanierBinding;
 import website.livingRoom.soliCatering.databinding.ModelPiedArticlePanierBinding;
+import website.livingRoom.soliCatering.model.room.AppDatabase;
 import website.livingRoom.soliCatering.view.panier.rvpanier.ArticlePanierListAdapter;
 import website.livingRoom.soliCatering.view.panier.rvpanier.ArticlePanierPiedAdapter;
 import website.livingRoom.soliCatering.viewModel.ConteurViewModel;
@@ -90,6 +91,12 @@ public class PanierFragment extends Fragment {
     private void observeDataAndUpdateView(PanierViewModel panierViewModel, ArticlePanierListAdapter articlePanierListAdapter) {
         //OBSERVE DATA FROM LIVE DATA AND UPDATE RV WEN DATA CHANGE
         panierViewModel.getListArticlePanierAndPlat().observe(getViewLifecycleOwner(), articlePanierListAdapter::submitList);
+    }
+
+    @Override
+    public void onPause() {
+        AppDatabase.shutdownAfterTermination();
+        super.onPause( );
     }
 
     @Override

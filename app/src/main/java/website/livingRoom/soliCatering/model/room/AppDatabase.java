@@ -1,6 +1,7 @@
 package website.livingRoom.soliCatering.model.room;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.room.Database;
@@ -10,6 +11,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 import website.livingRoom.soliCatering.model.entitys.ArticlePanier;
 import website.livingRoom.soliCatering.model.entitys.Categorie;
@@ -82,5 +84,14 @@ public abstract class AppDatabase extends RoomDatabase {
             AppDatabase.databaseWriteExecutor = Executors.newFixedThreadPool(AppDatabase.NUMBER_OF_THREADS);
         }
         return databaseWriteExecutor;
+    }
+
+    public static void shutdownAfterTermination(){
+        AppDatabase.databaseWriteExecutor.shutdown();
+        try {
+            AppDatabase.databaseWriteExecutor.awaitTermination(5, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            Log.e("await time passed",e.getMessage());
+        }
     }
 }
