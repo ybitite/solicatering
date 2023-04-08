@@ -30,7 +30,7 @@
                         android:id="@+id/imageViewPlatTop"
                         style="@style/imageViewPrincipalRV"
                         android:layout_height="@dimen/x_large_image_size"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:scaleType="fitXY"
 
                         android:contentDescription="@string/description_image_view_plat"
@@ -157,7 +157,7 @@
                         android:layout_margin="@dimen/medium_margin"
 
                         android:text="@string/bt_ajouter"
-                        android:textColor="#689F38"
+                        android:textColor="@color/white_100"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textViewDiscription" />

@@ -139,18 +139,18 @@ public class PanierHolder extends RecyclerView.ViewHolder implements View.OnClic
         bindTextViewEtat(textEtat,colorEtat);
     }
 
-    private void bindControl(TextView textView, ImageView imageView1, ImageView imageView2) {
+    private void bindControl(TextView textViewEtat, ImageView imageViewCheckBox, ImageView imageViewTrait) {
         //bind text and image for check box
-        bindCheckBoxEtat(textView, imageView1);
+        bindCheckBoxEtat(textViewEtat, imageViewCheckBox);
         //image view trait
-        imageView2.setColorFilter(Helper.getColor(R.color.grey_400));
+        imageViewTrait.setColorFilter(Helper.getColor(R.color.grey_400));
     }
 
-    private void bindCheckBoxEtat(TextView textView, ImageView imageView) {
+    private void bindCheckBoxEtat(TextView textViewEtat, ImageView imageViewCheckBox) {
         //text view check box
-        textView.setTextColor(Helper.getColor(R.color.grey_400));
+        textViewEtat.setTextColor(Helper.getColor(R.color.grey_400));
         //image view check box
-        imageView.setImageResource(R.drawable.checkbox_on_background);
+        imageViewCheckBox.setImageResource(R.drawable.checkbox_on_background);
     }
 
     private void bindTextViewEtat(String textEtat, int colorEtat) {

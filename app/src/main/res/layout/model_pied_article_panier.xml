@@ -8,30 +8,36 @@
                     name="viewModel"
                     type="website.livingRoom.soliCatering.viewModel.ConteurViewModel" />
         </data>
-
-
         <androidx.constraintlayout.widget.ConstraintLayout
-            style="@style/MarginSmall">
-
-
+            style="@style/WidthParent">
                 <androidx.constraintlayout.utils.widget.MockView
                     android:id="@+id/mockViewFormPiedArticlePanier"
                     style="@style/mockViewForm"
                     tools:ignore="MissingConstraints" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/buttonValiderCmd"
-                    style="@style/Button.InItem"
-                    android:layout_width="0dp"
-                    android:layout_margin="@dimen/small_margin"
-                    android:clickable="@{viewModel.conteur.clickableButtonValiderValue}"
-                    android:hint="@string/bt_valider_la_commande"
-
-                    android:text="@{viewModel.conteur.textButtonValiderValue}"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewPiedArticlePanier"
+                    style="@style/cardViewPrincipalRVBlanc"
+                    android:layout_margin="@dimen/large_margin"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent">
 
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/buttonValiderCmd"
+                            style="@style/Button.InItem"
+                            android:layout_width="match_parent"
+                            android:clickable="@{viewModel.conteur.clickableButtonValiderValue}"
+
+                            android:hint="@string/bt_valider_la_commande"
+                            android:text="@{viewModel.conteur.textButtonValiderValue}"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

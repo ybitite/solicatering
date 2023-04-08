@@ -76,6 +76,8 @@
     </style>
     <style name="textViewBase1.Blanc.Small" >
         <item name="android:textSize">@dimen/small_text</item>
+        <item name="android:textColor">@color/grey_100</item>
+
 
     </style>
     <style name="textViewBase1.Blanc.Bold" >
@@ -108,6 +110,7 @@
     </style>
     <style name="textViewBase1.GrisPrincipal.Adaptable">
         <item name="android:layout_width">@dimen/zero_size</item>
+        <item name="android:textColor">?colorPrimary</item>
     </style>
     <style name="textViewBase1.GrisPrincipal.Small">
         <item name="android:textSize">@dimen/small_text</item>
@@ -169,12 +172,9 @@
         <item name="layout_constraintStart_toStartOf">parent</item>
         <item name="android:scaleType">fitXY</item>
     </style>
-    <style name="ImageViewLarge" parent="MarginSmall">
+    <style name="ImageViewLarge">
         <item name="android:layout_width">@dimen/large_image_size</item>
         <item name="android:layout_height">@dimen/large_image_size</item>
-        <item name="layout_constraintBottom_toBottomOf">parent</item>
-        <item name="layout_constraintTop_toTopOf">parent</item>
-        <item name="layout_constraintStart_toStartOf">parent</item>
         <item name="android:scaleType">fitXY</item>
     </style>
     <style name="ImageViewTrait">
@@ -216,7 +216,7 @@
     <style name="Button.InItem">
 
         <item name="android:background">@drawable/shape_background</item>
-        <item name="android:textColor">@color/grey_400</item>
+        <item name="android:textColor">?colorPrimary</item>
         <item name="android:padding">@dimen/large_margin</item>
 
     </style>
@@ -276,14 +276,14 @@
 
     <!--linear layout-->
     <style name="LinearLayoutPrincipaleBlanc" parent="WidthHeightParent">
-        <item name="android:background">@color/white_300</item>
+        <item name="android:background">@color/white_100</item>
     </style>
     <style name="LinearLayoutPrincipaleFullWidthBlanc" parent="WidthParent">
         <item name="android:background">@color/white_100</item>
     </style>
 
     <style name="LinearLayoutButtomItem" parent="WidthParent">
-        <item name="android:background">@color/grey_400</item>
+        <item name="android:textColor">?colorPrimary</item>
     </style>
     <!--general attribut-->
     <!--Dimension-->

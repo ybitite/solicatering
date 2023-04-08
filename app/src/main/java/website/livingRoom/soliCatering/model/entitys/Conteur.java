@@ -115,7 +115,8 @@ public class Conteur extends BaseObservable {
     }
 
     public boolean isPanierFull() {
-        return pointReste == 0 && isMenuSelected();
+        boolean result = pointReste == 0 && isMenuSelected();
+        return result;
     }
 
     private boolean isMenuSelected() {

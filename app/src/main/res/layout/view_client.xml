@@ -74,10 +74,9 @@
                             android:id="@+id/textViewContactLabel"
                             style="@style/textViewBase1.GrisPrincipal.Adaptable"
 
-                            android:text="@string/label_information_de_contact"
-
                             android:layout_marginStart="@dimen/medium_margin"
                             android:layout_marginTop="@dimen/medium_margin"
+                            android:text="@string/label_information_de_contact"
                             app:layout_constraintStart_toEndOf="@+id/ImageViewiconContact"
                             app:layout_constraintTop_toBottomOf="@+id/textViewTitre" />
                         <!--nom-->
@@ -331,7 +330,7 @@
 
                             android:text="@string/bt_valider"
 
-                            android:textColor="@color/green_100"
+                            android:textColor="@color/white_100"
                             app:layout_constraintBottom_toBottomOf="@+id/editTextNombre"
                             app:layout_constraintEnd_toEndOf="@+id/editTextRemarque"
                             app:layout_constraintTop_toTopOf="@+id/editTextNombre" />

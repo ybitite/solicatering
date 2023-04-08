@@ -47,7 +47,7 @@
                     android:contentDescription="@string/description_image_view_trait_vertical"
                     app:layout_constraintStart_toEndOf="@+id/imageViewIconMenu"
                     app:srcCompat="@drawable/trait_menu"
-                    app:tint="@color/grey_400"
+                    app:tint="?colorPrimary"
                     tools:ignore="MissingConstraints"
                     tools:layout_editor_absoluteY="20dp" />
 

@@ -1,5 +1,6 @@
 package website.livingRoom.soliCatering.view.panier.rvpanier;
 
+import androidx.databinding.library.baseAdapters.BR;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,12 +30,11 @@ public class ArticlePanierPiedHolder extends RecyclerView.ViewHolder {
     //BIND METHODE
     public void  bind() {
         bindButtonValider();
-
+        conteurViewModel.getConteur().notifyPropertyChanged(BR.clickableButtonValiderValue);
     }
 
     private  void bindButtonValider() {
         Helper.fixWidth(binding.mockViewFormPiedArticlePanier);
-
         /*set on click listener button valider */
         setOnClickListenerToButtonValider();
     }

@@ -43,6 +43,7 @@ public class DialogClientHolder {
 
         Helper.fixWidth(binding.mockViewFormClient);
 
+        binding.cardViewViewClient.setMinimumWidth(Helper.getResources().getDisplayMetrics().widthPixels);
         binding.buttonValider.setOnClickListener(v -> onValiderClick());
         binding.imageViewClose.setOnClickListener(v -> onAnnullerClick());
     }

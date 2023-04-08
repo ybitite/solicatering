@@ -15,7 +15,9 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewPlat"
-        style="@style/cardViewPrincipalRVBlanc.Full">
+        style="@style/cardViewPrincipalRVBlanc.Full"
+        app:cardBackgroundColor="?colorPrimary"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             style="@style/ConstraintLayoutPrincipal">

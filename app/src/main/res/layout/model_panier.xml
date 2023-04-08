@@ -33,6 +33,7 @@
                 <TextView
                     android:id="@+id/textViewTitrePanier"
                     style="@style/textViewBase1.GrisPrincipal.Adaptable.Bold"
+                    android:textColor="@color/grey_400"
 
                     android:layout_marginStart="@dimen/medium_margin"
                     android:layout_marginTop="@dimen/medium_margin"
@@ -200,7 +201,6 @@
                         android:id="@+id/textViewNomPrenomP"
                         style="@style/textViewBase1.GrisPrincipal.Small.Adaptable"
 
-
                         android:layout_marginStart="@dimen/small_margin"
                         android:layout_marginTop="@dimen/medium_margin"
 
@@ -261,9 +261,9 @@
                     android:id="@+id/linearLayoutRVMiniAP"
                     style="@style/ConstraintLayoutShapeBackGround"
 
-                    android:padding="@dimen/small_margin"
                     android:layout_margin="@dimen/small_margin"
                     android:orientation="horizontal"
+                    android:padding="@dimen/small_margin"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewTitreContenuLabelP">
@@ -288,8 +288,9 @@
                 <!--section suivi de commande-->
                 <androidx.constraintlayout.widget.ConstraintLayout
                     style="@style/ConstraintLayoutShapeBackGround"
-                    android:layout_margin="@dimen/small_margin"
+                    android:layout_width="wrap_content"
 
+                    android:layout_margin="@dimen/small_margin"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -310,13 +311,13 @@
                             style="@style/SizeContent"
 
                             android:layout_marginBottom="@dimen/small_margin"
+                            android:contentDescription="@string/description_image_view_check_box"
                             app:layout_constraintBottom_toTopOf="@+id/textViewEtatPreparation"
                             app:layout_constraintEnd_toEndOf="@+id/textViewEtatPreparation"
                             app:layout_constraintStart_toStartOf="@+id/textViewEtatPreparation"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="1.0"
-                            app:srcCompat="@android:drawable/checkbox_off_background"
-                            android:contentDescription="@string/description_image_view_check_box" />
+                            app:srcCompat="@android:drawable/checkbox_off_background" />
 
                         <ImageView
                             android:id="@+id/imageViewCBValidation"
@@ -324,13 +325,13 @@
 
                             android:layout_marginTop="@dimen/small_margin"
                             android:layout_marginBottom="@dimen/small_margin"
+                            android:contentDescription="@string/description_image_view_check_box"
                             app:layout_constraintBottom_toTopOf="@+id/textViewEtatValidation"
                             app:layout_constraintEnd_toEndOf="@+id/textViewEtatValidation"
                             app:layout_constraintStart_toStartOf="@+id/textViewEtatValidation"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="1.0"
-                            app:srcCompat="@android:drawable/checkbox_on_background"
-                            android:contentDescription="@string/description_image_view_check_box" />
+                            app:srcCompat="@android:drawable/checkbox_on_background" />
 
                         <ImageView
                             android:id="@+id/imageViewCBPriseEnCharge"
@@ -338,56 +339,56 @@
 
                             android:layout_marginTop="@dimen/small_margin"
                             android:layout_marginBottom="@dimen/small_margin"
+                            android:contentDescription="@string/description_image_view_check_box"
                             app:layout_constraintBottom_toTopOf="@+id/textViewEtatPrisEnCharge"
                             app:layout_constraintEnd_toEndOf="@+id/textViewEtatPrisEnCharge"
                             app:layout_constraintStart_toStartOf="@+id/textViewEtatPrisEnCharge"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="1.0"
-                            app:srcCompat="@android:drawable/checkbox_off_background"
-                            android:contentDescription="@string/description_image_view_check_box" />
+                            app:srcCompat="@android:drawable/checkbox_off_background" />
 
                         <ImageView
                             android:id="@+id/imageViewCBLivrer"
                             style="@style/SizeContent"
 
                             android:layout_marginBottom="@dimen/small_margin"
+                            android:contentDescription="@string/description_image_view_check_box"
                             app:layout_constraintBottom_toTopOf="@+id/textViewEtatLivrer"
                             app:layout_constraintEnd_toEndOf="@+id/textViewEtatLivrer"
                             app:layout_constraintStart_toStartOf="@+id/textViewEtatLivrer"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="1.0"
-                            app:srcCompat="@android:drawable/checkbox_off_background"
-                            android:contentDescription="@string/description_image_view_check_box" />
+                            app:srcCompat="@android:drawable/checkbox_off_background" />
                         <!--trait-->
                         <ImageView
                             android:id="@+id/imageViewTrait1"
                             style="@style/ImageViewTrait"
 
+                            android:contentDescription="@string/description_image_view_trait_horizontal"
                             app:layout_constraintBottom_toTopOf="@+id/textViewEtatValidation"
                             app:layout_constraintEnd_toStartOf="@+id/imageViewCBPriseEnCharge"
                             app:layout_constraintStart_toEndOf="@+id/imageViewCBValidation"
-                            app:srcCompat="@color/grey_200"
-                            android:contentDescription="@string/description_image_view_trait_horizontal" />
+                            app:srcCompat="@color/grey_200" />
 
                         <ImageView
                             android:id="@+id/imageViewTrait2"
                             style="@style/ImageViewTrait"
 
+                            android:contentDescription="@string/description_image_view_trait_horizontal"
                             app:layout_constraintBottom_toTopOf="@+id/textViewEtatPrisEnCharge"
                             app:layout_constraintEnd_toStartOf="@+id/imageViewCBPreparation"
                             app:layout_constraintStart_toEndOf="@+id/imageViewCBPriseEnCharge"
-                            app:srcCompat="@color/grey_200"
-                            android:contentDescription="@string/description_image_view_trait_horizontal" />
+                            app:srcCompat="@color/grey_200" />
 
                         <ImageView
                             android:id="@+id/imageViewTrait3"
                             style="@style/ImageViewTrait"
 
+                            android:contentDescription="@string/description_image_view_trait_horizontal"
                             app:layout_constraintBottom_toTopOf="@+id/textViewEtatPreparation"
                             app:layout_constraintEnd_toStartOf="@+id/imageViewCBLivrer"
                             app:layout_constraintStart_toEndOf="@+id/imageViewCBPreparation"
-                            app:srcCompat="@color/grey_200"
-                            android:contentDescription="@string/description_image_view_trait_horizontal" />
+                            app:srcCompat="@color/grey_200" />
                         <!--text etape-->
                         <TextView
                             android:id="@+id/textViewEtatValidation"
@@ -400,6 +401,7 @@
                             android:textAlignment="center"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent" />
+
                         <TextView
                             android:id="@+id/textViewEtatPrisEnCharge"
                             style="@style/textViewBase1.GrisPrincipal.Small.Bold"
@@ -419,10 +421,10 @@
 
                             android:layout_marginStart="@dimen/large_margin"
                             android:layout_marginBottom="@dimen/small_margin"
-                            android:textColor="@color/grey_200"
-
                             android:text="@string/preparation_en_cours_label"
+
                             android:textAlignment="center"
+                            android:textColor="@color/grey_200"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/textViewEtatPrisEnCharge" />
 
@@ -432,10 +434,10 @@
 
                             android:layout_marginStart="@dimen/large_margin"
                             android:layout_marginBottom="@dimen/small_margin"
-                            android:textColor="@color/grey_200"
-
                             android:text="@string/catering_livrer_label"
+
                             android:textAlignment="center"
+                            android:textColor="@color/grey_200"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.0"

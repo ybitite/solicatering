@@ -14,4 +14,6 @@
     <color name="green_100">#528707</color>
     <color name="orange_100">#DE9006</color>
     <color name="red_100">#C11B1B</color>
+    <color name="principal_color">#00838F</color>
+
 </resources>

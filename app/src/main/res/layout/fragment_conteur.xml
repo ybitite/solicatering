@@ -14,7 +14,7 @@
         android:id="@+id/constraintLayoutConteurCat"
         style="@style/WidthParent"
         android:padding="@dimen/medium_margin"
-        android:background="@color/grey_400"
+        android:background="?colorPrimary"
         android:visibility="visible">
 
         <!--text view titre conteur-->
@@ -47,6 +47,7 @@
             android:hint="@string/zero_point"
             android:text="@{viewModel.conteur.pointResteFormat}"
 
+            android:textColor="@color/white_100"
             android:textAlignment="textStart"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

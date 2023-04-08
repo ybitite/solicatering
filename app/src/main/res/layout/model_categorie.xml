@@ -21,7 +21,8 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayoutCategorie"
-                style="@style/ConstraintLayoutShapeBackGround">
+                style="@style/ConstraintLayoutShapeBackGround"
+                android:padding="0dp">
 
                 <androidx.constraintlayout.utils.widget.MockView
                     android:id="@+id/mockViewFormCategorie"
@@ -29,12 +30,15 @@
                     tools:ignore="MissingConstraints" />
                 <!--image view categorie-->
                 <ImageView
-                    style="@style/ImageViewLarge"
                     android:id="@+id/imageViewCat"
+                    style="@style/ImageViewLarge"
 
+                    android:contentDescription="@string/description_image_view_categorie"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/backdescriptionplat"
-                    tools:ignore="MissingConstraints"
-                    android:contentDescription="@string/description_image_view_categorie" />
+                    tools:ignore="MissingConstraints" />
 
                 <!--text view titre-->
                 <TextView
