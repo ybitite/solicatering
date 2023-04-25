@@ -13,4 +13,4 @@ la phase 2 relira permettera la mise a jour de la base de donne via une api rese
 l'application utilise une arechetecture MVVM.
 les donnees sont stocke localement en utilisant ROOM 
 l'application est reactif en utilisant les Object Observable et LiveData
-l'application utilise les composant ViewBindin, DataBinding et la Navigation  
+l'application utilise les composant ViewBindin, DataBinding et la Navigation  ainsi que d'autre composant
